@@ -1,0 +1,2 @@
+class BrowseController < ApplicationController
+end
