@@ -1,8 +1,10 @@
 Global::Application.routes.draw do |map|
   resources :videos
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  # TODO routes
+  match '/signup' => 'frontpage#index', :as => :signup
+
+  # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
