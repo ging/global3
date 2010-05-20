@@ -277,3 +277,426 @@
     </div>
   </body>
 </html>
+=======
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en"><head>
+
+
+  
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://vcc-test.dit.upm.es/favicon.ico">
+    
+	<link href="inicio_files/frontpage.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="inicio_files/lightbox.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="inicio_files/jquery.css" media="screen, projection" rel="stylesheet" type="text/css">
+		
+   
+    <script src="inicio_files/jquery_004.js" type="text/javascript"></script>
+<script src="inicio_files/application.js" type="text/javascript"></script>
+<script src="inicio_files/jquery_002.js" type="text/javascript"></script>
+<script src="inicio_files/jquery.js" type="text/javascript"></script>
+<script src="inicio_files/jquery_003.js" type="text/javascript"></script>
+
+    <script type="text/javascript" charset="utf-8">
+      show_open_id_form = function(){
+	  	$(".div_login").hide();
+		$(".div_login_openid").show();
+	  };
+	  
+	  show_user_password_form = function(){
+	  	$(".div_login_openid").hide();
+		$(".div_login").show();
+	  };
+	  
+	  $(document).ready(function() {
+				/*
+ * Create new space
+ */
+
+$("#create_and_login_link").livequery("click", function(){
+  $(this).attr("href","javascript:void(0)").addClass("selected");
+  $("#create_and_register_link").removeClass("selected")
+  $.get("/spaces/new",
+        {authenticity_token: "tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio="},
+        function(data){
+          $("#create_space").replaceWith(data);
+					$("#fancy_outer").height($("#create_space").height() + 50);
+          $("#mail_group").hide();
+					$(window).resize();
+        }
+      );
+});
+
+$("#create_and_register_link").livequery("click", function(){
+  $(this).attr("href","javascript:void(0)").addClass("selected");
+  $("#create_and_loggin_link").removeClass("selected")
+  $.get("/spaces/new?register=true",
+        {authenticity_token: "tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio="},
+        function(data){
+          $("#create_space").replaceWith(data);
+					$("#fancy_outer").height($("#create_space").height() + 50);
+          $("#mail_group").hide();
+					$(window).resize(); 
+        }
+      );
+});
+
+$("#mail_group").hide();
+
+  $("#show_icons").livequery("click", function(){
+	  $("#show_default_icons").show();
+	  $("#show_icons").hide();
+	  $(window).resize();
+	});
+
+
+$(".check_mail_blinking:last input:mail").livequery("click", function(){
+  if($(this).attr("checked")){
+		$(".mail_group_blinking:last").show();
+	}
+	else{
+	 $(".mail_group_blinking:last").hide();
+	 $(".mail_group_blinking:last input:mailin_list").val("");	 
+	}
+	$("#fancy_outer").height($(".create_space_blinking:last").height() + 50);
+	$(window).resize();
+});
+
+
+
+
+/*
+ * Join space
+ */
+
+$("a.join_and_login_link").livequery("click", function(){
+  var route = "/spaces/" + $(this).attr("name") +"/join_requests/new" 
+  $.get(route,
+        {authenticity_token: "tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio="},
+        function(data){
+          $("#join_div").replaceWith(data);
+					$("#fancy_outer").height($("#join_div").height() + 50);
+					$(window).resize(); 
+        }
+      );
+  return false;
+});
+
+$("a.join_and_register_link").livequery("click", function(){
+	var route = "/spaces/" + $(this).attr("name") +"/join_requests/new?register=true"
+  $.get(route,
+        {authenticity_token: "tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio="},
+        function(data){
+          $("#join_div").replaceWith(data);
+					$("#fancy_outer").height($("#join_div").height() + 50);
+					$(window).resize(); 
+        }
+      );
+  return false;
+});
+
+/*
+ * Log in
+ */
+
+$("a.login_link").fancybox({
+  'hideOnContentClick' : false
+});
+
+$("a.register_link").fancybox({
+  'hideOnContentClick' : false,
+  'frameHeight' :450
+});
+
+openid = function(){
+  $(".openid_form").show();
+  $("#openid_link").hide();
+	$("#fancy_outer").height($("#login_div").height() + 50);
+	$(window).resize(); 
+};
+
+$("a.login_lightbox_link").livequery("click", function(){
+  var route = $(this).attr("href")
+  $(this).attr("href","javascript:void(0)");
+  $.get(route,
+        {authenticity_token: "tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio="},
+        function(data){
+          $("#login_div").replaceWith(data);
+					$("#fancy_outer").height($("#login_div").height() + 50);
+					$(window).resize(); 
+        }
+      );
+});
+
+/*
+ * Send Feedback
+ */
+ 
+$("a#feedback_link").fancybox({
+  'hideOnContentClick' : false,
+	'frameWidth' : 450,
+  'frameHeight' : 470
+});
+
+/*
+ * Select language
+ */
+
+      $(".language_select").click(function(e) {
+        e.preventDefault();
+        $("#language_select ul#language_menu").toggle();
+        $("#language_select .language_select").toggleClass("menu-open");
+        
+        $(document).mouseup(function(e) {
+          if($(e.target).parent("#language_select a.language_select").length==0) {
+            $("#language_select .language_select").removeClass("menu-open");
+            $("#language_select ul#language_menu").hide();
+          }
+        });
+    });
+
+    $("#language_select ul#language_menu").mouseup(function() {
+        return false
+    });
+
+
+ /*
+ * Report Spam
+ */
+ 
+$("a.spam_link").fancybox({
+  'hideOnContentClick' : false
+});
+
+
+
+ 
+
+
+        
+      })
+    </script>
+		
+	
+  </head><body>
+  	<div id="site">
+  		<div id="global-wrapper">
+  <div id="global" class="banner">
+    
+        
+        
+         <a href="http://vcc-test.dit.upm.es/"><img src="inicio_files/logo.png" id="logo" alt=""></a>
+         
+         <div id="espacio_header">&nbsp;</div>
+         
+         <div class="div_login">
+             <form action="myhome.htm" method="post"><div style="margin: 0pt; padding: 0pt; display: inline;"><input name="authenticity_token" value="tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio=" type="hidden"></div>                <span>
+                 <label for="login">Email</label>
+								</span>
+                 <input class="input_username" id="login" name="login" type="text">
+                
+                <span>
+                  <label for="password">Password</label>
+								</span>
+                  <input class="input_username" id="password" name="password" type="password">
+                
+                <button type="submit" class="other_blue">Login</button>
+             </form>                 
+             <div id="subtexto">
+               <a href="http://vcc-test.dit.upm.es/signup" class="register_link">Register</a> 
+               <span>|</span>
+               <a href="http://vcc-test.dit.upm.es/lost_password" class="register_link">Have you lost your password?</a> 
+							 <span>|</span>
+               <a href="#" onclick="show_open_id_form(); return false;">Login with OpenID</a>
+             </div>  
+         </div> 
+		 
+		 <div class="div_login_openid" style="display: none;">
+       <div class="openid_form">
+         <form action="http://vcc-test.dit.upm.es/session" method="post"><div style="margin: 0pt; padding: 0pt; display: inline;"><input name="authenticity_token" value="tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio=" type="hidden"></div>			     <div id="openid_label">
+				     <span>Enter your OpenID</span>
+			       <input id="openid_identifier" name="openid_identifier" type="text">
+						 <button type="submit" class="other_blue">Login</button>
+		       </div>   
+			   </form> 		  
+  		 </div>	                 
+       <div id="subtexto">
+         <a href="http://vcc-test.dit.upm.es/lost_password" class="register_link">Have you lost your password?</a> 
+				 <span>|</span>
+         <a href="#" onclick="show_user_password_form(); return false;">User/Password login</a>
+       </div>  
+     </div> 
+     <br class="clearfloat"> 
+  
+        
+        
+       
+   
+
+  </div>
+  
+</div>
+
+		
+		<div id="home">
+			<div id="header">
+				<div class="banner_busqueda">
+    <div id="espacio_busqueda">
+    	  
+    </div> 
+    <div class="div_busqueda">
+              <div id="subtexto_busqueda">
+                <a href="http://vcc-test.dit.upm.es/spaces" class="show_all_link">Browse</a> 
+                |
+                <a href="http://vcc-test.dit.upm.es/help">Help</a>
+            </div>      
+           
+           
+
+
+<form action="/search" method="get">
+
+  <input id="search_text_field" name="query" value="Search..." type="text">
+ <button type="submit" class="blue_button basic_button">Go!</button>
+	<div id="advanced">
+    <a href="http://vcc-test.dit.upm.es/search?advanced=true">Advanced</a>
+  </div>
+</form>
+
+    </div>
+    <br class="clearfloat">
+  </div>
+
+			</div>
+			
+			<div id="content">
+
+				<div class="left column span-11 borde">         
+		<div id="left_espacio"></div>
+		<div id="left_contenido">
+			<div id="vcc_title">VCC a hosting service for publishing and discovering videoconferences
+				<span id="text_bottom_title"><br>50 videoconferences organized - 320 videos stored</span>
+			</div>
+			<br>
+	
+			<div id="share">
+				<span><img alt="Share" src="inicio_files/share.gif"></span>
+				<span>
+					<ul class="purple">
+						<li><img alt="Purple_sq" src="inicio_files/purple_sq.png">Videoconference recording and streaming</li>
+						<li><img alt="Purple_sq" src="inicio_files/purple_sq.png">Document and video repositories</li>
+						<li><img alt="Purple_sq" src="inicio_files/purple_sq.png">Your contacts and relations</li>
+					</ul>
+				</span>
+			</div>
+	
+			<div id="meet" class="no_float_left">
+				<span><img alt="Meet" src="inicio_files/meet.gif"></span>
+				<span class="no_float">
+					<ul class="green">
+						<li><img alt="Green_sq" src="inicio_files/green_sq.png">Discover best online videoconferences</li>
+						<li><img alt="Green_sq" src="inicio_files/green_sq.png">Meet interesting people and groups</li>
+						<li><img alt="Green_sq" src="inicio_files/green_sq.png">Video chat with your colleagues</li>
+					</ul>
+				</span>
+			</div>
+	
+			<div id="collaborate" class="no_float_left">
+				<span><img alt="Collaborate" src="inicio_files/collaborate.gif"></span>
+				<span>
+					<ul class="yellow">
+						<li><img alt="Yellow_sq" src="inicio_files/yellow_sq.png">Organize your projects and activities</li>
+						<li><img alt="Yellow_sq" src="inicio_files/yellow_sq.png">Participate in conferences and events</li>
+						<li><img alt="Yellow_sq" src="inicio_files/yellow_sq.png">Create your own space and conferences</li>
+					</ul>
+				</span>		
+			</div>
+	
+
+			<br>
+			<div id="join_form" class="no_float_left">								
+				
+					<a href="http://vcc-test.dit.upm.es/signup" class="register_link"><img alt="register" src="inicio_files/join.gif"></a>
+			</div>
+		</div>	
+
+</div>
+
+<div class="right column span-12 borde">
+	<div id="caracteristics">
+				<span><img src="inicio_files/video.gif" alt="videos online"></span>
+				<br><br>
+				<ul>
+				<li class="conferences">Conferences</li>
+				<li class="participants">Participants</li>
+				<li class="organizers">Organizers</li>
+				<li class="spaces">Spaces</li>
+				<li class="comments">Comments</li>
+				<li class="tags">Tags</li>
+				<li class="networks">Social Networks</li>
+				</ul>
+			</div>
+
+</div>
+
+<div id="espacio_body_bottom"></div>
+			</div>
+	    </div>
+
+		<div id="sponsor-wrapper">
+			<div id="sponsor">
+  <ul>
+	<li id="trade_mark"><img alt="Ue" class="icon" src="inicio_files/UE.gif"></li>
+	<li id="trade_mark"><img alt="Infrastructure" class="icon" src="inicio_files/infrastructure.gif"></li>	
+	<li id="footer_right">European Commission<br> Information Society and Media</li>	
+  </ul>
+</div>
+
+
+
+
+		</div>
+		
+		<div id="footer-wrapper">
+			
+<div id="footer">
+	
+  <ul>
+  	<li id="trade_mark"><img alt="Bola_global_peque" class="icon" src="inicio_files/bola_global_peque.png">Virtual Conference Centre</li>
+	<li>-</li>
+	<li>All rights reserved</li>
+	<li>-</li>
+	<li><a href="http://vcc-test.dit.upm.es/help">Help &amp; Support</a></li>
+<!--
+	<li>-</li>
+	<li><a href="/help">Help</a></li>
+	<li>-</li>
+	<li><a href="/feedback/new" id="feedback_link">Support</a></li>
+-->
+	<li>-</li>
+	<li><a href="http://vcc-test.dit.upm.es/feedback/new" id="feedback_link">Send us feedback!</a></li>
+	<li>-</li>
+	<li><a href="http://www.global-project.eu/">About GLOBAL</a></li>
+	<li>-</li>
+	<li>
+		<div id="language_select">
+		  <a href="http://vcc-test.dit.upm.es/dropup" class="language_select" id="language_select" title="Switch language"><span>Language</span></a>
+		  <ul id="language_menu" style="display: none;">					  
+		      		      <li><a href="http://vcc-test.dit.upm.es/session_locale?new_locale=es" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio='); f.appendChild(s);f.submit();return false;"><img alt="Es" src="inicio_files/es.png" title="es"> es</a> </li>  
+		      		      <li><a href="http://vcc-test.dit.upm.es/session_locale?new_locale=en" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'tViK/IydqLug/R5pTLMKtfmqITgZ4ziQ/GmErISdXio='); f.appendChild(s);f.submit();return false;"><img alt="En" src="inicio_files/en.png" title="en"> en</a> </li>  
+		      		  </ul>
+		</div>
+	</li>
+  </ul>
+</div>
+
+
+
+
+		</div>
+	</div>
+	 
+	 
+  
+	<div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div></body></html>
