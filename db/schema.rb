@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20100525094312) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -46,13 +46,18 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "actors", :force => true do |t|
     t.string   "name",               :limit => 45
     t.integer  "activity_object_id"
-    t.string   "email",              :limit => 45
+    t.string   "email",              :limit => 256, :default => "", :null => false
     t.string   "permalink",          :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "subject_id"
+    t.string   "subject_type"
   end
 
   add_index "actors", ["activity_object_id"], :name => "fk_actor_object"
+  add_index "actors", ["email"], :name => "index_actors_on_email", :unique => true
+  add_index "actors", ["permalink"], :name => "index_actors_on_permalink", :unique => true
+  add_index "actors", ["subject_id", "subject_type"], :name => "index_actors_on_subject_id_and_subject_type", :unique => true
 
   create_table "agenda_entries", :force => true do |t|
     t.integer  "agenda_id"
@@ -167,12 +172,9 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "role_action", ["role_id"], :name => "fk_role_action_role"
 
   create_table "spaces", :force => true do |t|
-    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "spaces", ["actor_id"], :name => "fk_espacio_actor"
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :limit => 45
@@ -189,14 +191,19 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "tags_activity_objects", ["tag_id"], :name => "fk_tags_activity_objects_1"
 
   create_table "users", :force => true do |t|
-    t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username",   :limit => 45
-    t.string   "password",   :limit => 45
+    t.string   "username",             :limit => 45
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
   end
 
-  add_index "users", ["actor_id"], :name => "fk_user_actor"
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "verbs", :force => true do |t|
     t.string   "name",       :limit => 45

@@ -14,6 +14,7 @@ gem 'rails', '3.0.0.beta3'
 # gem 'capistrano'
 
 # Bundle the extra gems:
+gem 'devise', '1.1.rc1'
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
