@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100525094312) do
+ActiveRecord::Schema.define(:version => 0) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -41,23 +41,21 @@ ActiveRecord::Schema.define(:version => 20100525094312) do
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type",       :limit => 45
   end
 
   create_table "actors", :force => true do |t|
     t.string   "name",               :limit => 45
-    t.integer  "activity_object_id"
-    t.string   "email",              :limit => 256, :default => "", :null => false
+    t.string   "email",                            :default => "", :null => false
     t.string   "permalink",          :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "subject_id"
-    t.string   "subject_type"
+    t.integer  "activity_object_id"
   end
 
-  add_index "actors", ["activity_object_id"], :name => "fk_actor_object"
+  add_index "actors", ["activity_object_id"], :name => "fk_actors_activity_object"
   add_index "actors", ["email"], :name => "index_actors_on_email", :unique => true
   add_index "actors", ["permalink"], :name => "index_actors_on_permalink", :unique => true
-  add_index "actors", ["subject_id", "subject_type"], :name => "index_actors_on_subject_id_and_subject_type", :unique => true
 
   create_table "agenda_entries", :force => true do |t|
     t.integer  "agenda_id"
@@ -174,7 +172,10 @@ ActiveRecord::Schema.define(:version => 20100525094312) do
   create_table "spaces", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "actor_id"
   end
+
+  add_index "spaces", ["actor_id"], :name => "fk_spaces_actors"
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :limit => 45
@@ -200,8 +201,11 @@ ActiveRecord::Schema.define(:version => 20100525094312) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "reset_password_token"
+    t.integer  "actor_id"
+    t.string   "userscol",             :limit => 45
   end
 
+  add_index "users", ["actor_id"], :name => "fk_users_actors"
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
