@@ -351,13 +351,15 @@ a.login{
 	display:inline;
 }
 
+
 #espacio_header {
 	margin:0px;	
-	margin-left:180px;
+	margin-left:166px;
 	margin-top:50px;
 	height:61px;
 	display:inline;
 }
+
 
 /*DENTRO DE LA CABECERA: LOGIN*/
 
@@ -668,3 +670,14 @@ button.other_blue{
 	font-weight:normal;11px;
 	font-family:Verdana;
 }
+#logo {
+	margin-left:0px;
+	margin-top:0px;
+	width:200px;
+	height:59px;
+	margin-bottom:0px;
+	display:inline;
+	text-indent:99999px;
+}
+
+#logo.frontpage_logo{background:#244974 url('/images/logo-global-plaza.png') no-repeat scroll 37% 84%;}

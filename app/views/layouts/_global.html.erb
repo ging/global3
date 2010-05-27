@@ -1,18 +1,11 @@
 <div id="global-wrapper">
-  <div id="global">
-    
-
-  <span id="global-logo">
-  	<%= image_tag("bola_global_peque.png",:class=>"icon")%>
-  	<% if false && logged_in? %>
-	  <%= link_to t('global'), home_path, menu_options(:home)%>
-	  <em class="small"><%= link_to t('beta'), home_path, menu_options(:home)%></em>
-	<% else %>
-	  <a href="<%=root_path%>">
-	  <%= t('vcc') %><em class="small"><%= t('beta') %></em>
-	<% end %>
-    </a>
-  </span>
-  </div>
-  
+    <div id="global">
+        <span id="global-logo"><%= image_tag("bola_global_peque.png",:class=>"icon") %>
+            <% if false && logged_in? %>
+            <%= link_to t('global'), home_path, menu_options(:home) %>
+            <em class="small"><%= link_to t('beta'), home_path, menu_options(:home) %></em><% else %>
+            <a href="<%=root_path%>"><%= t('vcc') %><em class="small"><%= t('beta') %></em><% end %>
+            </a>
+		</span>
+    </div>
 </div>
