@@ -5,7 +5,11 @@ Global::Application.routes.draw do |map|
   match '/login' => 'devise/sessions#new', :as => :login
   match '/logout' => 'devise/sessions#destroy', :as => :logout
   match '/signup' => 'devise/registrations#new', :as => :signup
-
+  
+  map.help 'help', :controller => 'help', :action => 'index'  
+  map.resources :feedback
+  map.resource :session_locale  
+  
   resources :videos
 
   # The priority is based upon order of creation: first created -> highest priority.
