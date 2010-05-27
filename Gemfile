@@ -15,6 +15,7 @@ gem 'mysql'
 # gem 'capistrano'
 
 # Bundle the extra gems:
+gem 'devise', '1.1.rc1'
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'

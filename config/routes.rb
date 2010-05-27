@@ -1,8 +1,12 @@
 Global::Application.routes.draw do |map|
-  resources :videos
+  # Authentication
+  devise_for :users
+  # Default authentication routes, compatible with global2
+  match '/login' => 'devise/sessions#new', :as => :login
+  match '/logout' => 'devise/sessions#destroy', :as => :logout
+  match '/signup' => 'devise/registrations#new', :as => :signup
 
-  # TODO routes
-  match '/signup' => 'frontpage#index', :as => :signup
+  resources :videos
 
   # The priority is based upon order of creation: first created -> highest priority.
 
