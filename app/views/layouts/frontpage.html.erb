@@ -54,7 +54,18 @@
 		          <div class="<%= name %>"><%= msg %></div>
 		        <% end %>
 	        </div> 
-					<%= render :partial => "layouts/frontpage_search" %>
+					<div class="div_busqueda">
+          <div id="subtexto_busqueda">
+             
+            |
+            <a href="help">Help</a>
+        </div>      
+       <%= yield :search%>
+       
+</div>
+<br class="clearfloat" />
+
+
 				</div>
 			</div>
 			
@@ -69,7 +80,7 @@
 		</div>
 		
 		<div id="footer-wrapper">
-			<%= render :partial => "layouts/frontpage_footer" %>
+			<%= render :partial => "layouts/footer" %>
 		</div>
 	</div>
 	 
