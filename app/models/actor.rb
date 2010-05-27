@@ -1,3 +1,3 @@
 class Actor < ActiveRecord::Base
-  belongs_to :subject, :polymorphic => true
+  has_one :user
 end

@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  has_one :actor, :as => :subject,
-                  :dependent => :destroy,
-                  :validate => true,
-                  :autosave => true
+  belongs_to :actor,
+             :validate => true,
+             :autosave => true
 
   delegate :email, :email=, :to => :actor!
 
