@@ -575,13 +575,13 @@ div {
 	padding:7px 0 8px 30px;	
 }
 
-li.conferences{background: transparent url("../images/right_videoconference.gif") no-repeat left center;}
-li.participants{background: transparent url("../images/right_webcam.gif") no-repeat left center;}
-li.organizers{background: transparent url("../images/right_organizers.gif") no-repeat left center;}
-li.spaces{background: transparent url("../images/right_people.gif") no-repeat left center;}
-li.comments{background: transparent url("../images/right_comments.gif") no-repeat left center;}
-li.tags{background: transparent url("../images/right_tags.gif") no-repeat left center;}
-li.networks{background: transparent url("../images/right_social.gif") no-repeat left center;}
+li.conferences{background: transparent url("../images/frontpage/right_videoconference.gif") no-repeat left center;}
+li.participants{background: transparent url("../images/frontpage/right_webcam.gif") no-repeat left center;}
+li.organizers{background: transparent url("../images/frontpage/right_organizers.gif") no-repeat left center;}
+li.spaces{background: transparent url("../images/frontpage/right_people.gif") no-repeat left center;}
+li.comments{background: transparent url("../images/frontpage/right_comments.gif") no-repeat left center;}
+li.tags{background: transparent url("../images/frontpage/right_tags.gif") no-repeat left center;}
+li.networks{background: transparent url("../images/frontpage/right_social.gif") no-repeat left center;}
 
 /****************FOOTER**********************/ 
 
