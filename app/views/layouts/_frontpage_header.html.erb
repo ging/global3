@@ -18,7 +18,7 @@
          <div id="espacio_header">&nbsp</div>
          
          <div class="div_login">
-             <% form_tag session_path() do -%>
+           <% form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
                 <span>
                  <label for="login"><%= t('email') %></label>
 								</span>
@@ -43,7 +43,7 @@
 		 
 		 <div class="div_login_openid" style="display:none">
        <div class="openid_form">
-         <% form_tag session_url(:protocol => current_site.protocol) do -%>
+         <% form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
 			     <div id="openid_label">
 				     <span><%= t('openid.enter') %></span>
 			       <%= text_field_tag 'openid_identifier', params[:openid_identifier] %>
@@ -61,7 +61,7 @@
   
         <% end %>
         
-    <% unless !current_site.authorize?(:translate, :to => current_user) -%>
+    <% unless true || !current_site.authorize?(:translate, :to => current_user) -%>
       <% for locale in (I18n.available_locales - [I18n.locale]) -%>
       <li><%= link_to image_tag("flags/" + locale.to_s + ".png", :alt => locale.to_s,:title=>t("translate.change")), session_locale_path(:new_locale => locale.to_s), :method => :post %> </li>  
       <% end -%>

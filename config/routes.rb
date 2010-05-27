@@ -5,6 +5,7 @@ Global::Application.routes.draw do |map|
   match '/login' => 'devise/sessions#new', :as => :login
   match '/logout' => 'devise/sessions#destroy', :as => :logout
   match '/signup' => 'devise/registrations#new', :as => :signup
+  match '/lost_password' => 'devise/passwords#new', :as => :lost_password
   
   map.help 'help', :controller => 'help', :action => 'index'  
   map.resources :feedback
