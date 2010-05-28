@@ -5,7 +5,7 @@
         &nbsp
     </div>
     <div class="div_login">
-        <% form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
+        <% form_for User.new, :as => :user, :url => session_path(:user) do -%>
         <span>
             <label for="login">
                 <%= t('email') %>

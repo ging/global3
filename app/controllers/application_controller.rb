@@ -12,4 +12,19 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :logged_in?, :authenticated?
+
+  def current_site
+    Site.current
+  end
+  helper_method :current_site
+
+  def space
+    nil
+  end
+  helper_method :space
+
+  # Where to redirect when the user has logged in
+  def after_sign_in_path_for(user)
+    root_path
+  end
 end

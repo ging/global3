@@ -7,6 +7,7 @@ Global::Application.routes.draw do |map|
   match '/signup' => 'devise/registrations#new', :as => :signup
   match '/lost_password' => 'devise/passwords#new', :as => :lost_password
   
+  match 'home' => 'home#index', :as => :home
   map.help 'help', :controller => 'help', :action => 'index'  
   map.resources :feedback
   map.resource :session_locale  
