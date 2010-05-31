@@ -92,6 +92,8 @@ $("a.login_link").fancybox({
   'hideOnContentClick' : false
 });
 
+$("a.register_link").attr("href","<%=signup_path(:format=>:js)%>")
+
 $("a.register_link").fancybox({
   'hideOnContentClick' : false,
   'frameHeight' :450
