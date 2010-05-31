@@ -50,6 +50,8 @@ class FrontpageController < ApplicationController
     render :layout=>false
   end
   
+
+  
   def about2   
     render :layout=>false
   end

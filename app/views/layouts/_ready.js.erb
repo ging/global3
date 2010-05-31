@@ -130,6 +130,7 @@ $("a#feedback_link").fancybox({
 /*
  * Select language
  */
+
       $(".language_select").click(function(e) {
         e.preventDefault();
         $("#language_select ul#language_menu").toggle();
@@ -156,7 +157,34 @@ $("a.spam_link").fancybox({
   'hideOnContentClick' : false
 });
 
+/*
+* Login for frontpage and help
+*/
 
+  show_open_id_form = function(){
+    $(".div_login").hide();
+    $(".div_login_openid").show();
+  };
 
+  show_user_password_form = function(){
+    $(".div_login_openid").hide();
+    $(".div_login").show();
+  };
+
+/**
+ * Login html form becomes into ajax form to modofy http headers 
+ */
  
-
+$(".login_form").submit(function() {
+  var serializedForm = $(this).serialize();
+  $.ajax({
+          beforeSend: function(XMLHttpRequest) {
+                  XMLHttpRequest.setRequestHeader( "Accept", "text/javascript,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+          },
+    data: $(this).serialize(),
+          dataType: "script",
+          type: "POST",
+          url: ""
+  });
+  return false;
+});

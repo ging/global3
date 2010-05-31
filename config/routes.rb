@@ -12,6 +12,7 @@ Global::Application.routes.draw do |map|
   map.resources :feedback
   map.resource :session_locale  
   
+
   
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|

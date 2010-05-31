@@ -4,29 +4,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title><%= yield :title %></title>
         <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico" />
-        <%= yield :headers %>
+        
         <link rel="shortcut icon" href="images/icons/favicon.ico" />
         <%= stylesheet_link_tag "frontpage", :media => "screen, projection" %>
         <%= stylesheet_link_tag "lightbox", :media => "screen, projection" %>
         <%= stylesheet_link_tag "jquery.fancybox", :media => "screen, projection" %>
         <%= javascript_include_tag 'jquery', 'application', 'jquery.livequery', 'jquery.fancybox', 'jquery.easing' %>
         <script type="text/javascript" charset="utf-8">
-				$(document).ready(
-				function() {
+			$(document).ready(function() {
 		      <%= render :partial => 'layouts/ready.js.erb' %>
-					<%= yield :javascript%>
-					
-		      show_open_id_form = function(){
-		        $(".div_login").hide();
-		        $(".div_login_openid").show();
-		      };
-		      show_user_password_form = function(){
-		        $(".div_login_openid").hide();
-		        $(".div_login").show();
-		      };
-		    }
-			);
+				<%= yield :javascript%>
+		    });
+                    
         </script>
+		
+		<%= yield :headers %>
     </head>
     <body>
         <div id="site">
@@ -43,6 +35,7 @@
                         </div>
                         <div class="div_busqueda">
                             <div id="subtexto_busqueda">
+                                <%=link_to t("find.browse"), spaces_path,:class => "show_all_link" %>
                                 |<a href="help">Help</a>
                             </div>
                             <%= yield :search %>
