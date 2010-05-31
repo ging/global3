@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "activities", :force => true do |t|
-    t.integer  "verb_id"
-    t.string   "description", :limit => 45
+    t.integer  "activity_verb_id"
+    t.string   "description",      :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["verb_id"], :name => "fk_actividad_verb"
+  add_index "activities", ["activity_verb_id"], :name => "fk_actividad_verb"
 
   create_table "activity_object_activities", :force => true do |t|
     t.integer  "activity_id"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type",       :limit => 45
+  end
+
+  create_table "activity_verbs", :force => true do |t|
+    t.string   "name",       :limit => 45
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "actors", :force => true do |t|
@@ -90,14 +96,26 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "contact_activities", :force => true do |t|
-    t.integer  "contact_id"
     t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "contact_id"
+  end
+
+  add_index "contact_activities", ["activity_id"], :name => "fk_actividad_actor_actividad"
+  add_index "contact_activities", ["contact_id"], :name => "fk_contact_activities_contact"
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "actor_to_id"
+    t.integer  "actor_from_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "contact_activities", ["activity_id"], :name => "fk_actividad_actor_actividad"
-  add_index "contact_activities", ["contact_id"], :name => "fk_actividad_actor_contacto"
+  add_index "contacts", ["actor_from_id"], :name => "fk_contact_actor_to"
+  add_index "contacts", ["actor_to_id"], :name => "fk_contact_actor_from"
+  add_index "contacts", ["role_id"], :name => "fk_contacts_role"
 
   create_table "documents", :force => true do |t|
     t.string   "name",               :limit => 45
@@ -161,13 +179,19 @@ ActiveRecord::Schema.define(:version => 0) do
 
   create_table "role_action", :force => true do |t|
     t.integer  "action_id"
-    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
   add_index "role_action", ["action_id"], :name => "fk_role_action_action"
-  add_index "role_action", ["role_id"], :name => "fk_role_action_role"
+  add_index "role_action", ["role_id"], :name => "fk_role_action_rol"
+
+  create_table "roles", :force => true do |t|
+    t.string   "name",       :limit => 45
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "spaces", :force => true do |t|
     t.datetime "created_at"
@@ -202,18 +226,11 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "confirmation_sent_at"
     t.string   "reset_password_token"
     t.integer  "actor_id"
-    t.string   "userscol",             :limit => 45
   end
 
   add_index "users", ["actor_id"], :name => "fk_users_actors"
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "verbs", :force => true do |t|
-    t.string   "name",       :limit => 45
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "videos", :force => true do |t|
     t.integer  "activity_object_id"
