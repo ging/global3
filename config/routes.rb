@@ -2,10 +2,10 @@ Global::Application.routes.draw do |map|
   # Authentication
   devise_for :users
   # Default authentication routes, compatible with global2
-  match '/login' => 'devise/sessions#new', :as => :login
-  match '/logout' => 'devise/sessions#destroy', :as => :logout
-  match '/signup' => 'devise/registrations#new', :as => :signup
-  match '/lost_password' => 'devise/passwords#new', :as => :lost_password
+  match 'login' => 'devise/sessions#new', :as => :login
+  match 'logout' => 'devise/sessions#destroy', :as => :logout
+  match 'signup(.:format)' => 'devise/registrations#new', :as => :signup
+  match 'lost_password' => 'devise/passwords#new', :as => :lost_password
   
   match 'home' => 'home#index', :as => :home
   map.help 'help', :controller => 'help', :action => 'index'  
