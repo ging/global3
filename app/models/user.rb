@@ -88,12 +88,12 @@ class User < ActiveRecord::Base
         record = new
 
         if value.present?
-          record.send(:"#{attribute}=", value)
+          record.email = value
         else
           error = :blank
         end
 
-        record.errors.add(attribute, error)
+        record.errors.add(:email, error)
       end
 
       record
