@@ -5,19 +5,19 @@
         &nbsp
     </div>
     <div class="div_login">
-        <% form_for User.new, :as => :user, :url => session_path(:user) do -%>
+        <% form_for User.new, :as => :user, :url => session_path(:user) do |f| -%>
         <span>
             <label for="login">
                 <%= t('email') %>
             </label>
         </span>
-        <%= text_field_tag 'login', params[:login], :class=>"input_username" %>
+        <%= f.text_field :email, :class=>"input_username" %>
         <span>
             <label for="password">
                 <%= t('password.one') %>
             </label>
         </span>
-        <%= password_field_tag 'password', nil, :class=>"input_username" %>
+        <%= f.password_field :password, :class=>"input_username" %>
         <button type="submit" class="other_blue">
             <%=t("login") %>
         </button>

@@ -1,7 +1,7 @@
 <div id="login_div" class="blue_title">
 	<div id="lightbox-logo"><span><%= image_tag("bola_global_peque.png",:class=>"icon")%><%= t('vcc') %></span></div>
   	<div class="form">
-          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name, :protocol => current_site.protocol)) do -%>
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name, :protocol => current_site.protocol)) do |f| -%>
 			<!--<div id="login_label"><h3>Enter your Email and Password</h3></div>-->
 			<div id="openid-logo" <%='style="display:none;"' unless request.xhr? %>>
 			  <h3><%= t('openid.have') %></h3>
@@ -15,12 +15,12 @@
     		  
   		    </div>	  		
 			<div>
-		  		<label for="login"><%= t('email') %></label><br/>
-		  		<%= text_field_tag 'login', params[:login] %>
+		  		<label for="email"><%= t('email') %></label><br/>
+		  		<%= f.text_field :email %>
 	  		</div>
 	  		<div>
 	  			<label for="password"><%= t('password.one') %></label><br/>
-	    		<%= password_field_tag 'password' %>
+	    		<%= f.password_field :password %>
 	  		</div>
 	  		<div>
 	  			<label for="remember_me"><%= t('remember_me') %>:</label><%= check_box_tag ('remember_me') %>

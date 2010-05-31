@@ -14,14 +14,6 @@ class User < ActiveRecord::Base
     v.validates_length_of :password, :within => Devise.password_length, :allow_blank => true
   end
 
-  scope :by_email, lambda { |email|
-    joins(:actor).where('actors.email' => email)
-  }
-
-  scope :by_permalink, lambda { |p|
-    joins(:actor).where('actors.permalink' => p)
-  }
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable,
   # :trackable, :rememberable, :validatable
@@ -51,6 +43,14 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def find_by_email(email)
+      find(:first, :conditions => { 'actors.email' => email }, :include => :actor)
+    end
+
+    def find_by_permalink(p)
+      find(:first, :conditions => { 'actors.permalink' => p }, :include => :actor)
+    end
+
     # Overwrite devise default find method to support login with email,
     # presence ID and login
     def find_for_authentication(conditions)
@@ -58,17 +58,45 @@ class User < ActiveRecord::Base
         if login =~ /@/
           # TODO presence_domain
           if login =~ /(.*)@\{ Site.current.presence_domain \}$/
-            by_permalink($1)
+            find_by_permalink($1)
           else
-            by_email(login)
+            find_by_email(login)
           end
         else
-          by_permalink(login)
-        end.first
+          find_by_permalink(login)
+        end
       else
         super
       end
     end
-  end
 
+    def find_or_initialize_with_error_by(attribute, value, error=:invalid)
+      if attribute == :email
+        find_or_initialize_with_error_by_email(value, error)
+      else
+        super
+      end
+    end
+
+    # Overwrite devise default method to support finding with actor.email
+    def find_or_initialize_with_error_by_email(value, error)
+      if value.present?
+        record = find_by_email(value)
+      end
+
+      unless record
+        record = new
+
+        if value.present?
+          record.send(:"#{attribute}=", value)
+        else
+          error = :blank
+        end
+
+        record.errors.add(attribute, error)
+      end
+
+      record
+    end
+  end
 end
