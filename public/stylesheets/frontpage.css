@@ -556,15 +556,15 @@ div {
 }
 
 #caracteristics{
-	vertical-align: middle;;
+	vertical-align: top;;
 }
 
 
 #caracteristics span {
 	float:left;
 	padding-right: 13px;
-	vertical-align: middle;
-	padding-top: 15px;
+	vertical-align: top;
+	padding-top: 5px;
 	
 }
 #caracteristics ul{
@@ -698,3 +698,11 @@ div#language_select{display:inline-block;}
 ul#language_menu li:hover{background:#244974;}
 ul#language_menu li a{color:#222;display:block;padding:3px 3px 3px 10px;outline:none;}
 ul#language_menu li a:hover{text-decoration:none;color:#fff;}
+
+#video{
+	display:inline-block;
+	width:320px;
+	vertical-align:top;
+	padding-top:0px;
+}
+
