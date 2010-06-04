@@ -1,24 +1,45 @@
-<% if false && space && space.id!=nil %>
-<div id="logo">
-    <%= link_logo(space, :size => "h64", :title=>space.name) %>
-</div>
-<%else %>
-<div id="vcc-logo">
-    <%= link_to image_tag("vcc-logo-transparente1.png",:size=>"192x68"), root_path %>
-</div>
-<% end %>
-<div id="name-space">
-    <%if false && space && space.id!=nil %>
-    <%if false && space.name.size > 20 %>
-    <span id="small-title"><%=link_to(sanitize(first_words(space.name,30)),space_path(space), menu_options(:home)) %></span>
-    <%else %>
-    <span><%=link_to(sanitize(space.name),space_path(space), menu_options(:home)) %></span>
-    <%end %>
-    <%end %>
-</div>
-<div id="search">
-    <%= yield :search %>
-</div>
-<div id="eu">
-    <%=image_tag("flags/union_europea.jpg", :size=>"72x48") %>
+<div id="headerFront">
+    <div class="banner_top">
+        <div id="header_left">
+            <a href="index.htm"><%=image_tag("vcc.png",:id=>"logo_vcc",:alt=>"Global Plaza") %></a>
+            <div id="logo_txt">
+                Virtual Conference Center (BETA) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <%=image_tag("buttons/btn_home.png",:class=>"btn_config",:alt=>"Home") %>
+            <div class="txt_config">
+                <a href="#">Home</a>
+            </div>
+            <%=image_tag("buttons/btn_profile.png",:class=>"btn_config",:alt=>"Profile") %>
+            <div class="txt_config">
+                <a href="#">Profile</a>
+            </div>
+            <%=image_tag("buttons/btn_find.png",:class=>"btn_config",:alt=>"find") %>
+            <div id="txt_find">
+                Find
+            </div>
+            <div id="find_form">
+                <form action="#" method="POST">
+                    <input type="text" name="text_find" id="input_find" value="" />
+                </form>
+            </div><%=image_tag("buttons/btn_browse.png",:class=>"btn_config",:alt=>"Browse") %>
+            <div class="txt_config">
+                <a href="browse.htm">Browse</a>
+            </div>
+            <%=image_tag("buttons/btn_help.png",:class=>"btn_config",:alt=>"Help") %>
+            <div class="txt_config">
+                Help 
+            </div>
+        </div>
+        <div id="header_right">
+            <%=image_tag("buttons/btn_config.png",:class=>"btn_config",:alt=>"Configuration") %>
+            <div class="txt_config">
+                Account 
+            </div>
+            <%=image_tag("buttons/btn_exit.png",:class=>"btn_config",:alt=>"Exit") %>
+            <div class="txt_config2">
+                <a href="index.htm">Logout</a>
+            </div>
+        </div>
+    </div>
+    <br class="clearfloat" />
 </div>
