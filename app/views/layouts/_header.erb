@@ -3,7 +3,7 @@
         <div id="header_left">
             <a href="index.htm"><%=image_tag("vcc.png",:id=>"logo_vcc",:alt=>"Global Plaza") %></a>
             <div id="logo_txt">
-                Virtual Conference Center (BETA) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Global PLaza - Virtual Conferences (BETA) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <%=image_tag("buttons/btn_home.png",:class=>"btn_config",:alt=>"Home") %>
             <div class="txt_config">
@@ -37,7 +37,7 @@
             </div>
             <%=image_tag("buttons/btn_exit.png",:class=>"btn_config",:alt=>"Exit") %>
             <div class="txt_config2">
-                <a href="index.htm">Logout</a>
+            	<%= link_to t('logout'), logout_path %>
             </div>
         </div>
     </div>
