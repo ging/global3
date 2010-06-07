@@ -976,7 +976,7 @@ en:
     error: 
       not_valid: Logo is not valid
     one: Logo
-  logout: Logout {{user}}
+  logout: Logout 
   mailing_list: 
     associate: Associate mailing list to your group
     invalid: The mailing list has invalid characters. Only letters, numbers, underscores and hyphens are allowed

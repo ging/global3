@@ -3,37 +3,39 @@
         <div id="header_left">
             <a href="index.htm"><%=image_tag("vcc.png",:id=>"logo_vcc",:alt=>"Global Plaza") %></a>
             <div id="logo_txt">
-                Global PLaza - Virtual Conferences (BETA) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%= link_to ( t('global') , home_path) %>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
-            <%=image_tag("buttons/btn_home.png",:class=>"btn_config",:alt=>"Home") %>
+ 			<%=image_tag("buttons/btn_home.png",:class=>"btn_config",:alt=>"Home") %>
             <div class="txt_config">
-                <a href="#">Home</a>
-            </div>
+				<%= link_to t('home.my'),home_path  %>
+            </div>			
             <%=image_tag("buttons/btn_profile.png",:class=>"btn_config",:alt=>"Profile") %>
             <div class="txt_config">
-                <a href="#">Profile</a>
-            </div>
-            <%=image_tag("buttons/btn_find.png",:class=>"btn_config",:alt=>"find") %>
-            <div id="txt_find">
-                Find
+				<%= link_to (t('profile.one'),help_path ) %>
             </div>
             <div id="find_form">
                 <form action="#" method="POST">
-                    <input type="text" name="text_find" id="input_find" value="" />
+                    &nbsp;&nbsp;<input type="text" name="text_find" id="input_find" value="" />
                 </form>
-            </div><%=image_tag("buttons/btn_browse.png",:class=>"btn_config",:alt=>"Browse") %>
+            </div>			
+            <%=image_tag("buttons/btn_find.png",:class=>"btn_config",:alt=>"find") %>
             <div class="txt_config">
-                <a href="browse.htm">Browse</a>
+            	<%= link_to (t('search.one'),search_path ) %>
+            </div>
+			<%=image_tag("buttons/btn_browse.png",:class=>"btn_config",:alt=>"Browse") %>
+            <div class="txt_config">
+				<%= link_to (t('find.browse'),search_path) %>  &nbsp;
             </div>
             <%=image_tag("buttons/btn_help.png",:class=>"btn_config",:alt=>"Help") %>
             <div class="txt_config">
-                Help 
+               <%= link_to (t('help'),help_path) %>  &nbsp;
             </div>
         </div>
         <div id="header_right">
             <%=image_tag("buttons/btn_config.png",:class=>"btn_config",:alt=>"Configuration") %>
             <div class="txt_config">
-                Account 
+            	<%= t('account') %>
+                
             </div>
             <%=image_tag("buttons/btn_exit.png",:class=>"btn_config",:alt=>"Exit") %>
             <div class="txt_config2">
