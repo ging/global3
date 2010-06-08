@@ -27,4 +27,8 @@ gem 'devise', '1.1.rc1'
 #   gem 'webrat'
 # end
 
+group :development do
+  gem 'populator'
+  gem 'faker'
+end
 

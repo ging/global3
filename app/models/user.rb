@@ -36,10 +36,32 @@ class User < ActiveRecord::Base
     true
   end
 
+  after_create :initialize_contacts
+
+  # The spaces this user has contact with
+  def spaces
+    actor.contacts.map(&:actor_to).map(&:space).compact
+  end
+
+  def wall
+    Activity.wall Contact.tie_ids_query(self)
+  end
+
   protected
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?
+  end
+
+  private
+
+  def initialize_contacts
+    # FIXME: automatically load roles
+    Role::UserUser.each do |r|
+      Contact.create! :actor_from => self.actor,
+                      :actor_to => self.actor,
+                      :role => Role.find_by_name(r)
+    end
   end
 
   class << self
