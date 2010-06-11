@@ -5,7 +5,7 @@
     </div>
     <div id="spaces_list" class="content_size">
 		<% current_user.spaces.each do |space| %>  
-			<%=link_to(image_path(space.logo, :class => 'btn_config', :alt => 'space.name' ),space) %>
+			<%=link_to(image_tag(space.logo, :class => 'btn_config', :alt => 'space.name' ),space) %>
 		<% end %>
     </div>
 </div>

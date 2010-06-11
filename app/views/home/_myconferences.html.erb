@@ -15,7 +15,7 @@
 				<% Video.all.each do |video| %>
 				<div class="conferencex">
 				    <div>
-				        <%=link_to(image_path(''),video) %>
+				        <%=link_to(image_tag(''),video) %>
 				    </div>
 				    <div>
 				        <span class="title_conference content_size"><%=video.name %></span>
@@ -40,7 +40,7 @@
 			<% Video.all.each do |video| %>
 			<div class="conferencex">
 			    <div>
-			        <%=link_to(image_path(''),video) %>
+			        <%=link_to(image_tag(''),video) %>
 			    </div>
 			    <div>
 			        <span class="title_conference content_size"><%=video.name %></span>
