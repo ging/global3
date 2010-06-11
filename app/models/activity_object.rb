@@ -3,5 +3,6 @@ class ActivityObject < ActiveRecord::Base
   has_many :activities, :through => :activity_object_activities
 
   has_one :post, :dependent => :destroy
+  has_one :video, :dependent => :destroy
 
 end
