@@ -138,9 +138,18 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer  "actor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "thumbnail",    :limit => 45
+    t.string   "filename",     :limit => 45
+    t.integer  "size"
+    t.string   "content_type", :limit => 45
+    t.string   "type",         :limit => 45
+    t.integer  "parent_id"
   end
 
   add_index "logos", ["actor_id"], :name => "fk_logo_actor"
+  add_index "logos", ["id"], :name => "fk_logos_parent"
 
   create_table "photos", :force => true do |t|
     t.integer  "activity_object_id"
@@ -172,6 +181,20 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "organization", :limit => 45
+    t.string   "phone",        :limit => 45
+    t.string   "mobile",       :limit => 45
+    t.string   "fax",          :limit => 45
+    t.string   "address",      :limit => 45
+    t.string   "city",         :limit => 45
+    t.string   "zipcode",      :limit => 45
+    t.string   "province",     :limit => 45
+    t.string   "country",      :limit => 45
+    t.integer  "prefix_key"
+    t.string   "description"
+    t.string   "url"
+    t.string   "skype",        :limit => 45
+    t.string   "im",           :limit => 45
   end
 
   add_index "profiles", ["user_id"], :name => "fk_profile_user"
@@ -225,6 +248,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "confirmation_sent_at"
     t.string   "reset_password_token"
     t.integer  "actor_id"
+    t.string   "userscol",             :limit => 45
   end
 
   add_index "users", ["actor_id"], :name => "fk_users_actors"
