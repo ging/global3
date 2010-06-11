@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "activity_object_activities", ["activity_object_id"], :name => "fk_activity_object_activities_2"
 
   create_table "activity_objects", :force => true do |t|
-    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type",       :limit => 45
+    t.string   "object_type", :limit => 45
   end
 
   create_table "activity_verbs", :force => true do |t|
@@ -60,7 +59,7 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   add_index "actors", ["activity_object_id"], :name => "fk_actors_activity_object"
-  add_index "actors", ["email"], :name => "index_actors_on_email", :unique => true
+  add_index "actors", ["email"], :name => "index_actors_on_email"
   add_index "actors", ["permalink"], :name => "index_actors_on_permalink", :unique => true
 
   create_table "agenda_entries", :force => true do |t|
