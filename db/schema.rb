@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "parent_id",          :limit => 45
+    t.text     "text"
   end
 
   add_index "posts", ["activity_object_id"], :name => "fk_post_object"
