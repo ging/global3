@@ -8,4 +8,8 @@ class Space < ActiveRecord::Base
   def actor!
     actor || build_actor
   end
+  
+  def logo
+    ''
+  end
 end

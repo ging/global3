@@ -47,7 +47,12 @@ class User < ActiveRecord::Base
     Activity.wall Contact.tie_ids_query(self)
   end
 
+  def videos
+    []
+  end
+    
   protected
+  
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?
