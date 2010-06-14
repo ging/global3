@@ -1,4 +1,7 @@
 class ActivityVerb < ActiveRecord::Base
+  # Activity Strems verbs
+  Available = %w( post )
+
   validates_uniqueness_of :name
 
   class << self

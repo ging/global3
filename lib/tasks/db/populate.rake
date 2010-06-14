@@ -56,7 +56,7 @@ namespace :db do
         end
 
         spaces = available_spaces.dup
-        space_roles = Role::UserSpace.map{ |r| Role.find_by_name(r) }
+        space_roles = Role::Available[User][Space].map{ |r| Role.find_by_name(r) }
 
         Contact.populate 5..7 do |c|
           space = spaces.delete_at((rand * spaces.size).to_i)

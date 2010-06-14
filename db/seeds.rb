@@ -6,11 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-( Role::UserUser + Role::UserSpace).each do |name|
-  Role.create(:name => name)
+Role.all_available.each do |role|
+  Role.find_or_create_by_name role
 end
 
-# Activity Strems verbs
-%w( post ).each do |verb|
-  ActivityVerb.create(:name => verb)
+ActivityVerb::Available.each do |verb|
+  ActivityVerb.find_or_create_by_name verb
 end

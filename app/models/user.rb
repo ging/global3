@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
 
   def initialize_contacts
     # FIXME: automatically load roles
-    Role::UserUser.each do |r|
+    Role::Available[User][User].each do |r|
       Contact.create! :actor_from => self.actor,
                       :actor_to => self.actor,
                       :role => Role.find_by_name(r)
