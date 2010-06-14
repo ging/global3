@@ -20,10 +20,12 @@ namespace :db do
       end
 
       User.all.each do |u|
+        u.full_name = Faker::Name.name
         u.email = Faker::Internet.email
         u.password = u.password_confirmation = "test"
         u.save
 
+        # This callback is called in after_create, but above population does not call it
         u.__send__ :initialize_contacts
       end
 
@@ -31,10 +33,10 @@ namespace :db do
 
       puts "* Create Spaces"
       Space.populate 20 do |space|
-
       end
 
       Space.all.each do |s|
+        s.name = Populator.words(1..3).titleize
         s.email = Faker::Internet.email
         s.save
       end
