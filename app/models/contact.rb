@@ -7,7 +7,9 @@ class Contact < ActiveRecord::Base
              :include => [ :user, :space ]
   belongs_to :role
 
-  has_many :activities
+  has_many :contact_activities
+  has_many :activities,
+           :through => :contact_activities                        
 
   class << self
     def tie_ids_query(actor)
