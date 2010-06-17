@@ -14,16 +14,18 @@ class Post < ActiveRecord::Base
   before_create :create_activity
   before_update :update_activity
 
-  def validate
-    errors.add_to_base('activity.contact.not_found') unless activity_contact.present?
-  end
+  validate :validate_activity_contact
 
   private
 
+  def validate_activity_contact
+    errors[:base ] << ('activity.contact.not_found') unless activity_contact.present?
+  end
+
   def activity_contact
-    @activity_contact = Contact.where(:actor_from_id => author.id,
-                                      :actor_to_id   => activity_wall_id,
-                                      :role_id       => activity_role_id).first
+    @activity_contact ||= Contact.where(:actor_from_id => author.actor.id,
+                                        :actor_to_id   => activity_wall_id,
+                                        :role_id       => activity_role_id).first
   end
 
   def create_activity
