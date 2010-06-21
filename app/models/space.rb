@@ -10,6 +10,6 @@ class Space < ActiveRecord::Base
   end
   
   def logo
-    ''
+    "spaces/1.png"
   end
 end
