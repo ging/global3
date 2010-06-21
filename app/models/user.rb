@@ -3,8 +3,11 @@ class User < ActiveRecord::Base
              :validate => true,
              :autosave => true
 
-  delegate :email, :email=, :to => :actor!
-  validates_presence_of :email
+  delegate :email, :email=, :name, :name=, :to => :actor!
+  alias :full_name :name
+  alias :full_name= :name=
+
+  validates_presence_of :full_name, :email
   validates_format_of :email, :with => Devise.email_regexp, :allow_blank => true
   # TODO: uniqueness of email
 
@@ -21,15 +24,11 @@ class User < ActiveRecord::Base
          :recoverable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :full_name, :email, :password, :password_confirmation
 
   def actor!
     actor || build_actor
   end
-
-  attr_accessor :_full_name
-  attr_accessible :_full_name
-
 
   def needs_password?
     # FIXME: with openid support
@@ -50,6 +49,10 @@ class User < ActiveRecord::Base
   def videos
     []
   end
+  
+  def logo
+    "followers/#{ id % 3 - 1 }.png"
+  end
     
   protected
   
@@ -62,7 +65,7 @@ class User < ActiveRecord::Base
 
   def initialize_contacts
     # FIXME: automatically load roles
-    Role::UserUser.each do |r|
+    Role::Available[User][User].each do |r|
       Contact.create! :actor_from => self.actor,
                       :actor_to => self.actor,
                       :role => Role.find_by_name(r)

@@ -3,10 +3,17 @@
         <img src="images/buttons/btn_activities.png" />Activities
     </div>
     <div id="activities_header" class="content_size">
-        <input name="activities" id="input_activities" value="What do you dou?" size="85"/>
+      <%= form_for Post.new(:text => "What do you dou?",
+                            :activity_wall_id => current_user.actor.id,
+                            :activity_role_id => Role["Public"].id) do |f| %>
+        <%= f.hidden_field :activity_wall_id %>
+        <%= f.hidden_field :activity_role_id %>
+        <%= f.text_field :text, :id => "input_activities", :size => 85 %>
         <div id="activities_share">
-            <img src="images/buttons/btn_security.png" /><a href="#"><img src="images/buttons/btn_share.png" /></a>
+          <img src="images/buttons/btn_security.png" />
+          <%= image_submit_tag "buttons/btn_share.png" %>
         </div>
+      <% end -%>
     </div>
 </div>
 
