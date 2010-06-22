@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.all 
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html  # index.html.erb
       format.xml  { render :xml => @posts }
     end
   end
@@ -13,12 +13,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @post }
-    end
+#    @post = Post.find(params[:id])
+#
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.xml  { render :xml => @post }
+#    end
   end
 
   # GET /posts/new
@@ -26,9 +26,9 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
 
-#    if !request.xhr?
-#      @post = Post.all
-#    end    
+    if !request.xhr?
+      @post = Post.all
+    end    
 
     respond_to do |format|
       format.html # new.html.erb
