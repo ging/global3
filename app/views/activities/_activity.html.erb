@@ -1,0 +1,44 @@
+<div class="post content_size" >
+    <div class="picture_follower">
+        <%= image_tag(activity.author.user.logo) %>
+    </div>
+    <div class="content_post">
+        <div id="activity<%= activity.id %>" class="name_follower content_size">
+            <%=activity.author.name %>
+        </div>
+        <%= render activity.activity_objects.first.post %>
+        <div class="post_options_follower ">
+            <span class="post_time_ago"><%= time_ago_in_words(activity.created_at) %>ago</span>
+            <img src="images/point_gray.png" alt="gray_button" /><a href="#">Comments</a>
+            <img src="images/point_blue.png" alt="blue_button" /><a href="#">I like</a>
+            <img src="images/point_blue.png" alt="blue_button" /><a href="#">Delete</a>
+        </div>
+        <div class="post_comments ">
+            <div class="space_comments">
+            </div>
+            <div class="content_sub_post coment_border">
+                <div class="picture_follower">
+                    <img src="images/followers/3.png" />
+                </div>
+                <div class="content_post">
+                    <div class="name_follower">
+                        Ariana García
+                    </div>
+                    <div class="content_post_follower">
+                        Este tipo de eventos son increibles para los avances de las tecnologías
+                    </div>
+                    <div class="post_options_follower ">
+                        <span class="post_time_ago">33 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space_comments">
+            </div>
+            <div class="content_sub_post coment_border">
+                <div class="coment_field">
+                    <input name="new_space" class="input_new_comments" value="Write a comment" size="65"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

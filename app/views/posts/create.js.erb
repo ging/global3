@@ -3,7 +3,7 @@ $(".post h3").hide();
 //Hide the comment form
 $(".newPost").html("<%= escape_javascript(new_post_link()) %>");
 //Display the new post
-$(".post").append("<%= escape_javascript(render :partial => @post) %>");
+$("#wall").prepend("<%= escape_javascript(render @post.activity_object.activities.first) %>");
 //Ajaxify the new links
 ajaxLinks();
 

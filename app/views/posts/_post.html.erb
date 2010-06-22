@@ -1,10 +1,3 @@
-<div id="post<%= post.id %>">
-<%= post_tag(:p,post.body) %>
-<!-- We are accessing the update function so we use put as class 
-<span class="score"><%= post.score %></span><span> - -->
- <%= link_to 'I like it!',post_path(post),:class => "put"  %></span>
-<p> - <%= link_to '*Delete',post_path(post),:method => :delete,:class => "delete"  %></p>
-<p><%= post.created_at %></p>
-<hr />
+<div class="content_post_follower content_size">
+	<%=post.text%>
 </div>
-

@@ -58,9 +58,6 @@ jQuery.fn.getWithAjax = function() {
 };
 
 
-
-
-
 //Send data via Post if JS enabled
 jQuery.fn.postWithAjax = function() {
   this.unbind('click', false);

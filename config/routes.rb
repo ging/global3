@@ -15,7 +15,7 @@ Global::Application.routes.draw do |map|
   map.search 'search', :controller => 'browse', :action => 'index'
   
   resources :posts
-  map.root :controller => "posts"
+  
 
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|
