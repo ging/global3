@@ -22,7 +22,8 @@ class Activity < ActiveRecord::Base
     def wall(contacts_query)
       select( "DISTINCT activities.*").
         joins(:contact_activities).
-        where("contact_activities.contact_id IN (#{ contacts_query })")
+        where("contact_activities.contact_id IN (#{ contacts_query })").
+        order("created_at desc")
     end
   end
 end

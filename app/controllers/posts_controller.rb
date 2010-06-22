@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.all 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,9 +26,14 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
 
+#    if !request.xhr?
+#      @post = Post.all
+#    end    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
+      format.js {render :layout => false}
     end
   end
 
@@ -47,6 +52,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
+        format.js {render :layout => false}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
@@ -81,4 +87,8 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def load_post
+     @post = "This is a factice post, I hope you like it. Just comment on the bottom!"
+  end  
 end

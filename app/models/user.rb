@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
   
   def logo
-    "followers/#{ id % 3 - 1 }.png"
+    "followers/#{ id % 3 + 1 }.png"
   end
     
   protected

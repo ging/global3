@@ -1,0 +1,9 @@
+//We hide the message saying no comment if present
+$(".post h3").hide();
+//Hide the comment form
+$(".newPost").html("<%= escape_javascript(new_post_link()) %>");
+//Display the new post
+$(".post").append("<%= escape_javascript(render :partial => @post) %>");
+//Ajaxify the new links
+ajaxLinks();
+
