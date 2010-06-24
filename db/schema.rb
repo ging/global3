@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "description",      :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
 
-  add_index "activities", ["activity_verb_id"], :name => "fk_actividad_verb"
+  add_index "activities", ["activity_verb_id"], :name => "fk_activity_verb"
+  add_index "activities", ["id"], :name => "fk_activity_activity"
 
   create_table "activity_object_activities", :force => true do |t|
     t.integer  "activity_id"
