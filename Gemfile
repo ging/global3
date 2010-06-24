@@ -28,6 +28,7 @@ gem 'devise', '1.1.rc1'
 # end
 
 group :development do
+  gem 'ruby-debug'
   gem 'populator'
   gem 'faker'
 end
