@@ -1,4 +1,13 @@
 class Activity < ActiveRecord::Base
+
+  belongs_to :parent,
+             :class_name => "Activity",
+             :foreign_key => :parent_id
+
+  has_many :children,
+           :class_name => "Activity",
+           :foreign_key => :parent_id
+
   belongs_to :activity_verb
   has_many :activity_object_activities
   has_many :activity_objects, :through => :activity_object_activities
@@ -16,6 +25,14 @@ class Activity < ActiveRecord::Base
 
   def verb
     activity_verb.name
+  end
+
+  def verb=(name)
+    self.activity_verb = ActivityVerb[name]
+  end
+
+  def role
+    contacts.first.role
   end
 
   class << self

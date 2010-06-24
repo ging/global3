@@ -23,6 +23,7 @@ class Contact < ActiveRecord::Base
         project(c[:id]).
         to_sql
       "SELECT contacts.id FROM contacts INNER JOIN contacts contacts_2 ON ((contacts_2.actor_from_id = #{ actor.id } AND contacts_2.actor_to_id = contacts.actor_to_id) AND (contacts_2.role_id = contacts.role_id OR contacts.role_id = #{ Role.find_by_name('Public').id }))"
+
     end
   end
 end

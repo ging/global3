@@ -9,13 +9,17 @@ Global::Application.routes.draw do |map|
   
   match 'home' => 'home#index', :as => :home
   map.help 'help', :controller => 'help', :action => 'index'  
-  map.resources :feedback
-  map.resource :session_locale  
+  resources :feedback
+  resource :session_locale  
   
   map.search 'search', :controller => 'browse', :action => 'index'
   
-  resources :posts
-  
+  resources :activities do 
+    resource :like
+  end
+
+  resources :posts  
+  resources :videos
 
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|
@@ -59,7 +63,6 @@ Global::Application.routes.draw do |map|
     space.resources :news
   end
         
-  resources :videos
 
   # The priority is based upon order of creation: first created -> highest priority.
 

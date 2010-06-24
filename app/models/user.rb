@@ -42,8 +42,10 @@ class User < ActiveRecord::Base
     actor.contacts.map(&:actor_to).map(&:space).compact
   end
 
+  delegate :contacts, :to => :actor!
+
   def wall
-    Activity.wall Contact.tie_ids_query(self)
+    Activity.wall Contact.tie_ids_query(actor)
   end
 
   def videos
