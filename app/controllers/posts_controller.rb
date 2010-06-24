@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
-      format.js {render :layout => false}
+      format.js
     end
   end
 
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
-        format.js {render :layout => false}
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
