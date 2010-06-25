@@ -6,7 +6,7 @@
         <div id="activity<%= activity.id %>" class="name_follower content_size">
             <%=activity.author.name %>
         </div>
-        <%= render activity.activity_objects.first.post %>
+        <%= render activity.activity_objects %>
         <div class="post_options_follower ">
             <span class="post_time_ago"><%= time_ago_in_words(activity.created_at) %>ago</span>
             <img src="images/point_gray.png" alt="gray_button" /><a href="#">Comments</a>
@@ -16,6 +16,9 @@
         <div class="post_comments ">
             <div class="space_comments">
             </div>
+
+            <%= render activity.comments %>
+
             <div class="content_sub_post coment_border">
                 <div class="picture_follower">
                     <img src="images/followers/3.png" />
@@ -36,7 +39,9 @@
             </div>
             <div class="content_sub_post coment_border">
                 <div class="coment_field">
-                    <input name="new_space" class="input_new_comments" value="Write a comment" size="65"/>
+                  <%= form_for [ activity, Comment.new(:text => "Write a comment") ], :remote => true do |f| %>
+                    <%= f.text_field :text, :class => "input_new_comments", :size => 65 %>
+                  <% end %>
                 </div>
             </div>
         </div>

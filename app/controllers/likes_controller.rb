@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  include ActionController::Subactivity
+
   # Assure the suitable contact exists, should be done in Activity model.
   before_filter :contact!, :only => :create
 
@@ -18,22 +20,4 @@ class LikesController < ApplicationController
   end
 
 
-  private
-
-  def activity
-    @activity ||= Activity.find(params[:activity_id])
-  end
-
-  def activity!
-    activity || raise(ActiveRecord::RecordNotFound)
-  end
-
-  def contact
-    @contact ||= current_user.contacts(:actor_to => activity!.author,
-                                       :role => activity!.role).first
-  end
-
-  def contact!
-    contact || raise(ActiveRecord::RecordNotFound)
-  end
 end

@@ -1,15 +1,12 @@
 class Post < ActiveRecord::Base
+  include ActiveRecord::ActivityObject
+
   attr_accessor :author
 # attr_accessor :activity_actor_id
   attr_accessor :activity_wall_id
   attr_accessor :activity_role_id
 
-  belongs_to :activity_object
-  has_many   :activity_object_activities, :through => :activity_object
-
   validates_presence_of :author, :activity_wall_id, :activity_role_id
-
-  before_create :create_activity_object
 
   before_create :create_activity
   before_update :update_activity
@@ -33,5 +30,4 @@ class Post < ActiveRecord::Base
 
     @activity_contact.activities << activity
   end
-
 end

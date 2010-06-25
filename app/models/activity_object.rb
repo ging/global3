@@ -4,5 +4,10 @@ class ActivityObject < ActiveRecord::Base
 
   has_one :post, :dependent => :destroy
   has_one :video, :dependent => :destroy
+  has_one :comment, :dependent => :destroy
+
+  def object
+    comment || post || video
+  end
 
 end

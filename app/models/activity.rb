@@ -35,6 +35,10 @@ class Activity < ActiveRecord::Base
     contacts.first.role
   end
 
+  def comments
+    children.includes(:activity_objects).where('activity_objects.object_type' => "Comment")
+  end
+
   class << self
     def wall(contacts_query)
       select( "DISTINCT activities.*").
