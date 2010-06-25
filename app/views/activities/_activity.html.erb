@@ -6,7 +6,7 @@
         <div id="activity<%= activity.id %>" class="name_follower content_size">
             <%=activity.author.name %>
         </div>
-        <%= render activity.activity_objects.first.post %>
+        <%= render activity.activity_objects %>
         <div class="post_options_follower ">
             <span class="post_time_ago"><%= time_ago_in_words(activity.created_at) %>ago</span>
             <img src="images/point_gray.png" alt="gray_button" /><a href="#">Comments</a>
