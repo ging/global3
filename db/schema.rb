@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "updated_at"
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "activity_object_id"
+    t.text     "text"
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
+
+  add_index "comments", ["activity_object_id"], :name => "fk_commets_activity_object"
+
   create_table "contact_activities", :force => true do |t|
     t.integer  "activity_id"
     t.datetime "created_at"

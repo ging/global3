@@ -1,0 +1,806 @@
+-- MySQL dump 10.13  Distrib 5.1.41, for debian-linux-gnu (i486)
+--
+-- Host: localhost    Database: global
+-- ------------------------------------------------------
+-- Server version	5.1.41-3ubuntu12.3
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actions`
+--
+
+DROP TABLE IF EXISTS `actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actions`
+--
+
+LOCK TABLES `actions` WRITE;
+/*!40000 ALTER TABLE `actions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activities`
+--
+
+DROP TABLE IF EXISTS `activities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_verb_id` int(11) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `contact_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_activity_verb` (`activity_verb_id`),
+  KEY `fk_activities_contact` (`contact_id`),
+  CONSTRAINT `fk_activity_verb` FOREIGN KEY (`activity_verb_id`) REFERENCES `activity_verbs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activities_contact` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activities`
+--
+
+LOCK TABLES `activities` WRITE;
+/*!40000 ALTER TABLE `activities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activity_object_activities`
+--
+
+DROP TABLE IF EXISTS `activity_object_activities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activity_object_activities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_id` int(11) DEFAULT NULL,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_activity_object_activities_1` (`activity_id`),
+  KEY `fk_activity_object_activities_2` (`activity_object_id`),
+  CONSTRAINT `fk_activity_object_activities_1` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_activity_object_activities_2` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity_object_activities`
+--
+
+LOCK TABLES `activity_object_activities` WRITE;
+/*!40000 ALTER TABLE `activity_object_activities` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activity_object_activities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activity_objects`
+--
+
+DROP TABLE IF EXISTS `activity_objects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activity_objects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `object_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity_objects`
+--
+
+LOCK TABLES `activity_objects` WRITE;
+/*!40000 ALTER TABLE `activity_objects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activity_objects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `activity_verbs`
+--
+
+DROP TABLE IF EXISTS `activity_verbs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `activity_verbs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity_verbs`
+--
+
+LOCK TABLES `activity_verbs` WRITE;
+/*!40000 ALTER TABLE `activity_verbs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `activity_verbs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `actors`
+--
+
+DROP TABLE IF EXISTS `actors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `permalink` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `activity_object_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_actors_on_permalink` (`permalink`),
+  KEY `index_actors_on_email` (`email`),
+  KEY `fk_actors_activity_object` (`activity_object_id`),
+  CONSTRAINT `fk_actors_activity_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actors`
+--
+
+LOCK TABLES `actors` WRITE;
+/*!40000 ALTER TABLE `actors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agenda_entries`
+--
+
+DROP TABLE IF EXISTS `agenda_entries`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `agenda_entries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `agenda_id` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_sesion_agenda` (`agenda_id`),
+  CONSTRAINT `fk_sesion_agenda` FOREIGN KEY (`agenda_id`) REFERENCES `agendas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agenda_entries`
+--
+
+LOCK TABLES `agenda_entries` WRITE;
+/*!40000 ALTER TABLE `agenda_entries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agenda_entries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agendas`
+--
+
+DROP TABLE IF EXISTS `agendas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `agendas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_agenda_event` (`event_id`),
+  CONSTRAINT `fk_agenda_event` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agendas`
+--
+
+LOCK TABLES `agendas` WRITE;
+/*!40000 ALTER TABLE `agendas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agendas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `album_photos`
+--
+
+DROP TABLE IF EXISTS `album_photos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `album_photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `album_id` int(11) DEFAULT NULL,
+  `photo_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_album_photo_photo` (`photo_id`),
+  KEY `fk_album_photo_album` (`album_id`),
+  CONSTRAINT `fk_album_photo_photo` FOREIGN KEY (`photo_id`) REFERENCES `photos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_album_photo_album` FOREIGN KEY (`album_id`) REFERENCES `albums` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `album_photos`
+--
+
+LOCK TABLES `album_photos` WRITE;
+/*!40000 ALTER TABLE `album_photos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `album_photos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `albums`
+--
+
+DROP TABLE IF EXISTS `albums`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `albums` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `albums`
+--
+
+LOCK TABLES `albums` WRITE;
+/*!40000 ALTER TABLE `albums` DISABLE KEYS */;
+/*!40000 ALTER TABLE `albums` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `text` text,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_commets_activity_object` (`activity_object_id`),
+  CONSTRAINT `fk_commets_activity_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actor_to_id` int(11) DEFAULT NULL,
+  `actor_from_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_contact_actor_to` (`actor_from_id`),
+  KEY `fk_contact_actor_from` (`actor_to_id`),
+  KEY `fk_contacts_role` (`role_id`),
+  CONSTRAINT `fk_contact_actor_to` FOREIGN KEY (`actor_from_id`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contact_actor_from` FOREIGN KEY (`actor_to_id`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contacts_role` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `documents`
+--
+
+DROP TABLE IF EXISTS `documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_document_document` (`activity_object_id`),
+  CONSTRAINT `fk_document_document` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `documents`
+--
+
+LOCK TABLES `documents` WRITE;
+/*!40000 ALTER TABLE `documents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `documents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_event_object` (`activity_object_id`),
+  CONSTRAINT `fk_event_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `events`
+--
+
+LOCK TABLES `events` WRITE;
+/*!40000 ALTER TABLE `events` DISABLE KEYS */;
+/*!40000 ALTER TABLE `events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logos`
+--
+
+DROP TABLE IF EXISTS `logos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `actor_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `thumbnail` varchar(45) DEFAULT NULL,
+  `filename` varchar(45) DEFAULT NULL,
+  `size` int(11) DEFAULT NULL,
+  `content_type` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_logo_actor` (`actor_id`),
+  KEY `fk_logos_parent` (`id`),
+  CONSTRAINT `fk_logo_actor` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_logos_parent` FOREIGN KEY (`id`) REFERENCES `logos` (`actor_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logos`
+--
+
+LOCK TABLES `logos` WRITE;
+/*!40000 ALTER TABLE `logos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `logos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `photos`
+--
+
+DROP TABLE IF EXISTS `photos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_photo_object` (`activity_object_id`),
+  CONSTRAINT `fk_photo_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `photos`
+--
+
+LOCK TABLES `photos` WRITE;
+/*!40000 ALTER TABLE `photos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `photos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `parent_id` varchar(45) DEFAULT NULL,
+  `text` text,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_object` (`activity_object_id`),
+  CONSTRAINT `fk_post_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `private_messages`
+--
+
+DROP TABLE IF EXISTS `private_messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `private_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `activity_object_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_object_type_message` (`activity_object_id`),
+  CONSTRAINT `fk_object_type_message` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `private_messages`
+--
+
+LOCK TABLES `private_messages` WRITE;
+/*!40000 ALTER TABLE `private_messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `private_messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `profiles`
+--
+
+DROP TABLE IF EXISTS `profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profiles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `organization` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `fax` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `zipcode` varchar(45) DEFAULT NULL,
+  `province` varchar(45) DEFAULT NULL,
+  `country` varchar(45) DEFAULT NULL,
+  `prefix_key` int(11) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `skype` varchar(45) DEFAULT NULL,
+  `im` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_profile_user` (`user_id`),
+  CONSTRAINT `fk_profile_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profiles`
+--
+
+LOCK TABLES `profiles` WRITE;
+/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role_action`
+--
+
+DROP TABLE IF EXISTS `role_action`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role_action` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_role_action_action` (`action_id`),
+  KEY `fk_role_action_rol` (`role_id`),
+  CONSTRAINT `fk_role_action_action` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_role_action_rol` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role_action`
+--
+
+LOCK TABLES `role_action` WRITE;
+/*!40000 ALTER TABLE `role_action` DISABLE KEYS */;
+/*!40000 ALTER TABLE `role_action` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schema_migrations`
+--
+
+DROP TABLE IF EXISTS `schema_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) NOT NULL,
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schema_migrations`
+--
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `spaces`
+--
+
+DROP TABLE IF EXISTS `spaces`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `spaces` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `actor_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_spaces_actors` (`actor_id`),
+  CONSTRAINT `fk_spaces_actors` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `spaces`
+--
+
+LOCK TABLES `spaces` WRITE;
+/*!40000 ALTER TABLE `spaces` DISABLE KEYS */;
+/*!40000 ALTER TABLE `spaces` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tags`
+--
+
+DROP TABLE IF EXISTS `tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tags` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tags`
+--
+
+LOCK TABLES `tags` WRITE;
+/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tags_activity_objects`
+--
+
+DROP TABLE IF EXISTS `tags_activity_objects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tags_activity_objects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag_id` int(11) DEFAULT NULL,
+  `activity_object_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tags_activity_objects_1` (`tag_id`),
+  KEY `fk_tags_activity_objects_2` (`activity_object_id`),
+  CONSTRAINT `fk_tags_activity_objects_1` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_tags_activity_objects_2` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tags_activity_objects`
+--
+
+LOCK TABLES `tags_activity_objects` WRITE;
+/*!40000 ALTER TABLE `tags_activity_objects` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tags_activity_objects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `encrypted_password` varchar(128) NOT NULL DEFAULT '',
+  `password_salt` varchar(255) NOT NULL DEFAULT '',
+  `confirmation_token` varchar(255) DEFAULT NULL,
+  `confirmed_at` datetime DEFAULT NULL,
+  `confirmation_sent_at` datetime DEFAULT NULL,
+  `reset_password_token` varchar(255) DEFAULT NULL,
+  `actor_id` int(11) DEFAULT NULL,
+  `userscol` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_users_on_confirmation_token` (`confirmation_token`),
+  UNIQUE KEY `index_users_on_reset_password_token` (`reset_password_token`),
+  KEY `fk_users_actors` (`actor_id`),
+  CONSTRAINT `fk_users_actors` FOREIGN KEY (`actor_id`) REFERENCES `actors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `videos`
+--
+
+DROP TABLE IF EXISTS `videos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `videos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_object_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_video_object` (`activity_object_id`),
+  CONSTRAINT `fk_video_object` FOREIGN KEY (`activity_object_id`) REFERENCES `activity_objects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `videos`
+--
+
+LOCK TABLES `videos` WRITE;
+/*!40000 ALTER TABLE `videos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `videos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-06-28 17:34:56
