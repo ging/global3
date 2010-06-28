@@ -11,7 +11,7 @@
             <span class="post_time_ago"><%= time_ago_in_words(activity.created_at) %>ago</span>
             <img src="images/point_gray.png" alt="gray_button" /><a href="#">Comments</a>
             <img src="images/point_blue.png" alt="blue_button" /><%= link_to "I like", activity_like_path(activity), :method => :post, :remote => true %>
-            <img src="images/point_blue.png" alt="blue_button" /><a href="#">Delete</a>
+            <img src="images/point_blue.png" alt="blue_button" /><%= link_to "Delete", activity, :confirm => 'Are you sure?', :method => :delete %>
         </div>
         <div class="post_comments ">
             <div class="space_comments">
