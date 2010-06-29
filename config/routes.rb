@@ -16,11 +16,11 @@ Global::Application.routes.draw do |map|
   
   resources :activities do 
     resource :like
-    resources :comments
   end
 
   resources :posts  
   resources :videos
+  resources :comments
 
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|

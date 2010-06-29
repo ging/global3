@@ -12,16 +12,16 @@ class Activity < ActiveRecord::Base
   has_many :activity_object_activities
   has_many :activity_objects, :through => :activity_object_activities
 
-  has_many :contact_activities
-  has_many :contacts,
-           :through => :contact_activities,
-           :include => [ :actor_from ]
-
-  def author
-    cs = contacts.map(&:actor_from).uniq
-    raise "Activity #{ id } has #{ cs.size } authors" unless cs.size == 1
-    cs.first
-  end
+  belongs_to :contact,
+             :include => [ :actor_from ]
+  has_one :author,
+          :through => :contact,
+          :source => :actor_from
+  has_one :wall,
+          :through => :contact,
+          :source => :actor_to
+  has_one :role,
+          :through => :contact
 
   def verb
     activity_verb.name
@@ -31,10 +31,6 @@ class Activity < ActiveRecord::Base
     self.activity_verb = ActivityVerb[name]
   end
 
-  def role
-    contacts.first.role
-  end
-
   def comments
     children.includes(:activity_objects).where('activity_objects.object_type' => "Comment")
   end
@@ -42,8 +38,7 @@ class Activity < ActiveRecord::Base
   class << self
     def wall(contacts_query)
       select( "DISTINCT activities.*").
-        joins(:contact_activities).
-        where("contact_activities.contact_id IN (#{ contacts_query })").
+        where("activities.contact_id IN (#{ contacts_query })").
         order("created_at desc")
     end
   end

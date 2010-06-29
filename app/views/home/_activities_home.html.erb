@@ -4,11 +4,9 @@
     </div>
     <div id="activities_header" class="content_size">
       <%= form_for Post.new(:text => "What do you dou?",
-                            :activity_wall_id => current_user.actor.id,
-                            :activity_role_id => Role["Public"].id),
-							:remote => true  do |f| %>
-        <%= f.hidden_field :activity_wall_id %>
-        <%= f.hidden_field :activity_role_id %>
+                            :_activity_contact_id => current_contact.id),
+                            :remote => true  do |f| %>
+        <%= f.hidden_field :_activity_contact_id %>
         <%= f.text_field :text, :id => "input_activities", :size => 85 %>
         <div id="activities_share">
           <img src="images/buttons/btn_security.png" />

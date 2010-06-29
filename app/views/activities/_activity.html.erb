@@ -39,7 +39,13 @@
             </div>
             <div class="content_sub_post coment_border">
                 <div class="coment_field">
-                  <%= form_for [ activity, Comment.new(:text => "Write a comment") ], :remote => true do |f| %>
+                  <%= form_for Comment.new(:text => "Write a comment",
+                                           :_activity_contact_id => current_contact.id,
+                                           :_activity_parent_id => activity.id),
+                               :remote => true do |f| %>
+
+                    <%= f.hidden_field :_activity_contact_id %>
+                    <%= f.hidden_field :_activity_parent_id %>
                     <%= f.text_field :text, :class => "input_new_comments", :size => 65 %>
                   <% end %>
                 </div>

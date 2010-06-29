@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  include ActionController::Subactivity
 
   # GET /comments
   # GET /comments.xml
@@ -43,7 +42,6 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.new(params[:comment])
-    @comment.activity_contact = contact!
 
     respond_to do |format|
       if @comment.save

@@ -4,4 +4,12 @@ module ApplicationHelper
     # See: http://ruby-toolbox.com/categories/rails_captcha.html
     ""
   end
+
+  def current_contact
+    # Change with contact list
+    current_user.
+      contacts.
+      actor_to(current_user).
+      where(:role_id => Role["Public"].id).first
+  end
 end
