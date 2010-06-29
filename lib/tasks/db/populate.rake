@@ -1,6 +1,6 @@
 namespace :db do
   desc 'Populate database with fake data to developement'
-  task :populate => 'db:populate:create'
+  task :populate => [ 'db:seed', 'db:populate:create' ]
 
   namespace :populate do
 
