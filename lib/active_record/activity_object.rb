@@ -21,7 +21,12 @@ module ActiveRecord
     end
 
     module InstanceMethods
-      def create_activity_object_with_type(attributes = {})
+      def activities
+        activity_object_activities.includes(:activity).map(&:activity).uniq
+      end
+
+      # Create corresponding ActivityObject including this class type
+      def create_activity_object_with_type(attributes = {}) #:nodoc:
         create_activity_object_without_type attributes.update(:object_type => self.class.to_s)
       end
 
