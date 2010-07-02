@@ -5,7 +5,7 @@
         &nbsp
     </div>
     <div class="div_login">
-        <% form_for User.new, :as => :user, :url => session_path(:user) do |f| -%>
+        <%= form_for User.new, :as => :user, :url => session_path(:user) do |f| -%>
         <span>
             <label for="login">
                 <%= t('email') %>
@@ -32,7 +32,7 @@
     </div>
     <div class="div_login_openid" style="display:none">
         <div class="openid_form">
-            <% form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
+            <%= form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
             <div id="openid_label">
                 <span><%= t('openid.enter') %></span>
                 <%= text_field_tag 'openid_identifier', params[:openid_identifier] %>
