@@ -15,7 +15,7 @@ gem 'mysql'
 # gem 'capistrano'
 
 # Bundle the extra gems:
-gem 'devise', '1.1.rc1'
+gem 'devise', '1.1.rc2'
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -28,8 +28,15 @@ gem 'devise', '1.1.rc1'
 # end
 
 group :development do
+  gem 'mongrel'
   gem 'ruby-debug'
   gem 'populator'
   gem 'faker'
+  gem 'rails3-generators'
+end
+
+group :test do
+  gem "rspec-rails", ">= 2.0.0.beta.15"
+  gem "factory_girl"
 end
 
