@@ -1,0 +1,26 @@
+# MySQL (default setup).  Versions 4.1 and 5.0 are recommended.
+#
+development:
+  adapter: mysql
+  database: global3_development
+  encoding: utf8
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql
+  database: global3_test
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+production:
+  adapter: mysql
+  database: global3_production
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock

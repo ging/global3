@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+LINUX_PACKAGES = {
+  :common => %w( ruby-dev rdoc irb libopenssl-ruby wget make curl aspell-es aspell-en libxml2-dev libxslt-dev libmagickcore-dev libmagickwand-dev libmysqlclient15-dev mysql-server ),
+  :production => %w( awstats logrotate nfs-common ),
+  :development => %w( )
+}
+RUBY_GEMS_VERSION = "1.3.6"
+RUBY_GEMS_PACKAGE = "rubygems-#{ RUBY_GEMS_VERSION }.tgz"
+RUBY_GEMS_DOWNLOAD = "http://rubyforge.org/frs/download.php/60718/#{ RUBY_GEMS_PACKAGE }"
+
+def install_linux_packages(set)
+  return unless `uname`.chomp == "Linux" && `which aptitude` != ""
+
+  puts "* Install #{ set } Linux packages"
+  if LINUX_PACKAGES[set].any?
+    system "sudo aptitude install #{ LINUX_PACKAGES[set].join(" ") }"
+  end
+end
+
+def install_gem_subsystem
+  if `which gem`.chomp == ""
+    gem_bin = `which gem1.8`.chomp
+    if gem_bin == ""
+      puts "* Installing Ruby Gems"
+      system "cd /tmp && wget #{ RUBY_GEMS_DOWNLOAD }"
+      system "cd /tmp && tar zxf #{ RUBY_GEMS_PACKAGE }"
+      system "cd /tmp/rubygems-#{ RUBY_GEMS_VERSION } && sudo /usr/bin/ruby setup.rb"
+    end
+    system "sudo ln -s /usr/bin/gem1.8 /usr/bin/gem"
+  end
+end
+
+def manage_gems_with_bundler
+  puts "* Installing gems with bundler"
+  system "sudo gem install bundler"
+  system  "bundle install"
+end
+
+def config_database
+  print "* Checking config/database.yml: "
+
+  db_file = File.dirname(__FILE__) + "/../config/database.yml"
+
+  if File.exist?(db_file)
+    puts "file exists. Assuming configurated database."
+    return
+  end
+
+  `cp #{ db_file }.example #{ db_file }`
+
+  puts
+  puts "***************************************************************"
+  puts
+  puts "MySQL support installed."
+  puts "Please, configure your MySQL database and run the script again."
+  exit(-1)
+end
+
+def setup_environment(env)
+  install_linux_packages(:common)
+  install_linux_packages(env)
+  install_gem_subsystem
+  manage_gems_with_bundler
+  config_database
+  system "rake setup:#{ env }"
+end
+
+def print_banner(env)
+  puts
+  puts "------------------------------"
+  puts "Setting #{ env } environment"
+  puts "------------------------------"
+  puts
+end
+
+if ARGV[0] =~ /production/
+  print_banner("PRODUCTION")
+  setup_environment(:production)
+else
+  print_banner("DEVELOPMENT")
+  setup_environment(:development)
+end
