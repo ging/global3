@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.integer  "contact_id"
   end
 
   add_index "activities", ["activity_verb_id"], :name => "fk_activity_verb"
-  add_index "activities", ["id"], :name => "fk_activity_activity"
+  add_index "activities", ["contact_id"], :name => "fk_activities_contact"
 
   create_table "activity_object_activities", :force => true do |t|
     t.integer  "activity_id"
@@ -274,5 +275,56 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   add_index "videos", ["activity_object_id"], :name => "fk_video_object"
+
+  add_foreign_key "activities", "activity_verbs", :name => "fk_activity_verb"
+  add_foreign_key "activities", "contacts", :name => "fk_activities_contact"
+
+  add_foreign_key "activity_object_activities", "activities", :name => "fk_activity_object_activities_1"
+  add_foreign_key "activity_object_activities", "activity_objects", :name => "fk_activity_object_activities_2"
+
+  add_foreign_key "actors", "activity_objects", :name => "fk_actors_activity_object"
+
+  add_foreign_key "agenda_entries", "agendas", :name => "fk_sesion_agenda"
+
+  add_foreign_key "agendas", "events", :name => "fk_agenda_event"
+
+  add_foreign_key "album_photos", "albums", :name => "fk_album_photo_album"
+  add_foreign_key "album_photos", "photos", :name => "fk_album_photo_photo"
+
+  add_foreign_key "comments", "activity_objects", :name => "fk_commets_activity_object"
+
+  add_foreign_key "contact_activities", "activities", :name => "fk_actividad_actor_actividad"
+  add_foreign_key "contact_activities", "contacts", :name => "fk_contact_activities_contact"
+
+  add_foreign_key "contacts", "actors", :name => "fk_contact_actor_from", :column => "actor_to_id"
+  add_foreign_key "contacts", "actors", :name => "fk_contact_actor_to", :column => "actor_from_id"
+  add_foreign_key "contacts", "roles", :name => "fk_contacts_role"
+
+  add_foreign_key "documents", "activity_objects", :name => "fk_document_document"
+
+  add_foreign_key "events", "activity_objects", :name => "fk_event_object"
+
+  add_foreign_key "logos", "actors", :name => "fk_logo_actor"
+  add_foreign_key "logos", "logos", :name => "fk_logos_parent", :column => "id", :primary_key => "actor_id"
+
+  add_foreign_key "photos", "activity_objects", :name => "fk_photo_object"
+
+  add_foreign_key "posts", "activity_objects", :name => "fk_post_object"
+
+  add_foreign_key "private_messages", "activity_objects", :name => "fk_object_type_message"
+
+  add_foreign_key "profiles", "users", :name => "fk_profile_user"
+
+  add_foreign_key "role_action", "actions", :name => "fk_role_action_action"
+  add_foreign_key "role_action", "roles", :name => "fk_role_action_rol"
+
+  add_foreign_key "spaces", "actors", :name => "fk_spaces_actors"
+
+  add_foreign_key "tags_activity_objects", "activity_objects", :name => "fk_tags_activity_objects_2"
+  add_foreign_key "tags_activity_objects", "tags", :name => "fk_tags_activity_objects_1"
+
+  add_foreign_key "users", "actors", :name => "fk_users_actors"
+
+  add_foreign_key "videos", "activity_objects", :name => "fk_video_object"
 
 end

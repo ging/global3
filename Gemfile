@@ -7,6 +7,7 @@ gem 'rails', '3.0.0.beta4'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'
+gem 'matthuhiggins-foreigner', :require => 'foreigner'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -30,7 +31,6 @@ gem 'devise', '1.1.rc2'
 group :development do
   gem 'mongrel'
   gem 'ruby-debug'
-  gem 'populator'
   gem 'faker'
   gem 'rails3-generators'
 end
