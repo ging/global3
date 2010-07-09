@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
-  belongs_to :actor,
-             :validate => true,
-             :autosave => true
+  include ActiveRecord::Actor
 
-  delegate :email, :email=, :name, :name=, :to => :actor!
   alias :full_name :name
   alias :full_name= :name=
 
@@ -26,10 +23,6 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :full_name, :email, :password, :password_confirmation
 
-  def actor!
-    actor || build_actor
-  end
-
   def needs_password?
     # FIXME: with openid support
     true
@@ -41,8 +34,6 @@ class User < ActiveRecord::Base
   def spaces
     actor.contacts.map(&:actor_to).map(&:space).compact
   end
-
-  delegate :contacts, :to => :actor!
 
   def wall
     Activity.wall Contact.tie_ids_query(actor)
@@ -75,12 +66,15 @@ class User < ActiveRecord::Base
   end
 
   class << self
-    def find_by_email(email)
-      find(:first, :conditions => { 'actors.email' => email }, :include => :actor)
-    end
-
-    def find_by_permalink(p)
-      find(:first, :conditions => { 'actors.permalink' => p }, :include => :actor)
+    %w( email permalink name ).each do |a|
+      eval <<-EOS
+    def find_by_#{ a }(#{ a })             # def find_by_email(email)
+      find :first,                         #   find(:first,
+           :include => :actor,             #         :include => :actor,
+           :conditions =>                  #         :conditions =>
+             { 'actors.#{ a }' => #{ a } } #           { 'actors.email' => email }
+    end                                    # end
+      EOS
     end
 
     # Overwrite devise default find method to support login with email,

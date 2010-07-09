@@ -8,6 +8,6 @@ class Actor < ActiveRecord::Base
            :dependent => :destroy
 
   def subject
-    user || space
+    user || space || activity_object.object
   end
 end
