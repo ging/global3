@@ -10,7 +10,7 @@ namespace :setup do
   end
 
   desc "All development tasks"
-  task :development_tasks => [ :common_tasks ]
+  task :development_tasks => [ :common_tasks, 'db:populate' ]
 
   desc "All production tasks"
   task :production_tasks => [ :config_sphinx, :config_cron, :config_logrotate, :config_awstats, :common_tasks ] do

@@ -31,7 +31,7 @@ gem 'devise', '1.1.rc2'
 group :development do
   gem 'mongrel'
   gem 'ruby-debug'
-  gem 'faker'
+  gem 'forgery'
   gem 'rails3-generators'
 end
 
