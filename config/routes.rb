@@ -8,6 +8,7 @@ Global::Application.routes.draw do |map|
   match 'lost_password' => 'devise/passwords#new', :as => :lost_password
   
   match 'home' => 'home#index', :as => :home
+  match 'browse' => 'browse#index', :as => :browse
   map.help 'help', :controller => 'help', :action => 'index'  
   resources :feedback
   resource :session_locale  
