@@ -11,7 +11,7 @@ fr:
   about_vcc: A propos de VCC
   account: Compte
   account_activated: "Votre compte a \xC3\xA9t\xC3\xA9 activ\xC3\xA9!"
-  account_activated_with_agent: "{{agent}}, votre compte a \xC3\xA9t\xC3\xA9 activ\xC3\xA9"
+  account_activated_with_agent: "%{agent}}, votre compte a \xC3\xA9t\xC3\xA9 activ\xC3\xA9"
   account_created: "Votre compte a \xC3\xA9t\xC3\xA9 cr\xC3\xA9\xC3\xA9"
   action: 
     one: Action
@@ -23,40 +23,40 @@ fr:
         login: Login
     errors: 
       full_messages: 
-        format: "{{attribute}} {{message}}"
+        format: "%{attribute}} %{message}}"
       messages: 
         accepted: "doivent \xC3\xAAtre accept\xC3\xA9s"
         blank: "ne peut pas \xC3\xAAtre vide"
         confirmation: "ne correspond pas \xC3\xA0 la confirmation"
         empty: "ne peut pas \xC3\xAAtre vide"
-        equal_to: "doit \xC3\xAAtre \xC3\xA9gal \xC3\xA0 {{count}}"
+        equal_to: "doit \xC3\xAAtre \xC3\xA9gal \xC3\xA0 %{count}}"
         even: "doit \xC3\xAAtre encore"
         exclusion: is reserved
-        greater_than: "doit \xC3\xAAtre sup\xC3\xA9rieure \xC3\xA0 {{count}}"
-        greater_than_or_equal_to: "doit \xC3\xAAtre sup\xC3\xA9rieur ou \xC3\xA9gal \xC3\xA0 {{count}}"
+        greater_than: "doit \xC3\xAAtre sup\xC3\xA9rieure \xC3\xA0 %{count}}"
+        greater_than_or_equal_to: "doit \xC3\xAAtre sup\xC3\xA9rieur ou \xC3\xA9gal \xC3\xA0 %{count}}"
         inclusion: n&#39;est pas inclus dans la liste
         invalid: n&#39;est pas valide
-        less_than: "doit \xC3\xAAtre inf\xC3\xA9rieure \xC3\xA0 {{count}}"
-        less_than_or_equal_to: "doit \xC3\xAAtre inf\xC3\xA9rieur ou \xC3\xA9gal \xC3\xA0 {{count}}"
+        less_than: "doit \xC3\xAAtre inf\xC3\xA9rieure \xC3\xA0 %{count}}"
+        less_than_or_equal_to: "doit \xC3\xAAtre inf\xC3\xA9rieur ou \xC3\xA9gal \xC3\xA0 %{count}}"
         missing: est manquant
         not_a_number: n&#39;est pas un nombre
         odd: "doit \xC3\xAAtre impair"
-        record_invalid: "La validation a \xC3\xA9chou\xC3\xA9: {{errors}}"
+        record_invalid: "La validation a \xC3\xA9chou\xC3\xA9: %{errors}}"
         taken: has already been taken
-        too_long: "est trop long (maximum est de {{count}} caract\xC3\xA8res)"
-        too_short: "est trop court (minimum est de {{count}} caract\xC3\xA8res)"
-        wrong_length: "est la bonne longueur (devrait \xC3\xAAtre {{count}} caract\xC3\xA8res)"
+        too_long: "est trop long (maximum est de %{count}} caract\xC3\xA8res)"
+        too_short: "est trop court (minimum est de %{count}} caract\xC3\xA8res)"
+        wrong_length: "est la bonne longueur (devrait \xC3\xAAtre %{count}} caract\xC3\xA8res)"
       template: 
         body: "Il y avait des probl\xC3\xA8mes avec les champs suivants:"
         header: 
-          one: "1 erreur interdit cette {{model}} d'\xC3\xAAtre sauv\xC3\xA9"
-          other: "{{Count}} erreurs interdit cette ((mod\xC3\xA8le)) d&#39;\xC3\xAAtre sauv\xC3\xA9"
+          one: "1 erreur interdit cette %{model}} d'\xC3\xAAtre sauv\xC3\xA9"
+          other: "%{Count}} erreurs interdit cette ((mod\xC3\xA8le)) d&#39;\xC3\xAAtre sauv\xC3\xA9"
   add: Ajouter
   add_more_details: "Ajouter plus de d\xC3\xA9tails"
   address: Adresse
   admin: 
     one: Admin
-    space: L'administrateur de {{spacename}}
+    space: L'administrateur de %{spacename}}
   admission: 
     errors: 
       candidate_equals_introducer: "Candidats et introducteur ne peut pas \xC3\xAAtre la m\xC3\xAAme personne. (Vous devriez probablement vous d\xC3\xA9connecter)"
@@ -76,7 +76,7 @@ fr:
       edit: Modifier Divider
       error: 
         coinciding_times: "Il ya un conflit avec le moment de la s\xC3\xA9paration et de nouvelles entr\xC3\xA9es ou des diviseurs de l&#39;ordre du jour en vigueur"
-        date_out_of_event: "La date de la s\xC3\xA9paration d\xC3\xA9passe la dur\xC3\xA9e maximale de l'\xC3\xA9v\xC3\xA9nement: les jours {{max_days}}"
+        date_out_of_event: "La date de la s\xC3\xA9paration d\xC3\xA9passe la dur\xC3\xA9e maximale de l'\xC3\xA9v\xC3\xA9nement: les jours %{max_days}}"
         past_times: "Ce type d&#39;\xC3\xA9v\xC3\xA9nement ne peut pas avoir pass\xC3\xA9"
       failed: "Il y avait un probl\xC3\xA8me avec le diviseur de l&#39;ordre du jour"
       new: diviseur de l&#39;ordre du jour Nouveau
@@ -98,10 +98,10 @@ fr:
         attribute_unchangeable: "Vous avez essay\xC3\xA9 de changer un attribut immuable de cette session"
         coinciding_times: "Il ya un conflit avec le moment de l&#39;entr\xC3\xA9e nouvel ordre du jour et les entr\xC3\xA9es de l&#39;ordre du jour en vigueur ou des diviseurs"
         create: "Erreur de cr\xC3\xA9ation de session dans le syst\xC3\xA8me de vid\xC3\xA9oconf\xC3\xA9rence \xC3\xA0 distance"
-        date_out_of_event: "La date de l'ordre du jour de l'entr\xC3\xA9e d\xC3\xA9passe la dur\xC3\xA9e maximale de l'\xC3\xA9v\xC3\xA9nement: les jours {{max_days}}"
+        date_out_of_event: "La date de l'ordre du jour de l'entr\xC3\xA9e d\xC3\xA9passe la dur\xC3\xA9e maximale de l'\xC3\xA9v\xC3\xA9nement: les jours %{max_days}}"
         delete: "Erreur de suppression de session de syst\xC3\xA8me de visioconf\xC3\xA9rence \xC3\xA0 distance"
         disordered_times: "L&#39;heure de d\xC3\xA9but doit \xC3\xAAtre ant\xC3\xA9rieure \xC3\xA0 l&#39;heure de fin"
-        past_times: "L'heure de d\xC3\xA9but de la session doit \xC3\xAAtre {{min_date}} ou plus tard"
+        past_times: "L'heure de d\xC3\xA9but de la session doit \xC3\xAAtre %{min_date}} ou plus tard"
         update: "Erreur mise \xC3\xA0 jour de session de syst\xC3\xA8me de visioconf\xC3\xA9rence \xC3\xA0 distance"
       failed: "l&#39;ordre du jour d&#39;entr\xC3\xA9e n&#39;a pas pu \xC3\xAAtre sauv\xC3\xA9"
       has_attachment: "Cette entr\xC3\xA9e a des pi\xC3\xA8ces jointes"
@@ -166,15 +166,15 @@ fr:
     delete: Supprimer l&#39;attachement
     deleted: "Pi\xC3\xA8ce jointe supprim\xC3\xA9 avec succ\xC3\xA8s"
     error: 
-      not_deleted: "{{file}} pas supprim\xC3\xA9s correctement."
-      not_permission: "{{user}} cannot delete {{file}}. "
+      not_deleted: "%{file}} pas supprim\xC3\xA9s correctement."
+      not_permission: "%{user}} cannot delete %{file}}. "
     file: "Fichier:"
     found: 
       none: "Pas de fichiers joints trouv\xC3\xA9s"
       one: "1 fichier attach\xC3\xA9 a \xC3\xA9t\xC3\xA9 trouv\xC3\xA9"
-      other: "{{size}} pi\xC3\xA8ces jointes ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
+      other: "%{size}} pi\xC3\xA8ces jointes ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
     home: 
-      one: Fichier dans l&#39;espace {{space}}
+      one: Fichier dans l&#39;espace %{space}}
     info: Informations sur le document
     loading: Chargement des informations ... document
     new: "Nouvelle pi\xC3\xA8ce jointe"
@@ -240,7 +240,7 @@ fr:
   comment: 
     add: Ajouter un commentaire
     add_new: Ajouter un commentaire
-    by: Commentaire par {{author}}
+    by: Commentaire par %{author}}
     delete: Supprimer le commentaire
     edit: Modifier un commentaire
     new: Nouveau commentaire
@@ -275,8 +275,8 @@ fr:
   country: Pays
   create: Create
   created_at: Created at
-  created_at_date: "Cr\xC3\xA9ation: {{date}}"
-  created_time_ago: "Cr\xC3\xA9\xC3\xA9 {{time}} il ya"
+  created_at_date: "Cr\xC3\xA9ation: %{date}}"
+  created_time_ago: "Cr\xC3\xA9\xC3\xA9 %{time}} il ya"
   date: 
     abbr_day_names: 
     - Sun
@@ -338,35 +338,35 @@ fr:
     distance_in_words: 
       about_x_hours: 
         one: 1 heure
-        other: "{{count}} heures"
+        other: "%{count}} heures"
       about_x_months: 
         one: 1 mois
-        other: "{{count}} mois"
+        other: "%{count}} mois"
       about_x_years: 
         one: "1 ann\xC3\xA9e"
-        other: "{{count}} ans"
+        other: "%{count}} ans"
       half_a_minute: une demi-minute
       less_than_x_minutes: 
         one: 1 minute
-        other: "{{count}} minutes"
+        other: "%{count}} minutes"
       less_than_x_seconds: 
         one: 1 seconde
-        other: "{{count}} secondes"
+        other: "%{count}} secondes"
       over_x_years: 
         one: "1 ann\xC3\xA9e"
-        other: "{{count}} ans"
+        other: "%{count}} ans"
       x_days: 
         one: 1 jour
-        other: "{{count}} jours"
+        other: "%{count}} jours"
       x_minutes: 
         one: 1 minute
-        other: "{{count}} minutes"
+        other: "%{count}} minutes"
       x_months: 
         one: 1 mois
-        other: "{{count}} mois"
+        other: "%{count}} mois"
       x_seconds: 
         one: 1 seconde
-        other: "{{count}} secondes"
+        other: "%{count}} secondes"
     prompts: 
       day: Jour
       hour: Heure
@@ -377,7 +377,7 @@ fr:
   days: "Journ\xC3\xA9es"
   dblclick: Double-cliquez pour modifier ...
   delete: 
-    confirm: Delete {{element}}?
+    confirm: Delete %{element}}?
     one: Effacer
     select: "S\xC3\xA9lectionnez cette option pour supprimer"
   deny: Aucun
@@ -396,24 +396,24 @@ fr:
   e-mail: 
     account_activated: "Votre compte \xC3\xA0 (sitename)) (a \xC3\xA9t\xC3\xA9 activ\xC3\xA9 avec succ\xC3\xA8s."
     commas: "(S\xC3\xA9par\xC3\xA9s par des virgules)"
-    confirm: Vous devez maintenant confirmer votre inscription en cliquant sur <a href="{{url}}">{{url}}</a>
-    copy_link: "Si vous ne pouvez pas cliquer sur le lien ci-dessus, s&#39;il vous pla\xC3\xAEt copiez et collez la ligne suivante dans votre navigateur: <br/> {{url}}"
-    dear: Cher {{name}},
+    confirm: Vous devez maintenant confirmer votre inscription en cliquant sur <a href="%{url}}">%{url}}</a>
+    copy_link: "Si vous ne pouvez pas cliquer sur le lien ci-dessus, s&#39;il vous pla\xC3\xAEt copiez et collez la ligne suivante dans votre navigateur: <br/> %{url}}"
+    dear: Cher %{name}},
     invitation_result: 
-      admin_side: "{{name}} has {{action}} the invitation to space {{spacename}}"
-      user_side: The administrator of {{spacename}} has {{action}} your join request
+      admin_side: "%{name}} has %{action}} the invitation to space %{spacename}}"
+      user_side: The administrator of %{spacename}} has %{action}} your join request
     join_request: Joignez-vous Demande
     kind_regards: Cordialement,
     notifications: notifications par email
     one: e-mail
     other: e-mails
-    spam_activation: "Si vous n&#39;avez pas s&#39;inscrire \xC3\xA0 ce site, s&#39;il vous pla\xC3\xAEt <a href=\"mailto:{{contact}}\">contactez-nous</a> ou envoyez-nous <a href=\"{{feedback}}\">les informations.</a>"
-    spam_invitation: "Si vous pensez que ce message est un spam, s&#39;il vous pla\xC3\xAEt <a href=\"mailto:{{contact}}\">contactez-nous</a> ou envoyez-nous <a href=\"{{feedback}}\">les informations.</a>"
-    thanks: Merci de votre visite {{sitename}}
-    url_activated: "Vous pouvez maintenant vous connecter \xC3\xA0 votre compte avec votre email &quot;{{name}}\xC2\xBB et votre mot de passe dans <a href=\"{{url}}\">{{url}}</a>"
-    used_from: "e-mail utilis\xC3\xA9e dans le formulaire de contact: {{dir}}"
+    spam_activation: "Si vous n&#39;avez pas s&#39;inscrire \xC3\xA0 ce site, s&#39;il vous pla\xC3\xAEt <a href=\"mailto:%{contact}}\">contactez-nous</a> ou envoyez-nous <a href=\"%{feedback}}\">les informations.</a>"
+    spam_invitation: "Si vous pensez que ce message est un spam, s&#39;il vous pla\xC3\xAEt <a href=\"mailto:%{contact}}\">contactez-nous</a> ou envoyez-nous <a href=\"%{feedback}}\">les informations.</a>"
+    thanks: Merci de votre visite %{sitename}}
+    url_activated: "Vous pouvez maintenant vous connecter \xC3\xA0 votre compte avec votre email &quot;%{name}}\xC2\xBB et votre mot de passe dans <a href=\"%{url}}\">%{url}}</a>"
+    used_from: "e-mail utilis\xC3\xA9e dans le formulaire de contact: %{dir}}"
     vcc_team: "L&#39;\xC3\xA9quipe VCC"
-    welcome: "Bienvenue \xC3\xA0 {{sitename}}"
+    welcome: "Bienvenue \xC3\xA0 %{sitename}}"
   edit: "\xC3\x89diter"
   edit_hours: Modifier heures
   edit_profile: Modifier le profil
@@ -500,7 +500,7 @@ fr:
     found: 
       none: "Aucune manifestation trouv\xC3\xA9e"
       one: 1 event was found
-      other: "{{size}} \xC3\xA9v\xC3\xA9n\xC3\xA9ments ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
+      other: "%{size}} \xC3\xA9v\xC3\xA9n\xC3\xA9ments ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
     future: "\xC3\x89v\xC3\xA9nement futur"
     generate_pdf: Generate PDF
     has: "Cet \xC3\xA9v\xC3\xA9nement a"
@@ -517,11 +517,11 @@ fr:
       organisers: "S\xC3\xA9lectionnez les utilisateurs espace qui organisera cet \xC3\xA9v\xC3\xA9nement"
       without_str: "Pour obtenir le streaming et / ou d&#39;enregistrement, s&#39;il vous pla\xC3\xAEt l&#39;indiquer dans votre calendrier"
     home: 
-      one: "L&#39;\xC3\xA9v\xC3\xA9nement dans l&#39;espace {{space}}"
+      one: "L&#39;\xC3\xA9v\xC3\xA9nement dans l&#39;espace %{space}}"
     invite: Inviter des personnes
     join: "Joignez-vous \xC3\xA0 cet \xC3\xA9v\xC3\xA9nement"
-    last_7_days: Les 7 derniers jours ({{size}})
-    last_month: Le mois dernier ({{size}})
+    last_7_days: Les 7 derniers jours (%{size}})
+    last_month: Le mois dernier (%{size}})
     location: Emplacement
     logo: 
       button: Changer le logo
@@ -552,15 +552,15 @@ fr:
       label: Personnalisez votre message de notification
       legend: 
         name: "\xC2\xABNom\xC2\xBB sera remplac\xC3\xA9 dans le message par le nom du destinataire."
-      message_beginning_with_start_date: "<p> \xC2\xABNom\xC2\xBB, </p><p> En ce qui concerne <b>l&#39;\xC3\xA9v\xC3\xA9nement \xC2\xABEVENT_NAME\xC2\xBB dans l&#39;espace {{space}}</b> sur \xC2\xABevent_date: </p>"
-      message_beginning_without_start_date: "<p> \xC2\xABNom\xC2\xBB, </p><p> En ce qui concerne <b>l&#39;\xC3\xA9v\xC3\xA9nement \xC2\xABEVENT_NAME\xC2\xBB dans l&#39;espace {{space}}:</b> </p>"
-      message_ending: <p>You can find more information about the event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      message_beginning_with_start_date: "<p> \xC2\xABNom\xC2\xBB, </p><p> En ce qui concerne <b>l&#39;\xC3\xA9v\xC3\xA9nement \xC2\xABEVENT_NAME\xC2\xBB dans l&#39;espace %{space}}</b> sur \xC2\xABevent_date: </p>"
+      message_beginning_without_start_date: "<p> \xC2\xABNom\xC2\xBB, </p><p> En ce qui concerne <b>l&#39;\xC3\xA9v\xC3\xA9nement \xC2\xABEVENT_NAME\xC2\xBB dans l&#39;espace %{space}}:</b> </p>"
+      message_ending: <p>You can find more information about the event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
       message_title: Envoyer une notification aux agents de
       personal: "\xC3\x89crivez votre texte personnel ici."
       select_all_attendants: "S\xC3\xA9lectionner l&#39;ensemble des agents de"
       selected_attendants: "Les accompagnateurs vous souhaitez informer:"
       show_all_attendants: Voir tous les agents de
-      subject: "{{username}} has sent a notification to you about event {{eventname}} in space {{space}}"
+      subject: "%{username}} has sent a notification to you about event %{eventname}} in space %{space}}"
       title: "Avertissez les agents de l&#39;\xC3\xA9v\xC3\xA9nement"
     now: "Manifestations en ce moment:"
     one: Event
@@ -574,7 +574,7 @@ fr:
       title: Participation
       will_be_available: "La participation sera disponible pendant l&#39;\xC3\xA9v\xC3\xA9nement"
     past: 
-      all: "Toutes les derni\xC3\xA8res ({{size}})"
+      all: "Toutes les derni\xC3\xA8res (%{size}})"
       last_month: "Aucun \xC3\xA9v\xC3\xA9nement pour le mois dernier."
       last_week: "Pas d&#39;activit\xC3\xA9 pour la semaine derni\xC3\xA8re."
       none: "Aucun \xC3\xA9v\xC3\xA9nement pass\xC3\xA9"
@@ -609,15 +609,15 @@ fr:
       will_be_available: "Le streaming sera disponible pendant l&#39;\xC3\xA9v\xC3\xA9nement"
     to: To
     today: "Les \xC3\xA9v\xC3\xA9nements d&#39;aujourd&#39;hui"
-    today_and_yesterday: Hier et aujourd&#39;hui ({{size}})
-    today_size: Aujourd&#39;hui ({{size}})
+    today_and_yesterday: Hier et aujourd&#39;hui (%{size}})
+    today_size: Aujourd&#39;hui (%{size}})
     tomorrow: "Demain \xC3\xA9v\xC3\xA9nements"
     undated: 
       none: "Il n&#39;y a pas d&#39;\xC3\xA9v\xC3\xA9nements sans ordre du jour"
       show: "Afficher tous les \xC3\xA9v\xC3\xA9nements sans date"
       title: "Ev\xC3\xA9nements sans ordre du jour d\xC3\xA9fini"
     upcoming: 
-      all: "Tous \xC3\xA0 venir ({{size}})"
+      all: "Tous \xC3\xA0 venir (%{size}})"
       next_month: "Il n&#39;y a aucun \xC3\xA9v\xC3\xA9nement pour le mois prochain"
       next_week: "Il n&#39;y a pas d&#39;\xC3\xA9v\xC3\xA9nements pour la semaine prochaine"
       none: "Aucun \xC3\xA9v\xC3\xA9nement \xC3\xA0 venir"
@@ -635,8 +635,8 @@ fr:
     view_streaming: Streaming
     view_streaming_disabled: "Streaming disponibles durant l&#39;\xC3\xA9v\xC3\xA9nement"
     will_attend: "Pr\xC3\xA9voyez-vous assister \xC3\xA0 cet \xC3\xA9v\xC3\xA9nement?"
-    within_7_days: Dans les 7 jours ({{size}})
-    within_a_month: Moins d&#39;un mois ({{size}})
+    within_7_days: Dans les 7 jours (%{size}})
+    within_a_month: Moins d&#39;un mois (%{size}})
   event_invitation: 
     accepted: "Vous avez accept\xC3\xA9 l&#39;invitation \xC3\xA0 cet \xC3\xA9v\xC3\xA9nement"
     clarify_registered: "S&#39;il vous pla\xC3\xAEt introduire votre mot de passe pour confirmer votre pr\xC3\xA9sence \xC3\xA0 l&#39;\xC3\xA9v\xC3\xA9nement"
@@ -660,7 +660,7 @@ fr:
   export_widget: Export Widget
   fax: Fax
   feedback: 
-    email: "{{email}} envoy\xC3\xA9 le commentaire suivant:"
+    email: "%{email}} envoy\xC3\xA9 le commentaire suivant:"
     note: "Aidez-nous \xC3\xA0 am\xC3\xA9liorer VCC. S&#39;il vous pla\xC3\xAEt envoyer vos commentaires, probl\xC3\xA8mes et suggestions. Nous allons essayer de r\xC3\xA9pondre le plus t\xC3\xB4t possible"
     one: "R\xC3\xA9action"
     send: Envoyer des commentaires
@@ -673,7 +673,7 @@ fr:
   find_in: "Rechercher dans:"
   find_in_day: "Trouvez dans la journ\xC3\xA9e:"
   find_in_name_speakers: "Trouvez le nom / haut-parleurs:"
-  follow_reset_password: "{{agent}}, please follow the link to reset your password"
+  follow_reset_password: "%{agent}}, please follow the link to reset your password"
   form: 
     loading: "Le formulaire est charg\xC3\xA9 ..."
   from: "\xC3\x80 partir de"
@@ -699,28 +699,28 @@ fr:
       sentence1: "Vid\xC3\xA9oconf\xC3\xA9rence enregistrement et de streaming"
       sentence2: "r\xC3\xA9f\xC3\xA9rentiels de documents et de la vid\xC3\xA9o"
       sentence3: Vos contacts et les relations
-    stats: "{{vc}} videoconferences organized - {{vs}} videos stored"
+    stats: "%{vc}} videoconferences organized - %{vs}} videos stored"
   getting_started: Mise en route!
   group: 
     add_to_group: Ajouter au groupe
     add_to_others: Ajouter d&#39;autres groupes
     create: "Cr\xC3\xA9er un nouveau groupe"
-    created: "Groupe {{name}} cr\xC3\xA9\xC3\xA9 avec succ\xC3\xA8s"
+    created: "Groupe %{name}} cr\xC3\xA9\xC3\xA9 avec succ\xC3\xA8s"
     delete: Supprimer le groupe
-    deleted: "Groupe {{name}} supprim\xC3\xA9 avec succ\xC3\xA8s"
+    deleted: "Groupe %{name}} supprim\xC3\xA9 avec succ\xC3\xA8s"
     different: D&#39;autres groupes
     edit: "\xC3\x89diter le groupe"
     existing: "le nom a d\xC3\xA9j\xC3\xA0 \xC3\xA9t\xC3\xA9 prises"
     join: Rejoindre ce groupe
     mailing_list: liste de diffusion
     name: Nom du groupe
-    not_deleted: Erreur de suppression du groupe {{name}}
+    not_deleted: Erreur de suppression du groupe %{name}}
     not_valid: Le groupe n&#39;est pas valide
     one: Groupe
     other: Groupes
     send_message: "Envoyer un message \xC3\xA0 ce groupe"
-    updated: "Groupe {{name}} mis \xC3\xA0 jour avec succ\xC3\xA8s"
-  groups_and_results: "Groupes, {{size}} r\xC3\xA9sultats"
+    updated: "Groupe %{name}} mis \xC3\xA0 jour avec succ\xC3\xA8s"
+  groups_and_results: "Groupes, %{size}} r\xC3\xA9sultats"
   hcard: 
     not_found: "hCard pas trouv\xC3\xA9"
   hello: Bonjour
@@ -743,7 +743,7 @@ fr:
     part9: "8. Vous pouvez utiliser l&#39;\xC3\xA9diteur avanc\xC3\xA9 pour inclure le contenu. Cet \xC3\xA9diteur vous permet de:"
   help_createspace: 
     part1: "Pour cr\xC3\xA9er un espace dans VCC:"
-    part2: 1. Cliquez sur <a href={{url}}>Ma page d&#39;accueil</a> dans la barre de menu du haut.
+    part2: 1. Cliquez sur <a href=%{url}}>Ma page d&#39;accueil</a> dans la barre de menu du haut.
     part3: "2. Cliquez sur le bouton Cr\xC3\xA9er un nouveau Space."
     part4: 3. Ajouter un nom et une description de votre espace.
     part5: "4. D\xC3\xA9cider si l&#39;espace devrait \xC3\xAAtre public."
@@ -751,7 +751,7 @@ fr:
     part7: "6. Vous pouvez associer une liste de diffusion de votre groupe. Il vous permettra d&#39;envoyer des messages e-mail \xC3\xA0 votre groupe au lieu d&#39;avoir \xC3\xA0 s\xC3\xA9lectionner individuellement les adresses \xC3\xA0 chaque fois."
   help_createuser: 
     part1: "Pour cr\xC3\xA9er un utilisateur dans VCC:"
-    part2: 1. Cliquez sur <a href={{url}}>enregistrer</a> dans la barre de menu du haut.
+    part2: 1. Cliquez sur <a href=%{url}}>enregistrer</a> dans la barre de menu du haut.
     part3: 2. Tapez un e-mail, mot de passe et le nom complet.
     part4: "3. Tapez le code de l&#39;image a montr\xC3\xA9."
     part5: "4. Une fois que vous avez termin\xC3\xA9 votre inscription, cliquez sur le bouton Termin\xC3\xA9."
@@ -759,9 +759,9 @@ fr:
   help_index: 
     part1: "La Conf\xC3\xA9rence virtuelle Centre (VCC) est une application Web d\xC3\xA9velopp\xC3\xA9e par l&#39;Universidad Polit\xC3\xA9cnica de Madrid (UPM) dans le cadre du projet GLOBAL, un projet de recherche soutenu par le programme europ\xC3\xA9en fausses identifications septi\xC3\xA8me programme-cadre."
     part2: "Le VCC offre un service de cr\xC3\xA9ation distribu\xC3\xA9s \xC3\xA9v\xC3\xA9nements, de petites r\xC3\xA9unions de grandes conf\xC3\xA9rences. Les utilisateurs peuvent participer en personne ou suivez-les en ligne. Manifestations et le contenu qui s&#39;y rapportent sont organis\xC3\xA9es dans des espaces qui offrent \xC3\xA9galement \xC3\xA0 l&#39;utilisateur la possibilit\xC3\xA9 de cr\xC3\xA9er des messages dans le mur de communiquer avec les autres participants dans l&#39;espace ou de t\xC3\xA9l\xC3\xA9charger des documents ou des photos \xC3\xA0 partager."
-    part3: "Pour cr\xC3\xA9er ou modifier des espaces, vous devez \xC3\xAAtre connect\xC3\xA9 \xC3\xA0 votre compte VCC. Si vous n&#39;avez pas un compte, <a href={{url}}>en cr\xC3\xA9er un maintenant</a> ."
+    part3: "Pour cr\xC3\xA9er ou modifier des espaces, vous devez \xC3\xAAtre connect\xC3\xA9 \xC3\xA0 votre compte VCC. Si vous n&#39;avez pas un compte, <a href=%{url}}>en cr\xC3\xA9er un maintenant</a> ."
   help_logging: 
-    part1: "Si vous poss\xC3\xA9dez d\xC3\xA9j\xC3\xA0 un compte VCC, vous pouvez <a href={{url}}>vous connecter ici</a> ou cliquez sur le point de connexion dans la barre de menu du haut. Entrez votre e-mail et mot de passe \xC3\xA0 l&#39;\xC3\xA9cran principal."
+    part1: "Si vous poss\xC3\xA9dez d\xC3\xA9j\xC3\xA0 un compte VCC, vous pouvez <a href=%{url}}>vous connecter ici</a> ou cliquez sur le point de connexion dans la barre de menu du haut. Entrez votre e-mail et mot de passe \xC3\xA0 l&#39;\xC3\xA9cran principal."
     part2: Vous pouvez vous connecter automatiquement si vous avez un compte chez un fournisseur OpenID.
     part3: "Si vous avez oubli\xC3\xA9 votre mot de passe, vous pouvez utiliser ce formulaire pour le r\xC3\xA9cup\xC3\xA9rer et le faire automatiquement envoy\xC3\xA9 par courriel."
   help_newdoc: 
@@ -830,8 +830,8 @@ fr:
   invitation: 
     accept: Accepter l&#39;invitation
     accepted: "Vous avez accept\xC3\xA9 l&#39;invitation"
-    accepted_by: "{{candidate}} accepted the invitation"
-    access_space: You are now a member of {{spacename}} and now you can access it on <a href="{{space_url}}"> {{space_url}} </a>
+    accepted_by: "%{candidate}} accepted the invitation"
+    access_space: You are now a member of %{spacename}} and now you can access it on <a href="%{space_url}}"> %{space_url}} </a>
     add_more: Inviter des personnes plus
     comment: Commentaire
     confirm_delete: Supprimer invitation?
@@ -839,12 +839,12 @@ fr:
     deselect_all_users: "D\xC3\xA9s\xC3\xA9lectionner tous les utilisateurs"
     discard: Jeter invitation
     discarded: "L&#39;invitation a \xC3\xA9t\xC3\xA9 \xC3\xA9cart\xC3\xA9e"
-    discarded_by: "{{candidate}} discarded the invitation"
+    discarded_by: "%{candidate}} discarded the invitation"
     email: E-mail
     hide_all_users: Masquer tous les utilisateurs
     info_event: "Vous pouvez trouver plus d&#39;informations sur cet \xC3\xA9v\xC3\xA9nement dans \xC2\xABevent_url &#39;"
-    info_space: You can find more information about this space in <a href="{{space_url}}"> {{space_url}} </a>
-    info_users: You can see the current list of users of the space in <a href="{{users_url}}"> {{users_url}} </a>
+    info_space: You can find more information about this space in <a href="%{space_url}}"> %{space_url}} </a>
+    info_users: You can see the current list of users of the space in <a href="%{users_url}}"> %{users_url}} </a>
     introducer: Introducteur
     label: Personnalisez votre invitation message
     legend: 
@@ -853,15 +853,15 @@ fr:
     logout_and_reload: "Vous n&#39;\xC3\xAAtes pas l&#39;utilisateur qui a re\xC3\xA7u cette invitation, s&#39;il vous pla\xC3\xAEt logout et essayez \xC3\xA0 nouveau"
     message_title: "Invitez les gens \xC3\xA0 se joindre \xC3\xA0 votre espace"
     message_with_start_date: 
-      in_person: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      meeting: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      in_person: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      meeting: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
       teleconference: |
-        <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+        <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
 
     message_without_start_date: 
-      in_person: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      meeting: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      teleconference: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      in_person: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      meeting: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      teleconference: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
     new: 
       other: Nouvelle invitation
     not_accepted: "pas accept\xC3\xA9"
@@ -876,23 +876,23 @@ fr:
     pending: 
       other: Dans l&#39;attente des invitations
     personal: "\xC3\x89crivez votre texte personnel ici."
-    rejoin_space: If you would like to request membership again please go to <a href="{{space_url}}"> {{space_url}} </a>
+    rejoin_space: If you would like to request membership again please go to <a href="%{space_url}}"> %{space_url}} </a>
     role: Role
     role_label: "Un r\xC3\xB4le pour les personnes invit\xC3\xA9es"
     select_all_users: "S\xC3\xA9lectionnez tous les utilisateurs"
     send: 
       one: Envoyer une invitation
-    show: "Joignez-vous \xC3\xA0 {{group}}"
+    show: "Joignez-vous \xC3\xA0 %{group}}"
     show_all_users: Voir tous les utilisateurs
-    sign: Cordialement, {{username}}
-    space: I would like to invite you to {{space}} space in the Virtual Conference Centre.
-    subject: "{{username}} has invited you to an event in {{space}} space"
+    sign: Cordialement, %{username}}
+    space: I would like to invite you to %{space}} space in the Virtual Conference Centre.
+    subject: "%{username}} has invited you to an event in %{space}} space"
     title: Inviter des personnes
     title2: Space Invitation
-    to_accept: "Pour accepter mon invitation s&#39;il vous pla\xC3\xAEt visitez <a href={{url}}>{{url}}</a>"
-    to_accept_space: "Pour accepter mon invitation s&#39;il vous pla\xC3\xAEt visitez {{url}}"
-    to_event: "{{username}} invites you to event {{eventname}} in space {{space}}"
-    to_space: "{{username}} vous invite \xC3\xA0 l&#39;espace {{space}}"
+    to_accept: "Pour accepter mon invitation s&#39;il vous pla\xC3\xAEt visitez <a href=%{url}}>%{url}}</a>"
+    to_accept_space: "Pour accepter mon invitation s&#39;il vous pla\xC3\xAEt visitez %{url}}"
+    to_event: "%{username}} invites you to event %{eventname}} in space %{space}}"
+    to_space: "%{username}} vous invite \xC3\xA0 l&#39;espace %{space}}"
     was_processed: 
       accepted: "Invitation a d\xC3\xA9j\xC3\xA0 accept\xC3\xA9"
       discarded: "L&#39;invitation a d\xC3\xA9j\xC3\xA0 \xC3\xA9t\xC3\xA9 mis au rebut"
@@ -905,9 +905,9 @@ fr:
   join_request: 
     accepted: "Joignez-vous Demande accept\xC3\xA9e"
     already_sent: "Vous avez d\xC3\xA9j\xC3\xA0 demand\xC3\xA9 \xC3\xA0 rejoindre cet espace"
-    ask_subject: "{{candidate}} wants to participate in {{space}}"
-    asked: "<b>{{candidate}}</b> wants to participate in {{space}} space administered by you:"
-    asked_anonymous: "Someone wants to participate in {{space}} space administered by you:"
+    ask_subject: "%{candidate}} wants to participate in %{space}}"
+    asked: "<b>%{candidate}}</b> wants to participate in %{space}} space administered by you:"
+    asked_anonymous: "Someone wants to participate in %{space}} space administered by you:"
     created: "Votre demande de rejoindre a \xC3\xA9t\xC3\xA9 envoy\xC3\xA9 aux administrateurs l&#39;espace"
     discarded: "Joignez-vous Demande jet\xC3\xA9s"
     joined: "Vous \xC3\xAAtes d\xC3\xA9j\xC3\xA0 membre de l&#39;espace"
@@ -923,15 +923,15 @@ fr:
       other: Dans l&#39;attente de rejoindre demandes
     personal: "\xC3\x89crivez votre texte personnel ici."
     send: Envoyer rejoindre demande
-    to_accept: "Pour r\xC3\xA9pondre \xC3\xA0 la demande s&#39;il vous pla\xC3\xAEt visitez <a href=\"{{url}}\">{{url}}</a>"
+    to_accept: "Pour r\xC3\xA9pondre \xC3\xA0 la demande s&#39;il vous pla\xC3\xAEt visitez <a href=\"%{url}}\">%{url}}</a>"
     updated: "Joignez-vous Demande mise \xC3\xA0 jour"
-  join_to_site: "Joignez-vous \xC3\xA0 {{site}}"
+  join_to_site: "Joignez-vous \xC3\xA0 %{site}}"
   keywords: "Mots-cl\xC3\xA9s (*)"
   language: Langue
   last_week: "La semaine derni\xC3\xA8re,"
   latest_events: "Les derniers \xC3\xA9v\xC3\xA9nements"
   latest_news: "Derni\xC3\xA8res nouvelles"
-  layout_footnote: "{{site}} is based on {{plugin}}. Design by {{designer}}."
+  layout_footnote: "%{site}} is based on %{plugin}}. Design by %{designer}}."
   list_by: Liste par
   locale: 
     changed: "Langue de la candidature chang\xC3\xA9"
@@ -941,7 +941,7 @@ fr:
   login: Login
   login_or_register: Connexion / S&#39;inscrire
   login_request: "Vous devez \xC3\xAAtre connect\xC3\xA9 pour"
-  login_to: "Connectez-vous \xC3\xA0 {{site}}"
+  login_to: "Connectez-vous \xC3\xA0 %{site}}"
   login_traditional: Utilisateur / mot de passe de connexion
   logo: 
     click_to_change: Cliquez ici pour changer le logo
@@ -952,11 +952,11 @@ fr:
     error: 
       not_valid: Logo n&#39;est pas valide
     one: Logo
-  logout: Sortir {{user}}
+  logout: Sortir %{user}}
   mailing_list: 
     associate: "liste de diffusion associ\xC3\xA9 \xC3\xA0 votre groupe"
     invalid: "La liste de diffusion contient des caract\xC3\xA8res incorrects. Seules les lettres, chiffres, souligne et traits d&#39;union sont autoris\xC3\xA9s"
-    reserved: The mailing list {{systemMailingList}} is reserved
+    reserved: The mailing list %{systemMailingList}} is reserved
   manage: Manage
   management: gestion
   mark_checkbox: "Cochez la case appropri\xC3\xA9e"
@@ -1043,29 +1043,29 @@ fr:
   online: en ligne
   openid: 
     client: 
-      associating_to_id: "Associer \xC3\xA0 OpenID: {{id}}"
-      discovery_failed: "Discovery a \xC3\xA9chou\xC3\xA9 pour {{id}}: {{error}}"
-      id_attached_to_account: "OpenID: {{id}} li\xC3\xA9 \xC3\xA0 votre compte"
+      associating_to_id: "Associer \xC3\xA0 OpenID: %{id}}"
+      discovery_failed: "Discovery a \xC3\xA9chou\xC3\xA9 pour %{id}}: %{error}}"
+      id_attached_to_account: "OpenID: %{id}} li\xC3\xA9 \xC3\xA0 votre compte"
       immediate_request_failed: "demande imm\xC3\xA9diate a \xC3\xA9chou\xC3\xA9 - le programme d&#39;installation n\xC3\xA9cessaire"
       transaction_cancelled: "OpenID transaction annul\xC3\xA9e"
-      verification_failed: "La v\xC3\xA9rification a \xC3\xA9chou\xC3\xA9: {{message}}"
-      verification_failed_with_id: "V\xC3\xA9rification de la {{id}} a \xC3\xA9chou\xC3\xA9: {{message}}"
-      verification_succeeded_with_id: "V\xC3\xA9rification de la {{id}} r\xC3\xA9ussi"
+      verification_failed: "La v\xC3\xA9rification a \xC3\xA9chou\xC3\xA9: %{message}}"
+      verification_failed_with_id: "V\xC3\xA9rification de la %{id}} a \xC3\xA9chou\xC3\xA9: %{message}}"
+      verification_succeeded_with_id: "V\xC3\xA9rification de la %{id}} r\xC3\xA9ussi"
     enter: Entrez votre OpenID
     have: Avez-vous un OpenID? Cliquez sur le logo!
     login: Connexion avec OpenID
     server: 
-      about_login_to: "Vous \xC3\xAAtes sur Connectez-vous \xC3\xA0 {{server}}"
+      about_login_to: "Vous \xC3\xAAtes sur Connectez-vous \xC3\xA0 %{server}}"
       anti_phishing: "Cette page a pas de liens pour \xC3\xA9viter le <i>phishing.</i> Vous devez entrer vous-m\xC3\xAAme l&#39;adresse dans votre navigateur."
       cancel: Non, d&#39;annuler
       decision: "Vous devez prendre une d\xC3\xA9cision:"
       endpoint: Il s&#39;agit d&#39;un point de terminaison du serveur OpenID
-      invalid_uri: "Cette identit\xC3\xA9 ne vous appartient pas: {{uri}}"
-      login_to: "Connectez-vous \xC3\xA0 {{server}}"
-      must_login: Vous devez vous connecter {{server}}
+      invalid_uri: "Cette identit\xC3\xA9 ne vous appartient pas: %{uri}}"
+      login_to: "Connectez-vous \xC3\xA0 %{server}}"
+      must_login: Vous devez vous connecter %{server}}
       once: Oui, mais cette fois
-      optional_information_by: "Informations facultatives demand\xC3\xA9es par {{server}}"
-      required_information_by: Required information requested by {{server}}
+      optional_information_by: "Informations facultatives demand\xC3\xA9es par %{server}}"
+      required_information_by: Required information requested by %{server}}
       trust: "Oui, rappelez-vous d\xC3\xA8s maintenant"
     title: OpenID
   or: ou
@@ -1083,11 +1083,11 @@ fr:
   password: 
     confirm: Confirmer mot de passe
     one: Mot de passe
-    request: "r\xC3\xA9initialiser mot de passe dans {{sitename}}"
-    reset_email: "Votre mot de passe a \xC3\xA9t\xC3\xA9 r\xC3\xA9initialis\xC3\xA9 \xC3\xA0 {{sitename}}"
-    to_reset: "Pour r\xC3\xA9initialiser votre mot de passe s&#39;il vous pla\xC3\xAEt visitez <a href={{url}}>{{url}}</a>"
+    request: "r\xC3\xA9initialiser mot de passe dans %{sitename}}"
+    reset_email: "Votre mot de passe a \xC3\xA9t\xC3\xA9 r\xC3\xA9initialis\xC3\xA9 \xC3\xA0 %{sitename}}"
+    to_reset: "Pour r\xC3\xA9initialiser votre mot de passe s&#39;il vous pla\xC3\xAEt visitez <a href=%{url}}>%{url}}</a>"
   password_has_been_reset: "Votre mot de passe a \xC3\xA9t\xC3\xA9 r\xC3\xA9initialis\xC3\xA9"
-  password_has_been_reset_with_agent: "{{agent}}, your password has been reset"
+  password_has_been_reset_with_agent: "%{agent}}, your password has been reset"
   password_reset: Mot de Passe
   password_reset_link_sent_to_email_address: "Un lien permettant de r\xC3\xA9initialiser mot de passe a \xC3\xA9t\xC3\xA9 envoy\xC3\xA9 \xC3\xA0 l&#39;adresse email"
   past: Past
@@ -1105,7 +1105,7 @@ fr:
     new: Nouveau membre
     one: Membre
     other: Membres
-    other_in: Les membres de {{stage}}
+    other_in: Les membres de %{stage}}
     read: 
       one: Les performances de lecture
       other: Performances Lire
@@ -1131,23 +1131,23 @@ fr:
   popularity: "Popularit\xC3\xA9"
   post: 
     created: "Message cr\xC3\xA9\xC3\xA9"
-    deleted: "Commentaire {{postname}} a \xC3\xA9t\xC3\xA9 supprim\xC3\xA9"
+    deleted: "Commentaire %{postname}} a \xC3\xA9t\xC3\xA9 supprim\xC3\xA9"
     error: 
       empty: "Le message ne peut pas \xC3\xAAtre vide"
       not_valid: Le commentaire n&#39;est pas valide
     found: 
       none: "Aucun message trouv\xC3\xA9"
       one: "1 message a \xC3\xA9t\xC3\xA9 trouv\xC3\xA9"
-      other: "{{size}} messages ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
+      other: "%{size}} messages ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
       show_all: "Afficher tous les r\xC3\xA9sultats"
     home: 
-      one: Message dans l&#39;espace {{space}}
+      one: Message dans l&#39;espace %{space}}
     latest: Derniers messages
     none_created: "Aucun message cr\xC3\xA9\xC3\xA9"
     none_recent: "Il n&#39;ya pas de messages r\xC3\xA9cents"
     one: Message
     other: Messages
-    other_in_space: Messages dans l&#39;espace {{space}}
+    other_in_space: Messages dans l&#39;espace %{space}}
     show_expanded_pref: Comment aimeriez-vous voir vos messages?
     updated: "Message mis \xC3\xA0 jour"
     wall: Mur
@@ -1172,7 +1172,7 @@ fr:
     private_description: Cette information n&#39;est visible que pour les personnes de votre choix lorsque vous modifiez votre profil
     public: Profil public
     public_description: "N&#39;importe qui peut acc\xC3\xA9der \xC3\xA0 cette information"
-    should_create: "Vous devez <a href={{path}}>cr\xC3\xA9er</a> votre profil. Il est tr\xC3\xA8s utile."
+    should_create: "Vous devez <a href=%{path}}>cr\xC3\xA9er</a> votre profil. Il est tr\xC3\xA8s utile."
     updated: "Profil mis \xC3\xA0 jour avec succ\xC3\xA8s"
     visibility: "Visibilit\xC3\xA9"
     visibility_description: "Choisir qui sera capable de voir votre profil priv\xC3\xA9"
@@ -1187,12 +1187,12 @@ fr:
   read: Lire
   read_more: Lire la suite
   read_more>>: lire la suite&gt;&gt;
-  received_message_more_machines: "Vous avez re\xC3\xA7u un message de {{user}} demandent plus de machines"
+  received_message_more_machines: "Vous avez re\xC3\xA7u un message de %{user}} demandent plus de machines"
   recent: 
     activity: "L&#39;activit\xC3\xA9 r\xC3\xA9cente"
   register: 
     one: S&#39;inscrire
-    thank_you: Bienvenue et merci pour l&#39;enregistrement dans {{sitename}}
+    thank_you: Bienvenue et merci pour l&#39;enregistrement dans %{sitename}}
   register_as_admin: Inscrivez-vous comme admin
   register_as_invited: "Inscrivez-vous comme invit\xC3\xA9"
   register_as_user: Inscrivez-vous comme utilisateur
@@ -1201,8 +1201,8 @@ fr:
   remember_me: Se souvenir de moi
   remove: Supprimer
   reply: "R\xC3\xA9ponse"
-  reply_to: Reply to {{words}}
-  reply_to_words: "R\xC3\xA9pondre \xC3\xA0 {{words}}"
+  reply_to: Reply to %{words}}
+  reply_to_words: "R\xC3\xA9pondre \xC3\xA0 %{words}}"
   report_spam: Signaler comme spam
   repository: 
     add_document: Ajouter nouveau document
@@ -1226,7 +1226,7 @@ fr:
     other: Ressources
   role: 
     add: "Ajouter le r\xC3\xB4le ..."
-    added: "{{role}} role successfully added to {{agent}}"
+    added: "%{role}} role successfully added to %{agent}}"
     change: "Changer le r\xC3\xB4le ..."
     confirm_delete: "R\xC3\xB4le Supprimer?"
     created: Role was successfully created.
@@ -1236,7 +1236,7 @@ fr:
     invalid: "R\xC3\xB4le n&#39;est pas valide"
     listing: "Liste des r\xC3\xB4les"
     name: Nom
-    name_permissions: "{{name}} autorisations"
+    name_permissions: "%{name}} autorisations"
     new: "Nouveau r\xC3\xB4le"
     none: "Aucun r\xC3\xB4le attribu\xC3\xA9"
     one: Role
@@ -1330,10 +1330,10 @@ fr:
     created: "Source cr\xC3\xA9\xC3\xA9 avec succ\xC3\xA8s"
     errors: 
       content_type: 
-        invalid: "is invalid: {{content_type}}"
-      dereference: "Impossible de se connecter \xC3\xA0 la source {{uri}}"
+        invalid: "is invalid: %{content_type}}"
+      dereference: "Impossible de se connecter \xC3\xA0 la source %{uri}}"
       multiple_feeds: Source a plusieurs fils
-      parse: Impossible d&#39;analyser l&#39;alimentation {{uri}}
+      parse: Impossible d&#39;analyser l&#39;alimentation %{uri}}
     imported_at: "Import\xC3\xA9s au"
     one: Source
     other: Sources
@@ -1363,7 +1363,7 @@ fr:
     enable: Activer l&#39;espace
     enabled: "L&#39;espace a permis avec succ\xC3\xA8s"
     error: 
-      enabled: "Space {{name}} est d\xC3\xA9j\xC3\xA0 activ\xC3\xA9"
+      enabled: "Space %{name}} est d\xC3\xA9j\xC3\xA0 activ\xC3\xA9"
     group_not_belong: "n&#39;appartiennent pas au m\xC3\xAAme espace que le groupe"
     is_private: "est un espace priv\xC3\xA9. Envoyer une jointure demande \xC3\xA0 l&#39;administrateur de cet espace pour vous laisser"
     join: "Joignez-vous \xC3\xA0 cet espace"
@@ -1414,7 +1414,7 @@ fr:
       check: "Il y avait un probl\xC3\xA8me de marquage de la ressource comme spam"
     no_spam: "F\xC3\xA9licitations! Pas de spam ici"
     report: Signaler comme spam
-    reported: "{{name}} a signal\xC3\xA9 spam dans {{sitename}}"
+    reported: "%{name}} a signal\xC3\xA9 spam dans %{sitename}}"
     valid: Ce contenu est valide
   stage: 
     all: Tous
@@ -1440,11 +1440,11 @@ fr:
     one: balise
     other: tags
     other_capital: Tags
-    other_in: Tags in {{container}}
+    other_in: Tags in %{container}}
     selected: 
       one: "Choisissez un tag:"
       other: "Mots-cl\xC3\xA9s s\xC3\xA9lectionn\xC3\xA9s:"
-    show_title: Tagged avec {{tag}}
+    show_title: Tagged avec %{tag}}
     start: "Commencez \xC3\xA0 taper .."
   tags: Tags
   tags_by: "Tags par:"
@@ -1453,7 +1453,7 @@ fr:
   the_string: "la cha\xC3\xAEne"
   thread: 
     add: "Cr\xC3\xA9er un nouveau message"
-    comments: "{{children}} commentaires"
+    comments: "%{children}} commentaires"
     compact_view: Basculez en mode compact
     deleted: "Message (avec ses commentaires) a \xC3\xA9t\xC3\xA9 supprim\xC3\xA9"
     edit: Modifier le message
@@ -1463,8 +1463,8 @@ fr:
     other: Threads
     see_less: Souhaitez compresser tous les messages?
     see_more: Vous voulez en savoir plus sur les messages?
-    show_comment_size: Showing the {{size}} comments to the message
-    show_last_comment: Showing last {{size}} comments of {{children}}
+    show_comment_size: Showing the %{size}} comments to the message
+    show_last_comment: Showing last %{size}} comments of %{children}}
     show_one_only_comment: Voici le seul commentaire au message
   time: 
     am: am
@@ -1477,7 +1477,7 @@ fr:
     start: Start time
   timezone: 
     one: Timezone
-    set_up: You have not set up your time zone. <a href="{{path}}">Set it up now</a>
+    set_up: You have not set up your time zone. <a href="%{path}}">Set it up now</a>
   title: Titre
   title_formal: 
     mr: M.
@@ -1500,13 +1500,13 @@ fr:
     translated: "VCC est maintenant traduite, ou en processus de traduction, \xC3\xA0"
   type: Type
   undated: Sans date
-  unknown_content: "{{content}} contenu Inconnue"
+  unknown_content: "%{content}} contenu Inconnue"
   upcoming: Prochain
   update: "Mettre \xC3\xA0 jour"
   updated: "Mise \xC3\xA0 jour"
   updated_at: "Mise \xC3\xA0 jour \xC3\xA0"
-  updated_at_date: "Updated: {{date}}"
-  updated_time_ago: "{{time}} ago"
+  updated_at_date: "Updated: %{date}}"
+  updated_time_ago: "%{time}} ago"
   url: Site Web
   url_add: Ajouter votre site internet
   url_plain: URL
@@ -1525,14 +1525,14 @@ fr:
     confirm_password: Confirmer Mot de passe
     delete_from_space: Supprimer un utilisateur de l'espace
     disable: "D\xC3\xA9sactiver l'utilisateur"
-    disabled: "Utilisateur {{username}} handicap\xC3\xA9s"
+    disabled: "Utilisateur %{username}} handicap\xC3\xA9s"
     e-mail: e-mail
     edit_account: Modifier votre compte
     email: e-mail
     enable: Activer l'utilisateur
     enabled: "L'utilisateur a \xC3\xA9t\xC3\xA9 activ\xC3\xA9. L'utilisateur appartient actuellement \xC3\xA0 aucun espace, et aura \xC3\xA0 se joindre \xC3\xA0 nouveau les espaces."
     error: 
-      enabled: "{{name}} Utilisateur est d\xC3\xA9j\xC3\xA0 activ\xC3\xA9"
+      enabled: "%{name}} Utilisateur est d\xC3\xA9j\xC3\xA0 activ\xC3\xA9"
     feed: 
       author: SIR
       title: Utilisateurs
@@ -1540,7 +1540,7 @@ fr:
     found: 
       none: "Aucun utilisateur trouv\xC3\xA9"
       one: 1 utilisateur trouve
-      other: "{{size}} utilisateurs ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
+      other: "%{size}} utilisateurs ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
     full_name: Nom complet
     include_registered: "Inclure les utilisateurs enregistr\xC3\xA9s"
     included: 
@@ -1552,7 +1552,7 @@ fr:
     list_by: Liste par
     login: Login
     lost_password: Avez-vous perdu votre mot de passe?
-    noactivity: "{{user}} n'a pas d'activit\xC3\xA9 r\xC3\xA9cente"
+    noactivity: "%{user}} n'a pas d'activit\xC3\xA9 r\xC3\xA9cente"
     not_activated: "Votre compte n'est pas activ\xC3\xA9. S'il vous pla\xC3\xAEt, v\xC3\xA9rifiez votre email pour l'activer"
     not_assist: "Ne fr\xC3\xA9quentant pas l&#39;"
     not_confirmed: "Non confirm\xC3\xA9"
@@ -1571,15 +1571,15 @@ fr:
     request_password: Demande de mot de passe
     reset_password: "R\xC3\xA9initialiser votre mot de passe"
     results_count: 
-      one: "Les gens, le r\xC3\xA9sultat {{users_size}}"
-      other: "Les gens, {{users_size}} r\xC3\xA9sultats"
+      one: "Les gens, le r\xC3\xA9sultat %{users_size}}"
+      other: "Les gens, %{users_size}} r\xC3\xA9sultats"
     save: 
       account: Enregistrer le compte
       preferences: "Enregistrer les pr\xC3\xA9f\xC3\xA9rences"
     search: Les utilisateurs de la recherche ...
     timezone: Fuseau horaire
     updated: "Utilisateur mis \xC3\xA0 jour avec succ\xC3\xA8s"
-    vcc_email: "{{dir}} utilisateur VCC e-mail"
+    vcc_email: "%{dir}} utilisateur VCC e-mail"
     view_expanded_posts: "Afficher les messages dans le mur au point de vue d\xC3\xA9velopp\xC3\xA9 par d\xC3\xA9faut"
     without_group: Personnes sans groupe
   username: Nom d'utilisateur
@@ -1600,7 +1600,7 @@ fr:
       one: !binary |
         MSB2aWTDqW8gYSDDqXTDqSB0cm91dsOp
 
-      other: "{{size}} vid\xC3\xA9os ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
+      other: "%{size}} vid\xC3\xA9os ont \xC3\xA9t\xC3\xA9 trouv\xC3\xA9s"
     one: !binary |
       Vmlkw6lv
 

@@ -11,7 +11,7 @@ de:
   about_vcc: "\xC3\x9Cber VCC"
   account: Konto
   account_activated: Ihr Konto wurde aktiviert!
-  account_activated_with_agent: "{{agent}}, wurde Ihr Konto aktiviert"
+  account_activated_with_agent: "%{agent}}, wurde Ihr Konto aktiviert"
   account_created: Ihr Konto wurde erstellt
   action: 
     one: Aktion
@@ -23,40 +23,40 @@ de:
         login: Login
     errors: 
       full_messages: 
-        format: "{{attribute}} {{message}}"
+        format: "%{attribute}} %{message}}"
       messages: 
         accepted: muss akzeptiert werden
         blank: darf nicht leer sein
         confirmation: "stimmt nicht mit Best\xC3\xA4tigung"
         empty: darf nicht leer sein
-        equal_to: muss gleich {{count}}
+        equal_to: muss gleich %{count}}
         even: muss auch
         exclusion: ist reserviert
-        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}}"
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}}"
+        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als %{count}}"
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich %{count}}"
         inclusion: "ist nicht in der Liste aufgef\xC3\xBChrt"
         invalid: "ist ung\xC3\xBCltig"
-        less_than: muss kleiner als {{count}}
-        less_than_or_equal_to: muss kleiner als oder gleich {{count}}
+        less_than: muss kleiner als %{count}}
+        less_than_or_equal_to: muss kleiner als oder gleich %{count}}
         missing: fehlt
         not_a_number: ist keine Nummer
         odd: muss ungerade sein
-        record_invalid: "Validation failed: {{errors}}"
+        record_invalid: "Validation failed: %{errors}}"
         taken: bereits getroffen hat
-        too_long: ist zu lang (Maximum ist {{count}} Zeichen)
-        too_short: ist zu kurz (Minimum ist {{count}} Zeichen)
-        wrong_length: "ist der falsche L\xC3\xA4nge (sollte {{count}} Zeichen)"
+        too_long: ist zu lang (Maximum ist %{count}} Zeichen)
+        too_short: ist zu kurz (Minimum ist %{count}} Zeichen)
+        wrong_length: "ist der falsche L\xC3\xA4nge (sollte %{count}} Zeichen)"
       template: 
         body: "Es gab Probleme mit den folgenden Bereichen:"
         header: 
-          one: 1 Fehler verboten diesem {{model}} nicht gespeichert
-          other: "{{count}} errors prohibited this {{model}} from being saved"
+          one: 1 Fehler verboten diesem %{model}} nicht gespeichert
+          other: "%{count}} errors prohibited this %{model}} from being saved"
   add: "Hinzuf\xC3\xBCgen"
   add_more_details: "Hinzuf\xC3\xBCgen weiterer Details"
   address: Adresse
   admin: 
     one: Admin
-    space: The administrator of {{spacename}}
+    space: The administrator of %{spacename}}
   admission: 
     errors: 
       candidate_equals_introducer: "Bewerber-und Einf\xC3\xBChrschleuse kann nicht die gleiche Person sein. (Sie sollten wahrscheinlich abmelden)"
@@ -76,7 +76,7 @@ de:
       edit: Edit Divider
       error: 
         coinciding_times: "Es gibt einen Konflikt mit dem Zeitpunkt der neuen Teiler und bestehende Agenda-Eintr\xC3\xA4ge oder Trennw\xC3\xA4nde"
-        date_out_of_event: "Das Datum des Teilers \xC3\xBCberschreitet die maximale Dauer der Veranstaltung: Tag {{max_days}}"
+        date_out_of_event: "Das Datum des Teilers \xC3\xBCberschreitet die maximale Dauer der Veranstaltung: Tag %{max_days}}"
         past_times: "Diese Art der Veranstaltung k\xC3\xB6nnen nicht vergangenen Zeiten"
       failed: Es gab ein Problem mit der Tagesordnung divider
       new: New Agenda divider
@@ -98,10 +98,10 @@ de:
         attribute_unchangeable: "Sie haben versucht, eine unver\xC3\xA4nderliche Attribut f\xC3\xBCr diese Sitzung \xC3\xA4ndern"
         coinciding_times: "Es gibt einen Konflikt mit dem Zeitpunkt der neuen Agenda-Eintrag und bestehende Agenda-Eintr\xC3\xA4ge oder Trennw\xC3\xA4nde"
         create: Fehler beim Erstellen der Session in abgelegenen Videokonferenz-System
-        date_out_of_event: "Der Zeitpunkt der Agenda-Eintrag \xC3\xBCberschreitet die maximale Dauer der Veranstaltung: Tag {{max_days}}"
+        date_out_of_event: "Der Zeitpunkt der Agenda-Eintrag \xC3\xBCberschreitet die maximale Dauer der Veranstaltung: Tag %{max_days}}"
         delete: "Fehler beim L\xC3\xB6schen der Tagung in abgelegenen Videokonferenz-System"
         disordered_times: Die Startzeit muss vor der Endzeit
-        past_times: "Die Startzeit der Sitzung muss {{min_date}} oder sp\xC3\xA4ter werden"
+        past_times: "Die Startzeit der Sitzung muss %{min_date}} oder sp\xC3\xA4ter werden"
         update: Fehler beim Aktualisieren der Tagung in abgelegenen Videokonferenz-System
       failed: Agenda-Eintrag konnte nicht gespeichert werden
       has_attachment: "Dieser Eintrag wurde Arbeitsger\xC3\xA4te"
@@ -166,15 +166,15 @@ de:
     delete: Delete Attachment
     deleted: "Attachment erfolgreich gel\xC3\xB6scht"
     error: 
-      not_deleted: "{{file}} nicht korrekt gel\xC3\xB6scht."
-      not_permission: "{{user}} kann nicht gel\xC3\xB6scht werden {{file}}."
+      not_deleted: "%{file}} nicht korrekt gel\xC3\xB6scht."
+      not_permission: "%{user}} kann nicht gel\xC3\xB6scht werden %{file}}."
     file: "File:"
     found: 
       none: "Keine Anh\xC3\xA4nge gefunden"
       one: 1 Anhang gefunden wurde
-      other: "{{size}} Anh\xC3\xA4nge wurden gefunden"
+      other: "%{size}} Anh\xC3\xA4nge wurden gefunden"
     home: 
-      one: File in space {{space}}
+      one: File in space %{space}}
     info: Dokument-Info
     loading: Loading Dokument Informationen ...
     new: Neue Anlage
@@ -240,7 +240,7 @@ de:
   comment: 
     add: "Kommentar hinzuf\xC3\xBCgen"
     add_new: "F\xC3\xBCgen Sie einen neuen Kommentar"
-    by: Kommentar von {{author}}
+    by: Kommentar von %{author}}
     delete: "Kommentar l\xC3\xB6schen"
     edit: Edit Kommentar
     new: Neuer Kommentar
@@ -275,8 +275,8 @@ de:
   country: Land
   create: Schaffen
   created_at: Erstellt am
-  created_at_date: "Erstellt: {{date}}"
-  created_time_ago: Erstellt {{time}} ago
+  created_at_date: "Erstellt: %{date}}"
+  created_time_ago: Erstellt %{time}} ago
   date: 
     abbr_day_names: 
     - Sun
@@ -338,35 +338,35 @@ de:
     distance_in_words: 
       about_x_hours: 
         one: 1 Stunde
-        other: "{{count}} Stunden"
+        other: "%{count}} Stunden"
       about_x_months: 
         one: 1 Monat
-        other: "{{count}} Monaten"
+        other: "%{count}} Monaten"
       about_x_years: 
         one: 1 Jahr
-        other: "{{count}} Jahre"
+        other: "%{count}} Jahre"
       half_a_minute: eine halbe Minute
       less_than_x_minutes: 
         one: 1 Minute
-        other: "{{count}} Minuten"
+        other: "%{count}} Minuten"
       less_than_x_seconds: 
         one: 1 Sekunde
-        other: "{{count}} Sekunden"
+        other: "%{count}} Sekunden"
       over_x_years: 
         one: 1 Jahr
-        other: "{{count}} Jahre"
+        other: "%{count}} Jahre"
       x_days: 
         one: 1 Tag
-        other: "{{count}} Tagen"
+        other: "%{count}} Tagen"
       x_minutes: 
         one: 1 Minute
-        other: "{{count}} Minuten"
+        other: "%{count}} Minuten"
       x_months: 
         one: 1 Monat
-        other: "{{count}} Monaten"
+        other: "%{count}} Monaten"
       x_seconds: 
         one: 1 Sekunde
-        other: "{{count}} Sekunden"
+        other: "%{count}} Sekunden"
     prompts: 
       day: Tag
       hour: Stunde
@@ -377,7 +377,7 @@ de:
   days: Days
   dblclick: Doppelklicken Sie zum Bearbeiten ...
   delete: 
-    confirm: "L\xC3\xB6schen {{element}}?"
+    confirm: "L\xC3\xB6schen %{element}}?"
     one: "L\xC3\xB6schen"
     select: "W\xC3\xA4hlen Sie zum L\xC3\xB6schen"
   deny: Nicht
@@ -394,26 +394,26 @@ de:
   download: Download
   download_file: Datei herunterladen
   e-mail: 
-    account_activated: Ihre Anmeldung bei {{sitename}} wurde erfolgreich aktiviert.
+    account_activated: Ihre Anmeldung bei %{sitename}} wurde erfolgreich aktiviert.
     commas: (Durch Kommata getrennt)
-    confirm: "Sie m\xC3\xBCssen jetzt auf Ihre Anmeldung best\xC3\xA4tigen, indem Sie <a href=\"{{url}}\">{{url}}</a>"
-    copy_link: "Wenn Sie nicht klicken Sie auf den Link oben, bitte kopieren und f\xC3\xBCgen Sie die folgende Zeile in Ihren Browser: <br/> {{url}}"
-    dear: Sehr geehrter {{name}}
+    confirm: "Sie m\xC3\xBCssen jetzt auf Ihre Anmeldung best\xC3\xA4tigen, indem Sie <a href=\"%{url}}\">%{url}}</a>"
+    copy_link: "Wenn Sie nicht klicken Sie auf den Link oben, bitte kopieren und f\xC3\xBCgen Sie die folgende Zeile in Ihren Browser: <br/> %{url}}"
+    dear: Sehr geehrter %{name}}
     invitation_result: 
-      admin_side: "{{name}} has {{action}} the invitation to space {{spacename}}"
-      user_side: The administrator of {{spacename}} has {{action}} your join request
+      admin_side: "%{name}} has %{action}} the invitation to space %{spacename}}"
+      user_side: The administrator of %{spacename}} has %{action}} your join request
     join_request: Join Request
     kind_regards: "Mit freundlichen Gr\xC3\xBC\xC3\x9Fen,"
     notifications: E-Mail-Benachrichtigungen
     one: E-Mail
     other: E-Mails
-    spam_activation: Wenn Sie keine Website registrieren zu diesem, bitte <a href="mailto:{{contact}}">Kontakt mit uns auf</a> oder senden Sie uns <a href="{{feedback}}">Feedback.</a>
-    spam_invitation: Wenn Sie glauben, diese Meldung ist ein Spam, bitte <a href="mailto:{{contact}}">Kontakt mit uns auf</a> oder senden Sie uns <a href="{{feedback}}">Feedback.</a>
-    thanks: "Danke f\xC3\xBCr Ihren Besuch {{sitename}}"
-    url_activated: "Sie k\xC3\xB6nnen nun Ihren Account einloggen mit Ihrer E-Mail &quot;{{name}}&quot; und Ihr Passwort in <a href=\"{{url}}\">{{url}}</a>"
-    used_from: "E-Mail in Kontakt-Formular verwendet werden: {{dir}}"
+    spam_activation: Wenn Sie keine Website registrieren zu diesem, bitte <a href="mailto:%{contact}}">Kontakt mit uns auf</a> oder senden Sie uns <a href="%{feedback}}">Feedback.</a>
+    spam_invitation: Wenn Sie glauben, diese Meldung ist ein Spam, bitte <a href="mailto:%{contact}}">Kontakt mit uns auf</a> oder senden Sie uns <a href="%{feedback}}">Feedback.</a>
+    thanks: "Danke f\xC3\xBCr Ihren Besuch %{sitename}}"
+    url_activated: "Sie k\xC3\xB6nnen nun Ihren Account einloggen mit Ihrer E-Mail &quot;%{name}}&quot; und Ihr Passwort in <a href=\"%{url}}\">%{url}}</a>"
+    used_from: "E-Mail in Kontakt-Formular verwendet werden: %{dir}}"
     vcc_team: Die VCC-Team
-    welcome: Willkommen bei {{sitename}}
+    welcome: Willkommen bei %{sitename}}
   edit: Bearbeiten
   edit_hours: Edit Stunden
   edit_profile: Profil bearbeiten
@@ -500,7 +500,7 @@ de:
     found: 
       none: Keine Veranstaltungen gefunden
       one: 1 Event gefunden wurde
-      other: "{{size}} Veranstaltungen gefunden"
+      other: "%{size}} Veranstaltungen gefunden"
     future: Ereignis in der Zukunft
     generate_pdf: PDF erzeugen
     has: Dieses Ereignis hat
@@ -517,11 +517,11 @@ de:
       organisers: "W\xC3\xA4hlen Sie den Raum Benutzer, die dieses Ereignis organisiert wird"
       without_str: Um Streaming-und / oder Aufnahme, bitte geben Sie es in Ihrem Zeitplan
     home: 
-      one: Event in den Raum {{space}}
+      one: Event in den Raum %{space}}
     invite: Personen einladen
     join: An dieser Veranstaltung
-    last_7_days: Letzte 7 Tage ({{size}})
-    last_month: Im vergangenen Monat ({{size}})
+    last_7_days: Letzte 7 Tage (%{size}})
+    last_month: Im vergangenen Monat (%{size}})
     location: Standort
     logo: 
       button: Change-Logo
@@ -552,15 +552,15 @@ de:
       label: Passen Sie Ihre Benachrichtigung
       legend: 
         name: "&#39;Name&#39; wird in der Nachricht durch den Namen des Empf\xC3\xA4ngers ersetzt werden."
-      message_beginning_with_start_date: <p>'Name',</p><p>Regarding the <b>event 'event_name' in space {{space}}</b> on 'event_date':</p>
-      message_beginning_without_start_date: <p>'Name',</p><p>Regarding the <b>event 'event_name' in space {{space}}</b>:</p>
-      message_ending: <p>You can find more information about the event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      message_beginning_with_start_date: <p>'Name',</p><p>Regarding the <b>event 'event_name' in space %{space}}</b> on 'event_date':</p>
+      message_beginning_without_start_date: <p>'Name',</p><p>Regarding the <b>event 'event_name' in space %{space}}</b>:</p>
+      message_ending: <p>You can find more information about the event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
       message_title: Senden Sie eine Mitteilung an die Teilnehmer
       personal: "Schreiben Sie Ihren pers\xC3\xB6nlichen Text hier."
       select_all_attendants: Anzeige aller Diener
       selected_attendants: "Attendants Sie informieren:"
       show_all_attendants: Alle Betreuer
-      subject: "{{username}} has sent a notification to you about event {{eventname}} in space {{space}}"
+      subject: "%{username}} has sent a notification to you about event %{eventname}} in space %{space}}"
       title: Benachrichtigen Sie die Teilnehmer der Veranstaltung
     now: "Veranstaltungen in diesem Moment:"
     one: Veranstaltung
@@ -574,7 +574,7 @@ de:
       title: Teilnahme
       will_be_available: "Die Teilnahme wird w\xC3\xA4hrend der Veranstaltung zur Verf\xC3\xBCgung"
     past: 
-      all: Alle Vergangenheit ({{size}})
+      all: Alle Vergangenheit (%{size}})
       last_month: "Keine Termine f\xC3\xBCr letzten Monat."
       last_week: "Keine Termine f\xC3\xBCr letzte Woche."
       none: Keine Events in der Vergangenheit
@@ -609,15 +609,15 @@ de:
       will_be_available: "Das Streaming wird w\xC3\xA4hrend der Veranstaltung zur Verf\xC3\xBCgung"
     to: Zu
     today: Heute Veranstaltungen
-    today_and_yesterday: Heute und gestern ({{size}})
-    today_size: Heute ({{size}})
+    today_and_yesterday: Heute und gestern (%{size}})
+    today_size: Heute (%{size}})
     tomorrow: Tomorrow Veranstaltungen
     undated: 
       none: Es sind keine Termine ohne Tagesordnung
       show: Alle Veranstaltungen undatierten
       title: Events ohne Agenda definiert
     upcoming: 
-      all: Alle anstehenden ({{size}})
+      all: Alle anstehenden (%{size}})
       next_month: "Es sind keine Termine f\xC3\xBCr den n\xC3\xA4chsten Monat"
       next_week: "Es sind keine Termine f\xC3\xBCr die n\xC3\xA4chste Woche"
       none: Keine anstehenden Termine
@@ -635,8 +635,8 @@ de:
     view_streaming: Streaming
     view_streaming_disabled: "Streaming zur Verf\xC3\xBCgung w\xC3\xA4hrend der Veranstaltung"
     will_attend: Planen Sie, zu diesem Event teilnehmen?
-    within_7_days: Innerhalb von 7 Tagen ({{size}})
-    within_a_month: Innerhalb eines Monats ({{size}})
+    within_7_days: Innerhalb von 7 Tagen (%{size}})
+    within_a_month: Innerhalb eines Monats (%{size}})
   event_invitation: 
     accepted: Sie haben die Einladung zu dieser Veranstaltung willkommen
     clarify_registered: "Bitte stellen Sie Ihr Passwort, um Ihre Teilnahme an der Veranstaltung best\xC3\xA4tigt"
@@ -660,7 +660,7 @@ de:
   export_widget: Export Widget
   fax: Fax
   feedback: 
-    email: "{{email}} sent the following feedback:"
+    email: "%{email}} sent the following feedback:"
     note: "Helfen Sie uns, besser zu VCC. Bitte senden Sie Ihre Kommentare, Anregungen und Probleme. Wir werden versuchen, so schnell wie m\xC3\xB6glich antworten"
     one: "R\xC3\xBCckkopplung"
     send: Senden Sie Feedback
@@ -673,7 +673,7 @@ de:
   find_in: "Suchen Sie in:"
   find_in_day: "Suchen Sie in Tag:"
   find_in_name_speakers: "Suchen Sie in Name / Lautsprecher:"
-  follow_reset_password: "{{agent}}, please follow the link to reset your password"
+  follow_reset_password: "%{agent}}, please follow the link to reset your password"
   form: 
     loading: Das Formular wird geladen ...
   from: Von
@@ -699,28 +699,28 @@ de:
       sentence1: Videokonferenz-Aufzeichnung und-Streaming
       sentence2: Dokument-und Video-Archive
       sentence3: Ihre Kontakte und Beziehungen
-    stats: "{{vc}} videoconferences organized - {{vs}} videos stored"
+    stats: "%{vc}} videoconferences organized - %{vs}} videos stored"
   getting_started: Erste Schritte!
   group: 
     add_to_group: "Zu Gruppe hinzuf\xC3\xBCgen"
     add_to_others: Add anderen Gruppen
     create: Neue Gruppe
-    created: Gruppe {{name}} wurde erfolgreich erstellt
+    created: Gruppe %{name}} wurde erfolgreich erstellt
     delete: "Gruppe l\xC3\xB6schen"
-    deleted: "Gruppe {{name}} erfolgreich gel\xC3\xB6scht"
+    deleted: "Gruppe %{name}} erfolgreich gel\xC3\xB6scht"
     different: Andere Gruppen
     edit: Gruppe bearbeiten
     existing: Name bereits vergeben ist
     join: An dieser Gruppe
     mailing_list: Group Mailing-List
     name: Name der Gruppe
-    not_deleted: "Fehler beim L\xC3\xB6schen der Gruppe {{name}}"
+    not_deleted: "Fehler beim L\xC3\xB6schen der Gruppe %{name}}"
     not_valid: "Die Gruppe ist nicht g\xC3\xBCltig"
     one: Gruppe
     other: Gruppen
     send_message: Sende eine Nachricht an diese Gruppe
-    updated: Gruppe {{name}} erfolgreich aktualisiert
-  groups_and_results: Gruppen, {{size}} Ergebnisse
+    updated: Gruppe %{name}} erfolgreich aktualisiert
+  groups_and_results: Gruppen, %{size}} Ergebnisse
   hcard: 
     not_found: hCard nicht gefunden
   hello: Hallo
@@ -743,7 +743,7 @@ de:
     part9: "8. Sie k\xC3\xB6nnen mit dem erweiterten Editor, um Inhalte zu erfassen. Dieser Editor erm\xC3\xB6glicht es Ihnen:"
   help_createspace: 
     part1: "So erstellen Sie einen Platz im VCC:"
-    part2: "1. Klicken Sie auf <a href={{url}}>My Home</a> Elements aus der oberen Men\xC3\xBCleiste."
+    part2: "1. Klicken Sie auf <a href=%{url}}>My Home</a> Elements aus der oberen Men\xC3\xBCleiste."
     part3: 2. Klicken Sie auf Create New Space-Taste.
     part4: "3. F\xC3\xBCgen Sie einen Namen und eine Beschreibung f\xC3\xBCr Ihren Raum."
     part5: "4. Entscheiden Sie, ob der Raum sollten \xC3\xB6ffentlich sein."
@@ -751,7 +751,7 @@ de:
     part7: "6. Sie k\xC3\xB6nnen eine Mailing-Liste zu Ihrer Gruppe. Es erlaubt Ihnen, E-Mail-Nachrichten an Ihre Gruppe zu senden, anstelle von herauspicken die einzelnen Adressen jeder Zeit."
   help_createuser: 
     part1: "So erstellen Sie einen Benutzer im VCC:"
-    part2: "1. Klicken Sie auf <a href={{url}}>Register</a> bar Element aus dem oberen Men\xC3\xBC."
+    part2: "1. Klicken Sie auf <a href=%{url}}>Register</a> bar Element aus dem oberen Men\xC3\xBC."
     part3: "2. Geben Sie eine E-Mail, Passwort und vollst\xC3\xA4ndigen Namen."
     part4: 3. Geben Sie den Code aus dem Bild gezeigt.
     part5: "4. Sobald Sie sich registriert haben, klicken Sie auf die Schaltfl\xC3\xA4che Fertig abgeschlossen."
@@ -759,9 +759,9 @@ de:
   help_index: 
     part1: "Die Virtual Conference Center (VCC) ist eine Web-Anwendung von der Universidad Polit\xC3\xA9cnica de Madrid (UPM) im Rahmen des weltweiten Projektes, ein Forschungsprojekt siebte Rahmenprogramm der Europ\xC3\xA4ischen Comission Programm unterst\xC3\xBCtzt entwickelt."
     part2: "Das VCC bietet einen Service f\xC3\xBCr die Erstellung von verteilten Veranstaltungen, von kleinen Meetings zu gro\xC3\x9Fen Konferenzen. Benutzer k\xC3\xB6nnen pers\xC3\xB6nlich teilnehmen oder folgen sie online. Termine und Inhalte im Zusammenhang mit ihnen stehen in R\xC3\xA4umen, bieten dem Anwender die M\xC3\xB6glichkeit der Schaffung von Nachrichten in der Wand, um mit anderen Teilnehmern in den Raum oder Hochladen von Dokumenten oder Fotos zu kommunizieren organisiert, um gemeinsam genutzt werden."
-    part3: "So erstellen oder bearbeiten Leerzeichen, m\xC3\xBCssen Sie angemeldet sein, um Ihren Account VCC werden. Wenn Sie noch kein Konto haben, <a href={{url}}>erstellen Sie jetzt</a> ."
+    part3: "So erstellen oder bearbeiten Leerzeichen, m\xC3\xBCssen Sie angemeldet sein, um Ihren Account VCC werden. Wenn Sie noch kein Konto haben, <a href=%{url}}>erstellen Sie jetzt</a> ."
   help_logging: 
-    part1: "Wenn Sie bereits ein Konto VCC, k\xC3\xB6nnen Sie <a href={{url}}>sich hier anmelden,</a> oder klicken Sie auf Login-Position aus der oberen Men\xC3\xBCleiste. Geben Sie Ihre Email und Passwort auf dem Hauptbildschirm."
+    part1: "Wenn Sie bereits ein Konto VCC, k\xC3\xB6nnen Sie <a href=%{url}}>sich hier anmelden,</a> oder klicken Sie auf Login-Position aus der oberen Men\xC3\xBCleiste. Geben Sie Ihre Email und Passwort auf dem Hauptbildschirm."
     part2: "Sie k\xC3\xB6nnen Login automatisch, falls Sie einen Account bei einem OpenID-Provider."
     part3: "Wenn Sie Ihr Passwort, das Sie dieses Formular verwenden k\xC3\xB6nnen, um ihn wieder und haben es automatisch per E-Mail an Sie vergessen."
   help_newdoc: 
@@ -813,8 +813,8 @@ de:
   im_new: Ich bin neu
   import: Import
   inbox: 
-    my: My Inbox ({{checked}})
-    one: Inbox ({{checked}})
+    my: My Inbox (%{checked}})
+    one: Inbox (%{checked}})
   index: Index
   information: 
     info_timezone: "Mit der Auswahl Ihrer Zeitzone wird es keine Missverst\xC3\xA4ndnisse beim Erstellen Veranstaltungen mit Menschen aus anderen L\xC3\xA4ndern."
@@ -830,8 +830,8 @@ de:
   invitation: 
     accept: Einladung annehmen
     accepted: Sie haben die Einladung angenommen
-    accepted_by: "{{candidate}} folgten der Einladung"
-    access_space: You are now a member of {{spacename}} and now you can access it on <a href="{{space_url}}"> {{space_url}} </a>
+    accepted_by: "%{candidate}} folgten der Einladung"
+    access_space: You are now a member of %{spacename}} and now you can access it on <a href="%{space_url}}"> %{space_url}} </a>
     add_more: Mehr Leute einladen
     comment: Kommentar
     confirm_delete: "L\xC3\xB6schen Einladung?"
@@ -839,12 +839,12 @@ de:
     deselect_all_users: Deaktivieren Sie alle Benutzer
     discard: Discard Einladung
     discarded: Die Einladung wurde verworfen
-    discarded_by: "{{candidate}} verworfen Einladung"
+    discarded_by: "%{candidate}} verworfen Einladung"
     email: E-Mail
     hide_all_users: Verstecken allen Benutzern
     info_event: Hier finden Sie weitere Informationen zu dieser Veranstaltung in &quot;event_url&quot;
-    info_space: You can find more information about this space in <a href="{{space_url}}"> {{space_url}} </a>
-    info_users: You can see the current list of users of the space in <a href="{{users_url}}"> {{users_url}} </a>
+    info_space: You can find more information about this space in <a href="%{space_url}}"> %{space_url}} </a>
+    info_users: You can see the current list of users of the space in <a href="%{users_url}}"> %{users_url}} </a>
     introducer: Introducer
     label: Passen Sie Ihre Einladung Nachricht
     legend: 
@@ -853,13 +853,13 @@ de:
     logout_and_reload: Du bist nicht der Benutzer, der diese Einladung erhalten haben, bitte abmelden und versuchen Sie es erneut
     message_title: Leute einladen Ihren Raum
     message_with_start_date: 
-      in_person: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      meeting: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      teleconference: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b> on 'event_date'. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      in_person: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      meeting: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      teleconference: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b> on 'event_date'. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
     message_without_start_date: 
-      in_person: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      meeting: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
-      teleconference: <p>I would like to invite you to <b>event 'event_name' in space {{space}}</b>. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit {{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>{{username}}<br/>{{useremail}}<br/>{{userorg}}</p>
+      in_person: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a></p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      meeting: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>. The event will be a virtual meeting with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
+      teleconference: <p>I would like to invite you to <b>event 'event_name' in space %{space}}</b>. The event will be a virtual conference with easy participation through the Isabel system.</p><p>To accept my invitation please visit %{url}} </p><p>You can find more information about this event in <a href="event_url">event_url</a> </p><p>Kind regards,<br/><br/>%{username}}<br/>%{useremail}}<br/>%{userorg}}</p>
     new: 
       other: Neue Einladungen
     not_accepted: nicht akzeptiert
@@ -874,23 +874,23 @@ de:
     pending: 
       other: Bis Einladungen
     personal: "Schreiben Sie Ihren pers\xC3\xB6nlichen Text hier."
-    rejoin_space: If you would like to request membership again please go to <a href="{{space_url}}"> {{space_url}} </a>
+    rejoin_space: If you would like to request membership again please go to <a href="%{space_url}}"> %{space_url}} </a>
     role: Rolle
     role_label: "Rolle f\xC3\xBCr die eingeladenen Personen"
     select_all_users: "W\xC3\xA4hlen Sie alle Benutzer"
     send: 
       one: Einladung senden
-    show: Join {{group}}
+    show: Join %{group}}
     show_all_users: Alle Benutzer anzeigen
-    sign: "Mit freundlichen Gr\xC3\xBC\xC3\x9Fen, {{username}}"
-    space: "Ich m\xC3\xB6chte Sie einladen, um Platz in der Virtual Conference Centre {{space}}."
-    subject: "{{username}} has invited you to an event in {{space}} space"
+    sign: "Mit freundlichen Gr\xC3\xBC\xC3\x9Fen, %{username}}"
+    space: "Ich m\xC3\xB6chte Sie einladen, um Platz in der Virtual Conference Centre %{space}}."
+    subject: "%{username}} has invited you to an event in %{space}} space"
     title: Personen einladen
     title2: Space Einladung
-    to_accept: So nehmen Sie meine Einladung besuchen Sie bitte die <a href={{url}}>{{url}}</a>
-    to_accept_space: So nehmen Sie meine Einladung besuchen Sie bitte die {{url}}
-    to_event: "{{username}} invites you to event {{eventname}} in space {{space}}"
-    to_space: "{{username}} invites you to space {{space}}"
+    to_accept: So nehmen Sie meine Einladung besuchen Sie bitte die <a href=%{url}}>%{url}}</a>
+    to_accept_space: So nehmen Sie meine Einladung besuchen Sie bitte die %{url}}
+    to_event: "%{username}} invites you to event %{eventname}} in space %{space}}"
+    to_space: "%{username}} invites you to space %{space}}"
     was_processed: 
       accepted: Einladung bereits angenommen
       discarded: Die Einladung wurde bereits verworfen
@@ -903,9 +903,9 @@ de:
   join_request: 
     accepted: Join Anfrage akzeptiert
     already_sent: Sie haben bereits gebeten, diesen Raum beitreten
-    ask_subject: "{{candidate}} m\xC3\xB6chte in {{space}}"
-    asked: "<b>{{candidate}}</b> wants to participate in {{space}} space administered by you:"
-    asked_anonymous: "Jemand will in {{space}} Raum von Ihnen verwalteten teilnehmen:"
+    ask_subject: "%{candidate}} m\xC3\xB6chte in %{space}}"
+    asked: "<b>%{candidate}}</b> wants to participate in %{space}} space administered by you:"
+    asked_anonymous: "Jemand will in %{space}} Raum von Ihnen verwalteten teilnehmen:"
     created: Ihre Anfrage wurde an den Beitritt der Raum-Administratoren gesendet
     discarded: Join Request verworfen
     joined: Sie sind bereits Mitglied des Raumes
@@ -921,15 +921,15 @@ de:
       other: Bis beitreten Zugriffe
     personal: "Schreiben Sie Ihren pers\xC3\xB6nlichen Text hier."
     send: Senden Sie beitreten Anfrage
-    to_accept: Zur Beantwortung der Anfrage finden Sie unter <a href="{{url}}">{{url}}</a>
+    to_accept: Zur Beantwortung der Anfrage finden Sie unter <a href="%{url}}">%{url}}</a>
     updated: Join Antrag aktualisiert
-  join_to_site: Join in {{site}}
+  join_to_site: Join in %{site}}
   keywords: Keywords (*)
   language: Sprache
   last_week: Letzte Woche
   latest_events: Aktuelle Veranstaltungen
   latest_news: Aktuelle Nachrichten
-  layout_footnote: "{{site}} is based on {{plugin}}. Design by {{designer}}."
+  layout_footnote: "%{site}} is based on %{plugin}}. Design by %{designer}}."
   list_by: Auflistung nach
   locale: 
     changed: "Application Sprache ge\xC3\xA4ndert"
@@ -939,7 +939,7 @@ de:
   login: Login
   login_or_register: Anmelden / Registrieren
   login_request: Du musst eingeloggt sein, um
-  login_to: Melden Sie sich in {{site}}
+  login_to: Melden Sie sich in %{site}}
   login_traditional: User / Passwort Login
   logo: 
     click_to_change: "Klicken Sie auf das Logo zu \xC3\xA4ndern"
@@ -950,11 +950,11 @@ de:
     error: 
       not_valid: "Logo ist nicht g\xC3\xBCltig"
     one: Logo
-  logout: Logout {{user}}
+  logout: Logout %{user}}
   mailing_list: 
     associate: Associate Mailingliste zu Ihrer Gruppe
     invalid: "Die Mailing-Liste enth\xC3\xA4lt ung\xC3\xBCltige Zeichen. Nur Buchstaben, Zahlen, Unterstriche und Bindestriche sind erlaubt"
-    reserved: Die Mailingliste {{systemMailingList}} ist reserviert
+    reserved: Die Mailingliste %{systemMailingList}} ist reserviert
   manage: Verwalten
   management: Verwaltung
   mark_checkbox: Markieren Sie die Checkbox geeignet
@@ -1041,29 +1041,29 @@ de:
   online: online
   openid: 
     client: 
-      associating_to_id: "Verkn\xC3\xBCpfen OpenID: {{id}}"
-      discovery_failed: "Discovery nicht f\xC3\xBCr {{id}}: {{error}}"
-      id_attached_to_account: "OpenID: {{id}} zu Ihrem Konto verbunden"
+      associating_to_id: "Verkn\xC3\xBCpfen OpenID: %{id}}"
+      discovery_failed: "Discovery nicht f\xC3\xBCr %{id}}: %{error}}"
+      id_attached_to_account: "OpenID: %{id}} zu Ihrem Konto verbunden"
       immediate_request_failed: Sofortige Anfrage fehlgeschlagen - Setup notwendig
       transaction_cancelled: OpenID Transaktion abgebrochen
-      verification_failed: "Fehlgeschlagen: {{message}}"
-      verification_failed_with_id: "\xC3\x9Cberpr\xC3\xBCfung der {{id}} ist fehlgeschlagen: {{message}}"
-      verification_succeeded_with_id: "\xC3\x9Cberpr\xC3\xBCfung der {{id}} gelungen"
+      verification_failed: "Fehlgeschlagen: %{message}}"
+      verification_failed_with_id: "\xC3\x9Cberpr\xC3\xBCfung der %{id}} ist fehlgeschlagen: %{message}}"
+      verification_succeeded_with_id: "\xC3\x9Cberpr\xC3\xBCfung der %{id}} gelungen"
     enter: Geben Sie Ihre OpenID
     have: Haben Sie eine OpenID? Klicken Sie auf das Logo!
     login: Login mit OpenID
     server: 
-      about_login_to: "Du bist \xC3\xBCber dich anmelden, um {{server}}"
+      about_login_to: "Du bist \xC3\xBCber dich anmelden, um %{server}}"
       anti_phishing: "Diese Seite hat keine Links zu <i>Phishing</i> zu vermeiden. Sie m\xC3\xBCssen sich die Adresse in Ihrem Browser."
       cancel: "Nein, zu k\xC3\xBCndigen"
       decision: "Sie m\xC3\xBCssen eine Entscheidung treffen:"
       endpoint: Dies ist ein OpenID-Server-Endpunkt
-      invalid_uri: "Diese Identit\xC3\xA4t nicht zu euch geh\xC3\xB6ren: {{uri}}"
-      login_to: Login zum {{server}}
+      invalid_uri: "Diese Identit\xC3\xA4t nicht zu euch geh\xC3\xB6ren: %{uri}}"
+      login_to: Login zum %{server}}
       must_login: "Sie m\xC3\xBCssen in () (server log)"
       once: Ja, nur dieses Mal
-      optional_information_by: Optionale Angaben von {{server}} angefordert
-      required_information_by: "Ben\xC3\xB6tigte Informationen von {{server}} angefordert"
+      optional_information_by: Optionale Angaben von %{server}} angefordert
+      required_information_by: "Ben\xC3\xB6tigte Informationen von %{server}} angefordert"
       trust: Ja, von nun an erinnern
     title: OpenID
   or: oder
@@ -1081,11 +1081,11 @@ de:
   password: 
     confirm: "Kennwort best\xC3\xA4tigen"
     one: Kennwort
-    request: Passwort-Reset in {{sitename}}
-    reset_email: "Ihr Kennwort ist in {{sitename}} zur\xC3\xBCckgesetzt worden"
-    to_reset: "Um Ihr Passwort zur\xC3\xBCckzusetzen besuchen Sie bitte die <a href={{url}}>{{url}}</a>"
+    request: Passwort-Reset in %{sitename}}
+    reset_email: "Ihr Kennwort ist in %{sitename}} zur\xC3\xBCckgesetzt worden"
+    to_reset: "Um Ihr Passwort zur\xC3\xBCckzusetzen besuchen Sie bitte die <a href=%{url}}>%{url}}</a>"
   password_has_been_reset: "Ihr Passwort wurde zur\xC3\xBCckgesetzt"
-  password_has_been_reset_with_agent: "{{agent}}, ist Ihr Passwort wurde zur\xC3\xBCckgesetzt"
+  password_has_been_reset_with_agent: "%{agent}}, ist Ihr Passwort wurde zur\xC3\xBCckgesetzt"
   password_reset: Password Reset
   password_reset_link_sent_to_email_address: Ein Passwort-Reset-Link gesendet wurde, um E-Mail-Adresse
   past: Vergangenheit
@@ -1103,7 +1103,7 @@ de:
     new: Neues Mitglied
     one: Mitglied
     other: Mitglieder
-    other_in: Mitglieder des {{stage}}
+    other_in: Mitglieder des %{stage}}
     read: 
       one: Lesen Sie mehr Performance
       other: Lesen Vorstellungen
@@ -1129,23 +1129,23 @@ de:
   popularity: "Popularit\xC3\xA4t"
   post: 
     created: Nachricht erstellt
-    deleted: "Comment {{postname}} wurde gel\xC3\xB6scht"
+    deleted: "Comment %{postname}} wurde gel\xC3\xB6scht"
     error: 
       empty: Die Nachricht kann nicht leer sein
       not_valid: "Der Kommentar ist nicht g\xC3\xBCltig"
     found: 
       none: "Keine Eintr\xC3\xA4ge gefunden"
       one: 1 Nachricht wurde gefunden
-      other: "{{size}} Eintr\xC3\xA4ge gefunden"
+      other: "%{size}} Eintr\xC3\xA4ge gefunden"
       show_all: Zeige alle Ergebnisse
     home: 
-      one: Nachricht im Raum {{space}}
+      one: Nachricht im Raum %{space}}
     latest: Aktuelle Nachrichten
     none_created: Keine Nachricht erstellt
     none_recent: Es sind keine aktuellen Nachrichten
     one: Nachricht
     other: Nachrichten
-    other_in_space: Nachrichten im Raum {{space}}
+    other_in_space: Nachrichten im Raum %{space}}
     show_expanded_pref: "Wie m\xC3\xB6chten Sie Ihre Nachrichten sehen?"
     updated: Meldung aktualisiert
     wall: Wand
@@ -1170,7 +1170,7 @@ de:
     private_description: "Diese Informationen sind nur f\xC3\xBCr die Menschen, die Sie w\xC3\xA4hlen, wenn Sie Ihr Profil bearbeiten"
     public: "\xC3\x96ffentliches Profil"
     public_description: Jeder kann auf diese Informationen zugreifen
-    should_create: "Sie sollten <a href={{path}}>erstellen</a> Sie Ihr Profil. Es ist sehr n\xC3\xBCtzlich."
+    should_create: "Sie sollten <a href=%{path}}>erstellen</a> Sie Ihr Profil. Es ist sehr n\xC3\xBCtzlich."
     updated: Profil erfolgreich aktualisiert
     visibility: Sichtbarkeit
     visibility_description: "W\xC3\xA4hlen Sie in der Lage sein, die zu Ihrem privaten Profil sehen"
@@ -1185,12 +1185,12 @@ de:
   read: Lesen
   read_more: Lesen Sie mehr
   read_more>>: Lesen Sie mehr&gt;&gt;
-  received_message_more_machines: Sie haben eine Nachricht von {{user}} Bitte um mehr Maschinen erhalten
+  received_message_more_machines: Sie haben eine Nachricht von %{user}} Bitte um mehr Maschinen erhalten
   recent: 
     activity: "Aktuelle T\xC3\xA4tigkeit"
   register: 
     one: Register
-    thank_you: "Willkommen und vielen Dank f\xC3\xBCr die Registrierung in {{sitename}}"
+    thank_you: "Willkommen und vielen Dank f\xC3\xBCr die Registrierung in %{sitename}}"
   register_as_admin: Registrieren Sie sich als admin
   register_as_invited: Registrieren Sie sich als eingeladen
   register_as_user: Registrieren Sie sich als Benutzer
@@ -1200,7 +1200,7 @@ de:
   remove: Entfernen
   reply: Antwort
   reply_to: "Antwort an:"
-  reply_to_words: Antwort an {{words}}
+  reply_to_words: Antwort an %{words}}
   report_spam: Report spam
   repository: 
     add_document: "Neues Dokument hinzuf\xC3\xBCgen"
@@ -1224,7 +1224,7 @@ de:
     other: Ressourcen
   role: 
     add: Add Rolle ...
-    added: "{{role}} role successfully added to {{agent}}"
+    added: "%{role}} role successfully added to %{agent}}"
     change: "Rolle \xC3\xA4ndern ..."
     confirm_delete: "L\xC3\xB6schen Rolle?"
     created: Die Rolle wurde erfolgreich erstellt.
@@ -1234,7 +1234,7 @@ de:
     invalid: "Die Rolle ist ung\xC3\xBCltig"
     listing: Listing Rollen
     name: Name
-    name_permissions: "{{Name}} Berechtigungen"
+    name_permissions: "%{Name}} Berechtigungen"
     new: Neue Rolle
     none: Keine Rolle zugewiesen
     one: Rolle
@@ -1244,7 +1244,7 @@ de:
     stage_type: Stage Typ
     sucess_update: Rolle erfolgreich aktualisiert ...
     updated: Die Rolle wurde erfolgreich aktualisiert.
-    without_permissions: Rolle {{role}} hat keine Berechtigungen
+    without_permissions: Rolle %{role}} hat keine Berechtigungen
   save: Sparen
   save_ch: "Speichern Sie die \xC3\x84nderungen"
   search: 
@@ -1327,10 +1327,10 @@ de:
     created: Quelle erfolgreich erstellt
     errors: 
       content_type: 
-        invalid: "ist ung\xC3\xBCltig: {{content_type}}"
-      dereference: Konnte keine Verbindung zur Quelle {{uri}}
+        invalid: "ist ung\xC3\xBCltig: %{content_type}}"
+      dereference: Konnte keine Verbindung zur Quelle %{uri}}
       multiple_feeds: Quelle hat mehrere Feeds
-      parse: Konnte nicht analysiert werden Futtermittel {{uri}}
+      parse: Konnte nicht analysiert werden Futtermittel %{uri}}
     imported_at: Importiert an
     one: Quelle
     other: Quellen
@@ -1360,7 +1360,7 @@ de:
     enable: Enable Raum
     enabled: Space aktiviert erfolgreich
     error: 
-      enabled: Space {{name}} ist bereits aktiviert
+      enabled: Space %{name}} ist bereits aktiviert
     group_not_belong: "nicht den gleichen Raum wie die Gruppe angeh\xC3\xB6ren"
     is_private: "ist ein privater Raum. Senden Sie eine Anfrage anzuschlie\xC3\x9Fen an den Administrator dieser Raum in Ihrem lassen"
     join: Join this space
@@ -1411,7 +1411,7 @@ de:
       check: Es gab ein Problem Kennzeichnung der Ressource als Spam
     no_spam: "Herzlichen Gl\xC3\xBCckwunsch! Kein Spam hier"
     report: Report spam
-    reported: "{{name}} hat berichtet, Spam in {{sitename}}"
+    reported: "%{name}} hat berichtet, Spam in %{sitename}}"
     valid: "Dieser Inhalt ist g\xC3\xBCltig"
   stage: 
     all: Alle
@@ -1437,11 +1437,11 @@ de:
     one: tag
     other: Tags
     other_capital: Tags
-    other_in: Tags in {{container}}
+    other_in: Tags in %{container}}
     selected: 
       one: "W\xC3\xA4hlen Sie ein Tag:"
       other: "Ausgew\xC3\xA4hlte tags:"
-    show_title: Tagged mit {{tag}}
+    show_title: Tagged mit %{tag}}
     start: Start tippen ..
   tags: Tags
   tags_by: "Tags von:"
@@ -1450,7 +1450,7 @@ de:
   the_string: die Zeichenkette
   thread: 
     add: Neue Nachricht erstellen
-    comments: "{{children}} Kommentare"
+    comments: "%{children}} Kommentare"
     compact_view: Switch to kompakte Ansicht
     deleted: Message (mit Kommentaren) wurde gestrichen
     edit: Edit Nachricht
@@ -1460,8 +1460,8 @@ de:
     other: Threads
     see_less: "Komprimieren m\xC3\xB6chten alle Nachrichten?"
     see_more: "Wollen Sie mehr \xC3\xBCber die Nachrichten?"
-    show_comment_size: Angezeigt wird die {{size}} Kommentare, um die Nachricht
-    show_last_comment: Showing last {{size}} comments of {{children}}
+    show_comment_size: Angezeigt wird die %{size}} Kommentare, um die Nachricht
+    show_last_comment: Showing last %{size}} comments of %{children}}
     show_one_only_comment: Angezeigt wird die einzige Kommentar, um die Nachricht
   time: 
     am: am
@@ -1495,13 +1495,13 @@ de:
     translated: "VCC ist jetzt \xC3\xBCbersetzt oder in \xC3\x9Cbersetzung zu"
   type: Typ
   undated: Undatiert
-  unknown_content: Inhalt unbekannt {{content}}
+  unknown_content: Inhalt unbekannt %{content}}
   upcoming: Bevorstehende
   update: Aktualisierung
   updated: Aktualisiert
   updated_at: Aktualisiert am
-  updated_at_date: "Aktualisiert: {{date}}"
-  updated_time_ago: "{{time}} ago"
+  updated_at_date: "Aktualisiert: %{date}}"
+  updated_time_ago: "%{time}} ago"
   url: Webseite
   url_add: "F\xC3\xBCgen Sie Ihre Website"
   url_plain: URL
@@ -1520,14 +1520,14 @@ de:
     confirm_password: "Kennwort best\xC3\xA4tigen"
     delete_from_space: "Benutzer l\xC3\xB6schen aus dem Weltraum"
     disable: Benutzer deaktivieren
-    disabled: User {{username}} Behinderte
+    disabled: User %{username}} Behinderte
     e-mail: E-Mail
     edit_account: Bearbeiten Sie Ihr Konto
     email: E-Mail
     enable: Aktivieren Sie Benutzer
     enabled: "User erfolgreich aktiviert. Der Benutzer geh\xC3\xB6rt zur Zeit zu keinen Platz und m\xC3\xBCssen R\xC3\xA4ume wieder beizutreten."
     error: 
-      enabled: User {{name}} ist bereits aktiviert
+      enabled: User %{name}} ist bereits aktiviert
     feed: 
       author: SIR
       title: Benutzer
@@ -1535,7 +1535,7 @@ de:
     found: 
       none: Keine Benutzer gefunden
       one: 1 Benutzer gefunden
-      other: "{{size}} Benutzer gefunden"
+      other: "%{size}} Benutzer gefunden"
     full_name: "Vollst\xC3\xA4ndiger Name"
     include_registered: Enthalten registrierte Benutzer
     included: 
@@ -1547,7 +1547,7 @@ de:
     list_by: Auflistung nach
     login: Login
     lost_password: Haben Sie Ihr Passwort vergessen?
-    noactivity: "{{user}} hat keine aktuelle Aktivit\xC3\xA4t"
+    noactivity: "%{user}} hat keine aktuelle Aktivit\xC3\xA4t"
     not_activated: "Ihr Konto ist nicht aktiviert. Bitte \xC3\xBCberpr\xC3\xBCfen Sie Ihre E-Mail zu aktivieren"
     not_assist: Nicht Besucher
     not_confirmed: "Nicht best\xC3\xA4tigt"
@@ -1566,15 +1566,15 @@ de:
     request_password: Passwort anfordern
     reset_password: "Ihr Passwort zur\xC3\xBCcksetzen"
     results_count: 
-      one: Menschen, {{users_size}} Ergebnis
-      other: Menschen, {{users_size}} Ergebnisse
+      one: Menschen, %{users_size}} Ergebnis
+      other: Menschen, %{users_size}} Ergebnisse
     save: 
       account: Konto speichern
       preferences: Einstellungen speichern
     search: Benutzer suchen ...
     timezone: Zeitzone
     updated: User erfolgreich aktualisiert
-    vcc_email: VCC Benutzer per E-Mail {{dir}}
+    vcc_email: VCC Benutzer per E-Mail %{dir}}
     view_expanded_posts: "Alle Eintr\xC3\xA4ge in der Wand mit der erweiterten Ansicht standardm\xC3\xA4\xC3\x9Fig"
     without_group: Menschen ohne Gruppe
   username: Benutzername
@@ -1593,7 +1593,7 @@ de:
     found: 
       none: Keine Videos gefunden
       one: 1 Video gefunden
-      other: "{{size}} Videos gefunden"
+      other: "%{size}} Videos gefunden"
     one: Video
     other: Videos
   visit_link_to_activate_account: Besuchen Sie diesen Link, um Ihr Konto zu aktivieren
