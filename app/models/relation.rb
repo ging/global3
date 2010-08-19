@@ -1,4 +1,4 @@
-class Role < ActiveRecord::Base
+class Relation < ActiveRecord::Base
   Available = {
     User => {
       User  => %w( Private Friend FriendOfFriend Public ),

@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
   include ActionController::Subactivity
 
-  # Assure the suitable contact exists, should be done in Activity model.
-  before_filter :contact!, :only => :create
+  # Assure the suitable tie exists, should be done in Activity model.
+  before_filter :tie!, :only => :create
 
   # POST /activities/1/like.js
   def create
@@ -10,7 +10,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       if @like.save
-        contact!.activities << @like
+        tie!.activities << @like
 
         format.js
       else

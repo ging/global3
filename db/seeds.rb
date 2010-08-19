@@ -6,8 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Role.all_available.each do |role|
-  Role.find_or_create_by_name role
+Relation.all_available.each do |relation|
+  Relation.find_or_create_by_name relation
 end
 
 ActivityVerb::Available.each do |verb|

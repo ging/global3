@@ -2,9 +2,9 @@ class Actor < ActiveRecord::Base
   has_one :user, :dependent => :destroy
   has_one :space, :dependent => :destroy
 
-  has_many :contacts,
-           :foreign_key => 'actor_from_id',
-           :include => [ :actor_to, :role ],
+  has_many :ties,
+           :foreign_key => 'sender_id',
+           :include => [ :receiver, :relation ],
            :dependent => :destroy
 
   def subject

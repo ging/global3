@@ -12,16 +12,16 @@ class Activity < ActiveRecord::Base
   has_many :activity_object_activities
   has_many :activity_objects, :through => :activity_object_activities
 
-  belongs_to :contact,
-             :include => [ :actor_from ]
+  belongs_to :tie,
+             :include => [ :sender ]
   has_one :author,
-          :through => :contact,
-          :source => :actor_from
+          :through => :tie,
+          :source => :sender
   has_one :wall,
-          :through => :contact,
-          :source => :actor_to
-  has_one :role,
-          :through => :contact
+          :through => :tie,
+          :source => :receiver
+  has_one :relation,
+          :through => :tie
 
   def verb
     activity_verb.name
@@ -36,9 +36,9 @@ class Activity < ActiveRecord::Base
   end
 
   class << self
-    def wall(contacts_query)
+    def wall(ties_query)
       select( "DISTINCT activities.*").
-        where("activities.contact_id IN (#{ contacts_query })").
+        where("activities.tie_id IN (#{ ties_query })").
         order("created_at desc")
     end
   end

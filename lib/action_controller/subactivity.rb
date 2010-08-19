@@ -10,13 +10,13 @@ module ActionController
       activity || raise(ActiveRecord::RecordNotFound)
     end
 
-    def contact
-      @contact ||= current_user.contacts(:actor_to => activity!.author,
-                                         :role => activity!.role).first
+    def tie
+      @tie ||= current_user.ties(:receiver => activity!.author,
+                                 :relation => activity!.relation).first
     end
 
-    def contact!
-      contact || raise(ActiveRecord::RecordNotFound)
+    def tie!
+      tie || raise(ActiveRecord::RecordNotFound)
     end
   end
 end

@@ -5,7 +5,7 @@ module ActiveRecord
     extend ActiveSupport::Concern
 
     included do
-      attr_accessor :_activity_contact_id
+      attr_accessor :_activity_tie_id
       attr_accessor :_activity_parent_id
 
       belongs_to :activity_object
@@ -17,7 +17,7 @@ module ActiveRecord
       before_create :create_post_activity
       before_update :create_update_activity
 
-      validates_presence_of :_activity_contact
+      validates_presence_of :_activity_tie
     end
 
     module InstanceMethods
@@ -30,8 +30,8 @@ module ActiveRecord
         create_activity_object_without_type attributes.update(:object_type => self.class.to_s)
       end
 
-      def _activity_contact
-        @_activity_contact ||= Contact.find(_activity_contact_id)
+      def _activity_tie
+        @_activity_tie ||= Tie.find(_activity_tie_id)
       end
 
       private
@@ -46,7 +46,7 @@ module ActiveRecord
 
       def create_activity(verb)
         activity_object.activities.create! :verb      => verb,
-                                           :contact   => _activity_contact,
+                                           :tie       => _activity_tie,
                                            :parent_id => _activity_parent_id
       end
     end

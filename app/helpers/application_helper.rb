@@ -5,11 +5,11 @@ module ApplicationHelper
     ""
   end
 
-  def current_contact
-    # Change with contact list
+  def current_tie
+    # Change with tie list
     current_user.
-      contacts.
-      actor_to(current_user).
-      where(:role_id => Role["Public"].id).first
+      ties.
+      receiver(current_user).
+      where(:relation_id => Relation["Public"].id).first
   end
 end

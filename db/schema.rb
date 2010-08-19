@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
-    t.integer  "contact_id"
+    t.integer  "tie_id"
   end
 
   add_index "activities", ["activity_verb_id"], :name => "fk_activity_verb"
-  add_index "activities", ["contact_id"], :name => "fk_activities_contact"
+  add_index "activities", ["tie_id"], :name => "fk_activities_tie"
 
   create_table "activity_object_activities", :force => true do |t|
     t.integer  "activity_id"
@@ -106,27 +106,17 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_index "comments", ["activity_object_id"], :name => "fk_commets_activity_object"
 
-  create_table "contact_activities", :force => true do |t|
-    t.integer  "activity_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "contact_id"
-  end
-
-  add_index "contact_activities", ["activity_id"], :name => "fk_actividad_actor_actividad"
-  add_index "contact_activities", ["contact_id"], :name => "fk_contact_activities_contact"
-
-  create_table "contacts", :force => true do |t|
-    t.integer  "actor_to_id"
-    t.integer  "actor_from_id"
-    t.integer  "role_id"
+  create_table "ties", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.integer  "relation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "contacts", ["actor_from_id"], :name => "fk_contact_actor_to"
-  add_index "contacts", ["actor_to_id"], :name => "fk_contact_actor_from"
-  add_index "contacts", ["role_id"], :name => "fk_contacts_role"
+  add_index "ties", ["sender_id"], :name => "fk_tie_sender"
+  add_index "ties", ["receiver_id"], :name => "fk_tie_receiver"
+  add_index "ties", ["relation_id"], :name => "fk_tie_relation"
 
   create_table "documents", :force => true do |t|
     t.string   "name",               :limit => 45
@@ -212,17 +202,17 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_index "profiles", ["user_id"], :name => "fk_profile_user"
 
-  create_table "role_action", :force => true do |t|
+  create_table "relation_action", :force => true do |t|
     t.integer  "action_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role_id"
+    t.integer  "relation_id"
   end
 
-  add_index "role_action", ["action_id"], :name => "fk_role_action_action"
-  add_index "role_action", ["role_id"], :name => "fk_role_action_rol"
+  add_index "relation_action", ["action_id"], :name => "fk_relation_action_action"
+  add_index "relation_action", ["relation_id"], :name => "fk_relation_action_rol"
 
-  create_table "roles", :force => true do |t|
+  create_table "relations", :force => true do |t|
     t.string   "name",       :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -277,7 +267,7 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "videos", ["activity_object_id"], :name => "fk_video_object"
 
   add_foreign_key "activities", "activity_verbs", :name => "fk_activity_verb"
-  add_foreign_key "activities", "contacts", :name => "fk_activities_contact"
+  add_foreign_key "activities", "ties", :name => "fk_activities_tie"
 
   add_foreign_key "activity_object_activities", "activities", :name => "fk_activity_object_activities_1"
   add_foreign_key "activity_object_activities", "activity_objects", :name => "fk_activity_object_activities_2"
@@ -293,12 +283,9 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_foreign_key "comments", "activity_objects", :name => "fk_commets_activity_object"
 
-  add_foreign_key "contact_activities", "activities", :name => "fk_actividad_actor_actividad"
-  add_foreign_key "contact_activities", "contacts", :name => "fk_contact_activities_contact"
-
-  add_foreign_key "contacts", "actors", :name => "fk_contact_actor_from", :column => "actor_to_id"
-  add_foreign_key "contacts", "actors", :name => "fk_contact_actor_to", :column => "actor_from_id"
-  add_foreign_key "contacts", "roles", :name => "fk_contacts_role"
+  add_foreign_key "ties", "actors", :name => "fk_tie_sender", :column => "sender_id"
+  add_foreign_key "ties", "actors", :name => "fk_tie_receiver", :column => "receiver_id"
+  add_foreign_key "ties", "relations", :name => "fk_ties_relation"
 
   add_foreign_key "documents", "activity_objects", :name => "fk_document_document"
 
@@ -315,8 +302,8 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_foreign_key "profiles", "users", :name => "fk_profile_user"
 
-  add_foreign_key "role_action", "actions", :name => "fk_role_action_action"
-  add_foreign_key "role_action", "roles", :name => "fk_role_action_rol"
+  add_foreign_key "relation_action", "actions", :name => "fk_relation_action_action"
+  add_foreign_key "relation_action", "relations", :name => "fk_relation_action_rol"
 
   add_foreign_key "spaces", "actors", :name => "fk_spaces_actors"
 

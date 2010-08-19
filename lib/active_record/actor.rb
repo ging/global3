@@ -9,7 +9,7 @@ module ActiveRecord
                  :validate => true,
                  :autosave => true
 
-      delegate :name, :name=, :email, :email=, :contacts,
+      delegate :name, :name=, :email, :email=, :ties,
                :to => :actor!
     end
 

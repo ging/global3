@@ -28,15 +28,15 @@ class User < ActiveRecord::Base
     true
   end
 
-  after_create :initialize_contacts
+  after_create :initialize_ties
 
-  # The spaces this user has contact with
+  # The spaces this user has tie with
   def spaces
-    actor.contacts.map(&:actor_to).map(&:space).compact
+    actor.ties.map(&:receiver).map(&:space).compact
   end
 
   def wall
-    Activity.wall Contact.tie_ids_query(actor)
+    Activity.wall Tie.tie_ids_query(actor)
   end
 
   def videos
@@ -56,12 +56,12 @@ class User < ActiveRecord::Base
 
   private
 
-  def initialize_contacts
-    # FIXME: automatically load roles
-    Role::Available[User][User].each do |r|
-      Contact.create! :actor_from => self.actor,
-                      :actor_to => self.actor,
-                      :role => Role.find_by_name(r)
+  def initialize_ties
+    # FIXME: automatically load relations
+    Relation::Available[User][User].each do |r|
+      Tie.create! :sender => self.actor,
+                  :receiver => self.actor,
+                  :relation => Relation[r]
     end
   end
 
