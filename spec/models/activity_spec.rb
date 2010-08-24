@@ -1,23 +1,65 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 module ActivityTestHelper
-  def assigned_to(tie)
-    @tie = tie
-    @activity = Factory(:activity, :tie => tie)
+  def create_activity_assigned_to(aux_tie)
+    @tie = aux_tie
+    @activity = Factory(:activity, :tie => aux_tie)
   end
 
-  def accessed_by(tie)
-    u = tie.sender.subject
+  def create_ability_accessed_by(tie_type)
+    aux_tie = Factory(tie_type, :receiver => @tie.receiver)
+    u = aux_tie.sender.subject
     @ability = Ability.new(u)
   end
 
-  def it_should_allow(action)
-    @ability.should be_able_to(action, @activity)
+  shared_examples_for "Allows Creating" do
+    it "should allow create" do
+      @ability.should be_able_to(:create, @activity)
+    end
+  end
+  
+  shared_examples_for "Allows Reading" do
+    it "should allow read" do
+      @ability.should be_able_to(:read, @activity)
+    end
+  end
+  
+  shared_examples_for "Allows Updating" do
+    it "should allow update" do
+      @ability.should be_able_to(:update, @activity)
+    end
+  end
+  
+  shared_examples_for "Allows Destroying" do
+    it "should allow destroy" do
+      @ability.should be_able_to(:destroy, @activity)
+    end
   end
 
-  def it_should_deny(action)
-    @ability.should_not be_able_to(action, @activity)
+  shared_examples_for "Denies Creating" do
+    it "should deny create" do
+      @ability.should_not be_able_to(:create, @activity)
+    end
   end
+  
+  shared_examples_for "Denies Reading" do
+    it "should deny read" do
+      @ability.should_not be_able_to(:read, @activity)
+    end
+  end
+  
+  shared_examples_for "Denies Updating" do
+    it "should deny update" do
+      @ability.should_not be_able_to(:update, @activity)
+    end
+  end
+  
+  shared_examples_for "Denies Destroying" do
+    it "should deny destroy" do
+      @ability.should_not be_able_to(:destroy, @activity)
+    end
+  end
+  
 end
 
 describe Activity do
@@ -25,68 +67,154 @@ describe Activity do
 
   describe "belonging to friend tie" do
     before do
-      assigned_to(Factory(:friend_tie))
+      create_activity_assigned_to(Factory(:friend_tie))
     end
 
-    describe "accessed by friend" do
+    describe "accessed by same friend" do
       before do
-        u = @ft.receiver.sender
+        u = @tie.sender.subject
         @ability = Ability.new(u)
       end
+
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Denies Destroying"
     end
-
-    describe "accessed by other friend" do
+    
+    describe "accessed by different friend" do
       before do
-        accessed_by Factory(:friend_tie, :receiver => @tie.receiver)
+        create_ability_accessed_by :friend_tie
       end
 
-      it "should allow read" do
-        it_should_allow(:read)
-      end
-
-      it "should deny update" do
-        it_should_deny(:update)
-      end
-
-      it "should deny destroy" do
-        it_should_deny(:destroy)
-      end
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
     end
 
     describe "accessed by friend of friend" do
       before do
-        accessed_by Factory(:fof_tie, :receiver => @tie.receiver)
+        create_ability_accessed_by :fof_tie
       end
 
-      it "should deny read" do
-        it_should_deny(:read)
-      end
-
-      it "should deny update" do
-        it_should_deny(:update)
-      end
-
-      it "should deny destroy" do
-        it_should_deny(:destroy)
-      end
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
     end
 
-    describe "accessed by other" do
+    describe "accessed publicly" do
       before do
-        accessed_by Factory(:public_tie, :receiver => @tie.receiver)
+        create_ability_accessed_by :public_tie
       end
 
-      it "should deny read" do
-        it_should_deny(:read)
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+  end
+  
+  describe "belonging to friend of friend tie" do
+    before do
+      create_activity_assigned_to(Factory(:fof_tie))
+    end
+    
+    describe "accessed by a friend" do
+      before do
+        create_ability_accessed_by :friend_tie
       end
 
-      it "should deny update" do
-        it_should_deny(:update)
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed by same friend of friend" do
+      before do
+        u = @tie.sender.subject
+        @ability = Ability.new(u)
       end
 
-      it "should deny destroy" do
-        it_should_deny(:destroy)
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+    
+    describe "accessed by different friend of friend" do
+      before do
+        create_ability_accessed_by :fof_tie
       end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed publicly" do
+      before do
+        create_ability_accessed_by :public_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+  end
+  
+  describe "belonging to public tie" do
+    before do
+      create_activity_assigned_to(Factory(:fof_tie))
+    end
+    
+    describe "accessed by a friend" do
+      before do
+        create_ability_accessed_by :friend_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed by friend of friend" do
+      before do
+        create_ability_accessed_by :fof_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed by same public sender" do
+      before do
+        u = @tie.sender.subject
+        @ability = Ability.new(u)
+      end
+
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed by different public" do
+      before do
+        create_ability_accessed_by :public_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
     end
   end
 end

@@ -40,7 +40,7 @@ namespace :db do
                         :relation => user_relations.random
         end
         spaces = available_spaces.dup
-        space_relations = Relation::Available[User][Space].map{ |r| Relation[r] }
+        space_relations = Relation::Available.map{ |r| Relation[r] }
 
         Forgery::Basic.number.times do
           space = spaces.delete_at((rand * spaces.size).to_i)
