@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20100820092637) do
 
   create_table "actions", :force => true do |t|
     t.string   "name"
@@ -105,18 +105,6 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   add_index "comments", ["activity_object_id"], :name => "fk_commets_activity_object"
-
-  create_table "ties", :force => true do |t|
-    t.integer  "sender_id"
-    t.integer  "receiver_id"
-    t.integer  "relation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ties", ["sender_id"], :name => "fk_tie_sender"
-  add_index "ties", ["receiver_id"], :name => "fk_tie_receiver"
-  add_index "ties", ["relation_id"], :name => "fk_tie_relation"
 
   create_table "documents", :force => true do |t|
     t.string   "name",               :limit => 45
@@ -216,6 +204,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "name",       :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "spaces", :force => true do |t|
@@ -239,6 +228,18 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_index "tags_activity_objects", ["activity_object_id"], :name => "fk_tags_activity_objects_2"
   add_index "tags_activity_objects", ["tag_id"], :name => "fk_tags_activity_objects_1"
+
+  create_table "ties", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.integer  "relation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ties", ["receiver_id"], :name => "fk_tie_receiver"
+  add_index "ties", ["relation_id"], :name => "fk_tie_relation"
+  add_index "ties", ["sender_id"], :name => "fk_tie_sender"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at"
@@ -283,10 +284,6 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_foreign_key "comments", "activity_objects", :name => "fk_commets_activity_object"
 
-  add_foreign_key "ties", "actors", :name => "fk_tie_sender", :column => "sender_id"
-  add_foreign_key "ties", "actors", :name => "fk_tie_receiver", :column => "receiver_id"
-  add_foreign_key "ties", "relations", :name => "fk_ties_relation"
-
   add_foreign_key "documents", "activity_objects", :name => "fk_document_document"
 
   add_foreign_key "events", "activity_objects", :name => "fk_event_object"
@@ -309,6 +306,10 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_foreign_key "tags_activity_objects", "activity_objects", :name => "fk_tags_activity_objects_2"
   add_foreign_key "tags_activity_objects", "tags", :name => "fk_tags_activity_objects_1"
+
+  add_foreign_key "ties", "actors", :name => "fk_tie_receiver", :column => "receiver_id"
+  add_foreign_key "ties", "actors", :name => "fk_tie_sender", :column => "sender_id"
+  add_foreign_key "ties", "relations", :name => "fk_ties_relation"
 
   add_foreign_key "users", "actors", :name => "fk_users_actors"
 

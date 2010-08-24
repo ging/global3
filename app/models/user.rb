@@ -57,12 +57,9 @@ class User < ActiveRecord::Base
   private
 
   def initialize_ties
-    # FIXME: automatically load relations
-    Relation::Available[User][User].each do |r|
-      Tie.create! :sender => self.actor,
-                  :receiver => self.actor,
-                  :relation => Relation[r]
-    end
+    Tie.create! :sender   => self.actor,
+                :receiver => self.actor,
+                :relation => UserToUser.strongest
   end
 
   class << self

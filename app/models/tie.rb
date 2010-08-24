@@ -1,4 +1,6 @@
 class Tie < ActiveRecord::Base
+  validates_presence_of :sender_id, :receiver_id, :relation_id
+
   belongs_to :sender,
              :class_name => "Actor",
              :include => [ :user, :space ]
@@ -9,6 +11,13 @@ class Tie < ActiveRecord::Base
 
   has_many :activities
 
+  scope :sender, lambda { |a|
+    actor = ( a.is_a?(Actor) ?
+              a :
+              a.actor )
+    where(:sender_id => actor.id)
+  }
+
   scope :receiver, lambda { |a|
     actor = ( a.is_a?(Actor) ?
               a :
@@ -16,6 +25,39 @@ class Tie < ActiveRecord::Base
     where(:receiver_id => actor.id)
   }
 
+  def set
+    self.class.where(:sender_id => sender_id,
+                     :receiver_id => receiver_id)
+  end
+
+  def relation_set(relations)
+    set.where(:relation_id => relations)
+  end
+
+  def weaker_set
+    relation_set(relation.weaker_and_self)
+  end
+
+  def stronger_set
+    relation_set(relation.stronger_and_self)
+  end
+
+  def group_set(relations = relation)
+    self.class.where(:receiver_id => receiver_id,
+                     :relation_id => relations)
+  end
+
+  after_create :complete_weaker_set
+
+  private
+
+  def complete_weaker_set
+    relation.weaker.each do |r|
+      if relation_set(r).blank?
+        set.create! :relation => r
+      end
+    end
+  end
 
   class << self
     def tie_ids_query(actor)

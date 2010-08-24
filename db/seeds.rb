@@ -6,12 +6,10 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Relation.all_available.each do |relation|
-  Relation.find_or_create_by_name relation
-end
-
-ActivityVerb::Available.each do |verb|
-  ActivityVerb.find_or_create_by_name verb
+[ UserToUser, UserToSpace, ActivityVerb ].each do |klass|
+  klass::Available.each do |value|
+    klass.find_or_create_by_name value
+  end
 end
 
 # Create admin user if not present

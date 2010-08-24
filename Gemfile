@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.rc2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,7 +16,8 @@ gem 'matthuhiggins-foreigner', :require => 'foreigner'
 # gem 'capistrano'
 
 # Bundle the extra gems:
-gem 'devise', '1.1.rc2'
+gem 'devise', '1.1.1'
+gem 'cancan'
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -36,7 +37,7 @@ group :development do
 end
 
 group :test do
-  gem "rspec-rails", ">= 2.0.0.beta.15"
+  gem "rspec-rails", "~> 2.0.0.beta.15"
   gem "factory_girl"
 end
 
