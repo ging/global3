@@ -1,14 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 module ActivityTestHelper
-  def create_activity_assigned_to(aux_tie)
-    @tie = aux_tie
-    @activity = Factory(:activity, :tie => aux_tie)
+  def create_activity_assigned_to(t)
+    @tie = t
+    @activity = Factory(:activity, :tie => t)
   end
 
   def create_ability_accessed_by(tie_type)
-    aux_tie = Factory(tie_type, :receiver => @tie.receiver)
-    u = aux_tie.sender.subject
+    t = Factory(tie_type, :receiver => @tie.receiver)
+    u = t.sender.subject
     @ability = Ability.new(u)
   end
 
@@ -79,7 +79,7 @@ describe Activity do
       it_should_behave_like "Allows Creating"
       it_should_behave_like "Allows Reading"
       it_should_behave_like "Allows Updating"
-      it_should_behave_like "Denies Destroying"
+      it_should_behave_like "Allows Destroying"
     end
     
     describe "accessed by different friend" do
@@ -116,9 +116,9 @@ describe Activity do
     end
   end
   
-  describe "belonging to friend of friend tie" do
+  describe "belonging to fof tie from a friend" do
     before do
-      create_activity_assigned_to(Factory(:fof_tie))
+      create_activity_assigned_to(Factory(:friend_tie).related('FriendOfFriend'))
     end
     
     describe "accessed by a friend" do
@@ -132,7 +132,7 @@ describe Activity do
       it_should_behave_like "Denies Destroying"
     end
 
-    describe "accessed by same friend of friend" do
+    describe "accessed by same friend" do
       before do
         u = @tie.sender.subject
         @ability = Ability.new(u)
@@ -140,8 +140,8 @@ describe Activity do
 
       it_should_behave_like "Allows Creating"
       it_should_behave_like "Allows Reading"
-      it_should_behave_like "Denies Updating"
-      it_should_behave_like "Denies Destroying"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
     end
     
     describe "accessed by different friend of friend" do
@@ -150,7 +150,7 @@ describe Activity do
       end
 
       it_should_behave_like "Denies Creating"
-      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Allows Reading"
       it_should_behave_like "Denies Updating"
       it_should_behave_like "Denies Destroying"
     end
@@ -166,10 +166,21 @@ describe Activity do
       it_should_behave_like "Denies Destroying"
     end
   end
-  
-  describe "belonging to public tie" do
+
+  describe "belonging to fof tie from a friend of friend" do
     before do
       create_activity_assigned_to(Factory(:fof_tie))
+      u = @tie.sender.subject
+      @ability = Ability.new(u)
+    end
+    
+    it_should_behave_like "Denies Creating"
+  end
+
+ 
+  describe "belonging to public tie" do
+    before do
+      create_activity_assigned_to(Factory(:friend_tie).related('Public'))
     end
     
     describe "accessed by a friend" do
@@ -202,8 +213,8 @@ describe Activity do
 
       it_should_behave_like "Allows Creating"
       it_should_behave_like "Allows Reading"
-      it_should_behave_like "Denies Updating"
-      it_should_behave_like "Denies Destroying"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
     end
 
     describe "accessed by different public" do
@@ -212,9 +223,19 @@ describe Activity do
       end
 
       it_should_behave_like "Denies Creating"
-      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Allows Reading"
       it_should_behave_like "Denies Updating"
       it_should_behave_like "Denies Destroying"
     end
+  end
+
+  describe "belonging to public tie from a public" do
+    before do
+      create_activity_assigned_to(Factory(:public_tie))
+      u = @tie.sender.subject
+      @ability = Ability.new(u)
+    end
+    
+    it_should_behave_like "Denies Creating"
   end
 end

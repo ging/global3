@@ -2,6 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :create, Activity do |activity|
+
+      case activity.tie.relation
+      when UserToUser
+        activity.tie.related('Friend').try(:sender_subject) == user
+      end
+
+    end
+
     can :read, Activity do |activity|
 
       case activity.tie.relation
@@ -14,7 +23,7 @@ class Ability
 
       case activity.tie.relation
       when UserToUser
-        activity.tie.sender == user
+        activity.tie.related('Friend').try(:sender_subject) == user
       end
     end
 
@@ -22,8 +31,9 @@ class Ability
 
       case activity.tie.relation
       when UserToUser
-        activity.tie.sender == user
+        activity.tie.related('Friend').try(:sender_subject) == user
       end
     end
   end
+
 end

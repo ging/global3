@@ -25,23 +25,46 @@ class Tie < ActiveRecord::Base
     where(:receiver_id => actor.id)
   }
 
-  def set
-    self.class.where(:sender_id => sender_id,
-                     :receiver_id => receiver_id)
+  def sender_subject
+    sender.try(:subject)
   end
 
-  def relation_set(relations)
-    set.where(:relation_id => relations)
+  def receiver_subject
+    receiver.try(:subject)
   end
 
+  # The set of ties between sender and receiver
+  #
+  def relation_set(r = :nil)
+    set = self.class.where(:sender_id => sender_id,
+                           :receiver_id => receiver_id)
+
+    case r
+    when :nil
+      set
+    when String
+      set.where(:relation_id => relation.class[r])
+    else
+      set.where(:relation_id => r)
+    end
+  end
+
+  # The tie with relation r inside this relation_set
+  def related(r)
+    relation_set(r).first
+  end
+
+  # Ties between sender and receiver with a relation weaker or equal to this
   def weaker_set
     relation_set(relation.weaker_and_self)
   end
 
+  # Ties between sender and receiver with a relation stronger or equal to this
   def stronger_set
     relation_set(relation.stronger_and_self)
   end
 
+  # Ties with the same receiver
   def group_set(relations = relation)
     self.class.where(:receiver_id => receiver_id,
                      :relation_id => relations)
@@ -54,7 +77,7 @@ class Tie < ActiveRecord::Base
   def complete_weaker_set
     relation.weaker.each do |r|
       if relation_set(r).blank?
-        set.create! :relation => r
+        relation_set.create! :relation => r
       end
     end
   end
