@@ -238,4 +238,168 @@ describe Activity do
     
     it_should_behave_like "Denies Creating"
   end
+
+  describe "belonging to admin tie" do
+    before do
+      create_activity_assigned_to(Factory(:admin_tie))
+    end
+
+    describe "accessed by same admin" do
+      before do
+        u = @tie.sender.subject
+        @ability = Ability.new(u)
+      end
+
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+    
+    describe "accessed by different admin" do
+      before do
+        create_ability_accessed_by :admin_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by user" do
+      before do
+        create_ability_accessed_by :user_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+
+    describe "accessed by follower" do
+      before do
+        create_ability_accessed_by :follower_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+  end
+  
+  describe "belonging to user tie from an admin" do
+    before do
+      create_activity_assigned_to(Factory(:admin_tie).related('User'))
+    end
+    
+    describe "accessed by a admin" do
+      before do
+        create_ability_accessed_by :admin_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by same admin" do
+      before do
+        u = @tie.sender.subject
+        @ability = Ability.new(u)
+      end
+
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+    
+    describe "accessed by different user" do
+      before do
+        create_ability_accessed_by :user_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by follower" do
+      before do
+        create_ability_accessed_by :follower_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Denies Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+  end
+
+  describe "belonging to follower tie" do
+    before do
+      create_activity_assigned_to(Factory(:user_tie).related('Follower'))
+    end
+    
+    describe "accessed by an admin" do
+      before do
+        create_ability_accessed_by :admin_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by user" do
+      before do
+        create_ability_accessed_by :user_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by same sender" do
+      before do
+        u = @tie.sender.subject
+        @ability = Ability.new(u)
+      end
+
+      it_should_behave_like "Allows Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Allows Updating"
+      it_should_behave_like "Allows Destroying"
+    end
+
+    describe "accessed by different follower" do
+      before do
+        create_ability_accessed_by :follower_tie
+      end
+
+      it_should_behave_like "Denies Creating"
+      it_should_behave_like "Allows Reading"
+      it_should_behave_like "Denies Updating"
+      it_should_behave_like "Denies Destroying"
+    end
+  end
+
+  describe "belonging to follower tie from a follower" do
+    before do
+      create_activity_assigned_to(Factory(:follower_tie))
+      u = @tie.sender.subject
+      @ability = Ability.new(u)
+    end
+    
+    it_should_behave_like "Denies Creating"
+  end
+
 end
