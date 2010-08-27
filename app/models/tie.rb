@@ -58,12 +58,12 @@ class Tie < ActiveRecord::Base
 
   # Ties between sender and receiver with a relation weaker or equal to this
   def weaker_set
-    relation_set(relation.weaker_and_self)
+    relation_set(relation.weaker_or_equal)
   end
 
   # Ties between sender and receiver with a relation stronger or equal to this
   def stronger_set
-    relation_set(relation.stronger_and_self)
+    relation_set(relation.stronger_or_equal)
   end
 
   # Ties with the same receiver
@@ -97,7 +97,7 @@ class Tie < ActiveRecord::Base
     self.class.sender_permissions(user, action, object).
       where(:sender_id   => sender_id).
       where(:receiver_id => receiver_id).
-      where(:relation_id => relation.stronger_and_self).
+      where(:relation_id => relation.stronger_or_equal).
       where('permissions.parameter' => :weaker_set)
   end
 
@@ -111,7 +111,7 @@ class Tie < ActiveRecord::Base
   def permissions_weaker_group_set(user, action, object)
     self.class.sender_permissions(user, action, object).
       where(:receiver_id => receiver).
-      where(:relation_id => relation.stronger_and_self).
+      where(:relation_id => relation.stronger_or_equal).
       where('permissions.parameter' => :weaker_group_set)
   end
 

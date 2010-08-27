@@ -51,7 +51,7 @@ class Relation < ActiveRecord::Base
     self.class.weaker_set(self)
   end
 
-  def weaker_and_self
+  def weaker_or_equal
     Array(self) + weaker
   end
 
@@ -59,7 +59,7 @@ class Relation < ActiveRecord::Base
     self.class.stronger_set(self)
   end
 
-  def stronger_and_self
+  def stronger_or_equal
     stronger + Array(self)
   end
 end
