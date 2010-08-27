@@ -12,6 +12,44 @@
   end
 end
 
+{ 'Friend' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_set' ],
+  [ 'destroy', 'resources', 'weaker_set' ] ],
+  'FriendOfFriend' => [
+  [ 'read',    'resources', 'group_set' ] ],
+  'Public' => [
+  [ 'read',    'resources', 'group_set' ] ],
+}.each_pair do |r, ps|
+    ps.each do |p|
+      rel = UserToUser[r]
+      p = Permission.find_or_create_by_action_and_object_and_parameter(*p)
+      rel.permissions << p unless rel.permissions.include?(p)
+    end
+end
+
+{ 'Admin' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_group_set' ],
+  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  'User' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_group_set' ],
+  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  'Follower' => [
+  [ 'read',    'resources', 'group_set' ] ],
+}.each_pair do |r, ps|
+    ps.each do |p|
+      rel = UserToSpace[r]
+      p = Permission.find_or_create_by_action_and_object_and_parameter(*p)
+      rel.permissions << p unless rel.permissions.include?(p)
+    end
+end
+                
+
 # Create admin user if not present
 if User.find_by_name('vcc').blank?
   u = User.create! :full_name => 'vcc',

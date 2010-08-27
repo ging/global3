@@ -25,6 +25,8 @@ class Tie < ActiveRecord::Base
     where(:receiver_id => actor.id)
   }
 
+  scope :with_permissions, includes(:relation => :permissions)
+
   def sender_subject
     sender.try(:subject)
   end
@@ -72,6 +74,47 @@ class Tie < ActiveRecord::Base
 
   after_create :complete_weaker_set
 
+  def permissions(user, action, object)
+    permissions_tie(user, action, object) +
+      permissions_weaker_set(user, action, object) +
+      permissions_group_set(user, action, object) +
+      permissions_weaker_group_set(user, action, object)
+  end
+
+  def permission?(user, action, object)
+    permissions(user, action, object).any?
+  end
+
+  def permissions_tie(user, action, object)
+    self.class.sender_permissions(user, action, object).
+      where(:sender_id   => sender_id).
+      where(:receiver_id => receiver_id).
+      where(:relation_id => relation_id).
+      where('permissions.parameter' => :tie)
+  end
+
+  def permissions_weaker_set(user, action, object)
+    self.class.sender_permissions(user, action, object).
+      where(:sender_id   => sender_id).
+      where(:receiver_id => receiver_id).
+      where(:relation_id => relation.stronger_and_self).
+      where('permissions.parameter' => :weaker_set)
+  end
+
+  def permissions_group_set(user, action, object)
+    self.class.sender_permissions(user, action, object).
+      where(:receiver_id => receiver).
+      where(:relation_id => relation).
+      where('permissions.parameter' => :group_set)
+  end
+
+  def permissions_weaker_group_set(user, action, object)
+    self.class.sender_permissions(user, action, object).
+      where(:receiver_id => receiver).
+      where(:relation_id => relation.stronger_and_self).
+      where('permissions.parameter' => :weaker_group_set)
+  end
+
   private
 
   def complete_weaker_set
@@ -95,6 +138,14 @@ class Tie < ActiveRecord::Base
         to_sql
       "SELECT ties.id FROM ties INNER JOIN ties ties_2 ON ((ties_2.sender_id = #{ actor.id } AND ties_2.receiver_id = ties.receiver_id) AND (ties_2.relation_id = ties.relation_id OR ties.relation_id = #{ Relation['Public'].id }))"
 
+    end
+
+    # Ties with sender including permissions matching action and object
+    def sender_permissions(sender, action, object)
+      with_permissions.
+        sender(sender).
+        where('permissions.action' => action).
+        where('permissions.object' => object)
     end
   end
 end

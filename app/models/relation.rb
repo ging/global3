@@ -1,6 +1,9 @@
 class Relation < ActiveRecord::Base
   Available = []
 
+  has_many :relation_permissions
+  has_many :permissions, :through => :relation_permissions
+
   class << self
     def [] name
       find_by_name name
@@ -33,6 +36,10 @@ class Relation < ActiveRecord::Base
 
     def weakest
       self[self::Available.last]
+    end
+
+    def filter_with_permission(set, permission)
+      includes(:permissions).where(:id => set).where('permissions.object' => permission)
     end
   end
 

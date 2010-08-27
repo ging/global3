@@ -11,12 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100820092637) do
 
-  create_table "actions", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
     t.string   "description",      :limit => 45
@@ -141,6 +135,14 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
   add_index "logos", ["actor_id"], :name => "fk_logo_actor"
   add_index "logos", ["id"], :name => "fk_logos_parent"
 
+  create_table "permissions", :force => true do |t|
+    t.string   "action"
+    t.string   "object"
+    t.string   "parameter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "photos", :force => true do |t|
     t.integer  "activity_object_id"
     t.datetime "updated_at"
@@ -190,15 +192,16 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   add_index "profiles", ["user_id"], :name => "fk_profile_user"
 
-  create_table "relation_action", :force => true do |t|
-    t.integer  "action_id"
+  create_table "relation_permissions", :force => true do |t|
+    t.integer  "relation_id"
+    t.integer  "permission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "relation_id"
   end
 
-  add_index "relation_action", ["action_id"], :name => "fk_relation_action_action"
-  add_index "relation_action", ["relation_id"], :name => "fk_relation_action_rol"
+  add_index "relation_permissions", ["relation_id"], :name => "fk_relation_permissions_relation"
+  add_index "relation_permissions", ["permission_id"], :name => "fk_relation_permissions_permission"
 
   create_table "relations", :force => true do |t|
     t.string   "name",       :limit => 45
@@ -299,8 +302,8 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   add_foreign_key "profiles", "users", :name => "fk_profile_user"
 
-  add_foreign_key "relation_action", "actions", :name => "fk_relation_action_action"
-  add_foreign_key "relation_action", "relations", :name => "fk_relation_action_rol"
+  add_foreign_key "relation_permissions", "relations", :name => "fk_relation_permissions_relation"
+  add_foreign_key "relation_permissions", "permissions", :name => "fk_relation_permissions_permission"
 
   add_foreign_key "spaces", "actors", :name => "fk_spaces_actors"
 
