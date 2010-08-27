@@ -75,44 +75,41 @@ class Tie < ActiveRecord::Base
   after_create :complete_weaker_set
 
   def permissions(user, action, object)
-    permissions_tie(user, action, object) +
-      permissions_weaker_set(user, action, object) +
-      permissions_group_set(user, action, object) +
-      permissions_weaker_group_set(user, action, object)
+    self.class.sender_permissions(user, action, object).
+      where(permissions_tie.
+            or(permissions_weaker_set).
+            or(permissions_group_set).
+            or(permissions_weaker_group_set))
   end
 
   def permission?(user, action, object)
     permissions(user, action, object).any?
   end
 
-  def permissions_tie(user, action, object)
-    self.class.sender_permissions(user, action, object).
-      where(:sender_id   => sender_id).
-      where(:receiver_id => receiver_id).
-      where(:relation_id => relation_id).
-      where('permissions.parameter' => :tie)
+  def permissions_tie
+    self.class.arel_table[:sender_id].eq(sender_id).and(
+      self.class.arel_table[:receiver_id].eq(receiver_id)).and(
+      self.class.arel_table[:relation_id].eq(relation_id)).and(
+      Permission.arel_table[:parameter].eq('tie'))
   end
 
-  def permissions_weaker_set(user, action, object)
-    self.class.sender_permissions(user, action, object).
-      where(:sender_id   => sender_id).
-      where(:receiver_id => receiver_id).
-      where(:relation_id => relation.stronger_or_equal).
-      where('permissions.parameter' => :weaker_set)
+  def permissions_weaker_set
+    self.class.arel_table[:sender_id].eq(sender_id).and(
+      self.class.arel_table[:receiver_id].eq(receiver_id)).and(
+      self.class.arel_table[:relation_id].in(relation.stronger_or_equal)).and(
+      Permission.arel_table[:parameter].eq('weaker_set'))
   end
 
-  def permissions_group_set(user, action, object)
-    self.class.sender_permissions(user, action, object).
-      where(:receiver_id => receiver).
-      where(:relation_id => relation).
-      where('permissions.parameter' => :group_set)
+  def permissions_group_set
+    self.class.arel_table[:receiver_id].eq(receiver_id).and(
+      self.class.arel_table[:relation_id].eq(relation_id)).and(
+      Permission.arel_table[:parameter].eq('group_set'))
   end
 
-  def permissions_weaker_group_set(user, action, object)
-    self.class.sender_permissions(user, action, object).
-      where(:receiver_id => receiver).
-      where(:relation_id => relation.stronger_or_equal).
-      where('permissions.parameter' => :weaker_group_set)
+  def permissions_weaker_group_set
+    self.class.arel_table[:receiver_id].eq(receiver_id).and(
+      self.class.arel_table[:relation_id].in(relation.stronger_or_equal)).and(
+      Permission.arel_table[:parameter].eq('weaker_group_set'))
   end
 
   private
