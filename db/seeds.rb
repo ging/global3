@@ -6,13 +6,49 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Relation.all_available.each do |relation|
-  Relation.find_or_create_by_name relation
+[ UserToUser, UserToSpace, ActivityVerb ].each do |klass|
+  klass::Available.each do |value|
+    klass.find_or_create_by_name value
+  end
 end
 
-ActivityVerb::Available.each do |verb|
-  ActivityVerb.find_or_create_by_name verb
+{ 'Friend' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_set' ],
+  [ 'destroy', 'resources', 'weaker_set' ] ],
+  'FriendOfFriend' => [
+  [ 'read',    'resources', 'group_set' ] ],
+  'Public' => [
+  [ 'read',    'resources', 'group_set' ] ],
+}.each_pair do |r, ps|
+    ps.each do |p|
+      rel = UserToUser[r]
+      p = Permission.find_or_create_by_action_and_object_and_parameter(*p)
+      rel.permissions << p unless rel.permissions.include?(p)
+    end
 end
+
+{ 'Admin' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_group_set' ],
+  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  'User' => [
+  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'read',    'resources', 'group_set' ],
+  [ 'update' , 'resources', 'weaker_group_set' ],
+  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  'Follower' => [
+  [ 'read',    'resources', 'group_set' ] ],
+}.each_pair do |r, ps|
+    ps.each do |p|
+      rel = UserToSpace[r]
+      p = Permission.find_or_create_by_action_and_object_and_parameter(*p)
+      rel.permissions << p unless rel.permissions.include?(p)
+    end
+end
+                
 
 # Create admin user if not present
 if User.find_by_name('vcc').blank?

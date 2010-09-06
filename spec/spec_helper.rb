@@ -3,10 +3,14 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'cancan/matchers'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+
+# Load Factories
+Dir["#{File.dirname(__FILE__)}/factories/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
   # == Mock Framework
@@ -25,3 +29,5 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+load "#{Rails.root}/db/seeds.rb"
