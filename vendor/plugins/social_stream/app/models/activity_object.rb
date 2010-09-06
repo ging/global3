@@ -1,14 +1,12 @@
 class ActivityObject < ActiveRecord::Base
+  include ActiveRecord::Supertype
+
   has_many :activity_object_activities
   has_many :activities, :through => :activity_object_activities
   has_one  :actor
 
-  has_one :post, :dependent => :destroy
-  has_one :video, :dependent => :destroy
-  has_one :comment, :dependent => :destroy
-
   def object
-    comment || post || video || actor.subject
+    subtype_instance ||
+      actor.try(:subject)
   end
-
 end

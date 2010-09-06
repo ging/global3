@@ -1,13 +1,14 @@
 class Actor < ActiveRecord::Base
-  has_one :user, :dependent => :destroy
-  has_one :space, :dependent => :destroy
+  include ActiveRecord::Supertype
 
   has_many :ties,
            :foreign_key => 'sender_id',
            :include => [ :receiver, :relation ],
            :dependent => :destroy
 
+  # The subject instance for this actor
   def subject
-    user || space || activity_object.object
+    subtype_instance ||
+      activity_object.try(:object)
   end
 end
