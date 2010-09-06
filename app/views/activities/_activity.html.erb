@@ -1,3 +1,7 @@
+<% if activity.parent_id.present? %>
+  <%= render :partial => "activities/subactivity",:object => activity %>
+<% else %>
+   
 <div class="post content_size" >
     <div class="picture_follower">
         <%= image_tag(activity.author.user.logo) %>
@@ -18,38 +22,23 @@
             </div>
 
             <%= render activity.comments %>
-
-            <div class="content_sub_post coment_border">
-                <div class="picture_follower">
-                    <img src="images/followers/3.png" />
-                </div>
-                <div class="content_post">
-                    <div class="name_follower">
-                        Ariana García
-                    </div>
-                    <div class="content_post_follower">
-                        Este tipo de eventos son increibles para los avances de las tecnologías
-                    </div>
-                    <div class="post_options_follower ">
-                        <span class="post_time_ago">33 minutes ago</span>
-                    </div>
-                </div>
-            </div>
-            <div class="space_comments">
-            </div>
+            
             <div class="content_sub_post coment_border">
                 <div class="coment_field">
                   <%= form_for Comment.new(:text => "Write a comment",
                                            :_activity_tie_id => current_tie.id,
                                            :_activity_parent_id => activity.id),
-                               :remote => true do |f| %>
+                                    :remote => true do |f| %>
 
                     <%= f.hidden_field :_activity_tie_id %>
                     <%= f.hidden_field :_activity_parent_id %>
                     <%= f.text_field :text, :class => "input_new_comments", :size => 65 %>
                   <% end %>
+                  
+                        
                 </div>
             </div>
         </div>
     </div>
 </div>
+<% end %>

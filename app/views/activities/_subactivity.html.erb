@@ -1,0 +1,20 @@
+<div class="content_post_follower">
+            <div class="content_sub_post coment_border">
+                <div class="picture_follower">
+                    <%= image_tag(subactivity.author.user.logo) %>
+                </div>
+                <div class="content_post">
+                    <div class="name_follower">
+                        <%=subactivity.author.name %>
+                    </div>
+                    <div class="content_post_follower">
+                        <%= render subactivity.activity_objects %>
+                    </div>
+                    <div class="post_options_follower ">
+                        <span class="post_time_ago">33 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space_comments">
+            </div>  
+</div>
