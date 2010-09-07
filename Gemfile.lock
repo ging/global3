@@ -52,7 +52,7 @@ GEM
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
-    matthuhiggins-foreigner (0.6.4)
+    matthuhiggins-foreigner (0.7.1)
     mime-types (1.16)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
