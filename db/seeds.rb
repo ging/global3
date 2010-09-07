@@ -13,10 +13,10 @@
 end
 
 { 'Friend' => [
-  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'create' , 'resources', 'weak_set' ],
   [ 'read',    'resources', 'group_set' ],
-  [ 'update' , 'resources', 'weaker_set' ],
-  [ 'destroy', 'resources', 'weaker_set' ] ],
+  [ 'update' , 'resources', 'weak_set' ],
+  [ 'destroy', 'resources', 'weak_set' ] ],
   'FriendOfFriend' => [
   [ 'read',    'resources', 'group_set' ] ],
   'Public' => [
@@ -30,15 +30,15 @@ end
 end
 
 { 'Admin' => [
-  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'create' , 'resources', 'weak_set' ],
   [ 'read',    'resources', 'group_set' ],
-  [ 'update' , 'resources', 'weaker_group_set' ],
-  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  [ 'update' , 'resources', 'weak_group_set' ],
+  [ 'destroy', 'resources', 'weak_group_set' ] ],
   'User' => [
-  [ 'create' , 'resources', 'weaker_set' ],
+  [ 'create' , 'resources', 'weak_set' ],
   [ 'read',    'resources', 'group_set' ],
-  [ 'update' , 'resources', 'weaker_group_set' ],
-  [ 'destroy', 'resources', 'weaker_group_set' ] ],
+  [ 'update' , 'resources', 'weak_group_set' ],
+  [ 'destroy', 'resources', 'weak_group_set' ] ],
   'Follower' => [
   [ 'read',    'resources', 'group_set' ] ],
 }.each_pair do |r, ps|
