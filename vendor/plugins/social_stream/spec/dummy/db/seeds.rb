@@ -57,13 +57,4 @@ end
       parent_relation = r
     end
   end
-end              
-
-# Create admin user if not present
-if User.find_by_name('vcc').blank?
-  u = User.create! :full_name => 'vcc',
-                   :email => 'vcc@dit.upm.es',
-                   :password => 'admin',
-                   :password_confirmation => 'admin'
-  u.confirm!
 end

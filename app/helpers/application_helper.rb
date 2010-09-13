@@ -9,7 +9,7 @@ module ApplicationHelper
     # Change with tie list
     current_user.
       ties.
-      receiver(current_user).
-      where(:relation_id => Relation["Public"].id).first
+      received_by(current_user).
+      where(:relation_id => Relation["User-User", "Public"].id).first
   end
 end

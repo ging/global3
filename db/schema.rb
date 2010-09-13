@@ -207,8 +207,11 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "name",       :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.string   "mode"
+    t.string   "ancestry"
   end
+
+  add_index "relations", ["ancestry"]
 
   create_table "spaces", :force => true do |t|
     t.datetime "created_at"

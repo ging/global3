@@ -18,6 +18,8 @@ gem 'matthuhiggins-foreigner', :require => 'foreigner'
 # Bundle the extra gems:
 gem 'devise', '1.1.1'
 gem 'cancan'
+
+gem 'atd-ancestry', :require => 'ancestry'
 # gem 'bj'
 # gem 'nokogiri', '1.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
