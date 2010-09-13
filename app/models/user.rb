@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include ActiveRecord::Actor
 
+  has_one :profile
+
   alias :full_name :name
   alias :full_name= :name=
 
