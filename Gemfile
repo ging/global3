@@ -10,7 +10,7 @@ gem 'matthuhiggins-foreigner', :require => 'foreigner'
 # gem 'capistrano'
 
 # Authentication:
-gem 'devise', '1.1.1'
+gem 'devise'
 
 # Authorization
 gem 'cancan'

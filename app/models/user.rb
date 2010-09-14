@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   def initialize_ties
     Tie.create! :sender   => self.actor,
                 :receiver => self.actor,
-                :relation => Relation.where(:mode => 'User-User').strongest
+                :relation => Relation.mode('User', 'User').strongest
   end
 
   class << self

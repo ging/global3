@@ -32,7 +32,7 @@ namespace :db do
       puts "* Create Ties"
       User.all.each do |u|
         users = available_users.dup - Array(u)
-        user_relations = %w( Friend FriendOfFriend ).map{ |r| Relation['User-User', r] }
+        user_relations = %w( Friend FriendOfFriend ).map{ |r| Relation.mode('User', 'User').find_by_name(r) }
 
         Forgery::Basic.number.times do
           user = users.delete_at((rand * users.size).to_i)
@@ -40,7 +40,7 @@ namespace :db do
                         :relation => user_relations.random
         end
         spaces = available_spaces.dup
-        space_relations = Relation.where(:mode => 'User-Space')
+        space_relations = Relation.mode('User', 'Space')
 
         Forgery::Basic.number.times do
           space = spaces.delete_at((rand * spaces.size).to_i)
