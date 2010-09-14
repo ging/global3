@@ -10,6 +10,6 @@ module ApplicationHelper
     current_user.
       ties.
       received_by(current_user).
-      where(:relation_id => Relation["User-User", "Public"].id).first
+      where(:relation_id => Relation.mode('User', 'User').find_by_name("Public")).first
   end
 end

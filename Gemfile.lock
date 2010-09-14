@@ -37,7 +37,7 @@ GEM
     cgi_multipart_eof_fix (2.5.0)
     columnize (0.3.1)
     daemons (1.1.0)
-    devise (1.1.1)
+    devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
     diff-lcs (1.1.2)
@@ -61,7 +61,10 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     mysql (2.8.1)
+    nokogiri (1.4.3.1)
     polyglot (0.3.1)
+    prism (0.1.0)
+      nokogiri
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -103,6 +106,7 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    vpim (0.695)
     warden (0.10.7)
       rack (>= 1.0.0)
 
@@ -112,13 +116,15 @@ PLATFORMS
 DEPENDENCIES
   atd-ancestry
   cancan
-  devise (= 1.1.1)
+  devise
   factory_girl
   forgery
   matthuhiggins-foreigner
   mongrel
   mysql
+  prism
   rails (= 3.0.0)
   rails3-generators
   rspec-rails (~> 2.0.0.beta.15)
   ruby-debug
+  vpim

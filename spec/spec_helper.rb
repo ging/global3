@@ -28,6 +28,9 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+
+  # Add authentication helpers
+  config.include Devise::TestHelpers, :type => :controller
 end
 
 load "#{Rails.root}/db/seeds.rb"
