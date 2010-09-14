@@ -26,6 +26,14 @@
     			<%= csrf_meta_tag %>
         <% end %>				
         <%= yield :headers %>
+        <script type="text/javascript" charset="utf-8">
+          $(document).ready(function() {
+            <%= render :partial => 'layouts/ready.js.erb' %>
+            <%= yield :javascript %>
+          })
+        </script>
+
+
     </head>
     <body>
         <div id="wrapper">

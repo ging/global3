@@ -1,7 +1,5 @@
-//We hide the message saying no comment if present
-$(".post h3").hide();
-//Hide the comment form
-$(".newPost").html("<%= escape_javascript(new_post_link()) %>");
+//set a new value to input field with javascript
+$("#input_activities").val("<%= t('activity.input') %>");
 //Display the new post
 $("#wall").prepend("<%= escape_javascript(render @post.activity_object.activities.first) %>");
 

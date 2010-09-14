@@ -50,6 +50,8 @@ en:
         header: 
           one: 1 error prohibited this %{model}} from being saved
           other: "%{count}} errors prohibited this %{model}} from being saved"
+  activity:
+    input: What do you do?
   add: Add
   add_more_details: Add more details
   address: Address
@@ -245,6 +247,7 @@ en:
     new: New comment
     one: Comment
     other: Comments
+    write: Write a comment ...
     recent: 
       other: Recent comments
     show_all: Show all comments

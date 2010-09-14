@@ -2,9 +2,9 @@
   <%= render :partial => "activities/subactivity",:object => activity %>
 <% else %>
    
-<div class="post content_size" >
+	<div class="post content_size" >
     <div class="picture_follower">
-        <%= image_tag(activity.author.user.logo) %>
+        <%= image_tag(activity.author.user.logo , :size => "50x50", :alt => activity.author.name ) %>
     </div>
     <div class="content_post">
         <div id="activity<%= activity.id %>" class="name_follower content_size">
@@ -13,32 +13,55 @@
         <%= render activity.activity_objects %>
         <div class="post_options_follower ">
             <span class="post_time_ago"><%=time_ago_in_words(activity.created_at)%> ago</span>
-            <img src="images/point_gray.png" alt="gray_button" /><a href="#">Comments</a>
-            <img src="images/point_blue.png" alt="blue_button" /><%= link_to "I like", activity_like_path(activity), :method => :post, :remote => true %>
-            <img src="images/point_blue.png" alt="blue_button" /><%= link_to "Delete", activity, :confirm => 'Are you sure?', :method => :delete %>
+            <img src="images/point_gray.png" alt="gray_button" /> <a href="#">Comments</a>
+            <img src="images/point_blue.png" alt="blue_button" /> <%= link_to "I like", activity_like_path(activity), :method => :post, :remote => true %>
+            <img src="images/point_blue.png" alt="blue_button" /> <%= link_to "Delete", activity, :confirm => 'Are you sure?', :method => :delete %>
         </div>
-        <div class="post_comments ">
-            <div class="space_comments">
-            </div>
+        <div class="post_comments" id="comments<%= activity.id %>">
+          <%= render activity.comments %>
+					<% content_for :javascript do %>
+						//functions for javascript actions for principal posts
+						$("#activities_comment_btn<%=activity.id%>").hide();
+						title_comment = "<%= t('comment.write') %>";
 
-            <%= render activity.comments %>
-            
+						$("#<%=dom_id(activity)%>").click(function(){
+							if(this.value == title_comment){
+								this.value="";
+									$("#activities_comment_btn<%=activity.id%>").show();
+							}
+						});
+
+						$("#<%=dom_id(activity)%>").blur(function(){
+							if(this.value == ""){
+								this.value= title_comment;
+									$("#activities_comment_btn<%=activity.id%>").hide();
+							}
+						});
+					<%end%>
+        </div>
+
             <div class="content_sub_post coment_border">
-                <div class="coment_field">
-                  <%= form_for Comment.new(:text => "Write a comment",
+							<div class="coment_field">
+                  <%= form_for Comment.new(:text => t('comment.write'),
                                            :_activity_tie_id => current_tie.id,
                                            :_activity_parent_id => activity.id),
                                     :remote => true do |f| %>
-
                     <%= f.hidden_field :_activity_tie_id %>
                     <%= f.hidden_field :_activity_parent_id %>
-                    <%= f.text_field :text, :class => "input_new_comments", :size => 65 %>
+                    <%= f.text_field :text,  :id => "#{dom_id(activity)}" , :class =>"input_new_comments" %>
+                      <div id="activities_comment_btn<%=activity.id%>" class="activities_comment_btn">
+                        <img src="images/buttons/btn_security.png" />
+                        <%= image_submit_tag "buttons/btn_share.png" %>
+                      </div>
                   <% end %>
-                  
-                        
                 </div>
-            </div>
-        </div>
+            </div>			
+			  <div class="space_comments"></div>
+
     </div>
-</div>
+	</div>
+	<div class="space_activities">
+		<div class="space_sub"></div>
+	</div>
+
 <% end %>
