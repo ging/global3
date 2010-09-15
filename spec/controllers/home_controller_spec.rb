@@ -6,7 +6,7 @@ describe HomeController do
   describe "when Anonymous" do
     it "should redirect to login" do
       get :index
-      response.should redirect_to(login_path)
+      response.should redirect_to(new_user_session_path)
     end
   end
 
