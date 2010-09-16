@@ -11,7 +11,7 @@ module ActionController
     end
 
     def tie
-      @tie ||= current_user.ties(:receiver => activity!.sender,
+      @tie ||= current_user.ties(:receiver => activity!.receiver,
                                  :relation => activity!.relation).first
     end
 

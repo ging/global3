@@ -18,5 +18,13 @@ class LikesController < ApplicationController
     end
   end
 
+  def destroy
+    if (a = activity!.liked_by(current_user)).present?
+      a.destroy
+    end
 
+    respond_to do |format|
+      format.js
+    end
+  end
 end
