@@ -43,5 +43,7 @@ class Activity < ActiveRecord::Base
         where("activities.tie_id IN (#{ ties_query })").
         order("created_at desc")
     end
-  end
+	end
+
+
 end

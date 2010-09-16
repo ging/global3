@@ -1,4 +1,4 @@
-//set a new value to input field with javascript
-$("#<%=dom_id(@comment.activity_object.activities.first.parent)%>").val("<%= t('comment.write') %>");
 //Display the new post
+$(".input_new_comments").val("<%= t('comment.write') %>");
+$(".activities_comment_btn").hide();
 $("#comments<%=@comment.activity_object.activities.first.parent.id%>").append("<%= escape_javascript(render @comment.activity_object.activities.first) %>");

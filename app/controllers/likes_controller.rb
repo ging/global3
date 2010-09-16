@@ -11,7 +11,6 @@ class LikesController < ApplicationController
     respond_to do |format|
       if @like.save
         tie!.activities << @like
-
         format.js
       else
         format.js

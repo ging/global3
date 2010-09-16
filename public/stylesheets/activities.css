@@ -13,6 +13,24 @@
 	padding: 2px;
 }
 
+.comment{
+	display:inline-block;
+}
+.like{
+	display:inline-block;
+}
+.delete{
+	display:inline-block;
+}
+
+.like_comment{
+	display: inline-block;
+}
+.delete_comment{
+	display:inline-block;
+}
+
+
 #wrapper_activities_header {
 	padding-top: 5px;
   padding-bottom: 5px;

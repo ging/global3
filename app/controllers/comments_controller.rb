@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   # GET /comments
   # GET /comments.xml
   def index

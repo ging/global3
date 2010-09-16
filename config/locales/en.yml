@@ -52,6 +52,9 @@ en:
           other: "%{count}} errors prohibited this %{model}} from being saved"
   activity:
     input: What do you do?
+    like: I like
+    like_not: Just I dont like
+    tocomment: To comment
   add: Add
   add_more_details: Add more details
   address: Address

@@ -9,6 +9,9 @@
 						</div>
             <div class="post_options_comments ">
                 <span class="post_time_ago"><%=time_ago_in_words(subactivity.author.created_at)%> ago</span>
+							<img src="images/point_blue.png" alt="blue_button" /> <div class="like_comment"> <%= link_to  t('activity.like') , activity_like_path(subactivity), :method => :post, :remote => true %> </div>
+							<img src="images/point_blue.png" alt="blue_button" /> <div class="delete_comment"><%= link_to "Delete", subactivity, :confirm => 'Are you sure?', :method => :delete, :remote => true %> </div>
+
             </div>
         </div>
     </div>

@@ -1,4 +1,8 @@
 //functions for javascript actions for principal posts
+
+
+
+//javascript for principal input of different activities
 $("#activities_share_btn").hide();
 
 title = "<%= t('activity.input') %>";
@@ -15,4 +19,36 @@ $("#input_activities").blur(function(){
     $("#activities_share_btn").hide();
 	}
 });
+
+//javascript for all comments of activities
+$(".input_new_comments").val("<%= t('comment.write') %>");
+$(".activities_comment_btn").hide();
+
+$(".input_new_comments").click(function(){
+	if(this.value == "<%= t('comment.write') %>"){
+		$(this).val("");
+	}
+	$(".activities_comment_btn").hide();
+	$(this).parent(".new_comment").children(".activities_comment_btn").show();
+
+});
+
+$(".input_new_comments").blur(function(){
+	if(this.value == ""){
+		$(".activities_comment_btn").hide();
+	}
+});
+
+
+// como activo este boton de comment, como cojo la instancia del div q quiero tomar <-----
+$(".comment").click(function(){
+	if(this.value == "<%= t('comment.write') %>"){
+		$(this).val("");
+	}
+	$(".activities_comment_btn").hide();
+	$(this).parent(".new_comment").children(".activities_comment_btn").show();
+
+});
+
+//javascript for all likes
 
