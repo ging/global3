@@ -2,4 +2,6 @@
 $("#input_activities").val("<%= t('activity.input') %>");
 //Display the new post
 $("#wall").prepend("<%= escape_javascript(render @post.activity_object.activities.first) %>");
-
+$("#activities_share_btn").hide();
+$(".input_new_comments").val("<%= t('comment.write') %>");
+$(".activities_comment_btn").hide();

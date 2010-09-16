@@ -20,7 +20,7 @@
             }
         </script>
        
-        <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'jquery-ui-personalized-1.5.2.packed' , 'rails' %>
+        <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'jquery-ui-personalized-1.5.2.packed' , 'rails' , 'jquery.livequery' %>
 		    <%= javascript_include_tag 'application' %>
         <% if protect_against_forgery? %>
     			<%= csrf_meta_tag %>
@@ -32,8 +32,6 @@
             <%= yield :javascript %>
           })
         </script>
-
-
     </head>
     <body>
         <div id="wrapper">

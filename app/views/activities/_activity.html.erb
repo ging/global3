@@ -1,21 +1,20 @@
 <% if activity.parent_id.present? %>
-  
   <%= render :partial => "activities/subactivity",:object => activity %>
 <% else %>
 	<div class="post content_size" >
     <div class="picture_follower">
-		  <%= link_to (image_tag(activity.author.user.logo , :size => "50x50", :alt => activity.author.name )),home_path  %>
+		  <%= link_to (image_tag(activity.sender.user.logo , :size => "50x50", :alt => activity.sender.name )),home_path  %>
     </div>
     <div class="content_post">
         <div id="activity<%= activity.id %>" class="name_follower content_size">
-            <%=activity.author.name %>
+            <%=activity.sender.name %>
         </div>
-        <%= render activity.activity_objects %>
+        <%=  render activity.activity_objects %>
         <div class="post_options_follower ">
             <span class="post_time_ago"><%=time_ago_in_words(activity.created_at)%> ago</span>
-            <img src="images/point_gray.png" alt="gray_button" /> <div class="comment"> <%= link_to t('activity.tocomment') %> </div>
-            <img src="images/point_blue.png" alt="blue_button" /> <div class="like"> <%= link_to  t('activity.like') , activity_like_path(activity), :method => :post, :remote => true %> </div>
-            <img src="images/point_blue.png" alt="blue_button" /> <div class="delete"><%= link_to "Delete", activity.activity_objects.first.object , :confirm => 'Are you sure?', :method => :delete,  :remote => true %> </div>
+            <img src="images/point_gray.png" alt="gray_button" /> <div class="comment"> <%= link_to t('activity.tocomment'),"", :class => "tocomment" %> </div>
+            <img src="images/point_blue.png" alt="blue_button" /> <div class="like">  <%=like_activity(activity)%> </div>
+            <img src="images/point_blue.png" alt="blue_button" /> <div class="delete"> <%= link_to "Delete", activity.activity_objects.first.object , :confirm => 'Are you sure?', :method => :delete,  :remote => true %> </div>
         </div>
         <div class="post_comments" id="comments<%= activity.id %>">
 					<%= render activity.comments %>

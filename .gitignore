@@ -21,3 +21,5 @@ config/locales/log
 .svn
 config/initializers/mail_conf.rb
 db/*sqlite3
+global3/
+.settings/

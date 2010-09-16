@@ -53,7 +53,7 @@ en:
   activity:
     input: What do you do?
     like: I like
-    like_not: Just I dont like
+    unlike: Already I do not like
     tocomment: To comment
   add: Add
   add_more_details: Add more details
