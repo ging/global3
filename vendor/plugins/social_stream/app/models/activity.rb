@@ -6,7 +6,8 @@ class Activity < ActiveRecord::Base
 
   has_many :children,
            :class_name => "Activity",
-           :foreign_key => :parent_id
+           :foreign_key => :parent_id,
+           :dependent => :destroy
 
   belongs_to :activity_verb
   has_many :activity_object_activities
@@ -58,7 +59,5 @@ class Activity < ActiveRecord::Base
         where("activities.tie_id IN (#{ ties_query })").
         order("created_at desc")
     end
-	end
-
-
+  end
 end
