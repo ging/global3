@@ -19,7 +19,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if (a = activity!.liked_by(current_user)).present?
+    if (a = activity!.liked_by(current_user).first)
       a.destroy
     end
 
