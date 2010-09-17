@@ -1,3 +1,4 @@
-alert("like- eliminado ");
-$('#actityv').hide();
+$(".like").livequery("click", function(){
+	$(this).html('<%= escape_javascript(like_activity(@like.parent) ) %>');
+});
 

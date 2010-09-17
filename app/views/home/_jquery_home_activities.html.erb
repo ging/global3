@@ -1,10 +1,7 @@
-//functions for javascript actions for principal posts
-
 
 
 //javascript for principal input of different activities
 $("#activities_share_btn").hide();
-
 title = "<%= t('activity.input') %>";
 $("#input_activities").click(function(){
   if(this.value == title){
@@ -12,7 +9,6 @@ $("#input_activities").click(function(){
     $("#activities_share_btn").show();
 	}
 });
-
 $("#input_activities").blur(function(){
   if(this.value == ""){
 	  this.value= title;
@@ -23,35 +19,28 @@ $("#input_activities").blur(function(){
 //javascript for all comments of activities
 $(".input_new_comments").val("<%= t('comment.write') %>");
 $(".activities_comment_btn").hide();
-
 $(".input_new_comments").livequery("click",function(){
 	if(this.value == "<%= t('comment.write') %>"){
 		$(this).val("");
 	}
 	$(".activities_comment_btn").hide();
 	$(this).parent(".new_comment").children(".activities_comment_btn").show();
-
 });
-
 $(".input_new_comments").livequery("blur",function(){
 	if(this.value == ""){
 		$(".activities_comment_btn").hide();
 	}
 });
-
-
-// como activo este boton de comment, como cojo la instancia del div q quiero tomar <-----
 $(".comment").click(function(){
 	if(this.value == "<%= t('comment.write') %>"){
 		$(this).val("");
 	}
 	$(".activities_comment_btn").hide();
 	$(this).parent(".new_comment").children(".activities_comment_btn").show();
-
 });
 
-//javascript for all likes
 
+//javascript for tocomment option
 $(".tocomment").livequery("click", function(){
 //  $(this).parents(".content_post").children(".content_sub_post").children(".coment_field").children(".new_comment").children(".input_new_comments").click();
   $(this).parents(".content_post").find(".input_new_comments").click();
@@ -62,3 +51,14 @@ $(".tocomment").livequery("blur", function(){
   $(this).parents(".content_post").find(".input_new_comments").blur();
 	return false;
 });
+
+
+// borra comentarios
+function delete_comment(object){
+	object.parents(".content_post_follower").hide();
+};
+
+//borra actividades
+delete_activity = function(object){
+	object.parents(".post").hide();
+};

@@ -7,7 +7,7 @@ class LikesController < ApplicationController
   # POST /activities/1/like.js
   def create
     @like = activity!.children.new :verb => "like"
-
+		
     respond_to do |format|
       if @like.save
         tie!.activities << @like
@@ -19,8 +19,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if (a = activity!.liked_by(current_user)).present?
-      a.destroy
+    if (@like = activity!.liked_by(current_user)).present?
+      @like.destroy
     end
 
     respond_to do |format|
