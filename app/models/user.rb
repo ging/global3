@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include ActiveRecord::Actor
+  include SocialStream::Models::Actor
 
   has_one :profile
 

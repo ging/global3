@@ -1,6 +1,4 @@
 class Space < ActiveRecord::Base
-  include ActiveRecord::Actor
-
   validates_presence_of :name
 
   def logo
