@@ -1,0 +1,62 @@
+relations:
+  user-friend:
+    sender_type: User
+    receiver_type: User
+    name: friend
+    permissions:
+      - [ create,  resources, weak_set ]
+      - [ read,    resources, group_set ]
+      - [ update,  resources, weak_set ]
+      - [ destroy, resources, weak_set ]
+  user-fof:
+    sender_type: User
+    receiver_type: User
+    name: friend_of_friend
+    parent: user-friend
+    permissions:
+      - [ read, resources, group_set ]
+  user-public:
+    sender_type: User
+    receiver_type: User
+    name: public
+    parent: user-fof
+    permissions:
+      - [ read, resources, group_set ]
+
+  user-space-admin:
+    sender_type: User
+    receiver_type: Space
+    name: admin
+  user-space-user:
+    sender_type: User
+    receiver_type: Space
+    name: user
+    parent: user-space-admin
+
+  space-user-admin:
+    sender_type: Space
+    receiver_type: User
+    name: admin
+    permissions:
+      - [ create,  resources, weak_set ]
+      - [ read,    resources, group_set ]
+      - [ update,  resources, weak_group_set ]
+      - [ destroy, resources, weak_group_set ]
+  space-user-user:
+    sender_type: Space
+    receiver_type: User
+    name: user
+    parent: space-user-admin
+    permissions:
+      - [ create,  resources, weak_set ]
+      - [ read,    resources, group_set ]
+      - [ update,  resources, weak_group_set ]
+      - [ destroy, resources, weak_group_set ]
+  space-user-follower:
+    sender_type: Space
+    receiver_type: User
+    name: follower
+    parent: space-user-user
+    permissions:
+      - [ read,    resources, group_set ]
+ 
