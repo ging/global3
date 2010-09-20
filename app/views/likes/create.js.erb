@@ -1,6 +1,4 @@
-alert("cambia");
-page.replace_html('.like' , like_activity(@like.parent)  );
-
+$(".like#activity_like_<%= @like.parent.id %>").html("<%= escape_javascript(like_activity(@like.parent) ) %>");
 
 
 

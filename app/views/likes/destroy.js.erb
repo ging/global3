@@ -1,4 +1,1 @@
-$(".like").livequery("click", function(){
-	$(this).html('<%= escape_javascript(like_activity(@like.parent) ) %>');
-});
-
+$(".like#activity_like_<%= @like.parent.id %>").html("<%= escape_javascript(like_activity(@like.parent) ) %>");

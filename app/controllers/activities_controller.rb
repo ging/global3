@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy

@@ -1,5 +1,3 @@
-
-
 //javascript for principal input of different activities
 $("#activities_share_btn").hide();
 title = "<%= t('activity.input') %>";
@@ -51,14 +49,3 @@ $(".tocomment").livequery("blur", function(){
   $(this).parents(".content_post").find(".input_new_comments").blur();
 	return false;
 });
-
-
-// borra comentarios
-function delete_comment(object){
-	object.parents(".content_post_follower").hide();
-};
-
-//borra actividades
-delete_activity = function(object){
-	object.parents(".post").hide();
-};

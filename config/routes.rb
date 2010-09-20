@@ -18,6 +18,7 @@ Global::Application.routes.draw do |map|
   
   resources :activities do 
     resource :like
+		resource :like_comment
   end
 
   resources :posts  

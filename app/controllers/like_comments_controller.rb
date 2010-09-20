@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class LikeCommentsController < ApplicationController
   include ActionController::Subactivity
 
   # Assure the suitable tie exists, should be done in Activity model.
@@ -7,7 +7,7 @@ class LikesController < ApplicationController
   # POST /activities/1/like.js
   def create
     @like = activity!.children.new :verb => "like"
-		
+
     respond_to do |format|
       if @like.save
         tie!.activities << @like

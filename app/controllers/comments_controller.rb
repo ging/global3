@@ -75,6 +75,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+		@activity= @comment.activity_object.activities.first;
     @comment.destroy
 
     respond_to do |format|

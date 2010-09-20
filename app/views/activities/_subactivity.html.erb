@@ -1,4 +1,4 @@
-<div class="content_post_follower">
+<div class="content_post_follower" id="comentario<%=subactivity.id%>">
     <div class="content_sub_post coment_border">
         <div class="picture_follower_comment">
             <%= image_tag(subactivity.sender.user.logo, :size => "30x30", :alt => subactivity.sender.name ) %>
@@ -9,8 +9,9 @@
 						</div>
             <div class="post_options_comments ">
                 <span class="post_time_ago"><%=time_ago_in_words(subactivity.sender.created_at)%> ago</span>
-							<img src="images/point_blue.png" alt="blue_button" /> <div class="like_comment"> <%= link_to  t('activity.like') , activity_like_path(subactivity), :method => :post, :remote => true %> </div>
+							<img src="images/point_blue.png" alt="blue_button" /> <div class="like_comment" id="like_comment<%=subactivity.id%>"> <%= like_comment_activity(subactivity)%> </div>
 							<img src="images/point_blue.png" alt="blue_button" /> <div class="delete_comment"><%= link_to "Delete", subactivity, :confirm => 'Are you sure?', :method => :delete, :remote => true %> </div>
+
 
             </div>
         </div>

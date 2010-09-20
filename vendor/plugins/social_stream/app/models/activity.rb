@@ -44,7 +44,7 @@ class Activity < ActiveRecord::Base
   end
 
   def liked_by(user) #:nodoc:
-    (likes.includes(:tie) & Tie.sent_by(user)).first
+    likes.includes(:tie) & Tie.sent_by(user)
   end
 
   # Does user like this activity?
