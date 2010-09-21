@@ -10,7 +10,18 @@
 #   composed by the resources assigned to the ties in which the actor is the receiver.
 # * The Relation sets up the mode in which the Activity is shared. It sets the rules,
 #    or permissions, by which actors have access to the Activity.
+# 
+# == Inverse ties
+# Relations can have its inverse. When a tie is establised, an inverse tie is establised
+# as well.
 class Tie < ActiveRecord::Base
+  # Avoids loops at create_inverse after save callback
+  attr_accessor :_without_inverse
+  attr_protected :_without_inverse
+
+  # Facilitates relation assigment along with find_relation callback
+  attr_accessor :relation_name
+
   validates_presence_of :sender_id, :receiver_id, :relation_id
 
   belongs_to :sender,
@@ -24,11 +35,17 @@ class Tie < ActiveRecord::Base
   has_many :activities
 
   scope :sent_by, lambda { |a|
-    where(:sender_id => Actor(a))
+    where(:sender_id => Actor_id(a))
   }
 
   scope :received_by, lambda { |a|
-    where(:receiver_id => Actor(a))
+    where(:receiver_id => Actor_id(a))
+  }
+
+  scope :inverse, lambda { |t|
+    sent_by(t.receiver).
+      received_by(t.sender).
+      where(:relation_id => t.relation.inverse_id)
   }
 
   def sender_subject
@@ -38,6 +55,8 @@ class Tie < ActiveRecord::Base
   def receiver_subject
     receiver.try(:subject)
   end
+
+  before_validation :find_relation
 
   # The set of ties between sender and receiver
   #
@@ -60,7 +79,7 @@ class Tie < ActiveRecord::Base
     relation_set(r).first
   end
 
-  after_create :complete_weak_set
+  after_create :complete_weak_set, :create_inverse
 
   # Access Control
 
@@ -123,17 +142,50 @@ class Tie < ActiveRecord::Base
 
   private
 
+  # Before validation callback
+  # Infers relation from its name and the type of the actors
+  def find_relation
+    if relation_name.present?
+      self.relation = Relation.mode(sender_subject.class.to_s,
+                                    receiver_subject.class.to_s).
+                                    find_by_name(relation_name)
+    end
+  end
+
+  # After create callback
+  # Creates ties with a weaker relations in the strength hierarchy of this tie
   def complete_weak_set
     relation.weaker.each do |r|
       if relation_set(r).blank?
-        relation_set.create! :relation => r
+        t = relation_set.build :relation => r
+        t._without_inverse = true
+        t.save!
       end
     end
   end
 
+  # After create callback
+  # Creates a the inverse of this tie
+  def create_inverse
+    if !_without_inverse &&
+       relation.inverse.present? &&
+       Tie.inverse(self).blank?
+      t = Tie.inverse(self).build
+      t._without_inverse = true
+      t.save!
+    end
+  end
+
   class << self
-    def Actor(a)
-      a.is_a?(Actor) ? a : a.actor
+    def Actor_id(a)
+      case a
+      when Integer
+        a
+      when Actor
+        a.id
+      else
+        a.actor.id
+      end
     end
 
     def tie_ids_query(actor)

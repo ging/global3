@@ -1,0 +1,5 @@
+<% if @tie.new_record? %>
+alert('There were problems with the tie: <%= escape_javascript(@tie.errors.to_xml) %>');
+<% else %>
+alert('Tie created!');
+<% end %>

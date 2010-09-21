@@ -37,6 +37,12 @@ class User < ActiveRecord::Base
     actor.ties.map(&:receiver).map(&:space).compact
   end
 
+  # FIXME with recommendations engine
+  def suggested_space
+    s = (Space.all - spaces)
+    s[rand(s.size)]
+  end
+
   def wall
     Activity.wall Tie.tie_ids_query(actor)
   end

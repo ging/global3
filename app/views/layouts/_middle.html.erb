@@ -74,21 +74,30 @@
             </div>
         </div>
         <div class="post_future_conference">
+          <% if (space = current_user.suggested_space).present? %>
             <div class="future_content">
                 <div class="future_picture">
                     <img src="images/spaces/2.png" width="55px" height="40px" />
                 </div>
                 <div class="future_description">
                     <div class="future_link">
-                        <a href="#">DIT space</a>
+                      <%= link_to space.name, space %>
                     </div>
                     <div class="future_brief">
                         18 followers contacts
                         <br/>
                     </div>
-                    <a href="#">+ Follow</a>
+                    <%= link_to "+ Follow",
+                                ties_path("tie[sender_id]" => current_user.actor.id,
+                                          "tie[receiver_id]" => space.actor.id,
+                                          "tie[relation_name]" => "follower"),
+                                :method => :post,
+                                :remote => true %>
+
+
                 </div>
             </div>
+          <% end %>
         </div>
     </div>
 </div>
