@@ -3,6 +3,7 @@ relations:
     sender_type: User
     receiver_type: User
     name: friend
+    inverse: user-friend
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
@@ -13,6 +14,7 @@ relations:
     receiver_type: User
     name: friend_of_friend
     parent: user-friend
+    inverse: user-fof
     permissions:
       - [ read, resources, group_set ]
   user-public:
@@ -20,6 +22,7 @@ relations:
     receiver_type: User
     name: public
     parent: user-fof
+    inverse: user-public
     permissions:
       - [ read, resources, group_set ]
 
@@ -27,16 +30,23 @@ relations:
     sender_type: User
     receiver_type: Space
     name: admin
+    inverse: space-user-admin
   user-space-user:
     sender_type: User
     receiver_type: Space
     name: user
     parent: user-space-admin
+    inverse: space-user-user
+  user-space-follower:
+    sender_type: User
+    receiver_type: Space
+    name: follower
 
   space-user-admin:
     sender_type: Space
     receiver_type: User
     name: admin
+    inverse: user-space-admin
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
@@ -47,16 +57,10 @@ relations:
     receiver_type: User
     name: user
     parent: space-user-admin
+    inverse: user-space-user
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
       - [ update,  resources, weak_group_set ]
       - [ destroy, resources, weak_group_set ]
-  space-user-follower:
-    sender_type: Space
-    receiver_type: User
-    name: follower
-    parent: space-user-user
-    permissions:
-      - [ read,    resources, group_set ]
  

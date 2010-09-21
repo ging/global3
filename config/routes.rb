@@ -16,6 +16,7 @@ Global::Application.routes.draw do |map|
   
   map.search 'search', :controller => 'browse', :action => 'index'
   
+  resources :ties
   resources :activities do 
     resource :like
 		resource :like_comment
