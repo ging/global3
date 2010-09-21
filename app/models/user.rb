@@ -38,6 +38,19 @@ class User < ActiveRecord::Base
 
   after_create :initialize_ties
 
+  # == Recomendations
+  
+  # The users this user has tie with
+  def users
+    actor.ties.includes(:receiver).map(&:receiver).map(&:user).compact
+  end
+
+  # FIXME with recommendations engine
+  def suggested_user
+    s = (User.all - users)
+    s[rand(s.size)]
+  end
+
   # The spaces this user has tie with
   def spaces
     actor.ties.map(&:receiver).map(&:space).compact
@@ -73,7 +86,7 @@ class User < ActiveRecord::Base
   def initialize_ties
     Tie.create! :sender   => self.actor,
                 :receiver => self.actor,
-                :relation => Relation.mode('User', 'User').strongest
+                :relation => Relation.mode('User', 'User').find_by_name('friend')
   end
 
   class << self
