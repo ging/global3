@@ -58,26 +58,34 @@
             </div>
         </div>
         <div class="post_future_conference">
+          <% if (user = current_user.suggested_user).present? %>
             <div class="future_content">
                 <div class="future_picture">
-                    <img src="images/contacts/1.png" width="55px" height="40px"/>
+                  <img src="<%= image_path(user.logo) %>" width="55px" height="40px"/>
                 </div>
                 <div class="future_description">
                     <div class="future_link">
-                        <a href="#">Olguita Martin</a>
+                      <a href="#"><%= user.name %></a>
                     </div>
                     <div class="future_brief">
                         18 contacts in commom 
                     </div>
-                    <a href="#">+ Add as contact</a>
+                    <%= link_to "+ Add as contact",
+                                ties_path("tie[sender_id]" => current_user.actor.id,
+                                          "tie[receiver_id]" => user.actor.id,
+                                          "tie[relation_name]" => "friendship_request"),
+                                :method => :post,
+                                :remote => true %>
+
                 </div>
             </div>
+          <% end %>
         </div>
         <div class="post_future_conference">
           <% if (space = current_user.suggested_space).present? %>
             <div class="future_content">
                 <div class="future_picture">
-                    <img src="images/spaces/2.png" width="55px" height="40px" />
+                    <img src="<%= image_path(space.logo) %>" width="55px" height="40px" />
                 </div>
                 <div class="future_description">
                     <div class="future_link">

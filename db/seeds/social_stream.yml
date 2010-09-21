@@ -25,6 +25,10 @@ relations:
     inverse: user-public
     permissions:
       - [ read, resources, group_set ]
+  user-friend-request:
+    sender_type: User
+    receiver_type: User
+    name: friendship_request
 
   user-space-admin:
     sender_type: User
