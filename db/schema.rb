@@ -260,6 +260,8 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "reset_password_token"
     t.integer  "actor_id"
     t.string   "userscol",             :limit => 45
+		t.integer   "lectures"
+		t.integer  "keynotes"
   end
 
   add_index "users", ["actor_id"], :name => "fk_users_actors"

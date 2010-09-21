@@ -1551,7 +1551,7 @@ en:
   url: Website
   url_add: Add your Website
   url_plain: URL
-  user: 
+  user:
     activation_email_sent: Activation email has been sent to user
     active: 
       other: Active users
@@ -1564,6 +1564,7 @@ en:
     by_email: By email
     by_private_message: By private message
     confirm_password: Confirm Password
+    contacts: Contacts
     delete_from_space: Delete user from space
     disable: Disable user
     disabled: User %{username}} disabled
@@ -1590,7 +1591,9 @@ en:
     invite_email: Invite people by email
     invite_from_space_by_email: Invite people from your space
     invited: Users already invited
+    keynotes: Keynotes
     list_by: List by
+    lectures : Lectures
     login: Login
     lost_password: Have you lost your password?
     noactivity: "%{user}} has no recent activity"
