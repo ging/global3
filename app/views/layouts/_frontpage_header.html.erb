@@ -22,7 +22,7 @@
             <%=t("login") %>
         </button>
         <% end -%>
-        <div id="subtexto">
+        <div class="subtexto">
             <%= link_to t('register.one'), signup_path, :class => "register_link" %>
             <span>|</span>
             <%= link_to t('user.lost_password'), lost_password_path, :class => "register_link" %>
@@ -42,7 +42,7 @@
             </div>
             <% end -%>
         </div>
-        <div id="subtexto">
+        <div class="subtexto">
             <%= link_to t('user.lost_password'), lost_password_path, :class => "register_link" %>
             <span>|</span>
             <%= link_to_function t('login_traditional'), "show_user_password_form()" %>

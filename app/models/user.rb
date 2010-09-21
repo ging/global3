@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   alias :full_name :name
   alias :full_name= :name=
 
+
+	scope :with_lectures, where('users.lectures is not null')
+	scope :with_keynotes, where('users.keynotes is not null')
+
+	
+
   validates_presence_of :full_name, :email
   validates_format_of :email, :with => Devise.email_regexp, :allow_blank => true
   # TODO: uniqueness of email
@@ -128,6 +134,11 @@ class User < ActiveRecord::Base
       end
 
       record
-    end
+		end
+
+
+
+
+
   end
 end
