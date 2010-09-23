@@ -45,6 +45,12 @@ relations:
     sender_type: User
     receiver_type: Space
     name: follower
+    parent: user-space-user
+  user-space-public:
+    sender_type: User
+    receiver_type: Space
+    parent: user-space-follower
+    name: public
 
   space-user-admin:
     sender_type: Space
