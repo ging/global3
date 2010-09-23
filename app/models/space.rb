@@ -6,4 +6,10 @@ class Space < ActiveRecord::Base
   def logo
     "spaces/#{ id % 5 + 1 }.png"
   end
+
+  def followers
+    User.joins(:actor => :sent_ties) &
+      Tie.received_by(self).
+      where(:relation_id => Relation.mode("User", "Space").find_by_name("follower"))
+  end
 end
