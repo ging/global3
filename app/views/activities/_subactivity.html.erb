@@ -9,7 +9,7 @@
 						</div>
             <div class="post_options_comments ">
                 <span class="post_time_ago"><%=time_ago_in_words(subactivity.sender.created_at)%> ago</span>
-							<%= image_tag('point_blue.png', :alt => "blue_button") %> <div class="like_comment" id="activity_like_<%=subactivity.id%>"> <%= like_activity(subactivity)%> </div>
+							<%= image_tag('point_blue.png', :alt => "blue_button") %> <div class="like" id="activity_like_<%=subactivity.id%>"> <%= like_activity(subactivity)%> </div>
 							<%= image_tag('point_blue.png', :alt => "blue_button") %> <div class="delete_comment"><%= link_to "Delete", subactivity, :confirm => 'Are you sure?', :method => :delete, :remote => true %> </div>
             </div>
         </div>
