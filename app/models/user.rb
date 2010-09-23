@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
 
   after_create :initialize_ties
 
+  def friends
+    User.joins(:actor => :sent_ties) &
+      Tie.received_by(self).
+      where(:relation_id => Relation.mode("User", "User").find_by_name("friend"))
+  end
+
   # == Recomendations
   
   # The users this user has tie with
