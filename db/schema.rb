@@ -13,11 +13,10 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_verb_id"
-    t.string   "description",      :limit => 45
+    t.integer  "tie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "parent_id"
-    t.integer  "tie_id"
+    t.string   "ancestry"
   end
 
   add_index "activities", ["activity_verb_id"], :name => "fk_activity_verb"

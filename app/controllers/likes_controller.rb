@@ -1,7 +1,5 @@
 class LikesController < ApplicationController
-  include ActionController::Subactivity
-
-  # Assure the suitable tie exists, should be done in Activity model.
+  # Ensure the suitable tie exists
   before_filter :tie!, :only => :create
 
   # POST /activities/1/like.js
@@ -15,11 +13,7 @@ class LikesController < ApplicationController
       else
         format.js
       end
-		end
-
-
-
-
+    end
   end
 
   def destroy
@@ -30,5 +24,24 @@ class LikesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  private
+
+  def activity
+    @activity ||= Activity.find(params[:activity_id])
+  end
+
+  def activity!
+    activity || raise(ActiveRecord::RecordNotFound)
+  end
+
+  def tie
+    @tie ||= current_user.ties(:receiver => activity!.receiver,
+                               :relation => activity!.relation).first
+  end
+
+  def tie!
+    tie || raise(ActiveRecord::RecordNotFound)
   end
 end
