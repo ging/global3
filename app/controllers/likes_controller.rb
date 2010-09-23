@@ -37,8 +37,8 @@ class LikesController < ApplicationController
   end
 
   def tie
-    @tie ||= current_user.ties(:receiver => activity!.receiver,
-                               :relation => activity!.relation).first
+    @tie ||= current_user.sent_ties(:receiver => activity!.receiver,
+                                    :relation => activity!.relation).first
   end
 
   def tie!

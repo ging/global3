@@ -4,7 +4,7 @@ class TiesController < ApplicationController
   # GET /ties
   # GET /ties.xml
   def index
-    @ties = actor.ties.all
+    @ties = actor.sent_ties.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class TiesController < ApplicationController
   # GET /ties/1
   # GET /ties/1.xml
   def show
-    @tie = actor.ties.find(params[:id])
+    @tie = actor.sent_ties.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

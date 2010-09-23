@@ -8,7 +8,7 @@ module ApplicationHelper
   def current_tie
     # Change with tie list
     current_user.
-      ties.
+      sent_ties.
       received_by(current_user).
       where(:relation_id => Relation.mode('User', 'User').find_by_name("public")).first
   end
