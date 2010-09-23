@@ -49,8 +49,8 @@ relations:
   user-space-public:
     sender_type: User
     receiver_type: Space
-    parent: user-space-follower
     name: public
+    parent: user-space-follower
 
   space-user-admin:
     sender_type: Space

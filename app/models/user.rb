@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
   after_create :initialize_ties
 
   def friends
-    User.joins(:actor => :sent_ties) &
-      Tie.received_by(self).
+    User.joins(:actor => :received_ties) &
+      Tie.sent_by(self).
       where(:relation_id => Relation.mode("User", "User").find_by_name("friend"))
   end
 
@@ -57,7 +57,9 @@ class User < ActiveRecord::Base
 
   # The spaces this user has tie with
   def spaces
-    actor.sent_ties.map(&:receiver).map(&:space).compact
+    Space.joins(:actor => :received_ties) &
+      Tie.sent_by(self).
+      where(:relation_id => Relation.mode("User", "Space").find_by_name("follower"))
   end
 
   # FIXME with recommendations engine
