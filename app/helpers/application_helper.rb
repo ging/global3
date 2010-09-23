@@ -5,11 +5,11 @@ module ApplicationHelper
     ""
   end
 
-  def current_tie
+  def current_tie 
     # Change with tie list
     current_user.
       sent_ties.
-      received_by(current_user).
+      received_by(@user || @space || current_user).
       where(:relation_id => Relation.mode('User', 'User').find_by_name("public")).first
   end
 end
