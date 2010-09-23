@@ -1595,6 +1595,7 @@ en:
       none: No users found
       one: 1 user found
       other: "%{size}} users were found"
+    friends: Friends
     full_name: Full name
     include_registered: Include registered users
     included: 

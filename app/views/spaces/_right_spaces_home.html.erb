@@ -63,14 +63,13 @@
 		</div>
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag ("buttons/btn_follower.png", :alt => "Follower")%><%= space.follower.count %><%=t('space.followers')%>
+					<%=image_tag ("buttons/btn_follower.png", :alt => "Follower")%><%= @space.followers.count %> <%=t('space.followers')%>
 				</div>
 				<div class="follower_line">
-					<%=link_to ( (image_tag ("albums/1.png", :alt => "follower-1" , :size => "40x40")) , users_path) %>
-					<%=link_to ( (image_tag ("albums/2.png", :alt => "follower-2" , :size => "40x40")) , users_path) %>
-					<%=link_to ( (image_tag ("albums/3.png", :alt => "follower-3" , :size => "40x40")) , users_path) %>
+          <% @space.followers.all.each do |follower| %>
+					    <%=link_to ( (image_tag (follower.logo, :alt => follower.name , :size => "40x40")) , follower) %>
+          <%end%>
 				</div>
-			 
 				<div class="future_footer">
 					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , space_path) %>
 				</div>
