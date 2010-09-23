@@ -61,11 +61,11 @@
           <% if (user = current_user.suggested_user).present? %>
             <div class="future_content">
                 <div class="future_picture">
-                  <img src="<%= image_path(user.logo) %>" width="55px" height="40px"/>
+                  <%= link_to(image_tag(user.logo, :size =>"55x40"),user) %>
                 </div>
                 <div class="future_description">
                     <div class="future_link">
-                      <a href="#"><%= user.name %></a>
+                      <%= link_to( user.name, user) %>
                     </div>
                     <div class="future_brief">
                         18 contacts in commom 

@@ -1,20 +1,19 @@
 <% content_for :middle do %>
-	<%= render :partial => "users/middle_users_profile" %>
+	<%= render :partial => "spaces/middle_spaces_home" %>
 <% end %>
 
 <% content_for :right do %>
-	<%= render :partial => "users/right_users_profile" %>
+	<%= render :partial => "spaces/right_spaces_home" %>
 <% end %>
 
 
 <div id="map_location" class="content_size">
-    Your are here > Profile: <span id="name_group"><%=image_tag("buttons/btn_profile.png",:class=>"btn_config",:alt=>"Profile") %> <%= @user.name%></span>
+    Your are here > Space: <span id="name_group"><%= @space.name%></span>
 </div>
 <br class="clearfloat" />
 <div class="space_center">
 </div>
-<%= render :partial => "users/myconferences_users" %>
-<%= render :partial => "users/myspaces_users" %>
+<%= render :partial => "home/myconferences" %>
 <div class="space_center">
 </div>
 

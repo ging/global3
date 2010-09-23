@@ -4,7 +4,7 @@
 
 <div id="wrapper_activities_header">
     <div id="activities_title" class="content_size">
-        <img src="images/buttons/btn_activities.png" />Activities
+			<%= image_tag("buttons/btn_activities.png", :alt => t('activity.title')) %> <%=t('activities')%>
     </div>
     <div id="activities_header" class="content_size">
       <%= form_for Post.new(:text => t('activity.input'),

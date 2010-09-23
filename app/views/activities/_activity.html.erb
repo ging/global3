@@ -3,18 +3,19 @@
 <% else %>
 	<div class="post content_size"  id="activity<%= activity.id %>">
     <div class="picture_follower">
-		  <%= link_to (image_tag(activity.sender.user.logo , :size => "50x50", :alt => activity.sender.name )),home_path  %>
+		  <%= link_to (image_tag(activity.sender.user.logo , :size => "50x50", :alt => activity.sender.name )), activity.sender.user  %>
     </div>
     <div class="content_post">
         <div id="activity" class="name_follower content_size">
-            <%=activity.sender.name %>
+            <%= link_to (activity.sender.name, activity.sender.user) %>
         </div>
         <%=  render activity.activity_objects %>
         <div class="post_options_follower ">
             <span class="post_time_ago"><%=time_ago_in_words(activity.created_at)%> ago</span>
-            <img src="images/point_gray.png" alt="gray_button" /> <div class="comment"> <%= link_to t('activity.tocomment'),"", :class => "tocomment" %> </div>
-            <img src="images/point_blue.png" alt="blue_button" /> <div class="like" id="activity_like_<%= activity.id %>">  <%=like_activity(activity)%> </div>
-            <img src="images/point_blue.png" alt="blue_button" /> <div class="delete"> <%= link_to "Delete", activity.activity_objects.first.object , :confirm => 'Are you sure?', :method => :delete,  :remote => true %> </div>
+
+            <%= image_tag('point_gray.png', :alt => "gray_button") %> <div class="comment"> <%= link_to t('activity.tocomment'),"", :class => "tocomment" %> </div>
+            <%= image_tag('point_gray.png', :alt => "gray_button") %> <div class="like" id="activity_like_<%= activity.id %>">  <%=like_activity(activity)%> </div>
+            <%= image_tag('point_gray.png', :alt => "gray_button") %> <div class="delete"> <%= link_to "Delete", activity.activity_objects.first.object , :confirm => 'Are you sure?', :method => :delete,  :remote => true %> </div>
         </div>
         <div class="post_comments" id="comments<%= activity.id %>">
 					<%= render activity.comments %>
@@ -30,7 +31,7 @@
                     <%= f.hidden_field :_activity_parent_id %>
                     <%= f.text_field :text,   :class =>"input_new_comments" %>
                       <div class="activities_comment_btn">
-                        <img src="images/buttons/btn_security.png" />
+												<%= image_tag('buttons/btn_security.png') %>
                         <%= image_submit_tag "buttons/btn_share.png" %>
                       </div>
                   <% end %>

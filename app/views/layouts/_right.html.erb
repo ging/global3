@@ -8,33 +8,34 @@
     <div class="space_center">
     </div>	
     <div id="logo">
-        <img src="images/thumb_profile/1.png" alt="Ariana Garcia" />
+			<%= link_to( image_tag( current_user.logo , :size => "94x65", :alt => current_user.name ), current_user ) %>
+
         <br/>
-        Ariana García León
+        <%= link_to(current_user.name, current_user)%>
     </div>
     <div class="space_center">
     </div>
     <div id="menu_lateral">
         <div class="option_menu">
-            <img src="images/buttons/btn_profile.png" />
+					<%= image_tag("buttons/btn_profile.png") %>
             <div class="text_menu">
-                <a href="myprofile.htm">Profile</a>
+							<%= link_to("Profile", current_user) %>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_inbox.png" />
+					<%= image_tag("buttons/btn_inbox.png") %>
             <div class="text_menu">
                 <a href="#">Inbox(2)</a>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_photo.png" />
+					<%= image_tag("buttons/btn_photo.png")%>
             <div class="text_menu">
                 <a href="#">Photos</a>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_follower.png" />
+					<%= image_tag("buttons/btn_follower.png")%>
             <div class="text_menu">
                 <a href="#">Contacts</a>
             </div>
@@ -46,25 +47,25 @@
     </div>
     <div id="sub_menu_lateral">
         <div class="option_menu">
-            <img src="images/buttons/btn_video.png" />
+					<%= image_tag("buttons/btn_video.png")%>
             <div class="text_menu">
                 <a href="#">Spaces</a>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_video.png" />
+					<%= image_tag("buttons/btn_video.png")%>					
             <div class="text_menu">
                 <a href="#">VideoConferences(2)</a>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_conferences.png" />
+					<%= image_tag("buttons/btn_conferences.png")%>					
             <div class="text_menu">
                 <a href="#">Congress</a>
             </div>
         </div>
         <div class="option_menu">
-            <img src="images/buttons/btn_certificates.png" />
+					<%= image_tag("buttons/btn_certificates.png")%>
             <div class="text_menu">
                 <a href="#">Certificates</a>
             </div>

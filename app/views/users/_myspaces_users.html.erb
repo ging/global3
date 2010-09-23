@@ -1,0 +1,18 @@
+<% if current_user.spaces.any? %>
+<div id="my_spaces">
+    <div id="title_space" class="content_size">
+        <%=t('space.my_spaces') %>
+    </div>
+    <div id="spaces_list" class="content_size">
+		<% current_user.spaces.each do |space| %>  
+                <%=link_to(image_tag(space.logo, :class => 'btn_config', :alt => space.name, :title => space.name), space) %>
+		<% end %>
+    </div>
+</div>
+<% else %>
+<div class="space_center">
+</div>
+<% end %>
+
+
+

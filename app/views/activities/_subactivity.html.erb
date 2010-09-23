@@ -1,16 +1,16 @@
 <div class="content_post_follower" id="comment<%=subactivity.id%>">
     <div class="content_sub_post coment_border">
         <div class="picture_follower_comment">
-            <%= image_tag(subactivity.sender.user.logo, :size => "30x30", :alt => subactivity.sender.name ) %>
+            <%= link_to(image_tag(subactivity.sender.user.logo, :size => "30x30", :alt => subactivity.sender.name), subactivity.sender.user) %>
         </div>
         <div class="content_comment">
-            <div class="name_follower"><%=subactivity.sender.name %><span class="subactivity_content_comments">
+            <div class="name_follower"><%= link_to (subactivity.sender.name, subactivity.sender.user) %><span class="subactivity_content_comments">
                 <%= render subactivity.activity_objects %></span>
 						</div>
             <div class="post_options_comments ">
                 <span class="post_time_ago"><%=time_ago_in_words(subactivity.sender.created_at)%> ago</span>
-							<img src="images/point_blue.png" alt="blue_button" /> <div class="like_comment" id="like_comment<%=subactivity.id%>"> <%= like_comment_activity(subactivity)%> </div>
-							<img src="images/point_blue.png" alt="blue_button" /> <div class="delete_comment"><%= link_to "Delete", subactivity, :confirm => 'Are you sure?', :method => :delete, :remote => true %> </div>
+							<%= image_tag('point_blue.png', :alt => "blue_button") %> <div class="like_comment" id="like_comment<%=subactivity.id%>"> <%= like_comment_activity(subactivity)%> </div>
+							<%= image_tag('point_blue.png', :alt => "blue_button") %> <div class="delete_comment"><%= link_to "Delete", subactivity, :confirm => 'Are you sure?', :method => :delete, :remote => true %> </div>
 
 
             </div>
