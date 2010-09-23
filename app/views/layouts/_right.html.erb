@@ -75,7 +75,7 @@
 		</div>   
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag ("buttons/btn_friend.png", :alt => "Contacts")%><%= @users.friends.count %> <%=t('user.friends')%>
+					<%=image_tag ("buttons/btn_friend.png", :alt => "Contacts")%><%=@users.friends.count %> <%=t('user.friends')%>
 				</div>
 				<div class="follower_line">
           <% @users.friends.all.each do |friend| %>
