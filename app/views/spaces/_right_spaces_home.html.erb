@@ -63,7 +63,7 @@
 		</div>
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag ("buttons/btn_follower.png", :alt => "Follower")%>2.520 <%=t('space.followers')%>
+					<%=image_tag ("buttons/btn_follower.png", :alt => "Follower")%><%= space.follower.count %><%=t('space.followers')%>
 				</div>
 				<div class="follower_line">
 					<%=link_to ( (image_tag ("albums/1.png", :alt => "follower-1" , :size => "40x40")) , users_path) %>
