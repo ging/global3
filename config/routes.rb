@@ -7,6 +7,7 @@ Global::Application.routes.draw do |map|
     get '/signup(.:format)' => 'devise/registrations#new'
     get '/lost_password' => 'devise/passwords#new'
   end
+  resources :users
   
   match 'home' => 'home#index', :as => :home
 
@@ -21,7 +22,6 @@ Global::Application.routes.draw do |map|
   resources :ties
   resources :activities do 
     resource :like
-		resource :like_comment
   end
 
   resources :posts  
