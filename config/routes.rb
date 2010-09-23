@@ -9,7 +9,9 @@ Global::Application.routes.draw do |map|
   end
   
   match 'home' => 'home#index', :as => :home
-  match 'browse' => 'browse#index', :as => :browse
+
+	match 'browse' => 'browse#index', :as => :browse
+	
   map.help 'help', :controller => 'help', :action => 'index'  
   resources :feedback
   resource :session_locale  
@@ -25,6 +27,8 @@ Global::Application.routes.draw do |map|
   resources :posts  
   resources :videos
   resources :comments
+	resources :users
+	resources :spaces
 
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|

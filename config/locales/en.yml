@@ -55,6 +55,8 @@ en:
     like: I like
     unlike: Already I do not like
     tocomment: To comment
+    title: activity
+  activities: Activities  
   add: Add
   add_more_details: Add more details
   address: Address
@@ -160,6 +162,7 @@ en:
   agree: "Yes"
   all: All
   all_rights_reserved: All rights reserved
+  albums: Albums
   any: Any
   any_field: Any field
   are_you_sure: Are you sure?
@@ -823,7 +826,7 @@ en:
   home: 
     activity: Recent Activity...
     my: My Home
-    one: home
+    one: Home
   icalendar: 
     add: Update and Add new entries
     conflictive1: "One entry of your iCalendar was on the Global application and has been modified. You must update it manually to avoid problems. "
@@ -963,7 +966,9 @@ en:
   latest_news: Latest news
   layout_footnote: "%{site}} is based on %{plugin}}. Design by %{designer}}."
   list_by: List by
-  locale: 
+  lectures:
+    top: Top Lectures
+  locale:
     changed: "Application language changed to "
     error: "Unable to change application language to "
   logged_in_successfully: Logged in successfully
@@ -1110,7 +1115,8 @@ en:
     created: Your attendance information has been updated successfully
     error: 
       create: There was a problem updating your attendance information
-  password: 
+  partners: Partners
+  password:
     confirm: Confirm password
     one: Password
     request: Password reset in %{sitename}}
@@ -1153,12 +1159,14 @@ en:
     one: Phone
     plural: Telephones
   phone_optional: Phone (optional)
-  photos: Pictures
+  photos: Photos
   photos_view>>: pictures view >>
   place: Place
   please: Please
   please_activate_account: Please activate your new account
   popularity: Popularity
+  popular:
+    most: Most Popular    
   post: 
     created: Message created
     deleted: Comment %{postname}} has been deleted
@@ -1383,6 +1391,7 @@ en:
     all: All Spaces
     allow_public_access: Allow public access?
     be_fan: Be Fan
+    by: By Spaces
     clic: Click to edit...
     clic_logo: Click to change your logo
     configuration: Space configuration
@@ -1405,6 +1414,7 @@ en:
       none: No spaces found
       one: 1 space was found
       other: "%{size}} spaces were found"
+    followers: Followers
     group_not_belong: " do not belong to the same space as the group"
     invitation: 
     is_private: is a private space. Send a join request to the administrator of this space to let you in
@@ -1562,6 +1572,7 @@ en:
     admin: Admin
     assist: Attending
     by_email: By email
+    by : By Users
     by_private_message: By private message
     confirm_password: Confirm Password
     contacts: Contacts
@@ -1622,6 +1633,7 @@ en:
       preferences: Save preferences
     search: Search Users...
     timezone: Timezone
+    title: Users
     updated: User updated successfully
     global_email: Global user e-mail %{dir}}
     view_expanded_posts: Show messages in wall with the expanded view by default
@@ -1644,7 +1656,15 @@ en:
     one: Video
     other: Videos
   visit_link_to_activate_account: Visit this link to activate your account
-  week: 
+  video_conferences:
+    top: Top Video Conferences
+    by: By Video Conferences
+    upcomming: Upcomming Video Conferences
+    last: Last Video Conferences
+    my: My Video Conferences
+  voted:
+    most: Most Voted
+  week:
     next: Next week
     this: This week
   when: When
