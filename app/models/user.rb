@@ -6,12 +6,9 @@ class User < ActiveRecord::Base
   alias :full_name :name
   alias :full_name= :name=
 
-
 	scope :with_lectures, where('users.lectures is not null')
 	scope :with_keynotes, where('users.keynotes is not null')
 	scope :alphabetic, includes(:actor).order('actors.name')
-
-	
 
   validates_presence_of :full_name, :email
   validates_format_of :email, :with => Devise.email_regexp, :allow_blank => true
@@ -43,7 +40,7 @@ class User < ActiveRecord::Base
   
   # The users this user has tie with
   def users
-    actor.ties.includes(:receiver).map(&:receiver).map(&:user).compact
+    actor.sent_ties.includes(:receiver).map(&:receiver).map(&:user).compact
   end
 
   # FIXME with recommendations engine
@@ -54,17 +51,13 @@ class User < ActiveRecord::Base
 
   # The spaces this user has tie with
   def spaces
-    actor.ties.map(&:receiver).map(&:space).compact
+    actor.sent_ties.map(&:receiver).map(&:space).compact
   end
 
   # FIXME with recommendations engine
   def suggested_space
     s = (Space.all - spaces)
     s[rand(s.size)]
-  end
-
-  def wall
-    Activity.wall Tie.tie_ids_query(actor)
   end
 
   def videos
