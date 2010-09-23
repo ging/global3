@@ -72,22 +72,27 @@
         </div>
     </div>
 		<div class="space_center">
-		</div>   
-		<div id="follower">
+		</div>
+
+    <div class="space_center_border">
+    </div>
+
+  <div class="space_center">
+  </div>
+
+  
+<div id="follower">
 				<div id="title_follower">
-					<%=image_tag ("buttons/btn_friend.png", :alt => "Contacts")%><%=@users.friends.count %> <%=t('user.friends')%>
+					<%=image_tag ("buttons/btn_friend.png", :alt => "Contacts")%><%=current_user.friends.count %> <%=t('user.friends')%>
 				</div>
 				<div class="follower_line">
-          <% @users.friends.all.each do |friend| %>
+          <% current_user.friends.all.each do |friend| %>
 					    <%=link_to ( (image_tag (friend.logo, :alt => friend.name , :size => "40x40")) , friend) %>
           <%end%>
 				</div>
 				<div class="future_footer">
-					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , space_path) %>
+					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , users_path) %>
 				</div>
 		</div>
-		<div class="space_center">
-		</div>
+
 </div>
-
-
