@@ -1,6 +1,6 @@
  <div id="rightContent">
 		<div id="bookmark">
-			<%=image_tag ("buttons/btn_bookmark.png", :alt => "Bookmark")%><%= link_to "Follow",
+			<%=image_tag("buttons/btn_bookmark.png", :alt => "Bookmark")%><%= link_to "Follow",
                                 ties_path("tie[sender_id]" => current_user.actor.id,
                                           "tie[receiver_id]" => space,
                                           "tie[relation_name]" => "follower"),
@@ -8,7 +8,7 @@
                                 :remote => true %>
 		</div>
 		<div id="logo">
-			<%=link_to ( (image_tag ( @space.logo, :alt => @space.name , :size => "119x108")) , space_path) %>
+			<%=link_to((image_tag(@space.logo, :alt => @space.name , :size => "119x108")) , space_path)%>
 		</div>
 		<div id="tabright" class="widget">
 				<ul class="tabinfo fondo">
@@ -16,7 +16,7 @@
 								<a href="#info">Information</a>
 						</li>
 						<li>
-							<a href="#info"><%= (image_tag ("buttons/btn_tag.png", :alt => "tags"))+t('tags') %></a>
+							<a href="#info"><%=(image_tag("buttons/btn_tag.png", :alt => "tags"))+t('tags')%></a>
 						</li>
 				</ul>
 				<div id="info" class="tabinfo">
@@ -45,16 +45,16 @@
 		</div>
 		<div id="partners">
 				<div id="title_partners">
-					 <%=image_tag ("buttons/btn_partner.png", :alt => "Partners")%><%=t('partners') %>
+					 <%=image_tag("buttons/btn_partner.png", :alt => "Partners")%><%=t('partners')%>
 				</div>
 				<div class="partner_line">
-					  <%=link_to ( (image_tag ("thumb_followers/1.png", :alt => "partner-1" , :size => "40x40")) , space_path) %>
-					  <%=link_to ( (image_tag ("thumb_followers/2.png", :alt => "partner-2", :size => "40x40")) , space_path) %>
-					  <%=link_to ( (image_tag ("thumb_followers/3.png", :alt => "partner-3", :size => "40x40")) , space_path) %>
+					  <%=link_to((image_tag("thumb_followers/1.png", :alt => "partner-1" , :size => "40x40")) , space_path)%>
+					  <%=link_to((image_tag("thumb_followers/2.png", :alt => "partner-2", :size => "40x40")) , space_path)%>
+					  <%=link_to((image_tag("thumb_followers/3.png", :alt => "partner-3", :size => "40x40")) , space_path)%>
 				</div>
 			 
 				<div class="future_footer">
-					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , space_path) %>	
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , space_path)%>
 				</div>
 		</div>
 		<div class="space_center">
@@ -63,15 +63,15 @@
 		</div>
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag ("buttons/btn_follower.png", :alt => "Follower")%><%= @space.followers.count %> <%=t('space.followers')%>
+					<%=image_tag("buttons/btn_follower.png", :alt => "Follower")%><%=@space.followers.count%> <%=t('space.followers')%>
 				</div>
 				<div class="follower_line">
           <% @space.followers.all.each do |follower| %>
-					    <%=link_to ( (image_tag (follower.logo, :alt => follower.name , :size => "40x40")) , follower) %>
+					    <%=link_to((image_tag(follower.logo, :alt => follower.name , :size => "40x40")) , follower)%>
           <%end%>
 				</div>
 				<div class="future_footer">
-					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , space_path) %>
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , space_path)%>
 				</div>
 		</div>
 		<div class="space_center">
@@ -80,16 +80,16 @@
 		</div>
 		<div id="photos">
 				<div id="title_photos">
-						<%=image_tag ("buttons/btn_photo.png", :alt => "Photo")%> 345 <%=t('photos') %>, 35 <%=t('albums') %>
+						<%=image_tag("buttons/btn_photo.png", :alt => "Photo")%> 345 <%=t('photos')%>, 35 <%=t('albums')%>
 				</div>
 				<div class="photo_line">
-					<%=link_to ( (image_tag ("albums/1.png", :alt => "album-1" , :size => "40x40")) , users_path) %>
-					<%=link_to ( (image_tag ("albums/3.png", :alt => "album-1" , :size => "40x40")) , users_path) %>
-					<%=link_to ( (image_tag ("albums/4.png", :alt => "album-1" , :size => "40x40")) , users_path) %>
+					<%=link_to((image_tag("albums/1.png", :alt => "album-1" , :size => "40x40")) , users_path)%>
+					<%=link_to((image_tag("albums/3.png", :alt => "album-1" , :size => "40x40")) , users_path)%>
+					<%=link_to((image_tag("albums/4.png", :alt => "album-1" , :size => "40x40")) , users_path)%>
 				</div>
 			 
 				<div class="future_footer">
-					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , space_path) %>
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")),space_path)%>
 				</div>
 		</div>
 		<div class="space_center">

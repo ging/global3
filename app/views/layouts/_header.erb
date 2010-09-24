@@ -29,7 +29,7 @@
             </div>
             <%=image_tag("buttons/btn_help.png",:class=>"btn_config",:alt=>"Help") %>
             <div class="txt_config">
-               <%= link_to (t('help'),help_path) %>  &nbsp;
+               <%=link_to(t('help'),help_path)%>  &nbsp;
             </div>
         </div>
         <div id="header_right">
@@ -40,7 +40,6 @@
             </div>
             <%=image_tag("buttons/btn_exit.png",:class=>"btn_config",:alt=>"Exit") %>
             <div class="txt_config2">
-
             	<%= link_to t('logout')+" ("+current_user.name+")", logout_path %>
             </div>
         </div>

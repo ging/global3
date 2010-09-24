@@ -54,7 +54,8 @@
 	border-color: #0656a4;
 	color: #2A3890;
 	padding: 5px 5px 5px 5px;
-	border: 1px inset;
+  border:1px solid #BDC7D8;
+	width:95%;
 }
 
 #activities_share_btn {
