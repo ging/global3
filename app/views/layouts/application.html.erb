@@ -11,7 +11,8 @@
         <%= stylesheet_link_tag "activities", :media => "screen, projection" %>
         <%= stylesheet_link_tag "right", :media => "screen, projection" %>
         <%= stylesheet_link_tag "home", :media => "screen, projection" %>
-				<%= stylesheet_link_tag "browse", :media => "screen, projection" %>
+	<%= stylesheet_link_tag "browse", :media => "screen, projection" %>
+	<%= stylesheet_link_tag "social_stream", :media => "screen, projection" %>
         <!--[if IE]>
             <%= stylesheet_link_tag "ie", :media => "screen, projection" %>
         <![endif]-->
@@ -22,17 +23,20 @@
         </script>
        
         <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'jquery-ui-personalized-1.5.2.packed' , 'rails' , 'jquery.livequery' %>
-		    <%= javascript_include_tag 'application' %>
+	<%= javascript_include_tag 'application' %>
+
         <% if protect_against_forgery? %>
-    			<%= csrf_meta_tag %>
+          <%= csrf_meta_tag %>
         <% end %>				
-        <%= yield :headers %>
+
         <script type="text/javascript" charset="utf-8">
           $(document).ready(function() {
             <%= render :partial => 'layouts/ready.js.erb' %>
             <%= yield :javascript %>
           })
         </script>
+
+        <%= yield :head %>
     </head>
     <body>
         <div id="wrapper">

@@ -1,24 +1,24 @@
-//javascript for principal input of different activities
+//javascript for main activities input
 $("#activities_share_btn").hide();
 title = "<%= t('activity.input') %>";
 $("#input_activities").click(function(){
   if(this.value == title){
-	  this.value="";
+    this.value="";
     $("#activities_share_btn").show();
-	}
+  }
 });
 $("#input_activities").blur(function(){
   if(this.value == ""){
-	  this.value= title;
+    this.value= title;
     $("#activities_share_btn").hide();
-	}
+  }
 });
 
-//javascript for all comments of activities
-$(".input_new_comments").val("<%= t('comment.write') %>");
+//javascript for comments
+$(".input_new_comments").val("<%= t('comment.input') %>");
 $(".activities_comment_btn").hide();
 $(".input_new_comments").livequery("click",function(){
-	if(this.value == "<%= t('comment.write') %>"){
+	if(this.value == "<%= t('comment.input') %>"){
 		$(this).val("");
 	}
 	$(".activities_comment_btn").hide();
@@ -30,7 +30,7 @@ $(".input_new_comments").livequery("blur",function(){
 	}
 });
 $(".comment").click(function(){
-	if(this.value == "<%= t('comment.write') %>"){
+	if(this.value == "<%= t('comment.input') %>"){
 		$(this).val("");
 	}
 	$(".activities_comment_btn").hide();

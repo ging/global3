@@ -7,11 +7,6 @@
 	border-top: thin solid #D4E4EA;y q p
 }
 
-#name_group {
-	font-size: 13px;
-	font-weight: bold;
-}
-
 #follow {
 	display: inline-block;
 	padding-left: 5px;
@@ -69,15 +64,6 @@
     border-left: thin solid #D4E4EA;
     border-bottom: thin solid #D4E4EA;
     */
-}
-
-.content_size {
-	font-size: 13px;
-}
-
-#map_location {
-	padding-left: 4px;
-	display: inline;
 }
 
 #middle {
