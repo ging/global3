@@ -17,7 +17,7 @@ namespace :setup do
   end
 
   desc "All common tasks"
-  task :common_tasks => [ "db:setup" ] do
+  task :common_tasks => [ :git_submodules , "db:setup" ] do
   end
 
 
