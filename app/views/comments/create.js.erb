@@ -1,4 +1,4 @@
 //Display the new post
-$("#comments<%=@comment.activity_object.activities.first.parent.id%>").append("<%= escape_javascript(render @comment.activity_object.activities.first) %>");
+$("#comments_activity_<%=@comment.activity_object.activities.first.parent.id%>").append("<%= escape_javascript(render @comment.activity_object.activities.first) %>");
 $(".input_new_comments").val("<%= t('comment.write') %>");
 $(".activities_comment_btn").hide();
