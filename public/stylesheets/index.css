@@ -458,7 +458,7 @@
 
 /*********************** footer **********************/
 
-#footer{width: 960px;margin-left: auto;margin-right: auto;padding: 0;position: relative; 
+#footer{width: 960px;margin-left: auto;margin-right: auto;padding: 0;position: relative; text-align:center; 
 	
 	clear:left;font-size:0.9166em;line-height:1.6363;color:#666;padding:0.75em 0;}
 #footer ul, #sponsor ul{list-style-type:none;margin:0 0.5em; }
@@ -489,7 +489,7 @@
 }
 
 .banner_footer #footer_content {
-	text-align: left;
+	text-align: center;
 	color: #ccc;
 }
 
