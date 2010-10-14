@@ -210,10 +210,12 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "receiver_type"
     t.string   "ancestry"
     t.integer  "inverse_id"
+    t.integer  "granted_id"
   end
 
   add_index "relations", ["ancestry"]
   add_index "relations", ["inverse_id"]
+  add_index "relations", ["granted_id"]
 
   create_table "spaces", :force => true do |t|
     t.datetime "created_at"
