@@ -1,0 +1,55 @@
+<div class="future_conference">
+  <div class="future_header">
+      <img src="images/notifications.png" alt="Sugerencias" class="future_picture_icon" />
+      <div class="future_text_header">
+          Sugestions
+      </div>
+      <div class="title_righ">
+          <a href="#">Ver Todas</a>
+      </div>
+  </div>
+  <div class="post_future_conference">
+    <% if (user = current_user.suggested_user).present? %>
+      <div class="future_content">
+          <div class="future_picture">
+            <%= link_to(image_tag(user.logo, :size =>"55x40"),user) %>
+          </div>
+          <div class="future_description">
+              <div class="future_link">
+                <%= link_to( user.name, user) %>
+              </div>
+              <div class="future_brief">
+                  18 contacts in commom 
+              </div>
+              <%= link_to "+ Add as contact",
+                          ties_path("tie[sender_id]" => current_user.actor.id,
+                                    "tie[receiver_id]" => user.actor.id,
+                                    "tie[relation_name]" => "friendship_request"),
+                          :method => :post,
+                          :remote => true %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="post_future_conference">
+    <% if (space = current_user.suggested_space).present? %>
+      <div class="future_content">
+          <div class="future_picture">
+              <img src="<%= image_path(space.logo) %>" width="55px" height="40px" />
+          </div>
+          <div class="future_description">
+              <div class="future_link">
+                <%= link_to space.name, space %>
+              </div>
+              <div class="future_brief">
+                  18 followers contacts
+                  <br/>
+              </div>
+              <%= link_to "+ Follow", new_tie_path("tie[receiver_id]" => space.actor.id,
+                                                   "tie[relation_name]" => 'follower') %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

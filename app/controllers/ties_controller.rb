@@ -26,7 +26,7 @@ class TiesController < ApplicationController
   # GET /ties/new
   # GET /ties/new.xml
   def new
-    @tie = Tie.new
+    @tie = actor!.sent_ties.build(params[:tie])
 
     respond_to do |format|
       format.html # new.html.erb

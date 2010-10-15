@@ -1,9 +1,0 @@
-  <h4>Enter your post</h4>
-  <% form_for @post,:html => {:class => "ajaxForm"} do |f| -%>
-      <%= f.text_area :body %>
-      <div class="buttons">
-          <%= link_to 'Cancel',post_path() %>
-          <%= f.submit("Add post") %>
-      </div>
-  <% end -%>
-

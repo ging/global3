@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     if !request.xhr?
       @post = Post.all
-    end    
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -92,5 +92,5 @@ class PostsController < ApplicationController
   
   def load_post
      @post = "This is a factice post, I hope you like it. Just comment on the bottom!"
-  end  
+  end
 end
