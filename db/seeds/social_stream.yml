@@ -29,6 +29,7 @@ relations:
     sender_type: User
     receiver_type: User
     name: friendship_request
+    granted: user-friend
 
   user-space-admin:
     sender_type: User
