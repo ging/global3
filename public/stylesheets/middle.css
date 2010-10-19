@@ -66,9 +66,22 @@
 }
 
 .suggestion_content {
-	display: block;
+	display: inline-block;
+  padding-left:3px;
 	/*padding-bottom: 10px;*/
 }
+
+.suggestion_actor_logo{
+	display: inline-block;
+  vertical-align:top;
+
+}
+
+.suggestion_brief {
+	color: #6C6D6F;
+}
+
+
 
 
 
