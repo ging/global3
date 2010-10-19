@@ -7,10 +7,7 @@ Global::Application.routes.draw do |map|
     get '/signup(.:format)' => 'devise/registrations#new'
     get '/lost_password' => 'devise/passwords#new'
   end
-  resources :users
   
-  match 'home' => 'home#index', :as => :home
-
 	match 'browse' => 'browse#index', :as => :browse
 	
   map.help 'help', :controller => 'help', :action => 'index'  
@@ -19,15 +16,11 @@ Global::Application.routes.draw do |map|
   
   map.search 'search', :controller => 'browse', :action => 'index'
   
-  resources :ties
-  resources :activities do 
-    resource :like
-  end
+  social_stream
 
   resources :posts  
   resources :videos
   resources :comments
-	resources :users
 	resources :spaces
 
   map.resources :spaces, :member => {:enable => :post} do |space|
