@@ -13,6 +13,9 @@
         <%= stylesheet_link_tag "home", :media => "screen, projection" %>
         <%= stylesheet_link_tag "browse", :media => "screen, projection" %>
 	      <%= stylesheet_link_tag "social_stream", :media => "screen, projection" %>
+        <%= stylesheet_link_tag "boxy", :media => "screen, projection" %>
+        <%= stylesheet_link_tag "middle", :media => "screen, projection" %>
+
         <!--[if IE]>
             <%= stylesheet_link_tag "ie", :media => "screen, projection" %>
         <![endif]-->
@@ -22,8 +25,10 @@
             }
         </script>
        
-        <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'jquery-ui-personalized-1.5.2.packed' , 'rails' , 'jquery.livequery' %>
-	<%= javascript_include_tag 'application' %>
+        <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'rails' ,
+                                   'jquery-ui-personalized-1.5.2.packed' , 'jquery.livequery',
+                                   'jquery.boxy'%>
+        
 
         <% if protect_against_forgery? %>
           <%= csrf_meta_tag %>

@@ -1,30 +1,21 @@
-<div class="future_conference">
-    <div class="future_header">
-        <img src="images/notifications.png" alt="Notifications" class="future_picture_icon" />
-        <div class="future_text_header">
-            <%=t('ask.add_friend', :name => @tie.receiver_subject.name)%>
-        </div>
-    </div>
+<div class="dialog_add_tie">
     <div class="content_add_user">
-      <div class="actor_logo">
+      <div class="tie_logo">
         <%= link_to image_tag(@tie.receiver_subject.logo,
-                              :size => "50x50",
+                              :size => "100x100",
                               :alt => @tie.receiver_subject.name),
                      @tie.receiver_subject %>
       </div>
-      <div class="activity_objects">
-        <div class="name"><%=@tie.receiver_subject.name%></div>
-        <div>Mensaje:<br />
-
+      <div class="activity_add_ties">
+        <div><%= t('message')+":" %><br />
          <%= form_for @tie,
                       :remote => true do |f| %>
-           <%= f.text_field :message,   :class =>"input_new_suggestions" %>
+           <%= f.text_area :message,   :class =>"input_new_suggestions" %>
             <%= f.hidden_field :receiver_id %>
             <%= f.hidden_field :sender_id %>
             <%= f.hidden_field :relation_name %>
-           <div class="activities_comment_btn">
-             <div class="activities_security"></div>
-             <%= image_submit_tag "buttons/btn_share.png" %>
+           <div class="ties_btn">
+             <%= submit_tag t('follow'), :class => "follow_btn" %>
            </div>
          <% end %>
         </div>

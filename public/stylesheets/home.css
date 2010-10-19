@@ -2,6 +2,10 @@
 	width: 100%;
 }
 
+.space{
+  display:inline-block;
+}
+
 #spaces_list {
 	width: 100%;
 	border-bottom: thin solid #D4E4Ea;

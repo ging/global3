@@ -29,8 +29,9 @@ class TiesController < ApplicationController
     @tie = actor!.sent_ties.build(params[:tie])
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @tie }
+      format.html {render :layout => false  }
+      #format.xml  { render :xml => @tie }
+      format.js {render :partial => "ties/new"}
     end
   end
 
@@ -45,7 +46,7 @@ class TiesController < ApplicationController
         format.xml  { render :xml => @tie, :status => :created, :location => @tie }
         format.js
       else
-        format.html { render :action => "new" }
+        format.html { render :partial => "new" }
         format.xml  { render :xml => @tie.errors, :status => :unprocessable_entity }
         format.js
       end

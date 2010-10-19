@@ -7,18 +7,18 @@
 <% end %>
 
 
-<div id="map_location" class="content_size">
-    Your are here > Space: <span id="name_group"><%=@space.name%></span>
-</div>
+<%= render :partial => 'home/location' %>
+
 <br class="clearfloat" />
 <div class="space_center">
 </div>
-<%= render :partial => "home/myconferences" %>
+
 <div class="space_center">
 </div>
 
 <div id="wrapper_activities">
-	<%= render :partial => "spaces/activities_home_space" %>
+	
+  <%= render :partial => "home/activities" %>
 <!--
     <div id="create_space">
         Create your conference space <input name="new_space" id="input_new_space" value="" size="50"/><a class="" href="#"><img src="images/buttons/btn_check.png" class="btn_menu_online" alt="Check" />Check</a>

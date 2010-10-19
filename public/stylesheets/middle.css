@@ -1,0 +1,40 @@
+.dialog_add_tie {
+	padding: 5px 4px 5px 4px;
+}
+
+.input_new_suggestions{
+	border:1px solid #BDC7D8;
+	width:98%;
+	padding: 2px;
+  font-size:11px;
+  height: 80px;
+}
+
+.activity_add_ties {
+	color: #2A3890;
+	font-size: 12px;
+  font-weight:bold;
+  display: inline-block;
+  padding: 0 10px 0px 0px;
+}
+
+.tie_logo {
+	width: 105px;
+	padding: 8px 0px 8px 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.follow_btn{
+  color: #fff;
+  background-color: #1F4A75;
+  padding: 2px 2px 2px 2px;
+  border:1px solid #BDC7D8;
+  font-size: 11px;
+}
+
+.ties_btn{
+    text-align: right;
+    padding: 2px 0px 2px 10px;
+    vertical-align: middle;
+}

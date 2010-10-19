@@ -1,5 +1,6 @@
 <% if @tie.new_record? %>
-alert('There were problems with the tie: <%= escape_javascript(@tie.errors.to_xml) %>');
+  alert('There were problems with the tie: <%= escape_javascript(@tie.errors.to_xml) %>');
 <% else %>
-alert('Tie created!');
+  $(".close").click();
+  $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
 <% end %>

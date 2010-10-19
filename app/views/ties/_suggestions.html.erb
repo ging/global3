@@ -22,11 +22,13 @@
                   18 contacts in commom 
               </div>
               <%= link_to "+ Add as contact",
-                          ties_path("tie[sender_id]" => current_user.actor.id,
+                          new_tie_path("tie[sender_id]" => current_user.actor.id,
                                     "tie[receiver_id]" => user.actor.id,
                                     "tie[relation_name]" => "friendship_request"),
-                          :method => :post,
-                          :remote => true %>
+                          :class => 'boxy',
+                          :title => t('ask.add_friend', :name => user.name)
+                           %>
+
           </div>
       </div>
     <% end %>
@@ -46,10 +48,21 @@
                   18 followers contacts
                   <br/>
               </div>
-              <%= link_to "+ Follow", new_tie_path("tie[receiver_id]" => space.actor.id,
-                                                   "tie[relation_name]" => 'follower') %>
+              <%= link_to "+ "+ t('follow'), new_tie_path("tie[receiver_id]" => space.actor.id,
+                                                               "tie[relation_name]" => 'follower'),
+                                                                :class => 'boxy',
+                                                                :title => t('ask.add_follow', :name => space.name) %>
+            
+
           </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
