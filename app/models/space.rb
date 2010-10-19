@@ -8,8 +8,6 @@ class Space < ActiveRecord::Base
   end
 
   def followers
-    User.joins(:actor => :sent_ties) &
-      Tie.received_by(self).
-      where(:relation_id => Relation.mode("User", "Space").find_by_name("follower"))
+    sender_subjects(:user, :relations => 'follower')
   end
 end

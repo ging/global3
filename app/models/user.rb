@@ -21,14 +21,14 @@ class User
   end
 
   def friends
-    contacts(:user, :relations => 'friend')
+    receiver_subjects(:user, :relations => 'friend')
   end
 
   # == Recomendations
   
   # The users this user has tie with
   def users
-    contacts(:user)
+    receiver_subjects(:user)
   end
 
   # FIXME with recommendations engine
@@ -38,7 +38,7 @@ class User
 
   # The spaces this user has tie with
   def spaces
-    contacts(:space, :relations => 'follower')
+    receiver_subjects(:space, :relations => 'follower')
   end
 
   # FIXME with recommendations engine
@@ -53,5 +53,4 @@ class User
   def logo
     "followers/#{ id % 3 + 1 }.png"
   end
-    
 end
