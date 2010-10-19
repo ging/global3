@@ -38,3 +38,37 @@
     padding: 2px 0px 2px 10px;
     vertical-align: middle;
 }
+
+
+/************* SUGGESTIONS *************/
+.suggestions {
+	padding: 5px 4px 5px 4px;
+}
+.suggestions_header {
+	vertical-align: middle;
+	background: transparent url(../images/title_background.png) scroll 0px;
+	padding-left: 10px;
+	display: block;
+}
+.suggestion_icon {
+	margin-top: 2px;
+}
+
+.suggestion_text_header {
+	padding-bottom: 2px;
+	display: inline-block;
+}
+
+.suggestion_all{
+	float: right;
+	padding-right: 5px;
+	padding-top: 3px;
+}
+
+.suggestion_content {
+	display: block;
+	/*padding-bottom: 10px;*/
+}
+
+
+
