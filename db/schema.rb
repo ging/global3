@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "ancestry"
     t.integer  "inverse_id"
     t.integer  "granted_id"
+    t.boolean  "default", :default => false
   end
 
   add_index "relations", ["ancestry"]
@@ -245,7 +246,7 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.integer  "relation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text "message"
+    t.text     "message"
   end
 
   add_index "ties", ["receiver_id"], :name => "fk_tie_receiver"

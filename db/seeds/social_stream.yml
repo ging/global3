@@ -4,6 +4,7 @@ relations:
     receiver_type: User
     name: friend
     inverse: user-friend
+    default: true
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
