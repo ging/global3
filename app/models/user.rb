@@ -24,30 +24,8 @@ class User
     receiver_subjects(:user, :relations => 'friend')
   end
 
-  # == Recomendations
-  
-  # The users this user has tie with
-  def users
-    receiver_subjects(:user)
-  end
-
-  # FIXME with recommendations engine
-  def suggested_user
-    suggestion(:user)
-  end
-
-  # The spaces this user has tie with
-  def spaces
-    receiver_subjects(:space, :relations => 'follower')
-  end
-
   def recent_spaces
     receiver_subjects(:space, :relations => 'follower') & Tie.recent
-  end
-
-  # FIXME with recommendations engine
-  def suggested_space
-    suggestion(:space)
   end
 
   def videos
