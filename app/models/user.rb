@@ -41,6 +41,10 @@ class User
     receiver_subjects(:space, :relations => 'follower')
   end
 
+  def recent_spaces
+    receiver_subjects(:space, :relations => 'follower') & Tie.recent
+  end
+
   # FIXME with recommendations engine
   def suggested_space
     suggestion(:space)
