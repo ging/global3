@@ -1,1 +1,1 @@
-$(".verb_like#like_activity_<%= @like.parent.id %>").html("<%= escape_javascript(like_activity(@like.parent) ) %>");
+$(".verb_like#like_<%= dom_id(@like.parent) %>").html("<%= escape_javascript(link_like(@like.parent) ) %>");
