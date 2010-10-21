@@ -4,25 +4,17 @@ relations:
     receiver_type: User
     name: friend
     inverse: user-friend
-    default: true
+    reflexive: true
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
       - [ update,  resources, weak_set ]
       - [ destroy, resources, weak_set ]
-  user-fof:
-    sender_type: User
-    receiver_type: User
-    name: friend_of_friend
-    parent: user-friend
-    inverse: user-fof
-    permissions:
-      - [ read, resources, group_set ]
   user-public:
     sender_type: User
     receiver_type: User
     name: public
-    parent: user-fof
+    parent: user-friend
     inverse: user-public
     permissions:
       - [ read, resources, group_set ]
@@ -32,47 +24,29 @@ relations:
     name: friendship_request
     granted: user-friend
 
-  user-space-admin:
+  user-group-member:
     sender_type: User
-    receiver_type: Space
-    name: admin
-    inverse: space-user-admin
-  user-space-user:
+    receiver_type: Group
+    name: member
+    inverse: group-user-member
+  user-group-follower:
     sender_type: User
-    receiver_type: Space
-    name: user
-    parent: user-space-admin
-    inverse: space-user-user
-  user-space-follower:
-    sender_type: User
-    receiver_type: Space
+    receiver_type: Group
     name: follower
-    parent: user-space-user
-  user-space-public:
+    parent: user-group-member
+  user-group-public:
     sender_type: User
-    receiver_type: Space
+    receiver_type: Group
     name: public
-    parent: user-space-follower
+    parent: user-group-follower
 
-  space-user-admin:
-    sender_type: Space
+  group-user-member:
+    sender_type: Group
     receiver_type: User
-    name: admin
-    inverse: user-space-admin
+    name: member
+    inverse: user-group-member
     permissions:
       - [ create,  resources, weak_set ]
       - [ read,    resources, group_set ]
       - [ update,  resources, weak_group_set ]
       - [ destroy, resources, weak_group_set ]
-  space-user-user:
-    sender_type: Space
-    receiver_type: User
-    name: user
-    parent: space-user-admin
-    inverse: user-space-user
-    permissions:
-      - [ create,  resources, weak_set ]
-      - [ read,    resources, group_set ]
-      - [ update,  resources, weak_group_set ]
-      - [ destroy, resources, weak_group_set ]
- 

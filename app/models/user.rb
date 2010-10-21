@@ -24,10 +24,6 @@ class User
     receiver_subjects(:user, :relations => 'friend')
   end
 
-  def recent_spaces
-    receiver_subjects(:space, :relations => 'follower') & Tie.recent
-  end
-
   def videos
     []
   end

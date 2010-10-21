@@ -21,13 +21,13 @@ namespace :db do
 
       available_users = User.all
 
-      puts "* Create Spaces"
+      puts "* Create Groups"
       20.times do
-        Space.create :name  => Forgery::Name.company_name,
+        Group.create :name  => Forgery::Name.company_name,
                      :email => Forgery::Internet.email_address
       end
 
-      available_spaces = Space.all
+      available_groups = Group.all
 
       puts "* Create Ties"
       User.all.each do |u|
@@ -39,13 +39,13 @@ namespace :db do
           u.ties.create :receiver => user.actor,
                         :relation => user_relations.random
         end
-        spaces = available_spaces.dup
-        space_relations = Relation.mode('User', 'Space')
+        groups = available_groups.dup
+        group_relations = Relation.mode('User', 'Group')
 
         Forgery::Basic.number.times do
-          space = spaces.delete_at((rand * spaces.size).to_i)
-          u.ties.create :receiver => space.actor,
-                        :relation => space_relations.random
+          group = groups.delete_at((rand * groups.size).to_i)
+          u.ties.create :receiver => group.actor,
+                        :relation => group_relations.random
         end
       end
     end

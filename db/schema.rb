@@ -117,6 +117,14 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   add_index "events", ["activity_object_id"], :name => "fk_event_object"
 
+  create_table "groups", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "actor_id"
+  end
+
+  add_index "groups", ["actor_id"], :name => "fk_groups_actors"
+
   create_table "logos", :force => true do |t|
     t.integer  "actor_id"
     t.datetime "created_at"
@@ -211,20 +219,12 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "ancestry"
     t.integer  "inverse_id"
     t.integer  "granted_id"
-    t.boolean  "default", :default => false
+    t.boolean  "reflexive", :default => false
   end
 
   add_index "relations", ["ancestry"]
   add_index "relations", ["inverse_id"]
   add_index "relations", ["granted_id"]
-
-  create_table "spaces", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "actor_id"
-  end
-
-  add_index "spaces", ["actor_id"], :name => "fk_spaces_actors"
 
   create_table "tags", :force => true do |t|
     t.string   "name",       :limit => 45
@@ -316,7 +316,7 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
   add_foreign_key "relation_permissions", "relations", :name => "fk_relation_permissions_relation"
   add_foreign_key "relation_permissions", "permissions", :name => "fk_relation_permissions_permission"
 
-  add_foreign_key "spaces", "actors", :name => "fk_spaces_actors"
+  add_foreign_key "groups", "actors", :name => "fk_groups_actors"
 
   add_foreign_key "tags_activity_objects", "activity_objects", :name => "fk_tags_activity_objects_2"
   add_foreign_key "tags_activity_objects", "tags", :name => "fk_tags_activity_objects_1"
