@@ -1,25 +1,25 @@
-#my_spaces {
+#my_groups {
 	width: 100%;
 }
 
-.space{
+.group{
   display:inline-block;
 }
 
-#spaces_list {
+#groups_list {
 	width: 100%;
 	border-bottom: thin solid #D4E4Ea;
 	padding-bottom: 5px;
 	text-align: center;
 }
 
-#space_todos {
+#group_todos {
 	float: right;
 	padding-right: 15px;
 	padding-top: 5px;
 }
 
-#title_space {
+#groups_title {
 	width: 100%;
 	padding-left: 5px;
 	font-weight: bold;

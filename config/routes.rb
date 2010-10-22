@@ -18,10 +18,6 @@ Global::Application.routes.draw do |map|
   
   social_stream
 
-  resources :posts  
-  resources :comments
-	resources :spaces
-
   map.resources :spaces, :member => {:enable => :post} do |space|
     space.resources :users do |user|
       user.resource :profile

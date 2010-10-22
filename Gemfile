@@ -4,7 +4,7 @@ gem 'rails', '3.0.0'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'
-gem 'matthuhiggins-foreigner', :require => 'foreigner'
+gem 'foreigner'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -17,6 +17,9 @@ gem 'cancan'
 
 # Hierarchical relationships in relations
 gem 'atd-ancestry', :require => 'ancestry'
+
+# REST controllers
+gem 'inherited_resources'
 
 # Vcard, hcard
 gem 'vpim'
