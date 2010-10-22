@@ -1,33 +1,22 @@
-<?php
-$div='<script language="JavaScript" type="text/javascript" >
-	  $(".area").corner("4px;");
-	  </script>
+
 	  <div  class="area" >
 	  <h2>Aide.</h2>
-	  async (booléen): par défault, toutes les requêtes sont asynchrones (ce paramètres vaut true par défaut). Si vous avez besoin de requêtes synchrones, passez cette fonction à false. A nter que les requêtes synchrones bloque temporairement le naviguateur de l\'utilisateur tant que la requête n\'est pas terminée.
-beforeSend (fonction): un pre-callback permettant de modifier l\'objet XMLHttpRequest avant qu\'il soit envoyé. A utiliser pour envoyer des entêtes personnalisés par exemple etc. Seul l\'objet XMLHttpRequest est passé en argument de cette fonction.
-complete (fonction): fonction à appeler lorsque la requête se termine (après que les callbakcs de succès et d\'erreurs soient éxécutés). La fonction dispose de deux arguments: l\'objet XMLHttpRequest et une chaine de caractère décrivant le type de succès de la requête.
-contentType (String): Quand vous envoyez des données au serveur, utilisez ce paramètre. Par défaut, il vaut "application/x-www-form-urlencoded", ce qui correspond dans la plupart des cas.
-data (objet|string): Donnée à envoyer au serveur. Elle est converti en String, si elle ne l\'est pas déja. Consultez l\'option processData pour empêcher teh processus automatique. L\'objet doit être formée de paires de la forme clé/valeur. Si la valeur est un tableau, jQuery serialise les dofférentes données du tableau avec la même clé. Par exemple: {foo:["bar1", "bar2"]} devient \'&foo=bar1&foo=bar2\'. Ce paramètre n\'est pas nécéssaire pour les requêtes utilisant le paramètre GET.
-dataType (string): format des données qui seront renvoyées du serveur. Si aucune type n\'est spécifié, jQuery utilisera le type MIME pour déterminer le format adéquat: responseXMl ou ResponseText. Voici la liste des types disponibles:
-"xml": retourne un document XML qui pourra être traité par jQuery.
-"html": retourne du code HTML au format texte, inclus l\'évaluation des script tags.
-"script": évalue la réponse en Javascript et retourne cette dernière au format texte.
-"json": évalue la réponse en JSON et retourne un objet Javascript.
-error (fonction): Fonction à appeler si la requête échoue. La fonction dispose de trois arguments: l\'objet XMLHttpRequest, une chaine de caractère décrivant le type d\'erreur rencontré, et un objet d\'exception, dans la cas ou ce dernier a été généré.
-global (booléen): permet le déclenchement du gestionnaire d\'évènement global de AJAX. Par défaut, il vaut true. Passez false à cette option si vous voulez empêcher les déclenchementd d\'évènements de type ajaxStart ou ajaxStop.
-ifModified (booléen): la requête se termine avec succès seulement si les données retournées sont différentes de la dernière requête. Les entêtes sont utilisés pour cette opération. Par défaut, cette option vaut "false".
-processData (booléen): permet de ne pas passer en chaine de caractère les données passée à l\'option "data". Si vous souhaitez envoyer des documents DOM, ou d\'autres données non traitables, passez cette option à false.
-success (fonction): Fonction à appeler si la requête s\'éxécute avec succès. Un seul argument est passé en paramètre: les données retournées par le serveur, format suivant le format défini par l\'option "dataType".
-timeout (entier): spécifie un timeout local en millisecondes pour la requête. Ce timeout prendra le pas sur le timeout global (défini par la fonction $.ajaxTimeout()) pour la requête.
-type (string): type de la requête (GET ou POST), par défaut, vaut GET. D\'autres méthodes d\'envoi HTTP peuvent être utilisées, comme PUT ou DELETE, mais celles-ci ne sont pas supportées par tous les naviguateurs.
-url (string): URL de la requête.
-	  </div>';
-	  
-	  if(isset($_GET['name']))
-	  {
-	  	echo $_GET['name'];
-	  }
-
-echo $div;
-?>
+	  async (boolï¿½en): par dï¿½fault, toutes les requï¿½tes sont asynchrones (ce paramï¿½tres vaut true par dï¿½faut). Si vous avez besoin de requï¿½tes synchrones, passez cette fonction ï¿½ false. A nter que les requï¿½tes synchrones bloque temporairement le naviguateur de l\'utilisateur tant que la requï¿½te n\'est pas terminï¿½e.
+beforeSend (fonction): un pre-callback permettant de modifier l\'objet XMLHttpRequest avant qu\'il soit envoyï¿½. A utiliser pour envoyer des entï¿½tes personnalisï¿½s par exemple etc. Seul l\'objet XMLHttpRequest est passï¿½ en argument de cette fonction.
+complete (fonction): fonction ï¿½ appeler lorsque la requï¿½te se termine (aprï¿½s que les callbakcs de succï¿½s et d\'erreurs soient ï¿½xï¿½cutï¿½s). La fonction dispose de deux arguments: l\'objet XMLHttpRequest et une chaine de caractï¿½re dï¿½crivant le type de succï¿½s de la requï¿½te.
+contentType (String): Quand vous envoyez des donnï¿½es au serveur, utilisez ce paramï¿½tre. Par dï¿½faut, il vaut "application/x-www-form-urlencoded", ce qui correspond dans la plupart des cas.
+data (objet|string): Donnï¿½e ï¿½ envoyer au serveur. Elle est converti en String, si elle ne l\'est pas dï¿½ja. Consultez l\'option processData pour empï¿½cher teh processus automatique. L\'objet doit ï¿½tre formï¿½e de paires de la forme clï¿½/valeur. Si la valeur est un tableau, jQuery serialise les doffï¿½rentes donnï¿½es du tableau avec la mï¿½me clï¿½. Par exemple: {foo:["bar1", "bar2"]} devient \'&foo=bar1&foo=bar2\'. Ce paramï¿½tre n\'est pas nï¿½cï¿½ssaire pour les requï¿½tes utilisant le paramï¿½tre GET.
+dataType (string): format des donnï¿½es qui seront renvoyï¿½es du serveur. Si aucune type n\'est spï¿½cifiï¿½, jQuery utilisera le type MIME pour dï¿½terminer le format adï¿½quat: responseXMl ou ResponseText. Voici la liste des types disponibles:
+"xml": retourne un document XML qui pourra ï¿½tre traitï¿½ par jQuery.
+"html": retourne du code HTML au format texte, inclus l\'ï¿½valuation des script tags.
+"script": ï¿½value la rï¿½ponse en Javascript et retourne cette derniï¿½re au format texte.
+"json": ï¿½value la rï¿½ponse en JSON et retourne un objet Javascript.
+error (fonction): Fonction ï¿½ appeler si la requï¿½te ï¿½choue. La fonction dispose de trois arguments: l\'objet XMLHttpRequest, une chaine de caractï¿½re dï¿½crivant le type d\'erreur rencontrï¿½, et un objet d\'exception, dans la cas ou ce dernier a ï¿½tï¿½ gï¿½nï¿½rï¿½.
+global (boolï¿½en): permet le dï¿½clenchement du gestionnaire d\'ï¿½vï¿½nement global de AJAX. Par dï¿½faut, il vaut true. Passez false ï¿½ cette option si vous voulez empï¿½cher les dï¿½clenchementd d\'ï¿½vï¿½nements de type ajaxStart ou ajaxStop.
+ifModified (boolï¿½en): la requï¿½te se termine avec succï¿½s seulement si les donnï¿½es retournï¿½es sont diffï¿½rentes de la derniï¿½re requï¿½te. Les entï¿½tes sont utilisï¿½s pour cette opï¿½ration. Par dï¿½faut, cette option vaut "false".
+processData (boolï¿½en): permet de ne pas passer en chaine de caractï¿½re les donnï¿½es passï¿½e ï¿½ l\'option "data". Si vous souhaitez envoyer des documents DOM, ou d\'autres donnï¿½es non traitables, passez cette option ï¿½ false.
+success (fonction): Fonction ï¿½ appeler si la requï¿½te s\'ï¿½xï¿½cute avec succï¿½s. Un seul argument est passï¿½ en paramï¿½tre: les donnï¿½es retournï¿½es par le serveur, format suivant le format dï¿½fini par l\'option "dataType".
+timeout (entier): spï¿½cifie un timeout local en millisecondes pour la requï¿½te. Ce timeout prendra le pas sur le timeout global (dï¿½fini par la fonction $.ajaxTimeout()) pour la requï¿½te.
+type (string): type de la requï¿½te (GET ou POST), par dï¿½faut, vaut GET. D\'autres mï¿½thodes d\'envoi HTTP peuvent ï¿½tre utilisï¿½es, comme PUT ou DELETE, mais celles-ci ne sont pas supportï¿½es par tous les naviguateurs.
+url (string): URL de la requï¿½te.
+	  </div>

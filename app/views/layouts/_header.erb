@@ -12,24 +12,11 @@
             </div>			
             <%=image_tag("buttons/btn_profile.png",:class=>"btn_config",:alt=>"Profile") %>
             <div class="txt_config">
-				<%=link_to(t('profile.one'),help_path)%>
-            </div>
-            <div id="find_form">
-                <form action="#" method="POST">
-                    &nbsp;&nbsp;<input type="text" name="text_find" id="input_find" value="" />
-                </form>
-            </div>			
-            <%=image_tag("buttons/btn_find.png",:class=>"btn_config",:alt=>"find") %>
-            <div class="txt_config">
-            	<%=link_to(t('search.one'),search_path) %>
+				<%=link_to(t('profile.my'),help_path)%>
             </div>
 			<%=image_tag("buttons/btn_browse.png",:class=>"btn_config",:alt=>"Browse") %>
             <div class="txt_config">
 				<%=link_to(t('find.browse'),users_path) %>  &nbsp;
-            </div>
-            <%=image_tag("buttons/btn_help.png",:class=>"btn_config",:alt=>"Help") %>
-            <div class="txt_config">
-               <%=link_to(t('help'),help_path)%>  &nbsp;
             </div>
         </div>
         <div id="header_right">

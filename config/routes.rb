@@ -19,7 +19,6 @@ Global::Application.routes.draw do |map|
   social_stream
 
   resources :posts  
-  resources :videos
   resources :comments
 	resources :spaces
 

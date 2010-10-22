@@ -1,7 +1,4 @@
-<?php
-$div='<script language="JavaScript" type="text/javascript" >
-	  $(".area").corner("4px;");
-	  </script>
+
 	  <div  class="area" >
 	  <h2>Commentaire.</h2>
 	  <ol>
@@ -18,7 +15,4 @@ $div='<script language="JavaScript" type="text/javascript" >
 		<li>Com 11</li>
 		<li>Com 12</li>
 	  </ol>
-	  </div>';
-
-echo $div;
-?>
+	  </div>

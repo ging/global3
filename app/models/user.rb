@@ -46,9 +46,6 @@ class User
     suggestion(:space)
   end
 
-  def videos
-    []
-  end
   
   def logo
     "followers/#{ id % 3 + 1 }.png"

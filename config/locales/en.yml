@@ -41,10 +41,17 @@ en:
     my: My Home
   login: Login  
   logout: Logout
+  inbox:
+    my: My Inbox
+    one: Inbox    
   openid:
     login: Login with OpenID
   profile:
-    one: My profile
+    my: My profile
+  photo:
+    one: Photo
+    my: My Photos
+    other: Photos
   password:
     confirm: Confirm password
     one: Password

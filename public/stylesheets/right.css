@@ -28,3 +28,30 @@
 	background: transparent url(../images/title_background.png) scroll 0px;
 }
 /****************** POST - ACTIVITIES *********************/
+
+.contacts_header {
+  vertical-align: middle;
+  background: transparent url(../images/title_background.png) scroll 0px;
+  padding-left: 10px;
+  display: block;
+  height:20px;
+  width: 14em;
+}
+
+.contacts_text_header {
+  padding-top: 2px;
+  vertical-align:top;
+	display: inline-block;
+}
+
+.contacts_footer {
+	float: right;
+}
+
+.contacts_icon {
+	margin-top: 1px;
+}
+
+.contacts{
+	padding: 5px 4px 5px 4px;
+}

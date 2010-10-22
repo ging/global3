@@ -1,80 +1,26 @@
 <div id="rightContent">
-    <div class="space_center">
-    </div>
-    <div class="space_center">
-    </div>
-    <div class="space_center">
-    </div>
-    <div class="space_center">
-    </div>	
-    <div id="logo">
-			<%= link_to(image_tag(current_user.logo , :size => "94x65", :alt => current_user.name ), current_user ) %>
-
-        <br/>
-        <%= link_to(current_user.name, current_user)%>
-    </div>
-    <div class="space_center">
-    </div>
-    <div id="menu_lateral">
-        <div class="option_menu">
-					<%= image_tag("buttons/btn_profile.png") %>
-            <div class="text_menu">
-							<%= link_to("Profile", current_user) %>
-            </div>
-        </div>
-        <div class="option_menu">
-					<%= image_tag("buttons/btn_inbox.png") %>
-            <div class="text_menu">
-                <a href="#">Inbox(2)</a>
-            </div>
-        </div>
-        <div class="option_menu">
-					<%= image_tag("buttons/btn_photo.png")%>
-            <div class="text_menu">
-                <a href="#">Photos</a>
-            </div>
-        </div>
-        <div class="option_menu">
-					<%= image_tag("buttons/btn_follower.png")%>
-            <div class="text_menu">
-                <a href="#">Contacts</a>
-            </div>
-        </div>
-    </div>
-    <div class="space_center_border">
-    </div>
-    <div class="space_center">
-    </div>
-    <div id="sub_menu_lateral">
-        <div class="option_menu">
-					<%= image_tag("buttons/btn_video.png")%>
-            <div class="text_menu">
-                <a href="#">Spaces</a>
-            </div>
-        </div>
-    </div>
-		<div class="space_center">
-		</div>
-
-    <div class="space_center_border">
-    </div>
-
   <div class="space_center">
   </div>
-
-  
-<div id="follower">
-				<div id="title_follower">
-					<%=image_tag ("buttons/btn_friend.png", :alt => "Contacts")%><%=current_user.friends.count%> <%=t('user.friends')%>
-				</div>
-				<div class="follower_line">
-          <%current_user.friends.all.each do |friend|%>
-					    <%=link_to ( (image_tag (friend.logo, :alt => friend.name , :size => "40x40")) , friend)%>
-          <%end%>
-				</div>
-				<div class="future_footer">
-					<%=link_to ( (image_tag ("buttons/btn_next.png", :alt => "next")) , users_path) %>
-				</div>
-		</div>
-
+  <div class="space_center">
+  </div>
+  <div class="space_center">
+  </div>
+  <div class="space_center">
+  </div>
+  <div id="logo">
+    <b><%= link_to(current_user.name, current_user)%></b><br/>
+    <%= link_to(image_tag(current_user.logo , :size => "94x65", :alt => current_user.name ), current_user ) %>
+  </div>
+  <div class="space_center">
+  </div>
+  <div class="menu_header"><b><%=t('menu.options')%></b>
+  </div>
+  <div id="menu_lateral">
+    <%= render :partial => "layouts/options" %>
+  </div>
+  <div class="space_center">
+  </div>
+  <div class="space_center">
+  </div>  
+  <%= render :partial => "home/contacts" %>
 </div>
