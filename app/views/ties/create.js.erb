@@ -1,6 +1,11 @@
 <% if @tie.new_record? %>
-  alert('There were problems with the tie: <%= escape_javascript(@tie.errors.to_xml) %>');
+    $("#new_tie").html("error");
 <% else %>
-  $(".close").click();
-  $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
+  <% if @tie.relation.granted  %>
+    $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
+  <% else %>
+      $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
+      $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
+  <% end %>
+
 <% end %>
