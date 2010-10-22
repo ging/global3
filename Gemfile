@@ -21,6 +21,9 @@ gem 'atd-ancestry', :require => 'ancestry'
 # REST controllers
 gem 'inherited_resources'
 
+# Actors permalink
+gem 'stringex'
+
 # Vcard, hcard
 gem 'vpim'
 gem 'prism'

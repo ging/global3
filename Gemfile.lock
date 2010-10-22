@@ -107,6 +107,7 @@ GEM
       ruby-debug-base (~> 0.10.3.0)
     ruby-debug-base (0.10.3)
       linecache (>= 0.3)
+    stringex (1.2.0)
     thor (0.14.3)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -133,4 +134,5 @@ DEPENDENCIES
   rails3-generators
   rspec-rails (~> 2.0.0.beta.15)
   ruby-debug
+  stringex
   vpim
