@@ -1,14 +1,3 @@
-<div class="dialog_add_tie">
-    <div class="content_add_user">
-      <div class="activity_add_ties">
-        <div>
-          Ud. ha empeza a seguir a XYZ
+$("#tie_relation_<%=dom_id(subject)%>").html("<%= escape_javascript(link_like(@like.parent) ) %>");
 
-           <div class="ties_btn">
-             <%= submit_tag t('close'), :class => "follow_btn" %>
-           </div>
-
-        </div>
-      </div>
-    </div>
-</div>
+group_9

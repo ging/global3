@@ -7,5 +7,4 @@
       $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
       $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
   <% end %>
-
 <% end %>
