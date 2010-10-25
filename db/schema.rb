@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "activity_object_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "actors", ["activity_object_id"], :name => "fk_actors_activity_object"

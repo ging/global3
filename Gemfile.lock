@@ -66,6 +66,9 @@ GEM
       gem_plugin (>= 0.2.3)
     mysql (2.8.1)
     nokogiri (1.4.3.1)
+    paperclip (2.3.4)
+      activerecord
+      activesupport
     polyglot (0.3.1)
     prism (0.1.0)
       nokogiri
@@ -129,6 +132,7 @@ DEPENDENCIES
   inherited_resources
   mongrel
   mysql
+  paperclip
   prism
   rails (= 3.0.0)
   rails3-generators
