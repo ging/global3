@@ -9,7 +9,6 @@ tmp/*
 .tmp_*
 config/database.yml
 config/ultrasphinx/*conf
-public/logos
 attachments/*
 public/images/tmp/*
 spec/reports

@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "name",               :limit => 45
     t.string   "email",                            :default => "", :null => false
     t.string   "permalink",          :limit => 45
+    t.string   "subject_type",       :limit => 45
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "activity_object_id"
