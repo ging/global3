@@ -1,5 +1,5 @@
 <% if @tie.new_record? %>
-    $("#new_tie").html("error");
+    $("#new_tie").html(@tie.errors);
 <% else %>
    <%= render( :partial => "ties/create_#{@tie.relation_name}") %>
         
