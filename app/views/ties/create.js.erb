@@ -1,10 +1,14 @@
 <% if @tie.new_record? %>
     $("#new_tie").html("error");
 <% else %>
+   <%= render( :partial => "ties/create_#{@tie.relation_name}") %>
+        
   <% if @tie.relation.granted  %>
     $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
   <% else %>
       $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
       $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
   <% end %>
+
+
 <% end %>
