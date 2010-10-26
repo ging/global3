@@ -1,9 +1,9 @@
 <% if @tie.new_record? %>
-    $("#new_tie_relation_<%=@tie.receiver.id%>").html(@tie.errors);
+    $("#tie_relation_<%=dom_id(@tie.receiver_subject)%>").html(<%= @tie.errors %>);
 <% else %>
   <%=render :partial => "ties/create_#{@tie.relation_name}"%>
   <% if @tie.relation.granted  #friend_request %>
-    $("#tie_relation_<%=dom_id(@tie.receiver)%>").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
+    $("#tie_relation_<%=dom_id(@tie.receiver_subject)%>").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
   <% else #follow %>
     $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
     $("#tie_relation_<%=@tie.receiver%>").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");

@@ -4,7 +4,7 @@
 		<div class="space_center">
 		</div>
 		<div id="logo">
-			<%=link_to ( (image_tag ( @user.logo, :alt => @user.name , :size => "120x196")) , @user) %>
+			<%=link_to ( (image_tag ( @user.logo.url, :alt => @user.name , :size => "120x196")) , @user) %>
 				<br/>
 				<%=@user.name %>
 				<br/>

@@ -8,7 +8,7 @@
                                 :remote => true %>
 		</div>
 		<div id="logo">
-			<%=link_to((image_tag(@space.logo, :alt => @space.name , :size => "119x108")) , space_path)%>
+			<%=link_to((image_tag(group.logo.url, :alt => @group.name , :size => "119x108")) , space_path)%>
 		</div>
 		<div id="tabright" class="widget">
 				<ul class="tabinfo fondo">
@@ -63,11 +63,11 @@
 		</div>
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag("buttons/btn_follower.png", :alt => "Follower")%><%=@space.followers.count%> <%=t('space.followers')%>
+					<%=image_tag("buttons/btn_follower.png", :alt => "Follower")%><%=@group.followers.count%> <%=t('space.followers')%>
 				</div>
 				<div class="follower_line">
           <% @space.followers.all.each do |follower| %>
-					    <%=link_to((image_tag(follower.logo, :alt => follower.name , :size => "40x40")) , follower)%>
+					    <%=link_to((image_tag(follower.logo.url, :alt => follower.name , :size => "40x40")) , follower)%>
           <%end%>
 				</div>
 				<div class="future_footer">
