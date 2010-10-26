@@ -31,7 +31,9 @@
   padding: 2px 2px 2px 2px;
   border:1px solid #BDC7D8;
   font-size: 11px;
+  cursor: pointer;
 }
+
 
 .ties_btn{
     text-align: right;

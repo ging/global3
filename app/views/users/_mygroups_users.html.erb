@@ -1,11 +1,11 @@
-<% if current_user.spaces.any? %>
+<% if current_user.groups.any? %>
 <div id="my_spaces">
     <div id="title_space" class="content_size">
         <%=t('space.my_spaces') %>
     </div>
     <div id="spaces_list" class="content_size">
-		<% current_user.spaces.each do |space| %>  
-                <%=link_to(image_tag(space.logo, :class => 'btn_config', :alt => space.name, :title => space.name), space) %>
+		<% current_user.groups.each do |group| %>
+                <%=link_to(image_tag(group.logo, :class => 'btn_config', :alt => group.name, :title => group.name), group) %>
 		<% end %>
     </div>
 </div>

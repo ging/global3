@@ -1,14 +1,11 @@
-<% if @tie.new_record? %>
-    $("#new_tie").html("error");
+<% if @tie.new_record? #error al realizar el tie %>
+    $("#tie_relation_<%=@tie.receiver.id%>").html("error");
 <% else %>
-   <%= render( :partial => "ties/create_#{@tie.relation_name}") %>
-        
-  <% if @tie.relation.granted  %>
-    $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
-  <% else %>
-      $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
-      $("#new_tie").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
+  <%=render :partial => "ties/create_#{@tie.relation_name}"%>
+  <% if @tie.relation.granted  #friend_request %>
+    $("#tie_relation_<%=dom_id(@tie.receiver)%>").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
+  <% else #follow %>
+    $("#spaces_list").prepend("<%= escape_javascript(render @tie.receiver_subject) %>");
+    $("#tie_relation_<%=@tie.receiver%>").html("<%= escape_javascript( render(:partial => "ties/create_#{@tie.relation_name}"))%>");
   <% end %>
-
-
 <% end %>
