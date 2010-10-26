@@ -23,8 +23,4 @@ class User
   def friends
     receiver_subjects(:user, :relations => 'friend')
   end
-
-  def logo
-    "followers/#{ id % 3 + 1 }.png"
-  end
 end

@@ -24,6 +24,9 @@ gem 'inherited_resources'
 # Actors permalink
 gem 'stringex'
 
+# Logos
+gem 'paperclip'
+
 # Vcard, hcard
 gem 'vpim'
 gem 'prism'

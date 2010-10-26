@@ -1,64 +1,7 @@
 Global::Application.routes.draw do |map|
-  # Authentication
-  devise_for :users do
-  # Default authentication routes, compatible with global2
-    get '/login' => 'devise/sessions#new'
-    get '/logout' => 'devise/sessions#destroy'
-    get '/signup(.:format)' => 'devise/registrations#new'
-    get '/lost_password' => 'devise/passwords#new'
-  end
-  
-	match 'browse' => 'browse#index', :as => :browse
-	
   map.help 'help', :controller => 'help', :action => 'index'  
   resources :feedback
-  resource :session_locale  
   
-  map.search 'search', :controller => 'browse', :action => 'index'
-  
-  map.resources :spaces, :member => {:enable => :post} do |space|
-    space.resources :users do |user|
-      user.resource :profile
-    end
-
-    space.resources :readers
-    space.resources :events,
-                     :collection => [:add_time, :copy_next_week, :remove_time],
-                     :member => { :token => :get, :spam => :post, :spam_lightbox => :get, :start => :post } do |event|
-      event.resources :invitations
-      event.resources :participants
-      event.resource :agenda, :member => {:generate_pdf => :get}
-      event.resource :agenda do |agenda|
-        agenda.resources :agenda_dividers
-        agenda.resources :agenda_entries
-        agenda.resources :agenda_entries do |entry|
-          entry.resource :attachment
-        end
-        agenda.resources :agenda_record_entries
-      end
-      event.resource :logo, :controller => 'event_logos', :member => {:precrop => :post}
-    end
-
-    space.resources :posts, :member => {:spam => :post, :spam_lightbox => :get}
-    
-    #Route to delete attachment collections with a DELETE to /:space_id/attachments
-    space.attachments 'attachments', :controller => 'attachments' , :action => 'delete_collection', :conditions => { :method => :delete }
-    space.resources :attachments,
-                    :member => {:edit_tags => :get} 
-    
-    space.resources :entries
-    space.resource :logo, :member => {:precrop => :post}
-
-    space.resources :groups
-    space.resources :admissions
-    space.resources :invitations
-    space.resources :join_requests
-#    space.resources :event_invitations
-    space.resources :performances
-    space.resources :news
-  end
-        
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

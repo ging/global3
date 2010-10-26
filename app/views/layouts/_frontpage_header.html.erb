@@ -5,57 +5,19 @@
         &nbsp
     </div>
     <div class="div_login">
-        <%= form_for User.new, :as => :user, :url => session_path(:user) do |f| -%>
-        <span>
-            <label for="login">
-                <%= t('email') %>
-            </label>
-        </span>
-        <%= f.text_field :email, :class=>"input_username" %>
-        <span>
-            <label for="password">
-                <%= t('password.one') %>
-            </label>
-        </span>
-        <%= f.password_field :password, :class=>"input_username" %>
-        <button type="submit" class="other_blue">
-            <%=t("login") %>
-        </button>
+        <%= form_for User.new, :as => :user, :url => user_session_path do |f| -%>
+          <span><%= f.label :email %></span>
+          <%= f.email_field :email, :class => "input_username" %>
+          <span><%= f.label :password %></span>
+          <%= f.password_field :password, :class => "input_username" %>
+          <%= f.submit t(:login), :class => 'other_blue' %>
         <% end -%>
         <div class="subtexto">
-            <%= link_to t('register.one'), signup_path, :class => "register_link" %>
+            <%= link_to t('register.one'), new_user_registration_path, :class => "register_link" %>
             <span>|</span>
-            <%= link_to t('user.lost_password'), lost_password_path, :class => "register_link" %>
-            <span>|</span>
-            <%= link_to_function t('openid.login'), "show_open_id_form()" %>
-        </div>
-    </div>
-    <div class="div_login_openid" style="display:none">
-        <div class="openid_form">
-            <%= form_for session_path(User.new, :as => :user, :url => session_path(:user)) do -%>
-            <div id="openid_label">
-                <span><%= t('openid.enter') %></span>
-                <%= text_field_tag 'openid_identifier', params[:openid_identifier] %>
-                <button type="submit" class="other_blue">
-                    <%=t("login") %>
-                </button>
-            </div>
-            <% end -%>
-        </div>
-        <div class="subtexto">
-            <%= link_to t('user.lost_password'), lost_password_path, :class => "register_link" %>
-            <span>|</span>
-            <%= link_to_function t('login_traditional'), "show_user_password_form()" %>
+            <%= link_to t('user.lost_password'), new_user_password_path, :class => "register_link" %>
         </div>
     </div>
     <br class="clearfloat" />
-    <% unless true || !current_site.authorize?(:translate, :to => current_user) -%>
-    <% for locale in (I18n.available_locales - [I18n.locale]) -%>
-    <li>
-        <%= link_to image_tag("flags/" + locale.to_s + ".png", :alt => locale.to_s,:title=>t("translate.change")), session_locale_path(:new_locale => locale.to_s), :method => :post %>
-    </li>
-    <% end -%>
-    <%end -%>
-    </ul>
 </div>
 </div>
