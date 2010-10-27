@@ -2,7 +2,7 @@
 	padding: 5px 4px 5px 4px;
 }
 
-.input_new_suggestions{
+.input_new_tie {
 	border:1px solid #BDC7D8;
 	width:98%;
 	padding: 2px;
@@ -46,44 +46,44 @@
 .suggestions {
 	padding: 5px 4px 5px 4px;
 }
-.suggestions_header {
+.tie_header {
 	vertical-align: middle;
 	background: transparent url(../images/title_background.png) scroll 0px;
 	padding-left: 10px;
 	display: block;
 }
-.suggestion_icon {
+.tie_icon {
 	margin-top: 2px;
 }
 
-.suggestion_text_header {
+.tie_text_header {
 	padding-bottom: 2px;
 	display: inline-block;
 }
 
-.suggestion_all{
+.tie_all{
 	float: right;
 	padding-right: 5px;
 	padding-top: 3px;
 }
 
-.suggestion_content {
+.tie_content {
 	display: inline-block;
   padding-left:3px;
 	/*padding-bottom: 10px;*/
 }
 
-.suggestion_actor_logo{
+.tie_actor_logo{
 	display: inline-block;
   vertical-align:top;
 
 }
 
-.suggestion_brief {
+.tie_brief {
 	color: #6C6D6F;
 }
 
-.suggestion_close {
+.tie_close {
   float:right;
   vertical-align:top;
 

@@ -1,3 +1,0 @@
-$("#tie_relation_<%=dom_id(@tie.receiver_subject)%>").replaceWith("<%=escape_javascript(link_follow_state())%>");
-$("#tie_relation_<%=dom_id(@tie.receiver_subject)%>").slideUp(300).delay(800).fadeIn(400);
-$("#groups_list").prepend("<%= escape_javascript( render(:partial => "groups/group",  :locals => { :group => @tie.receiver_subject }))%>");

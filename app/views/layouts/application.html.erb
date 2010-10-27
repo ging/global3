@@ -25,8 +25,9 @@
                 document.write("<link href='/stylesheets/mac.css' media='screen, projection' rel='stylesheet' type='text/css' />");
             }
         </script>
+        <%= javascript_include_tag :defaults %>
        
-        <%= javascript_include_tag 'jquery-1.4.2', 'hoverIntent', 'superfish', 'main', 'rails' ,
+        <%= javascript_include_tag 'hoverIntent', 'superfish', 'main',
                                    'jquery-ui-personalized-1.5.2.packed' , 'jquery.livequery',
                                    'jquery.boxy', 'menu'%>
 
