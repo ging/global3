@@ -1,2 +1,2 @@
-alert("añadido tie-request");
-
+$(".close").click();
+$("#suggestion_<%=dom_id(@tie.receiver_subject)%>").replaceWith("<%= escape_javascript( render(:partial => "ties/suggestion"))%>");

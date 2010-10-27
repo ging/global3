@@ -15,14 +15,14 @@ en:
     collaborate:
       sentence1: Organize your projects and activities
       sentence2: Participate in conferences and events
-      sentence3: Create your own space and conferences
+      sentence3: Create your own group and conferences
     elements:
       comments: Comments
       conferences: Conferences
       networks: Social Networks
       organizers: Organizers
       participants: Participants
-      spaces: Spaces
+      groups: Groups
       tags: Tags
     main_title: SocialStream a hosting service for publishing and discovering videoconferences
     meet:
@@ -60,13 +60,6 @@ en:
   register:
     one: Register
     thank_you: Welcome and thank you for registering in %{sitename}}        
-  space:
-    all: All Spaces
-    be_fan: Be Fan
-    by: By Spaces
-    my: My Spaces
-    one: Space
-    other: Spaces
   search:
     one: Search
   society_media: Information Society and Media
@@ -83,11 +76,9 @@ en:
     full_name: Full name
     invite: Invite people
     invite_email: Invite people by email
-    invite_from_space_by_email: Invite people from your space
+    invite_from_group_by_email: Invite people from your group
     invited: Users already invited
-    keynotes: Keynotes
     list_by: List by
-    lectures : Lectures
     login: Login
     lost_password: Have you lost your password?
     not_confirmed: Not confirmed

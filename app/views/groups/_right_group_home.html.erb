@@ -2,13 +2,13 @@
 		<div id="bookmark">
 			<%=image_tag("buttons/btn_bookmark.png", :alt => "Bookmark")%><%= link_to "Follow",
                                 ties_path("tie[sender_id]" => current_user.actor.id,
-                                          "tie[receiver_id]" => space,
+                                          "tie[receiver_id]" => @group,
                                           "tie[relation_name]" => "follower"),
                                 :method => :post,
                                 :remote => true %>
 		</div>
 		<div id="logo">
-			<%=link_to((image_tag(group.logo.url, :alt => @group.name , :size => "119x108")) , space_path)%>
+			<%=link_to((image_tag(@group.logo.url, :alt => @group.name , :size => "119x108")) , group_path)%>
 		</div>
 		<div id="tabright" class="widget">
 				<ul class="tabinfo fondo">
@@ -48,13 +48,13 @@
 					 <%=image_tag("buttons/btn_partner.png", :alt => "Partners")%><%=t('partners')%>
 				</div>
 				<div class="partner_line">
-					  <%=link_to((image_tag("thumb_followers/1.png", :alt => "partner-1" , :size => "40x40")) , space_path)%>
-					  <%=link_to((image_tag("thumb_followers/2.png", :alt => "partner-2", :size => "40x40")) , space_path)%>
-					  <%=link_to((image_tag("thumb_followers/3.png", :alt => "partner-3", :size => "40x40")) , space_path)%>
+					  <%=link_to((image_tag("thumb_followers/1.png", :alt => "partner-1" , :size => "40x40")) , group_path)%>
+					  <%=link_to((image_tag("thumb_followers/2.png", :alt => "partner-2", :size => "40x40")) , group_path)%>
+					  <%=link_to((image_tag("thumb_followers/3.png", :alt => "partner-3", :size => "40x40")) , group_path)%>
 				</div>
 			 
 				<div class="future_footer">
-					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , space_path)%>
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , group_path)%>
 				</div>
 		</div>
 		<div class="space_center">
@@ -63,15 +63,15 @@
 		</div>
 		<div id="follower">
 				<div id="title_follower">
-					<%=image_tag("buttons/btn_follower.png", :alt => "Follower")%><%=@group.followers.count%> <%=t('space.followers')%>
+					<%=image_tag("buttons/btn_follower.png", :alt => "Follower")%><%=@group.followers.count%> <%=t('group.followers')%>
 				</div>
 				<div class="follower_line">
-          <% @space.followers.all.each do |follower| %>
+          <% @group.followers.all.each do |follower| %>
 					    <%=link_to((image_tag(follower.logo.url, :alt => follower.name , :size => "40x40")) , follower)%>
           <%end%>
 				</div>
 				<div class="future_footer">
-					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , space_path)%>
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")) , group_path)%>
 				</div>
 		</div>
 		<div class="space_center">
@@ -89,7 +89,7 @@
 				</div>
 			 
 				<div class="future_footer">
-					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")),space_path)%>
+					<%=link_to((image_tag("buttons/btn_next.png", :alt => "next")),group_path)%>
 				</div>
 		</div>
 		<div class="space_center">
