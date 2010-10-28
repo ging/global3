@@ -22,9 +22,4 @@ class ApplicationController < ActionController::Base
     nil
   end
   helper_method :space
-
-  # Where to redirect when the user has logged in
-  def after_sign_in_path_for(user)
-    root_path
-  end
 end
