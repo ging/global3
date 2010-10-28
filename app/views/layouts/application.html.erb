@@ -53,11 +53,26 @@
                 	<%= yield %>
                 </div>
                 <div id="middle">
-                	<%=  yield :middle %>
-                	
+                  <div id="middleContent">
+                    <div class="space_center">
+                    </div>
+                    <div class="space_center">
+                    </div>
+                    <div class="space_center">
+                    </div>
+                      <%=  yield :middle %>
+                  </div>
                 </div>
                 <div id="right">
-                	<%= yield :right %>
+                  <div id="rightContent">
+                    <div class="space_center">
+                    </div>
+                    <div class="space_center">
+                    </div>
+                    <div class="space_center">
+                    </div>
+                      <%= yield :right %>
+                  </div>
                 </div>
                 <br class="clearfloat" />
             </div>

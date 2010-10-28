@@ -1,21 +1,21 @@
 <% content_for :middle do %>
-	<%= render :partial => "spaces/middle_spaces_browse" %>
+	<%= render :partial => "groups/middle_groups_browse" %>
 <% end %>
 
 <% content_for :right do %>
-	<%= render :partial => "spaces/right_spaces_browse" %>
+	<%= render :partial => "groups/right_groups_browse" %>
 <% end %>
 
 
 <div id="map_location" class="content_size">
 		Your are here ><img src="images/buttons/btn_browse.png" class="btn_config" alt="Browse" /> <%=t('find.browse')%>: <span id="name_group"><%= t('space.by')%></span>
 </div>
-<div id="by_options" class="content_size"><%=link_to ( t('user.by'),users_path )%> - <%=link_to ( t('video_conferences.by'),videos_path )%></div>
+<div id="by_options" class="content_size"><%=link_to ( t('user.by'),users_path )%> - <%=link_to ( t('video_conferences.by'),'#' )%></div>
 <br class="clearfloat" />
 <div class="space_center">
 </div>
 
-<%= render :partial => "spaces/categories_spaces" %>
+<%= render :partial => "groups/categories_groups" %>
 
 
 <div class="space_center">
