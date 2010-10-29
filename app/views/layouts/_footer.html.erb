@@ -1,13 +1,9 @@
 <div id="footerFront">
 	<div id="footer">
 	  <ul>
-		<li id="trade_mark"><%=image_tag("/images/icons/global_icon.png",:class=>"icon")%><%= t('socialstream') %></li>
+		<li id="trade_mark"><%= t('socialstream') %></li>
 		<li>,</li>
-		<li><%= t('all_rights_reserved') %></li>
-		<li>-</li>
-		<li><%=link_to(t('help_support'), help_path)%></li>
-		<li>-</li>
-		<li><%=link_to(t('feedback.send_us'), new_feedback_path(), :id => "feedback_link" )%></li>
+		<li><%= t('copyright') %></li>
 	  </ul>
 	</div>
 </div>

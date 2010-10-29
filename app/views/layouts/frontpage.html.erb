@@ -17,13 +17,12 @@
 				<%= yield :javascript%>
 			});
 			
-        </script>
-		
+        </script>		
 		<%= yield :headers %>
     </head>
     <body>
         <div id="site">
-            <%= render :partial => "layouts/frontpage_header" %>
+            <%= render :partial => "header" %>
             <div id="home">
                 <div id="header">
                     <div class="banner_busqueda">
@@ -36,8 +35,7 @@
                         </div>
                         <div class="div_busqueda">
                             <div id="subtexto_busqueda">
-                                <%=link_to t("find.browse"), groups_path,:class => "show_all_link" %>
-                                |<a href="help">Help</a>
+                                <%=link_to t("browse"), groups_path,:class => "show_all_link" %>
                             </div>
                             <%= yield :search %>
                         </div>
@@ -49,25 +47,12 @@
                 </div>
             </div>
             <div id="sponsor-wrapper">
-                <%= render :partial => "layouts/sponsor" %>
+                <%= render :partial => "sponsor" %>
             </div>
             <div id="footer-wrapper">
                 <%= render :partial => "layouts/footer" %>
             </div>
         </div>
-        <%if false && current_site.domain == "globalplaza.org" %>
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-            try {
-                var pageTracker = _gat._getTracker("UA-12096965-1");
-                pageTracker._trackPageview();
-            } 
-            catch (err) {
-            }
-        </script>
-        <%end %>
+
     </body>
 </html>

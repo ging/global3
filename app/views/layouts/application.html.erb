@@ -2,8 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <title><%= yield(:title) || current_site.name %></title>
-        <link rel="shortcut icon" type="image/x-icon" href="/images/icons/favicon.ico" />
+        <title><%= yield(:title) || t('socialstream') %></title>
 
         <%= stylesheet_link_tag "base", :media => "screen, projection" %>
         <%= stylesheet_link_tag "header", :media => "screen, projection" %>
@@ -78,19 +77,6 @@
             </div>
             <%= render :partial => "layouts/footer" %>
         </div>
-        <%if false && current_site.domain == "globalplaza.org" %>
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-            try {
-                var pageTracker = _gat._getTracker("UA-12096965-1");
-                pageTracker._trackPageview();
-            } 
-            catch (err) {
-            }
-        </script>
-        <%end %>
+
     </body>
 </html>

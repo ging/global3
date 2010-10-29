@@ -14,26 +14,21 @@ en:
   frontpage:
     collaborate:
       sentence1: Organize your projects and activities
-      sentence2: Participate in conferences and events
       sentence3: Create your own group and conferences
     elements:
       comments: Comments
-      conferences: Conferences
       networks: Social Networks
       organizers: Organizers
       participants: Participants
       groups: Groups
       tags: Tags
-    main_title: SocialStream a hosting service for publishing and discovering videoconferences
+    main_title: SocialStream a core for building social network applications.
     meet:
-      sentence1: Discover best online videoconferences
       sentence2: Meet interesting people and groups
-      sentence3: Video chat with your colleagues
     share:
-      sentence1: Videoconference recording and streaming
-      sentence2: Document and video repositories
+      sentence2: Comments and activities 
       sentence3: Your contacts and relations
-    stats: "%{vc} videoconferences organized - %{vs} videos stored"    
+    stats: "%{users} users and %{groups} groups registered" 
   help: Help
   help_support: Help & Support  
   home:

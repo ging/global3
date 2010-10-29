@@ -8,7 +8,7 @@
             <%= t('frontpage.main_title') %>
             <span id="text_bottom_title">
                 <br/>
-                <%= t('frontpage.stats', :vc => 50, :vs => 320) %>
+                <%= t('frontpage.stats', :users => User.count, :groups => Group.count) %>
             </span>
         </div>
         <br/>
@@ -16,9 +16,6 @@
             <span><%=image_tag("../images/frontpage/share.gif") %></span>
             <span>
                 <ul class="purple">
-                    <li>
-                    <%=image_tag("../images/frontpage/purple_sq.png") %><%= t('frontpage.share.sentence1') %>
-                    </img>
                 </li>
                 <li><%=image_tag("../images/frontpage/purple_sq.png") %><%= t('frontpage.share.sentence2') %>
                 </img>
@@ -34,17 +31,9 @@
     <span><%=image_tag("../images/frontpage/meet.gif") %></span>
     <span class="no_float">
         <ul class="green">
-            <li>
-            <%=image_tag("../images/frontpage/green_sq.png") %><%= t('frontpage.meet.sentence1') %>
-            </img>
-        </li>
         <li><%=image_tag("../images/frontpage/green_sq.png") %><%= t('frontpage.meet.sentence2') %>
         </img>
     </li>
-    <li>
-    <%=image_tag("../images/frontpage/green_sq.png") %><%= t('frontpage.meet.sentence3') %>
-    </img>
-</li>
 </ul>
 </span>
 </div>
@@ -56,9 +45,6 @@
             <%=image_tag("../images/frontpage/yellow_sq.png") %><%= t('frontpage.collaborate.sentence1') %>
             </img>
         </li>
-        <li><%=image_tag("../images/frontpage/yellow_sq.png") %><%= t('frontpage.collaborate.sentence2') %>
-        </img>
-    </li>
     <li>
     <%=image_tag("../images/frontpage/yellow_sq.png") %><%= t('frontpage.collaborate.sentence3') %>
     </img>
@@ -74,39 +60,8 @@
 </div>
 <div class="right column span-12 borde">
     <div id="caracteristics">
-        <span id ="video">
-            <ul id="gallery">
-                <li>
-                    <img src="../images/frontpage/video_1_happy.jpg" alt="Happy Sithole - Belief" />
-                    <div class="panel-content">
-                        <a href="http://www.globalplaza.org/spaces/global/events/5th-belief-symposium?show_video=4">
-                        	<img src="../images/frontpage/video_1_happy.jpg" alt="Happy Sithole - Belief" title="Happy Sithole - Belief" width="320" height="245" /></a>
-                    </div>
-                </li>
-                <li>
-                    <img src="../images/frontpage/video_2_kostas.jpg" alt="Kostas Glinos- Belief" title="Kostas Glinos- Belief"/>
-                    <div class="panel-content">
-                        <a href="http://www.globalplaza.org/spaces/global/events/5th-belief-symposium?show_video=13"><img src="../images/frontpage/video_1_kostas.jpg" alt="Kostas Glinos- Belief" title="Kostas Glinos- Belief" width="320" height="245"/></a>
-                    </div>
-                </li>
-                <li>
-                    <img src="../images/frontpage/video_3_colin.jpg" alt="Colin Wright - Belief" title="Colin Wright - Belief" />
-                    <div class="panel-content">
-                        <a href="http://www.globalplaza.org/spaces/global/events/5th-belief-symposium?show_video=66"><img src="../images/frontpage/video_3_colin.jpg" alt="Colin Wright - Belief" title="Colin Wright - Belief" width="320" height="245" /></a>
-                    </div>
-                </li>
-                <li>
-                    <img src="../images/frontpage/video_4_romilla.jpg" alt="Romilla Maharaj - Belief" title="Romilla Maharaj - Belief"/>
-                    <div class="panel-content">
-                        <a href="http://www.globalplaza.org/spaces/global/events/5th-belief-symposium?show_video=20"><img src="../images/frontpage/video_4_romilla.jpg" alt="Romilla Maharaj - Belief" title="Romilla Maharaj - Belief" width="320" height="245"/></a>
-                    </div>
-                </li>
-            </ul>
-        </span>
+
         <ul>
-            <li class="conferences">
-                <%= t('frontpage.elements.conferences') %>
-            </li>
             <li class="participants">
                 <%= t('frontpage.elements.participants') %>
             </li>
@@ -114,7 +69,7 @@
                 <%= t('frontpage.elements.organizers') %>
             </li>
             <li class="spaces">
-                <%= t('frontpage.elements.spaces') %>
+                <%= t('frontpage.elements.groups') %>
             </li>
             <li class="comments">
                 <%= t('frontpage.elements.comments') %>
