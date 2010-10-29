@@ -11,8 +11,6 @@ class User
   delegate :disabled, :disabled=,
            :to => :actor!
 
-  scope :with_lectures, where('users.lectures is not null')
-  scope :with_keynotes, where('users.keynotes is not null')
   scope :alphabetic, includes(:actor).order('actors.name')
 
   def needs_password?

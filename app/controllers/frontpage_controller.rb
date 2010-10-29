@@ -26,17 +26,6 @@ class FrontpageController < ApplicationController
     end
   end
   
-  def about
-    @global = Space.find_by_name("GLOBAL")
-    @latest_global_posts = Post.last_news(@global)
-    render :layout=>false
-  end
-  
-
-  
-  def about2   
-    render :layout=>false
-  end
 
   private
 

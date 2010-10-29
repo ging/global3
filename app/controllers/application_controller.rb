@@ -18,8 +18,5 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_site
 
-  def space
-    nil
-  end
-  helper_method :space
+
 end
