@@ -30,9 +30,6 @@ gem 'stringex'
 # Logos
 gem 'paperclip'
 
-# Assets
-gem 'atd-asset_bundler', :require => 'asset_bundler'
-
 # Vcard, hcard
 gem 'vpim'
 gem 'prism'
