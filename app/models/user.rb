@@ -17,8 +17,4 @@ class User
     # FIXME: with openid support
     true
   end
-
-  def friends
-    receiver_subjects(:user, :relations => 'friend')
-  end
 end
