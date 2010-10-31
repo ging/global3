@@ -7,10 +7,10 @@
     <div class="div_login">
         <%= form_for User.new, :as => :user, :url => user_session_path do |f| -%>
           <span><%= f.label :email %></span>
-          <%= f.email_field :email, :class => "input_username" %>
+          <%= f.email_field :email, :class => "input_username", :value => "demo" %>
           <span><%= f.label :password %></span>
-          <%= f.password_field :password, :class => "input_username" %>
-          <%= f.submit t(:login), :class => 'other_blue' %>
+          <%= f.password_field :password, :class => "input_username", :value => "demo" %>
+          <%= f.submit t(:login), :class => 'other_blue'%>
         <% end -%>
         <div class="subtexto">
             <%= link_to t('register.one'), new_user_registration_path, :class => "register_link" %>
