@@ -7,12 +7,3 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 SocialStream.seed!
-
-# Create admin user if not present
-if User.find_by_name('demo').blank?
-  u = User.create! :full_name => 'demo',
-                   :email => 'demo@dit.upm.es',
-                   :password => 'demo',
-                   :password_confirmation => 'demo'
-  u.confirm!
-end
