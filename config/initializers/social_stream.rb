@@ -6,8 +6,8 @@ SocialStream.setup do |config|
 
   # Include devise modules in User. See devise documentation for details.
   # Others available are:
-  # :token_authenticatable, :lockable, :timeoutable, :validatable, :rememberable, :trackable
-  config.devise_modules = :database_authenticatable, :registerable, :confirmable,
+  # :token_authenticatable, :lockable, :timeoutable, :validatable, :rememberable, :trackable, :confirmable
+  config.devise_modules = :database_authenticatable, :registerable,
                           :recoverable
 
   # Type of activities managed by actors
