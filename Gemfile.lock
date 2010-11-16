@@ -11,6 +11,7 @@ PATH
       nested_set (~> 1.5.3)
       paperclip (~> 2.3.4)
       stringex (~> 1.2.0)
+      will_paginate (~> 2.3.15)
 
 GEM
   remote: http://rubygems.org/
@@ -159,6 +160,7 @@ GEM
     vpim (0.695)
     warden (0.10.7)
       rack (>= 1.0.0)
+    will_paginate (2.3.15)
 
 PLATFORMS
   ruby
@@ -186,3 +188,4 @@ DEPENDENCIES
   sqlite3-ruby
   stringex (~> 1.2.0)
   vpim
+  will_paginate (~> 2.3.15)
