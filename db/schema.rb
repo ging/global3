@@ -96,6 +96,17 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   add_index "posts", "activity_object_id"
 
+  create_table "private_messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "text"
+  end
+
+  add_index "private_messages", "sender_id"
+  add_index "private_messages", "receiver_id"
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -207,6 +218,9 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   add_foreign_key "posts", "activity_objects", :name => "posts_on_activity_object_id"
 
+  add_foreign_key "private_messages", "actors", :name => "private_messages_on_sender_id", :column => "sender_id"
+  add_foreign_key "private_messages", "actors", :name => "private_messages_on_receiver_id", :column => "receiver_id"
+
   add_foreign_key "profiles", "users", :name => "profiles_on_user_id"
 
   add_foreign_key "relation_permissions", "relations", :name => "relation_permissions_on_relation_id"
@@ -215,9 +229,9 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
   add_foreign_key "tags_activity_objects", "activity_objects", :name => "tags_activity_objects_on_activity_object_id"
   add_foreign_key "tags_activity_objects", "tags", :name => "tags_activity_objects_on_tag_id"
 
-  add_foreign_key "ties", "actors", :name => "ties_on_receiver_id", :column => "receiver_id"
-  add_foreign_key "ties", "actors", :name => "ties_on_relation_id", :column => "sender_id"
-  add_foreign_key "ties", "relations", :name => "ties_on_sender_id"
+  add_foreign_key "ties", "actors",    :name => "ties_on_sender_id",   :column => "sender_id"
+  add_foreign_key "ties", "actors",    :name => "ties_on_receiver_id", :column => "receiver_id"
+  add_foreign_key "ties", "relations", :name => "ties_on_relation_id"
 
   add_foreign_key "users", "actors", :name => "users_on_actor_id"
 end
