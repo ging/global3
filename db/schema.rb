@@ -197,6 +197,8 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "country",      :limit => 45
     t.integer  "prefix_key"
     t.string   "description"
+    t.string   "experience"
+    t.string   "website"
     t.string   "url"
     t.string   "skype",        :limit => 45
     t.string   "im",           :limit => 45
@@ -267,10 +269,11 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.date     "birthday"    
     t.string   "reset_password_token"
     t.integer  "actor_id"
     t.string   "userscol",             :limit => 45
-		t.integer   "lectures"
+		t.integer  "lectures"
 		t.integer  "keynotes"
   end
 
