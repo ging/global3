@@ -1,7 +1,4 @@
 Global::Application.routes.draw do |map|
-  map.help 'help', :controller => 'help', :action => 'index'  
-  resources :feedback
-  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -50,7 +47,7 @@ Global::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "frontpage#index"
+  # root :to => "frontpage#index"
 
   # See how all your routes lay out with "rake routes"
 
