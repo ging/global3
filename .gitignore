@@ -6,12 +6,12 @@ index
 log/*.log
 *kpf
 tmp/*
-.tmp_*
 config/database.yml
 config/ultrasphinx/*conf
 attachments/*
 public/images/tmp/*
 spec/reports
+**.tmp_*
 **/*~
 **/**/*~
 **/**/**/*~
