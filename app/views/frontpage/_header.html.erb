@@ -7,9 +7,9 @@
     <div class="div_login">
         <%= form_for User.new, :as => :user, :url => user_session_path do |f| -%>
           <span><%= f.label :email %></span>
-          <%= f.email_field :email, :class => "input_username", :value => "demostration@test.com" %>
+          <%= f.email_field :email, :class => "input_username", :value => "demonstration@test.com" %>
           <span><%= f.label :password %></span>
-          <%= f.password_field :password, :class => "input_username", :value => "demostration" %>
+          <%= f.password_field :password, :class => "input_username", :value => "demonstration" %>
           <%= f.submit t(:sign_in), :class => 'other_blue'%>
         <% end -%>
         <div class="subtexto">
