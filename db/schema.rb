@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "prefix_key"
+    t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "organization", :limit => 45
@@ -120,7 +122,6 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
     t.string   "zipcode",      :limit => 45
     t.string   "province",     :limit => 45
     t.string   "country",      :limit => 45
-    t.integer  "prefix_key"
     t.string   "description"
     t.string   "experience"
     t.string   "website"
@@ -199,7 +200,7 @@ ActiveRecord::Schema.define(:version => 20100820092637) do
 
     t.timestamps
     t.integer  "actor_id"
-    t.date "birthday"
+    
   end
 
   add_index "users", "actor_id"
