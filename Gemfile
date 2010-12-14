@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gemspec :path => File.join('..', 'social_stream')
 gem 'social_stream', :path => '../social_stream'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
