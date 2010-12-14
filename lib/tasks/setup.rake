@@ -17,7 +17,7 @@ namespace :setup do
   end
 
   desc "All common tasks"
-  task :common_tasks => [ :git_submodules , "db:setup" ] do
+  task :common_tasks => [ "db:setup" ] do
   end
 
 
@@ -72,13 +72,5 @@ namespace :setup do
       `sudo cp #{ RAILS_ROOT }/extras/awstats/* /etc/awstats/`
       puts "copied."
     end
-  end
-
-  desc "Update Git Submodules"
-  task :git_submodules do
-    puts "* Updating Git submodules"
-
-    system "git submodule init"
-    system "git submodule update"
   end
 end

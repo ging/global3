@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 LINUX_PACKAGES = {
-  :common => %w( ruby-dev rdoc irb libopenssl-ruby wget make curl aspell-es aspell-en libxml2-dev libxslt-dev libmagickcore-dev libmagickwand-dev libmysqlclient15-dev mysql-server rake ),
+  :common => %w( ruby-dev rdoc irb libopenssl-ruby wget make curl libxml2-dev libxslt-dev libmagickcore-dev libmagickwand-dev libmysqlclient15-dev mysql-server rake ),
   :production => %w( awstats logrotate nfs-common ),
   :development => %w( )
 }
@@ -29,6 +29,11 @@ def install_gem_subsystem
     end
     system "sudo ln -s /usr/bin/gem1.8 /usr/bin/gem"
   end
+end
+
+def install_social_stream
+  puts "* Installing social_stream"
+  system "cd .. && git clone git@github.com:ging/social_stream.git"
 end
 
 def manage_gems_with_bundler
@@ -61,6 +66,7 @@ def setup_environment(env)
   install_linux_packages(:common)
   install_linux_packages(env)
   install_gem_subsystem
+  install_social_stream
   manage_gems_with_bundler
   config_database
   system "rake setup:#{ env }"
