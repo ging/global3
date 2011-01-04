@@ -1,7 +1,7 @@
 SocialStream.require_model 'user'
 
 class User
-  include SocialStream::Models::Actor
+  include SocialStream::Models::Subject
 
   has_one :profile
 
