@@ -3,8 +3,6 @@ SocialStream.require_model 'user'
 class User
   include SocialStream::Models::Subject
 
-  has_one :profile
-
   alias_attribute :full_name, :name
   attr_accessible :full_name
 
