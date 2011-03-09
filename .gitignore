@@ -24,4 +24,5 @@ global3/
 .settings/
 .rakeTasks
 public/system
+.idea/*
 
