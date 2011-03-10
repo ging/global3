@@ -117,7 +117,10 @@ GEM
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
     net-ldap (0.1.1)
+<<<<<<< HEAD
     nifty-generators (0.4.5)
+=======
+>>>>>>> 887a829b0c237878e7413eb0551c52671b707cc8
     nokogiri (1.4.4)
     oa-basic (0.2.0.beta5)
       multi_json (~> 0.0.2)
@@ -147,8 +150,11 @@ GEM
       rack-openid (~> 1.2.0)
       ruby-openid-apps-discovery
     oauth (0.4.4)
+<<<<<<< HEAD
     oauth-plugin (0.4.0.pre4)
       oauth (>= 0.4.4)
+=======
+>>>>>>> 887a829b0c237878e7413eb0551c52671b707cc8
     oauth2 (0.1.1)
       faraday (~> 0.5.0)
       multi_json (~> 0.0.4)
