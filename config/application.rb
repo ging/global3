@@ -44,5 +44,12 @@ module Global
       g.test_framework  :rspec, :fixture => true, :views => false
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+
+    config.to_prepare {
+      Devise::SessionsController.layout "frontpage";
+      Devise::PasswordsController.layout "frontpage";
+      Devise::ConfirmationsController.layout "frontpage";
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "frontpage" }
+    }
   end
 end
