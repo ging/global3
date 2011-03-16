@@ -13,6 +13,7 @@ PATH
       oauth-plugin (~> 0.4.0.pre1)
       omniauth (~> 0.2.0.beta5)
       paperclip (~> 2.3.4)
+      rails_css_themes (~> 1.0.0)
       stringex (~> 1.2.0)
       will_paginate (~> 3.0.pre2)
 
@@ -184,6 +185,7 @@ GEM
       railties (= 3.0.5)
     rails3-generators (0.17.4)
       railties (>= 3.0.0)
+    rails_css_themes (1.0.0)
     railties (3.0.5)
       actionpack (= 3.0.5)
       activesupport (= 3.0.5)
