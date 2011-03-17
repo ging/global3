@@ -8,7 +8,7 @@ PATH
       foreigner (~> 0.9.1)
       inherited_resources (~> 1.1.2)
       jquery-rails (~> 0.2.5)
-      mailboxer (~> 0.0.5)
+      mailboxer (~> 0.0.6)
       nested_set (~> 1.5.3)
       oauth-plugin (~> 0.4.0.pre1)
       omniauth (~> 0.2.0.beta5)
@@ -102,7 +102,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailboxer (0.0.5)
+    mailboxer (0.0.6)
       rails (= 3.0.5)
     mime-types (1.16)
     mongrel (1.1.5)
@@ -240,24 +240,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  atd-ancestry (= 1.3.0)
-  cancan (~> 1.5.1)
   capybara (~> 0.3.9)
   ci_reporter (~> 1.6.4)
-  devise (~> 1.2.rc)
   factory_girl (~> 1.3.2)
-  foreigner (~> 0.9.1)
   forgery (~> 0.3.6)
-  inherited_resources (~> 1.1.2)
-  jquery-rails (~> 0.2.5)
-  mailboxer (~> 0.0.5)
   mongrel
   mysql
-  nested_set (~> 1.5.3)
   nifty-generators (~> 0.4.5)
-  oauth-plugin (~> 0.4.0.pre1)
-  omniauth (~> 0.2.0.beta5)
-  paperclip (~> 2.3.4)
   prism
   rails (~> 3.0.5)
   rails3-generators
@@ -265,6 +254,4 @@ DEPENDENCIES
   ruby-debug (~> 0.10.3)
   social_stream!
   sqlite3-ruby
-  stringex (~> 1.2.0)
   vpim
-  will_paginate (~> 3.0.pre2)
