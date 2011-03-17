@@ -164,7 +164,7 @@ Devise.setup do |config|
                       
   config.omniauth :facebook, "129571360447856","eef39dce5e20e76f77495c59623bdb38"
   config.token_authentication_key = :auth_token
-  config.stateless_token = true"
+  config.stateless_token = true
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
