@@ -10,9 +10,13 @@
         <%= f.submit t(:sign_in), :class => 'other_blue'%>
       <% end -%>
       <div class="subtexto">
-          <%= link_to t('sign_in'), new_user_registration_path, :class => "register_link" %>
-          <span>|</span>
-          <%= link_to t('forgot_password'), new_user_password_path, :class => "register_link" %>
+        <%= link_to t('sign_up'), new_user_registration_path, :class => "register_link" %>
+        <span>|</span>
+        <%= link_to t('forgot_password'), new_user_password_path, :class => "register_link" %>
+        <span>|</span>
+        <%= link_to image_tag('/images/btn/facebook.png'), new_user_registration_path, :class => "menu_icon" %>
+        <%= link_to image_tag('/images/btn/twitter.png'), new_user_registration_path,  :class => "menu_icon" %>
+        <%= link_to image_tag('/images/btn/linkedin.png'), new_user_registration_path, :class => "menu_icon" %>
       </div>
     </div>
   <br class="clearfloat" />
