@@ -25,4 +25,4 @@ global3/
 .rakeTasks
 public/system
 .idea/*
-
+Gemfile.lock
