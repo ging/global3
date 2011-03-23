@@ -14,9 +14,9 @@
         <span>|</span>
         <%= link_to t('forgot_password'), new_user_password_path, :class => "register_link" %>
         <span>|</span>
-        <%= link_to image_tag('/images/btn/facebook.png'), new_user_registration_path, :class => "menu_icon" %>
-        <%= link_to image_tag('/images/btn/twitter.png'), new_user_registration_path,  :class => "menu_icon" %>
-        <%= link_to image_tag('/images/btn/linkedin.png'), new_user_registration_path, :class => "menu_icon" %>
+        <%= link_to image_tag('/images/btn/facebook.png'), user_omniauth_authorize_path(:facebook), :class => "menu_icon" %>
+     
+        <%= link_to image_tag('/images/btn/linkedin.png'), user_omniauth_authorize_path(:linked_in), :class => "menu_icon" %>
       </div>
     </div>
   <br class="clearfloat" />
