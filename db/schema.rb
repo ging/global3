@@ -19,5 +19,5 @@ require mailboxer_migration
 ActiveRecord::Schema.define(:version => 0) do
   CreateMailboxer.up
   CreateSocialStream.up
-  ActsAsTaggableOn.up
+  ActsAsTaggableOnMigration.up
 end
