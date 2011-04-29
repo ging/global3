@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 #gem 'avatars_for_rails', :path => '../avatars_for_rails'
-gem 'avatars_for_rails'
+#gem 'avatars_for_rails'
 
 gemspec :path => File.join('..', 'social_stream')
 
