@@ -20,18 +20,3 @@ gem 'mysql'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# Hierarchical relationships in relations
-#gem 'atd-ancestry', :require => 'ancestry'
-
-# Vcard, hcard
-gem 'vpim'
-gem 'prism'
-
-group :development do
-  gem 'mongrel'
-  gem 'rails3-generators'
-end
-
-
-
-
