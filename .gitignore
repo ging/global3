@@ -26,3 +26,4 @@ global3/
 public/system
 .idea/*
 Gemfile.lock
+**.*swp
