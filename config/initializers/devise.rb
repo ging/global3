@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -54,7 +54,7 @@ Devise.setup do |config|
   config.stretches = 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "0afdaf86cdff5e15bf61927794d97993a0b10d7e51bd21276818ca754a2063c0ab2b3825c9253176e5e5977824500e6d34d2501ea9b4c57cd57288bece8d2305"
+  # config.pepper = "80fe668131fda2e219606c5496d3cd85655ce4ec5622450ccf4bde71bbc97093fd9bfe64e29ca1bb2bce0db6de18f3f356d457a029a6eda51e402d4f33ecaed0"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
@@ -82,9 +82,13 @@ Devise.setup do |config|
   # to false if you are not using database authenticatable.
   config.use_salt_as_remember_token = true
 
+  # Options to be passed to the created cookie. For instance, you can set
+  # :secure => true in order to force SSL only cookies.
+  # config.cookie_options = {}
+
   # ==> Configuration for :validatable
-  # Range for password length. Default is 6..20.
-  # config.password_length = 6..20
+  # Range for password length. Default is 6..128.
+  # config.password_length = 6..128
 
   # Regex to use to validate the email address
   # config.email_regexp = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
@@ -121,6 +125,11 @@ Devise.setup do |config|
   #
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [ :email ]
+
+  # Time interval you can reset your password with a reset password key.
+  # Don't put a too small interval or your users won't have the time to
+  # change their passwords.
+  config.reset_password_within = 2.hours
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use

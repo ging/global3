@@ -1,7 +1,8 @@
-Global::Application.routes.draw do |map|
+Global::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -17,12 +18,12 @@ Global::Application.routes.draw do |map|
   # Sample resource route with options:
   #   resources :products do
   #     member do
-  #       get :short
-  #       post :toggle
+  #       get 'short'
+  #       post 'toggle'
   #     end
   #
   #     collection do
-  #       get :sold
+  #       get 'sold'
   #     end
   #   end
 
@@ -36,7 +37,7 @@ Global::Application.routes.draw do |map|
   #   resources :products do
   #     resources :comments
   #     resources :sales do
-  #       get :recent, :on => :collection
+  #       get 'recent', :on => :collection
   #     end
   #   end
 
@@ -49,7 +50,7 @@ Global::Application.routes.draw do |map|
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "frontpage#index"
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
