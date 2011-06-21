@@ -14,7 +14,7 @@ gemspec :path => File.join('..', 'social_stream-base')
 gem 'social_stream-base', :path => '../social_stream-base'
 
 # Gems before social_stream
-gem 'social_stream-attachments', :path => '../social_stream-attachments'
+gem 'social_stream-documents', :path => '../social_stream-documents'
 # gem 'social2social', :path => '../social2social'
 
 # social_stream

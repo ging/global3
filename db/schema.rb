@@ -1,11 +1,11 @@
 # Until SocialStream database schema is stable, we will work on its migration
-require File.join(Rails.root, '..', 'social_stream', 'spec', 'support', 'migrations')
+require File.join(Rails.root, '../', 'social_stream', 'spec', 'support', 'migrations')
 
 ActiveRecord::Schema.define(:version => 0) do
   CreateMailboxer.up
   CreateSocialStream.up
   ActsAsTaggableOnMigration.up
-  CreateSocialStreamAttachments.up
+  CreateSocialStreamDocuments.up
 
   create_table :events do |t|
     t.references :activity_object
