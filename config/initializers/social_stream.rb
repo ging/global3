@@ -14,4 +14,5 @@ SocialStream.setup do |config|
   # Remember you must add an "activity_object_id" foreign key column to your migration!
   #
   config.objects = [ :post, :comment, :document, :event, :agenda, :session ]
+  config.activity_forms = [:post,:documents]
 end
