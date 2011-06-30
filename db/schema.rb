@@ -11,6 +11,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.references :activity_object
     t.datetime :start_at
     t.datetime :end_at
+    t.string   :name
+    t.text     :description
 
     t.timestamps
   end
