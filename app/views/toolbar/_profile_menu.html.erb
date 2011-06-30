@@ -5,9 +5,13 @@
 
 <div id="menu_lateral">
   <ul class="menu">
-    <% unless subject == current_subject %>
+    <% if subject == current_subject %>
+      <%= render :partial => "toolbar/profile_menu_options", :locals => { :subject => subject } %>
+    <% else %>
       <%= render :partial => "toolbar/profile_menu_tie_options", :locals => { :subject => subject } %>
     <% end %>
+    <%= render :partial => "toolbar/profile_menu_uploads", :locals => { :subject => subject } %>
   </ul>
 </div>
 <div class="space_center"></div>
+
