@@ -4,11 +4,6 @@
   <%= render :partial =>'toolbar/notifications_menu'%>
 <% end %>
 
-  <%= menu_options[:uploads] || capture do %>
-    <%= render :partial =>'toolbar/home_menu_uploads'%>
-  <% end %>
-
-
 <%= menu_options[:messages] || capture do %>
   <%= render :partial =>'toolbar/message_menu'%>
 <% end %>
@@ -29,6 +24,9 @@
   </li>
 <% end %>
 
+<%= menu_options[:uploads] || capture do %>
+  <%= render :partial =>'toolbar/home_menu_uploads'%>
+<% end %>
 
 <%= menu_options[:subjects] || capture do %>
   <%= render :partial => 'toolbar/home_menu_options_subjects' %>
