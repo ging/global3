@@ -1,3 +1,6 @@
 <%= div_for event, :class => 'content_size' do %>
+  Invites to <%= link_to(event.name, event) %></br>
+  Since  <%= event.start_at.gmtime.to_s %>
+  until <%= event.end_at.gmtime.to_s %> 
 
 <% end %>
