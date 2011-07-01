@@ -4,4 +4,8 @@
 
 <% toolbar %>
 
-<%= render :partial => 'form' %>
+<% if params[:step_two] %>
+  <%= render :partial => 'sessions_edit' %>
+<% else %>
+  <%= render :partial => 'form' %>
+<% end %>

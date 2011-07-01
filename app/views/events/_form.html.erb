@@ -12,7 +12,7 @@
 <% end %>
 
 
-<%= form_for @event do |f| %>
+<%= form_for @event ,:url=> event_path(@event, :step_two => true) do |f| %>
   <div class="form_row">
     <%= label_tag :name %>
   </div>
@@ -48,5 +48,5 @@
   <div class="form_row">
     <%= f.submit "Edit event", :class => "button" %>
   </div>
-
+   
 <% end %>

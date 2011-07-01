@@ -13,7 +13,7 @@ end
 # Gems before social_stream-base
 # gem 'mailboxer', :path => '../mailboxer'
 
-# gem 'avatars_for_rails', :path => '../avatars_for_rails'
+#gem 'avatars_for_rails', :path => '../avatars_for_rails'#here
 # gem 'conference_manager-ruby', :path => '../conference_manager-ruby'
 gem 'conference_manager-ruby'
 

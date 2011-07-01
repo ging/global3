@@ -33,7 +33,7 @@ before_filter :authenticate_user!
   
   def update
     update! do |format|
-      format.html { redirect_to edit_event_path(@event) }
+      format.html { render :action => :edit }
     end
     
   end  
