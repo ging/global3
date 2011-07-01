@@ -14,9 +14,28 @@ before_filter :authenticate_user!
   def create
     
     @event = Event.create(params[:event])
-    debugger
-    #@event.contact = current_subject.contact_to!(current_subject)
-    redirect_to events_new_path
+    @event._contact_id = current_subject.contact_to!(current_subject).id
+
+    respond_to do |format|
+      format.js
+    end
+    
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+
+  end
+  
+  def update
+    update! do |format|
+      format.html { redirect_to edit_event_path(@event) }
+    end
+    
+  end  
+  
 end
