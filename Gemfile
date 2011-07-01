@@ -13,7 +13,8 @@ end
 # Gems before social_stream-base
 # gem 'mailboxer', :path => '../mailboxer'
 # gem 'avatars_for_rails', :path => '../avatars_for_rails'
- gem 'conference_manager-ruby', :path => '../conference_manager-ruby'
+# gem 'conference_manager-ruby', :path => '../conference_manager-ruby'
+gem 'conference_manager-ruby'
 
 # Include development dependencies from social_stream-base
 gemspec :path => File.join('..', 'social_stream-base')
