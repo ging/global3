@@ -5,3 +5,4 @@ en:
   hello: "Hello world"
   event:
     confirm_delete: "Delete"
+    title: "Events"
