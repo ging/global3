@@ -1,4 +1,6 @@
 class Session < ActiveRecord::Base
+  include SocialStream::Models::Object
+
   belongs_to :agenda
   has_one :event, :through => :agenda
 
