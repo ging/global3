@@ -8,4 +8,11 @@ class Event < ActiveRecord::Base
   
   attr_accessor :step_two
   
+  after_create :create_agenda
+  
+  def create_agenda
+      #debugger
+
+  end
+  
 end

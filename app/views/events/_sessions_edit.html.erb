@@ -1,0 +1,125 @@
+<% content_for :javascript do %>
+
+ calendar = $('#calendar').fullCalendar({
+    header: {
+      left: '',
+      center: '',
+      right: ''
+    },
+    allDaySlot: false,
+    axisFormat: 'HH:mm',
+    timeFormat: 'H:mm{ - H:mm}',
+    slotMinutes: 15,  
+    year:<%= @event.start_at.strftime("%Y")%>,
+    month:<%= @event.start_at.month-1 %>,
+    date:<%= @event.start_at.strftime("%d")%>,
+    minTime: '<%= @event.start_at.hour.to_s + ':00' %>',
+    maxTime: '<%= (@event.end_at.hour + 1).to_s + ':00' %>',
+    editable: true,
+    defaultView: 'agendaDay',  
+    selectHelper:true,
+    selectable:true,
+    unselectAuto:false,
+    eventClick: function( entry, jsEvent, view ) {
+      current_qtip =  $(this);
+      current_qtip.qtip({
+         content: {
+           text:
+             '<p><a href=\"<%= space_event_agenda_agenda_entries_path(@space,@event)%>/' + entry.id + '/edit\"><%=escape_javascript(t('agenda.entry.edit'))%></a></p>' +   
+             '<p>' +
+             '<%=link_to escape_javascript(t('agenda.entry.remove')), '', :class => "delete_entry" %>' + 
+             '<form class=\"delete_entry\" style=\"display:none;\" method=\"post\" action=\"<%=space_event_agenda_agenda_entries_path(@space,@event)%>/' + entry.id + '\">' +
+             '<input type=\"hidden\" name=\"authenticity_token\" value=\"<%=form_authenticity_token()%>\" />' +
+             '<input type=\"hidden\" name=\"_method\" value=\"delete\" />' +
+             '</form>' +
+             '</p>',
+           title: {
+             text: entry.title
+           }
+         },
+          style:{
+            title:{
+              'background':'#244974',
+              'color':'#FFFFFF'
+            }
+          },
+         show: { 
+           ready:true,
+           when: {
+             event: 'click'
+           }
+         },
+         hide: {
+           fixed:true,
+           when: {
+             event: 'unfocus'
+           }
+         },
+         position: {
+           target: $(this),
+           corner: 'center',
+           adjust:{
+             scroll: false
+           }
+         }
+      });
+    },
+    select: function( startDate, endDate, allDay, jsEvent, view ){
+      current_qtip = $("#calendar");
+      current_qtip.qtip({
+         content: {
+           text:
+             '<form class=\"create_entry\" method=\"post\" action=\"<%=space_event_agenda_agenda_entries_path(@space,@event)%>\">' +
+               '<input type=\"hidden\" name=\"authenticity_token\" value=\"<%=form_authenticity_token()%>\" />' +
+               '<input type=\"hidden\" name=\"agenda_entry[start_time]\" value=\"' + startDate.toGMTString() + '\" />' +
+               '<input type=\"hidden\" name=\"agenda_entry[end_time]\" value=\"' + endDate.toGMTString() + '\" />' +
+               '<label id=\"agenda_title_label\" for=\"title\"><%=escape_javascript(t('title'))%></label>' +
+               '<input type=\"text\" name=\"agenda_entry[title]\" id="qtip_title"/>' +
+               '<div class="margin-up"><button type=\"submit\" id="calendar_submit" class=\"basic_button blue_button\"><%=escape_javascript(t('create'))%></button></div>' +
+             '</form>',
+           title: {
+             text: '<%=escape_javascript(t('agenda.entry.new'))%>'
+           }
+         },
+         style:{
+           title:{
+             'background':'#244974',
+             'color':'#FFFFFF'
+           }
+         },
+         show: { 
+           ready:true,
+           when: {
+             event: 'click'
+           }
+         },
+         hide: {
+           fixed:true,
+           when: {
+             event: 'unfocus'
+           }
+         },
+         position: {
+           corner: 'center',
+           adjust:{
+             scroll: false
+           }
+         },
+         api: {
+           onHide: function(){
+             calendar.fullCalendar('unselect');
+             current_qtip.qtip('destroy');
+           },
+           onShow: function(){
+             $("#qtip_title").focus();
+           }
+         }
+      });
+    }
+  });
+
+
+<% end %>
+
+<div id="calendar"></div>
+aaaa

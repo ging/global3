@@ -15,6 +15,7 @@ before_filter :authenticate_user!
     
     @event = Event.create(params[:event])
     @event._contact_id = current_subject.contact_to!(current_subject).id
+      
 
     respond_to do |format|
       format.js
