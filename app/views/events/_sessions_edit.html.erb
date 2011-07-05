@@ -1,3 +1,5 @@
+<% debugger %>
+
 <% content_for :javascript do %>
 
  calendar = $('#calendar').fullCalendar({
@@ -20,85 +22,25 @@
     selectHelper:true,
     selectable:true,
     unselectAuto:false,
-    select: function( startDate, endDate, allDay, jsEvent, view ){
-      
-      current_qtip = $("#calendar");
-      current_qtip.qtip({
-         content: {
-           text: //event_agenda_sessions_path(@event) $("#session_name").val()
-             'Title: <%= text_field :session , :name %></br> <%= hidden_field :session , :start_at %><%= hidden_field :session , :end_at %>' + 
-        '<%= escape_javascript(link_to 'Create session', '#',
-        :onclick => 'send_session()') %>'
-
-
-         ,
-           title: {
-             text: 'Create new entry'
-           }
-         },
-         style:{
-           title:{
-             'background':'#244974',
-             'color':'#FFFFFF'
-           }
-         },
-         show: { 
-           ready:true,
-           when: {
-             event: 'click'
-           }
-         },
-         hide: {
-           fixed:true,
-           when: {
-             event: 'unfocus'
-           }
-         },
-         position: {
-           corner: 'center',
-           adjust:{
-             scroll: false
-           }
-         },
-         api: {
-           onHide: function(){
-             calendar.fullCalendar('unselect');
-             current_qtip.qtip('destroy');
-           },
-           onShow: function(){
-             $("#qtip_title").focus();
-           }
-         }
-      });
-      $("#session_start_at").val(startDate);
-      $("#session_end_at").val(endDate);
-      
-
-
-    }
-
-  });
-
-send_session =  function(){
-  $.post('<%= event_agenda_sessions_path(@event)%>', { session : {name: $("#session_name").val(), start_at: $("#session_start_at").val(), end_at:  $("#session_end_at").val()}},
-    function(data) {
-      
-      calendar.fullCalendar('unselect');
-       alert($("#session_start_at").val());
-      calendar.fullCalendar('renderEvent',
+      select: function(startDate, endDate, allDay) {
+        var title = prompt('Event Title:');
+        if (title) {
+          alert(startDate);
+          $.post('<%= event_agenda_sessions_path(@event)%>', { session : {name: title, start_at: startDate + "", end_at: endDate + ""}});
+          calendar.fullCalendar('renderEvent',
             {
-              title: "title",
-              start: $("#session_start_at").val(),
-              end: $("#session_start_at").val()
-        
+              title: title,
+              start: startDate,
+              end: endDate,
+              allDay: allDay
             },
             true // make the event "stick"
           );
-        current_qtip.qtip('destroy');
+        }
+        calendar.fullCalendar('unselect');
+      },
 
-      
-   });
-}
+  });
 
 <% end %>
 
