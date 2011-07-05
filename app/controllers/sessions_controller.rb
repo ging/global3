@@ -25,21 +25,13 @@ before_filter :authenticate_user!
     end
     
   end
-=begin
-  def edit
-    @event = Event.find(params[:id])
+  
+  def index
+    @event = Event.find(params[:event_id])
     
     respond_to do |format|
-      format.html # new.html.erb
+      format.json { render :text => @event.agenda.sessions.map{ |c| { 'title' => c.name, 'start' => c.start_at, 'end' => c.end_at, 'allDay' => "allDay" } }.to_json }
     end
-
   end
-  
-  def update
-    update! do |format|
-      format.html { render :action => :edit }
-    end
-    
-  end  
-=end  
+ 
 end

@@ -1,4 +1,4 @@
-<% debugger %>
+
 
 <% content_for :javascript do %>
 
@@ -22,10 +22,10 @@
     selectHelper:true,
     selectable:true,
     unselectAuto:false,
+    events: '<%= event_agenda_sessions_path(@event)%>' ,
       select: function(startDate, endDate, allDay) {
         var title = prompt('Event Title:');
         if (title) {
-          alert(startDate);
           $.post('<%= event_agenda_sessions_path(@event)%>', { session : {name: title, start_at: startDate + "", end_at: endDate + ""}});
           calendar.fullCalendar('renderEvent',
             {

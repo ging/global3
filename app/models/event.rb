@@ -15,5 +15,5 @@ class Event < ActiveRecord::Base
       agenda._contact_id = self._contact_id
       self.agenda = agenda
   end
-  
+
 end
