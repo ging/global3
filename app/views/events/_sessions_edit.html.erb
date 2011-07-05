@@ -1,5 +1,3 @@
-
-
 <% content_for :javascript do %>
 
  calendar = $('#calendar').fullCalendar({
@@ -22,8 +20,7 @@
     selectHelper:true,
     selectable:true,
     unselectAuto:false,
-    events: '<%= event_agenda_sessions_path(@event)%>' ,
-      select: function(startDate, endDate, allDay) {
+    select: function(startDate, endDate, allDay) {
         var title = prompt('Event Title:');
         if (title) {
           $.post('<%= event_agenda_sessions_path(@event)%>', { session : {name: title, start_at: startDate + "", end_at: endDate + ""}});
@@ -45,4 +42,3 @@
 <% end %>
 
 <div id="calendar"></div>
-aaaa
