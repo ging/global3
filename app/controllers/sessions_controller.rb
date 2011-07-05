@@ -13,7 +13,6 @@ before_filter :authenticate_user!
   end
   
   def create
-        
     @event = Event.find(params[:event_id])
     @session = Session.create(params[:session])
     @session._contact_id = current_subject.contact_to!(current_subject).id
