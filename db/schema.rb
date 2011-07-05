@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table :sessions do |t|
     t.references :activity_object
     t.references :agenda
-
+    t.datetime :start_at
+    t.datetime :end_at
+    t.string   :name
+    
     t.timestamps
   end
 end

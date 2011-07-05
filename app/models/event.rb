@@ -11,8 +11,9 @@ class Event < ActiveRecord::Base
   after_create :create_agenda
   
   def create_agenda
-      #debugger
-
+      agenda = Agenda.new
+      agenda._contact_id = self._contact_id
+      self.agenda = agenda
   end
   
 end

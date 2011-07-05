@@ -1,9 +1,10 @@
-class EventsController < InheritedResources::Base
+class SessionsController < InheritedResources::Base
 
 before_filter :authenticate_user!
 
   def new
-    @event = Event.new
+    @session = Session.new
+    @event = Event.find(params[:event_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -12,16 +13,19 @@ before_filter :authenticate_user!
   end
   
   def create
+        
+    @event = Event.find(params[:event_id])
+    @session = Session.create(params[:session])
+    @session._contact_id = current_subject.contact_to!(current_subject).id
+    @session.agenda = @event.agenda
+    @session.save
     
-    @event = Event.create(params[:event])
-    @event._contact_id = current_subject.contact_to!(current_subject).id
-
     respond_to do |format|
       format.js
     end
     
   end
-
+=begin
   def edit
     @event = Event.find(params[:id])
     
@@ -37,5 +41,5 @@ before_filter :authenticate_user!
     end
     
   end  
-  
+=end  
 end

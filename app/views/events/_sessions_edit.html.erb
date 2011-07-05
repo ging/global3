@@ -20,65 +20,20 @@
     selectHelper:true,
     selectable:true,
     unselectAuto:false,
-    eventClick: function( entry, jsEvent, view ) {
-      current_qtip =  $(this);
-      current_qtip.qtip({
-         content: {
-           text:
-             '<p><a href=\"<%= space_event_agenda_agenda_entries_path(@space,@event)%>/' + entry.id + '/edit\"><%=escape_javascript(t('agenda.entry.edit'))%></a></p>' +   
-             '<p>' +
-             '<%=link_to escape_javascript(t('agenda.entry.remove')), '', :class => "delete_entry" %>' + 
-             '<form class=\"delete_entry\" style=\"display:none;\" method=\"post\" action=\"<%=space_event_agenda_agenda_entries_path(@space,@event)%>/' + entry.id + '\">' +
-             '<input type=\"hidden\" name=\"authenticity_token\" value=\"<%=form_authenticity_token()%>\" />' +
-             '<input type=\"hidden\" name=\"_method\" value=\"delete\" />' +
-             '</form>' +
-             '</p>',
-           title: {
-             text: entry.title
-           }
-         },
-          style:{
-            title:{
-              'background':'#244974',
-              'color':'#FFFFFF'
-            }
-          },
-         show: { 
-           ready:true,
-           when: {
-             event: 'click'
-           }
-         },
-         hide: {
-           fixed:true,
-           when: {
-             event: 'unfocus'
-           }
-         },
-         position: {
-           target: $(this),
-           corner: 'center',
-           adjust:{
-             scroll: false
-           }
-         }
-      });
-    },
     select: function( startDate, endDate, allDay, jsEvent, view ){
+      
       current_qtip = $("#calendar");
       current_qtip.qtip({
          content: {
-           text:
-             '<form class=\"create_entry\" method=\"post\" action=\"<%=space_event_agenda_agenda_entries_path(@space,@event)%>\">' +
-               '<input type=\"hidden\" name=\"authenticity_token\" value=\"<%=form_authenticity_token()%>\" />' +
-               '<input type=\"hidden\" name=\"agenda_entry[start_time]\" value=\"' + startDate.toGMTString() + '\" />' +
-               '<input type=\"hidden\" name=\"agenda_entry[end_time]\" value=\"' + endDate.toGMTString() + '\" />' +
-               '<label id=\"agenda_title_label\" for=\"title\"><%=escape_javascript(t('title'))%></label>' +
-               '<input type=\"text\" name=\"agenda_entry[title]\" id="qtip_title"/>' +
-               '<div class="margin-up"><button type=\"submit\" id="calendar_submit" class=\"basic_button blue_button\"><%=escape_javascript(t('create'))%></button></div>' +
-             '</form>',
+           text: //event_agenda_sessions_path(@event) $("#session_name").val()
+             'Title: <%= text_field :session , :name %></br> <%= hidden_field :session , :start_at %><%= hidden_field :session , :end_at %>' + 
+        '<%= escape_javascript(link_to 'Create session', '#',
+        :onclick => 'send_session()') %>'
+
+
+         ,
            title: {
-             text: '<%=escape_javascript(t('agenda.entry.new'))%>'
+             text: 'Create new entry'
            }
          },
          style:{
@@ -115,9 +70,35 @@
            }
          }
       });
+      $("#session_start_at").val(startDate);
+      $("#session_end_at").val(endDate);
+      
+
+
     }
+
   });
 
+send_session =  function(){
+  $.post('<%= event_agenda_sessions_path(@event)%>', { session : {name: $("#session_name").val(), start_at: $("#session_start_at").val(), end_at:  $("#session_end_at").val()}},
+    function(data) {
+      
+      calendar.fullCalendar('unselect');
+       alert($("#session_start_at").val());
+      calendar.fullCalendar('renderEvent',
+            {
+              title: "title",
+              start: $("#session_start_at").val(),
+              end: $("#session_start_at").val()
+        
+            },
+            true // make the event "stick"
+          );
+        current_qtip.qtip('destroy');
+
+      
+   });
+}
 
 <% end %>
 
