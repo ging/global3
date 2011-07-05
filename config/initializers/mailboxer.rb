@@ -4,5 +4,5 @@ Mailboxer.setup do |config|
   config.uses_emails = true
   
   #Configures the default from for the email sent for Messages and Notifications of Mailboxer
-  config.default_from = "no-reply@mailboxer.com"
+  config.default_from = "no-reply@dit.upm.es"
 end
