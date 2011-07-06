@@ -1,3 +1,4 @@
+<% #debugger %>
 <% content_for :javascript do %>
 
  calendar = $('#calendar').fullCalendar({
@@ -20,6 +21,7 @@
     selectHelper:true,
     selectable:true,
     unselectAuto:false,
+    events: <%= @event.agenda.to_fullcalendar_json %>,
     select: function(startDate, endDate, allDay) {
         var title = prompt('Event Title:');
         if (title) {

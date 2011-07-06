@@ -7,14 +7,9 @@ class Agenda < ActiveRecord::Base
   validates_presence_of :event_id
   
   def to_fullcalendar_json
-    body = ""
-    
-    self.sessions.each do |session|
-      body = body + "," + session.to_fullcalendar_json
-    end
-    
-    #body = self.sessions.map{|session| session.to_fullcalendar_json}.join(",")
-    "[#{body}]"
+    sessions.map(&:to_fullcalendar_json).join(", ")
+
+    "[#{sessions.map(&:to_fullcalendar_json).join(", ")}]"
   end
     
   
