@@ -1,11 +1,23 @@
 # Until SocialStream database schema is stable, we will work on its migration
-require File.join(Rails.root, '../', 'social_stream', 'spec', 'support', 'migrations')
+require 'social_stream/migration_finder'
+
+# acts-as-taggable-on
+SocialStream::MigrationFinder.new 'acts-as-taggable-on',
+                   ["generators", "acts_as_taggable_on", "migration", "templates", "active_record", "migration"]
+
+# Mailboxer
+SocialStream::MigrationFinder.new 'mailboxer',
+                    ['generators', 'mailboxer', 'templates', 'migration']
 
 ActiveRecord::Schema.define(:version => 0) do
   CreateMailboxer.up
-  CreateSocialStream.up
   ActsAsTaggableOnMigration.up
-  CreateSocialStreamDocuments.up
+
+  # Migrate SocialStream::Base
+  puts File.expand_path("../../../social_stream-base/db/migrate/", __FILE__)
+  ActiveRecord::Migrator.migrate File.expand_path("../../../social_stream-base/db/migrate/", __FILE__)
+  # Migrate SocialStream::Documents
+  ActiveRecord::Migrator.migrate File.expand_path("../../../social_stream-documents/db/migrate/", __FILE__)
 
   create_table :events do |t|
     t.references :activity_object
