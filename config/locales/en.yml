@@ -5,4 +5,6 @@ en:
   hello: "Hello world"
   event:
     confirm_delete: "Delete"
+    form:
+      title: "Event"
     title: "Events"
