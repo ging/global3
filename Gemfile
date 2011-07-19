@@ -33,3 +33,8 @@ gem 'social_stream-documents', :path => '../social_stream-documents'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'
 
+if RUBY_VERSION > '1.9'
+  group :development do
+    gem 'ruby-debug19', :require => 'ruby-debug'
+  end
+end
