@@ -5,14 +5,14 @@ require 'social_stream/migration_finder'
 SocialStream::MigrationFinder.new 'acts-as-taggable-on',
                    ["generators", "acts_as_taggable_on", "migration", "templates", "active_record", "migration"]
 
-# Mailboxer
-SocialStream::MigrationFinder.new 'mailboxer',
-                    ['generators', 'mailboxer', 'templates', 'migration']
+
 
 ActiveRecord::Schema.define(:version => 0) do
-  CreateMailboxer.up
   ActsAsTaggableOnMigration.up
-
+  # Mailboxer
+  mailboxer_path = Gem::GemPathSearcher.new.find('mailboxer').full_gem_path
+  mailboxer_migration = File.join([mailboxer_path,'db', 'migrate'])
+  ActiveRecord::Migrator.migrate mailboxer_migration
   # Migrate SocialStream::Base
   puts File.expand_path("../../../social_stream-base/db/migrate/", __FILE__)
   ActiveRecord::Migrator.migrate File.expand_path("../../../social_stream-base/db/migrate/", __FILE__)
