@@ -5,4 +5,5 @@
 // the compiled file.
 //
 //= require social_stream-base
+//= require social_stream-documents
 //= require_tree .
