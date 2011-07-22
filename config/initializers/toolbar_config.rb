@@ -76,7 +76,7 @@ SocialStream::ToolbarConfig.module_eval do
       if user_signed_in?
         #Relation button
         items << {:key => :subject_relation,
-          :name => image_tag("btn/btn_friend.png") + contact_status(subject),
+          :name => image_tag("btn/btn_friend.png") + current_subject.contact_to!(subject).status,
           :url => edit_contact_path(current_subject.contact_to!(subject))
         }
         #Send message button
