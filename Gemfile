@@ -1,8 +1,5 @@
 source 'http://rubygems.org'
 
-# Sprockets .11 breaks Rails
-# http://groups.google.com/group/rubyonrails-core/browse_thread/thread/59d8c7813b4d1bbe/508e73f5c8cb47d7
-gem 'sprockets', '= 2.0.0.beta.10'
 if RUBY_VERSION < '1.9'
   gem 'linecache', '0.43'
 end
