@@ -39,8 +39,8 @@ SocialStream::ToolbarConfig.module_eval do
         :options => {:link => {:id => "resources_menu"}},
         :items => [
           {:key => :resources_conferences,:name => image_tag("btn/btn_conferences.png")+t('conference.title'),:url => videos_path},
-          {:key => :resources_documents,:name => image_tag("btn/btn_documents.png")+t('document.title'),:url => documents_path},
-          {:key => :resources_pictures,:name => image_tag("btn/btn_gallery.png")+t('picture.title'),:url => pictures_path},
+          {:key => :resources_documents,:name => image_tag("btn/btn_document.png")+t('document.title'),:url => documents_path},
+          {:key => :resources_pictures,:name => image_tag("btn/btn_picture.png")+t('picture.title'),:url => pictures_path},
           {:key => :resources_videos,:name => image_tag("btn/btn_video.png")+t('video.title'),:url => videos_path},
           {:key => :resources_audios,:name => image_tag("btn/btn_audio.png")+t('audio.title'),:url => audios_path}
         ]}
@@ -100,7 +100,7 @@ SocialStream::ToolbarConfig.module_eval do
         :options => {:link => {:id => "resources_menu"}},
         :items => [
           {:key => :resources_conferences,:name => image_tag("btn/btn_conferences.png")+t('conference.title'),:url => subject == current_subject ? videos_path : polymorphic_path([subject,Video.new])},
-          {:key => :resources_documents,:name => image_tag("btn/btn_documents.png")+t('document.title'),:url => subject == current_subject ? documents_path : polymorphic_path([subject,Document.new])},
+          {:key => :resources_documents,:name => image_tag("btn/btn_document.png")+t('document.title'),:url => subject == current_subject ? documents_path : polymorphic_path([subject,Document.new])},
           {:key => :resources_pictures,:name => image_tag("btn/btn_gallery.png")+t('picture.title'),:url => subject == current_subject ? pictures_path : polymorphic_path([subject,Picture.new])},
           {:key => :resources_videos,:name => image_tag("btn/btn_video.png")+t('video.title'),:url => subject == current_subject ? videos_path : polymorphic_path([subject,Video.new])},
           {:key => :resources_audios,:name => image_tag("btn/btn_audio.png")+t('audio.title'),:url => subject == current_subject ? audios_path : polymorphic_path([subject,Audio.new])}
