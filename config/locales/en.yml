@@ -8,3 +8,4 @@ en:
     form:
       title: "Event"
     title: "Events"
+    input: "What is the name of event?"
