@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  include SocialStream::Models::Object
+  include SocialStream::Models::Subject
 
   has_one :agenda, :dependent => :destroy
   has_many :sessions, :through => :agenda
