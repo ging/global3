@@ -4,6 +4,7 @@ before_filter :authenticate_user!
 
   def new
     @event = Event.new
+    @subject = @event
 
     respond_to do |format|
       format.html # new.html.erb

@@ -3,9 +3,13 @@
 
 en:
   hello: "Hello world"
+  conference:
+    title: "Conferences"
+    list: "Contact's conferences"
   event:
     confirm_delete: "Delete"
     form:
       title: "Event"
     title: "Events"
     input: "What is the name of event?"
+    list: "Contact's events"
