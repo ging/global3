@@ -2,11 +2,15 @@
 Global::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
   
-  resources :events do
-    resource :agenda do
-      resources :sessions
-    end
-  end
+  resources :events
+
+
+
+
+    #resource :agenda do
+    #  resources :sessions
+    #end
+  #end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

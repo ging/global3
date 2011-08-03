@@ -1,19 +1,32 @@
-<% content_for :sidebar do %>
-  <%= render :partial => 'home/sidebar' %>
+<% content_for :title do %>
+  <%= @event.name%>
 <% end %>
 
-<%= location(link_to(image_tag("btn/btn_event.png", :class => "btn_config")+t('home')+": "+
-                      content_tag(:span, ( sanitize current_subject.name), :class=>"name_group")))%>
+<% if @event.profile.description? %>
+  <% content_for :description do %>
+    <%= @event.profile.description%>
+  <% end %>
+<% end %>
 
-<% toolbar %>
+<% content_for :keywords do %>
+  <%= @event.profile.subject.tag_list%>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'sidebar_show' %>
+<% end %>
+
+<%= location(link_to(image_tag("btn/event.png", :class => "btn_config")+t('event.title')+": "+
+                      content_tag(:span, ( truncate_name sanitize @event.name), :class=>"name_group")))%>
+
+<% toolbar :profile => @event %>
 
 <br class="clearfloat" />
 <div class="space_center">
 </div>
 
+<div class="space_center">
+</div>
 
-<%= render :partial => "activities/index",
-           :locals => { :activities => current_subject.wall(:home).page(params[:page]),
-                        :owner => current_subject } %>
-
+<%= render :partial => 'activities/walls', :locals => { :owner => @event } %>
 
