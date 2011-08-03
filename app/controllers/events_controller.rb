@@ -9,34 +9,24 @@ class EventsController < InheritedResources::Base
 
   #respond_to :html, :js
 
-
   def create
     create! do |success, failure|
       success.html {
         self.current_subject = @event
-        redirect_to [current_subject, :profile]
+        #redirect_to :action => 'index'
       }
     end
+    redirect_to [current_subject, :profile]
   end
 
 
   def edit
     @event = Event.find(params[:id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #end
   end
-
-=begin
-  def index
-    @events = Event.all
-
-    respond_to do |format|
-      format.html
-    end
-  end
-=end
 
   def index
     @events = Event.most(params[:most]).
@@ -46,35 +36,6 @@ class EventsController < InheritedResources::Base
                     tagged_with(params[:tag]).
                     page(params[:page]).per(10)
   end
-
-
-=begin
-  def new
-    @event = Event.new
-    @subject = @event
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
-  end
-
-
-  def update
-    update! do |format|
-      format.html { render :action => :edit }
-    end
-  end
-
-
-
-  def show
-    @event =  Event.find(params[:id])
-    respond_to do |format|
-      format.html
-    end
-  end
-=end
-
 
   protected
 
