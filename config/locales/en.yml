@@ -2,6 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  actor:
+    created: "Created by"
   hello: "Hello world"
   conference:
     title: "Conferences"
@@ -20,3 +22,4 @@ en:
       experience: "Area of expertise"
       info: "Event information"
       tags: "Event tags"
+    outline: "Outline"
