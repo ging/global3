@@ -8,6 +8,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.references :actor
     t.datetime :start_at
     t.datetime :end_at
+    t.integer :founder_id
     #t.string   :name
     #t.text     :description
     t.timestamps
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   add_foreign_key "events", "actors", :name => "events_on_actor_id"
+
 
   add_foreign_key "agendas", "activity_objects", :name => "agendas_on_activity_object_id"
   add_foreign_key "agendas", "events", :name => "agendas_on_event_id"

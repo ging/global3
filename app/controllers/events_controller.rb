@@ -10,6 +10,7 @@ class EventsController < InheritedResources::Base
   #respond_to :html, :js
 
   def create
+
     create! do |success, failure|
       success.html {
         self.current_subject = @event

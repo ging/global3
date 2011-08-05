@@ -13,3 +13,10 @@ en:
     title: "Events"
     input: "What is the name of event?"
     list: "Contact's events"
+  profile:
+    event:
+      about: "About us"
+      birthday: "Anniversary"
+      experience: "Area of expertise"
+      info: "Event information"
+      tags: "Event tags"
