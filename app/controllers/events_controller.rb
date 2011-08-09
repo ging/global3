@@ -10,23 +10,20 @@ class EventsController < InheritedResources::Base
   #respond_to :html, :js
 
   def create
-
     create! do |success, failure|
       success.html {
         self.current_subject = @event
-        #redirect_to :action => 'index'
+        redirect_to [current_subject, :profile]
       }
+
     end
-    redirect_to [current_subject, :profile]
+
   end
 
 
   def edit
     @event = Event.find(params[:id])
 
-    #respond_to do |format|
-    #  format.html # new.html.erb
-    #end
   end
 
   def index
@@ -36,6 +33,10 @@ class EventsController < InheritedResources::Base
                     search(params[:search]).
                     tagged_with(params[:tag]).
                     page(params[:page]).per(10)
+  end
+
+  def outline
+
   end
 
   protected
