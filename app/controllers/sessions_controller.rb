@@ -11,13 +11,17 @@ class SessionsController < InheritedResources::Base
     @event = Event.find_by_slug(params[:session][:event_id])
     @agenda=@event.agenda
 
-    @session = Session.new
-    @session.title = params[:session][:title]
-    @session.description = params[:session][:description]
-    @session.start_at = params[:session][:start_at]
-    @session.end_at = params[:session][:end_at]
-    @session.agenda_id=@event.agenda.id
-    @session._contact_id = @agenda._contact_id
+
+    @session = Session.new ({
+      :_contact_id => @agenda._contact_id,
+      :title => params[:session][:title],
+      :agenda_id => @event.agenda.id,
+      :start_at => params[:session][:start_at],
+      :end_at =>  params[:session][:end_at],
+      :description => params[:session][:description]
+    })
+
+     @session.save
 
     respond_to do |format|
       format.html

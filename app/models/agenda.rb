@@ -13,13 +13,17 @@ class Agenda < ActiveRecord::Base
     "[#{sessions.map(&:to_fullcalendar_json).join(", ")}]"
   end
 
-
   def create_session
     session = Session.new
-    session._contact_id = self._contact_id
-    self.session = session
+    session._contact_id= self._contact_id
+    #self.sessions = session
+    return session
   end
+
 =end
+
+
+
 end
 
 
