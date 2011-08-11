@@ -42,4 +42,5 @@ class Event < ActiveRecord::Base
                              :relation_ids => Array(relation_customs.sort.first.id)
      end
   end
+
 end

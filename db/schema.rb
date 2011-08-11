@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.references :agenda
     t.datetime :start_at
     t.datetime :end_at
-    t.string   :name
-    
+    t.string   :title
+    t.string  :description
     t.timestamps
   end
 

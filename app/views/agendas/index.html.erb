@@ -19,11 +19,11 @@
 						title: title,
 						start: start,
 						end: end,
-                                          editable: true,
+            editable: true,
 						allDay: allDay
 					  }, false
                     );
-				    createEvent(title, start, end, allDay);
+				    createSessionEvent(title, start, end, '<%= params[:id]%>');
 				}
 				$('#calendar').fullCalendar('unselect');
 			},

@@ -3,23 +3,47 @@ class SessionsController < InheritedResources::Base
 #before_filter :authenticate_user!
 
   def new
-    #@event = Event.find(params[:event_id])
+    @event = Event.find_by_slug(params[:session][:event_id])
+
+    #@agenda = Agenda.new(@event)
 
     @session = Session.new
+    @session.title = params[:session][:title]
+    @session.description = params[:session][:description]
+    @session.start_at = params[:session][:start_at]
+    @session.end_at = params[:session][:end_at]
 
-    respond_to do |format|
-      format.html # new.html.erb
+
+    #@session.save
+
+    create! do |success, failure|
+      success.html {
+        self.current_subject = @session
+      }
     end
+
+
 
   end
 
 
   def create
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by_slug(params[:session][:event_id])
 
+    if @event.agenda! or @event.agenda.nil?
+      @event.agenda = Agenda.new(@event)
+    end
 
-    #if @event.
-    @session = Session.create(@event)
+=begin
+    @session = Session.new
+    @session.title = params[:session][:title]
+    @session.description = params[:session][:description]
+    @session.start_at = params[:session][:start_at]
+    @session.end_at = params[:session][:end_at]
+    @session.agenda_id = @event.agenda.id
+    @session.save
+=end
+
     #@session._contact_id = current_subject.contact_to!(current_subject).id
     #@session.agenda = @event.agenda
     #@session.save

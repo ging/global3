@@ -31,18 +31,17 @@ function createReservationEvent(title, start, end, allDay){
 	});
 }
 
-function createEvent(title, start, end, object_id, object_type){
+function createSessionEvent(title, start, end, event_id){
 	jQuery.ajax({
-        data: 'calendar_event[title]='+title+
-		'&calendar_event[description]='+title+
-		'&calendar_event[period]=Does%20not%20repeat'+
-		'&calendar_event[starttime]='+start.toString().substring(0, 24)+
-		'&calendar_event[endtime]='+end.toString().substring(0, 24)+
-		'&calendar_event[object_id]='+object_id+
-		'&calendar_event[object_type]='+object_type,
+        data: 'session[title]='+title+
+		'&session[description]='+title+
+		'&session[period]=Does%20not%20repeat'+
+		'&session[start_at]='+start.toString().substring(0, 24)+
+		'&session[end_at]='+end.toString().substring(0, 24)+
+		'&session[event_id]='+event_id,
         dataType: 'script',
-        type: 'post',
-        url: "/sessions/create"
+        type: 'get',
+        url: "/sessions/new"
 	});
 }
 
