@@ -40,8 +40,8 @@ function createSessionEvent(title, start, end, event_id){
 		'&session[end_at]='+end.toString().substring(0, 24)+
 		'&session[event_id]='+event_id,
         dataType: 'script',
-        type: 'get',
-        url: "/sessions/new"
+        type: 'POST',
+        url: '/sessions?id='+event_id
 	});
 }
 

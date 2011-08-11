@@ -1,6 +1,8 @@
 
 Global::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
+
+=begin
   resources :events
   resources :agendas
   resources :sessions
@@ -10,6 +12,7 @@ Global::Application.routes.draw do
       resources :sessions
     end
   end
+=end
 
 
   # Social Stream subjects configured in config/initializers/social_stream.rb

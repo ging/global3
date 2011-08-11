@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
 
   after_create :create_founder
   after_create :create_participants
+  after_create :create_agenda
   
   #acts_as_conference_manager_event
   def profile!
@@ -41,6 +42,12 @@ class Event < ActiveRecord::Base
        sent_contacts.create! :receiver => participant_actor,
                              :relation_ids => Array(relation_customs.sort.first.id)
      end
+  end
+
+  def create_agenda
+    agenda = Agenda.new
+    agenda._contact_id = self._contact_id
+    self.agenda = agenda
   end
 
 end

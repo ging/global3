@@ -2,13 +2,11 @@ class AgendasController < InheritedResources::Base
   #protect_from_forgery
 
   def new
-
+    #@event = Event.find_by_slug(params[:event_id])
+    #@agenda = Agenda.new(params[:event_id])
   end
 
-  def create
-    @event = Event.find(params[:event_id])
-    @agenda = Agenda.new(@event)
-  end
+
 
   def schedule
 
@@ -19,3 +17,5 @@ class AgendasController < InheritedResources::Base
   end
 
 end
+
+

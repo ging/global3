@@ -15,4 +15,8 @@ class Session < ActiveRecord::Base
     string.gsub("\r","").gsub("\n","<br />").gsub(/["]/, '\'')
   end
 
+
+
+
+
 end
