@@ -2,9 +2,24 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activity:
+    verb:
+      follow:
+        Event:
+          title: "%{subject} added %{contact} as contact."
+          message: "%{name} added you as contact."
+      like:
+        Event:
+          title: "%{subject} is a fan of %{contact}."
+          message: "%{name} is now your fan."
+      make-friend:
+        Event:
+          title: "%{subject} and %{contact} are now connected."
+          message: "%{name} also added you as contact."
   actor:
     created: "Created by"
-  hello: "Hello world"
+  agenda:
+    confirm_delete: "delete"
   conference:
     title: "Conferences"
     list: "Contact's conferences"
@@ -23,3 +38,5 @@ en:
       info: "Event information"
       tags: "Event tags"
     outline: "Outline"
+  session:
+    confirm_delete: "delete"

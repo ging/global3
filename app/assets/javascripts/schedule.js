@@ -1,39 +1,11 @@
 
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-function createNotAvailableEvent(title, start, end, allDay, room_id){
-	jQuery.ajax({
-        data: 'calendar_event[title]='+title+
-		'&calendar_event[description]='+title+
-		'&calendar_event[period]=Does%20not%20repeat'+
-		'&calendar_event[starttime]='+start.toString().substring(0, 24)+
-		'&calendar_event[endtime]='+end.toString().substring(0, 24)+
-		'&calendar_event[all_day]='+allDay+
-                '&calendar_event[object_id]='+room_id+
-                '&calendar_event[object_type]=Room',
-        dataType: 'script',
-        type: 'post',
-        url: "/calendar_events/create"
-	});
-}
 
-function createReservationEvent(title, start, end, allDay){
-	jQuery.ajax({
-        data: 'calendar_event[title]='+title+
-		'&calendar_event[description]='+title+
-		'&calendar_event[period]=Does%20not%20repeat'+
-		'&calendar_event[starttime]='+start.toString().substring(0, 24)+
-		'&calendar_event[endtime]='+end.toString().substring(0, 24)+
-		'&calendar_event[all_day]='+allDay,
-        dataType: 'script',
-        type: 'post',
-        url: "/calendar_events/create"
-	});
-}
-
-function createSessionEvent(title, start, end, event_id){
+function createSessionEvent(title, start, end, event_id,receiver){
 	jQuery.ajax({
         data: 'session[title]='+title+
+    '&session[receiver]='+receiver+
 		'&session[description]='+title+
 		'&session[period]=Does%20not%20repeat'+
 		'&session[start_at]='+start.toString().substring(0, 24)+
@@ -45,27 +17,28 @@ function createSessionEvent(title, start, end, event_id){
 	});
 }
 
-function moveEvent(event, dayDelta, minuteDelta, allDay){
+function moveSession(session, dayDelta, minuteDelta, allDay){
     jQuery.ajax({
-        data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
+        data: 'id=' + session.id + '&title=' + session.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
         type: 'post',
-        url: "/calendar_events/move"
+        url: '/sessions/'+session.id+'/move'
+
     });
 }
 
-function resizeEvent(event, dayDelta, minuteDelta){
+function resizeSession(session, dayDelta, minuteDelta){
     jQuery.ajax({
-        data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
+        data: 'id=' + session.id + '&title=' + session.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
         dataType: 'script',
         type: 'post',
-        url: "/calendar_events/resize"
+        url: '/sessions/'+session.id+'/resize'
     });
 }
 
-function showEventDetails(event){
+function showSessionDetails(event){
 	$('#event_desc').html(event.description);
-	$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editEvent(" + event.id + ")'>Editar</a>");
+	$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editSession(" + event.id + ")'>Editar</a>");
 
 	if (event.recurring) {
 		title = event.title + "(Recurring)";
@@ -75,7 +48,7 @@ function showEventDetails(event){
 	}
 	else {
 		title = event.title;
-		$('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + false + ")'>Eliminar</a>");
+		$('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteSession(" + event.id + ", " + false + ")'>Eliminar</a>");
 	}
 	$('#desc_dialog').dialog({
 		title: title,
@@ -84,14 +57,13 @@ function showEventDetails(event){
 		close: function(event, ui){
 			$('#desc_dialog').dialog('destroy')
 		}
-
 	});
 }
 
-function showEventDescription(event){
-	$('#event_desc').html(event.description);
-        $('#edit_event').html("");
-	$('#delete_event').html("");
+function showSessionDescription(event){
+	$('#session_desc').html(event.description);
+        $('#edit_session').html("");
+	$('#delete_session').html("");
 
 	$('#desc_dialog').dialog({
 		title: event.title,
@@ -103,21 +75,21 @@ function showEventDescription(event){
 	});
 }
 
-function editEvent(event_id){
+function editSession(session_id){
     jQuery.ajax({
-        data: 'id=' + event_id,
+        data: 'id=' + session_id,
         dataType: 'script',
         type: 'get',
-        url: "/calendar_events/edit"
+        url: '/sessions/'+session.id+'/edit'
     });
 }
 
-function deleteEvent(event_id, delete_all){
+function deleteSession(session_id, delete_all){
     jQuery.ajax({
-        data: 'id=' + event_id + '&delete_all='+delete_all,
+        data: 'id=' + session_id + '&delete_all='+delete_all,
         dataType: 'script',
         type: 'post',
-        url: "/calendar_events/destroy"
+        url: '/sessions/'+session.id+'/destroy'
     });
 }
 
@@ -134,7 +106,6 @@ function showRepeatUntil(value) {
 }
 
 function showPeriodAndFrequency(value){
-
     switch (value) {
         case 'Daily':
             $('#period').html('día(s)');
@@ -159,11 +130,11 @@ function showPeriodAndFrequency(value){
 }
 
 function dateScheduleAvailable(start, end, allDay){
-	return $('#calendar').fullCalendar('clientEvents', function(event)
+	return $('#calendar').fullCalendar('clientEvents', function(session)
 	{
-		if ((event.start < start && start < event.end) ||
-		    (event.start < end && end < event.end) ||
-		    (compareDate(event.start, start) && (event.allDay || allDay))
+		if ((session.start_at < start && start < session.end_at) ||
+		    (session.start_at < end && end < session.end_at) ||
+		    (compareDate(session.start_at, start) && (session.allDay || allDay))
 		   )
 			{
 				return true;
@@ -173,19 +144,19 @@ function dateScheduleAvailable(start, end, allDay){
 }
 
 function dateAvailable(start, end, allDay){
-	return $('#calendar').fullCalendar('clientEvents', function(event)
+	return $('#calendar').fullCalendar('clientEvents', function(session)
 	{
-		if (event.start < start && start < event.end)
+		if (session.start_at < start && start < session.end_at)
 			return true;
-		else if (event.start < end && end < event.end)
+		else if (session.start_at < end && end < session.end_at)
 			return true;
-                else if (event.start > start && (event.end && event.end < end))
+                else if (session.start_at > start && (session.end_at && session.end_at < end))
                         return true;
-		else if (compareDateWithMinutes(event.start, start))
+		else if (compareDateWithMinutes(session.start_at, start))
 			return true;
-		else if (event.end && compareDateWithMinutes(event.end, end))
+		else if (session.end_at && compareDateWithMinutes(session.end_at, end))
 			return true;
-		else if (compareDate(event.start, start) && (event.allDay || allDay))
+		else if (compareDate(session.start_at, start) && (session.allDay || allDay))
 			return true;
 		else
 			return false;

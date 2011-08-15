@@ -26,6 +26,11 @@ Global::Application.routes.draw do
     end
   end
 
+  match "agendas/:id/get_sessions" => "agendas#get_sessions"
+  match "sessions/:id/move" => "sessions#move"
+  match "sessions/:id/resize" => "sessions#resize"
+
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

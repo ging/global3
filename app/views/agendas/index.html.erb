@@ -2,6 +2,7 @@
   <%= javascript_include_tag 'fullcalendar' %>
   <%= stylesheet_link_tag 'fullcalendar' %>
 <% end -%>
+<% receiver = current_subject%>
 
 <% content_for :javascript do %>
       $(document).ready(function(){
@@ -23,7 +24,7 @@
 						allDay: allDay
 					  }, false
                     );
-				    createSessionEvent(title, start, end, '<%= params[:id]%>');
+				    createSessionEvent(title, start, end, '<%= params[:id]%>','<%=current_subject.contact_to!(receiver).id %>');
 				}
 				$('#calendar').fullCalendar('unselect');
 			},
@@ -39,7 +40,7 @@
                             month: 'ddd',
                             week: 'ddd d/M',
                             day: 'dddd d/M'
-                     },
+      },
 			slotMinutes: 30,
 			loading: function(bool){
 				if (bool) 
@@ -48,21 +49,15 @@
 				else 
 					$('#loading').hide();
 			},
+      events: "/agendas/<%= params[:id]%>/get_sessions",
 
 			timeFormat: 'HH:mm t{ - HH:mm t} ',
 			dragOpacity: "0.5",
 			eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
-				if (dateAvailable(event.start, event.end, allDay)) 
-				{
-				  moveEvent(event, dayDelta, minuteDelta, allDay);
-                }
-			    else 
-				{
-			      revertFunc();
-			    }
+			  moveSession(event, dayDelta, minuteDelta, allDay);
 			},
 			
-			eventResize: function(event, dayDelta, minuteDelta, revertFunc){
+			eventResize: function(session, dayDelta, minuteDelta, revertFunc){
 				if (dateAvailable(event.start, event.end, false)) 
 				{				
 				  resizeEvent(event, dayDelta, minuteDelta);
@@ -75,9 +70,9 @@
 			
 			eventClick: function(event, jsEvent, view){
 			    if (event.editable) {
-					showEventDetails(event);
+					showSessionDetails(event);
 				} else {
-				    showEventDescription(event);
+				    showSessionDescription(event);
 				}
 			}
 		});
