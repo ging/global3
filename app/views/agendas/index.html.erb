@@ -24,7 +24,7 @@
 						allDay: allDay
 					  }, false
                     );
-				    createSessionEvent(title, start, end, '<%= params[:id]%>','<%=current_subject.contact_to!(receiver).id %>');
+				    session=createSessionEvent(title, start, end, '<%= params[:id]%>','<%=current_subject.contact_to!(receiver).id %>');
 				}
 				$('#calendar').fullCalendar('unselect');
 			},
@@ -43,36 +43,30 @@
       },
 			slotMinutes: 30,
 			loading: function(bool){
-				if (bool) 
+				if (bool)
 					//$('#loading').show();
 					$('#loading').hide();
-				else 
+				else
 					$('#loading').hide();
 			},
       events: "/agendas/<%= params[:id]%>/get_sessions",
 
 			timeFormat: 'HH:mm t{ - HH:mm t} ',
 			dragOpacity: "0.5",
-			eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
-			  moveSession(event, dayDelta, minuteDelta, allDay);
+			eventDrop: function(session, dayDelta, minuteDelta, allDay, revertFunc){
+				moveSession(session, dayDelta, minuteDelta, allDay);
 			},
-			
+
 			eventResize: function(session, dayDelta, minuteDelta, revertFunc){
-				if (dateAvailable(event.start, event.end, false)) 
-				{				
-				  resizeEvent(event, dayDelta, minuteDelta);
-				}
-				else 
-				{
-				  revertFunc();
-				}
+			  resizeEvent(session, dayDelta, minuteDelta);
 			},
-			
-			eventClick: function(event, jsEvent, view){
-			    if (event.editable) {
-					showSessionDetails(event);
-				} else {
-				    showSessionDescription(event);
+
+			eventClick: function(session, jsEvent, view){
+        alert(session.id);
+			  if (session.editable) {
+					showSessionDetails(session);
+				}else {
+				  showSessionDescription(session);
 				}
 			}
 		});
@@ -105,3 +99,4 @@
   <div id = "create_event">
   </div>
 </div>
+                                                                             ´

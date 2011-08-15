@@ -18,6 +18,7 @@ function createSessionEvent(title, start, end, event_id,receiver){
 }
 
 function moveSession(session, dayDelta, minuteDelta, allDay){
+    alert(session.id);
     jQuery.ajax({
         data: 'id=' + session.id + '&title=' + session.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
@@ -36,34 +37,34 @@ function resizeSession(session, dayDelta, minuteDelta){
     });
 }
 
-function showSessionDetails(event){
-	$('#event_desc').html(event.description);
-	$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editSession(" + event.id + ")'>Editar</a>");
+function showSessionDetails(session){
+	$('#event_desc').html(session.description);
+	$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editSession(" + session.id + ")'>Editar</a>");
 
-	if (event.recurring) {
-		title = event.title + "(Recurring)";
-		$('#delete_event').html("&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + false + ")'>Eliminar solo esta ocurrencia</a>");
-		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", " + true + ")'>Eliminar toda la serie</a>");
-		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + event.id + ", \"future\")'>Eliminar todos los eventos futuros</a>");
+	if (session.recurring) {
+		title = session.title + "(Recurring)";
+		$('#delete_event').html("&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", " + false + ")'>Eliminar solo esta ocurrencia</a>");
+		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", " + true + ")'>Eliminar toda la serie</a>");
+		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", \"future\")'>Eliminar todos los eventos futuros</a>");
 	}
 	else {
-		title = event.title;
-		$('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteSession(" + event.id + ", " + false + ")'>Eliminar</a>");
+		title = session.title;
+		$('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteSession(" + session.id + ", " + false + ")'>Eliminar</a>");
 	}
 	$('#desc_dialog').dialog({
 		title: title,
 		modal: true,
 		width: 500,
-		close: function(event, ui){
+		close: function(session, ui){
 			$('#desc_dialog').dialog('destroy')
 		}
 	});
 }
 
 function showSessionDescription(event){
-	$('#session_desc').html(event.description);
-        $('#edit_session').html("");
-	$('#delete_session').html("");
+	$('#event_desc').html(event.description);
+        $('#edit_event').html("");
+	$('#delete_event').html("");
 
 	$('#desc_dialog').dialog({
 		title: event.title,

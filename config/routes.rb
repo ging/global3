@@ -2,18 +2,9 @@
 Global::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
 
-=begin
-  resources :events
-  resources :agendas
-  resources :sessions
-
-  resources :events do
-    resource :agendas do
-      resources :sessions
-    end
-  end
-=end
-
+  resource :settings
+  resource :tie
+  match "/settings/update_relation/:id" => "settings#update_relation"
 
   # Social Stream subjects configured in config/initializers/social_stream.rb
   SocialStream.subjects.each do |actor|
@@ -25,6 +16,7 @@ Global::Application.routes.draw do
       end
     end
   end
+
 
   match "agendas/:id/get_sessions" => "agendas#get_sessions"
   match "sessions/:id/move" => "sessions#move"

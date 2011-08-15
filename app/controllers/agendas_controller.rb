@@ -17,7 +17,6 @@ class AgendasController < InheritedResources::Base
     time_end=Time.at(params['end'].to_i)
     @sessions = agenda.sessions.where( "start_at >= '#{time_start.to_formatted_s(:db)}' AND
                              end_at  <= '#{time_end.to_formatted_s(:db)}' ")
-
     sessions = []
     @sessions.each do |session|
       sessions << {:id => session.id,
@@ -26,7 +25,9 @@ class AgendasController < InheritedResources::Base
                    :start => "#{session.start_at.iso8601}",
                    :end => "#{session.end_at.iso8601}",
                    :allDay => false,
-                   :recurring =>  false}
+                   :recurring =>  false,
+                   :editable => true
+                  }
     end
     render :text => sessions.to_json
 

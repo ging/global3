@@ -8,7 +8,7 @@ class SessionsController < InheritedResources::Base
 
   def create
     @event = Event.find_by_slug(params[:session][:event_id])
-
+    sessions = []
     @session = Session.new ({
       :_contact_id => params[:session][:receiver],
       :title => params[:session][:title],
@@ -17,10 +17,18 @@ class SessionsController < InheritedResources::Base
       :end_at =>  params[:session][:end_at],
       :description => params[:session][:description]
     })
+
     @session.save
-    respond_to do |format|
-      format.html
-    end
+    render :json => @session
+
+
+
+
+
+
+    #respond_to do |format|
+    #  format.html
+    #end
   end
 
   def index
