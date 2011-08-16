@@ -9,8 +9,15 @@ class AgendasController < InheritedResources::Base
 
   end
 
+  def edit
+    @event = Event.find_by_slug(params[:id])
+
+
+  end
+
   def get_sessions
     @event = Event.find_by_slug(params[:id])
+
     agenda = @event.agenda
 
     time_start=Time.at(params['start'].to_i)
@@ -30,6 +37,10 @@ class AgendasController < InheritedResources::Base
                   }
     end
     render :text => sessions.to_json
+  end
+
+  def show
+    @event = Event.find_by_slug(params[:id])
 
   end
 

@@ -6,7 +6,7 @@
       </div>
       <% if is_owner? %>
         <div class="header_icon_right">
-          <%= link_to (image_tag('btn/edit.png')), :controller => :agendas , :action => :index, :id => @event%>
+          <%= link_to (image_tag('btn/edit.png')), edit_agenda_path(@event)%>
         </div>
       <%end%>
     </div>

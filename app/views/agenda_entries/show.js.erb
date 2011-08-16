@@ -1,0 +1,20 @@
+<%if params[:embedded_video]%>
+  <%=@agenda_entry.video_player%>
+<%else%>
+  <div class="video_full">
+      <%=@agenda_entry.video_player%>
+  </div>  
+  <div class="video_properties">  	
+  	  <div class="video_title">
+  	      <%=@agenda_entry.title%>  
+	  </div>
+	  <div class="unified_user">  
+          <%=entry_speakers(@agenda_entry)%>
+	  </div>
+	  <div class="video_attachments">
+          <%if @agenda_entry.attachment%>
+            <%=image_tag("icons/attach.png", :class=>"icon")%> <%= link_to( @agenda_entry.attachment.filename , polymorphic_path(@agenda_entry.attachment, :format => @agenda_entry.attachment.format!, :version => @agenda_entry.attachment.version))%>
+		  <%end%>
+	  </div>
+  </div>
+<%end%>

@@ -88,6 +88,16 @@ module SocialStream
           }
         end
       end
+
+      if SocialStream.activity_forms.include? :event and  subject.subject_type == 'Event'
+        if !subject.agenda.nil?
+        items << {:key => :outline_info,
+          :name => image_tag("btn/btn_outline.png")+t('menu.outline'),
+          :url =>  agenda_path(subject)
+        }
+        end
+      end
+
       #Documents if present
       if SocialStream.activity_forms.include? :document
         if subject == current_subject

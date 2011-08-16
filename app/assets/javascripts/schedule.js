@@ -13,7 +13,7 @@ function createSessionEvent(title, start, end, event_id,receiver){
 		'&session[event_id]='+event_id,
         dataType: 'script',
         type: 'POST',
-        url: '/sessions?id='+event_id
+        url: '/events/'+event_id+'/sessions/create'
 	});
 }
 

@@ -30,6 +30,8 @@ en:
     title: "Events"
     input: "What is the name of event?"
     list: "Contact's events"
+  menu:
+    outline: "Outline"
   profile:
     event:
       about: "About us"

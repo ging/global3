@@ -22,6 +22,11 @@ class Agenda < ActiveRecord::Base
 
 =end
 
+  def event
+    #AgendaEvent = Event.find(1)
+
+  end
+
 
 
 end
