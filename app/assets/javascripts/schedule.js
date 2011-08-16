@@ -18,7 +18,7 @@ function createSessionEvent(title, start, end, event_id,receiver){
 }
 
 function moveSession(session, dayDelta, minuteDelta, allDay){
-    alert(session.id);
+
     jQuery.ajax({
         data: 'id=' + session.id + '&title=' + session.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
@@ -39,18 +39,11 @@ function resizeSession(session, dayDelta, minuteDelta){
 
 function showSessionDetails(session){
 	$('#event_desc').html(session.description);
-	$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editSession(" + session.id + ")'>Editar</a>");
+	//$('#edit_event').html("<a href = 'javascript:void(0);' onclick ='editSession(" + session.id + ")'>Editar</a>");
 
-	if (session.recurring) {
-		title = session.title + "(Recurring)";
-		$('#delete_event').html("&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", " + false + ")'>Eliminar solo esta ocurrencia</a>");
-		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", " + true + ")'>Eliminar toda la serie</a>");
-		$('#delete_event').append("&nbsp;&nbsp; <a href = 'javascript:void(0);' onclick ='deleteEvent(" + session.id + ", \"future\")'>Eliminar todos los eventos futuros</a>");
-	}
-	else {
-		title = session.title;
-		$('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteSession(" + session.id + ", " + false + ")'>Eliminar</a>");
-	}
+  title = session.title;
+  $('#delete_event').html("<a href = 'javascript:void(0);' onclick ='deleteSession(" + session.id + ", " + false + ")'>Eliminar</a>");
+
 	$('#desc_dialog').dialog({
 		title: title,
 		modal: true,
@@ -76,59 +69,15 @@ function showSessionDescription(event){
 	});
 }
 
-function editSession(session_id){
-    jQuery.ajax({
-        data: 'id=' + session_id,
-        dataType: 'script',
-        type: 'get',
-        url: '/sessions/'+session.id+'/edit'
-    });
-}
-
 function deleteSession(session_id, delete_all){
     jQuery.ajax({
         data: 'id=' + session_id + '&delete_all='+delete_all,
         dataType: 'script',
         type: 'post',
-        url: '/sessions/'+session.id+'/destroy'
+        url: '/sessions/'+session_id+'/destroy'
     });
 }
 
-function showRepeatUntil(value) {
-    if (value) {
-      $('#repeat_until').show();
-    } else {
-      $('#repeat_until').hide();
-
-      $('#repeat_until_year').val("");
-      $('#repeat_until_month').val("");
-      $('#repeat_until_day').val("");
-    }
-}
-
-function showPeriodAndFrequency(value){
-    switch (value) {
-        case 'Daily':
-            $('#period').html('día(s)');
-            $('#frequency').show();
-            break;
-        case 'Weekly':
-            $('#period').html('semana(s)');
-            $('#frequency').show();
-            break;
-        case 'Monthly':
-            $('#period').html('mes(es)');
-            $('#frequency').show();
-            break;
-        case 'Yearly':
-            $('#period').html('año(s)');
-            $('#frequency').show();
-            break;
-
-        default:
-            $('#frequency').hide();
-    }
-}
 
 function dateScheduleAvailable(start, end, allDay){
 	return $('#calendar').fullCalendar('clientEvents', function(session)
@@ -151,8 +100,8 @@ function dateAvailable(start, end, allDay){
 			return true;
 		else if (session.start_at < end && end < session.end_at)
 			return true;
-                else if (session.start_at > start && (session.end_at && session.end_at < end))
-                        return true;
+    else if (session.start_at > start && (session.end_at && session.end_at < end))
+      return true;
 		else if (compareDateWithMinutes(session.start_at, start))
 			return true;
 		else if (session.end_at && compareDateWithMinutes(session.end_at, end))
@@ -161,7 +110,7 @@ function dateAvailable(start, end, allDay){
 			return true;
 		else
 			return false;
-	}) == '' && (start >= new Date(new Date().getTime() + 2*60*60*1000) && start <= new Date(new Date().getTime() + 3*30*24*60*60*1000));
+	}) == '' && (start >= new Date(new Date().getTime() + 5*60*1000) && start <= new Date(new Date().getTime() + 3*30*24*60*60*1000));
 }
 
 function compareDate(date1, date2)
