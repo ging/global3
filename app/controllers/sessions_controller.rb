@@ -1,57 +1,113 @@
 class SessionsController < InheritedResources::Base
 
-#before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def new
-    #@event = Event.find(params[:event_id])
-
-    @session = Session.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
 
   end
 
-
   def create
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by_slug(params[:id])
 
+    @session = Session.new ({
+      :_contact_id => params[:session][:receiver],
+      :title => params[:session][:title],
+      :agenda_id => @event.agenda.id,
+      :start_at => params[:session][:start_at],
+      :end_at =>  params[:session][:end_at],
+      :description => params[:session][:description]
+    })
+    @session.save
 
-    #if @event.
-    @session = Session.create(@event)
-    #@session._contact_id = current_subject.contact_to!(current_subject).id
-    #@session.agenda = @event.agenda
-    #@session.save
-    respond_to do |format|
-      format.html
-    end
-  end
-
-=begin
-  def create
-    if params[:calendar_event][:period] == "Does not repeat"
-      @event = CalendarEvent.new(params[:calendar_event])
+    if @event.start_at.nil?
+      @event.start_at = params[:session][:start_at]
+      @event.end_at =  params[:session][:end_at]
+      @event.save
     else
-      #@event_series = EventSeries.new(:frequency => params[:event][:frequency], :period => params[:event][:repeats], :starttime => params[:event][:starttime], :endtime => params[:event][:endtime], :all_day => params[:event][:all_day])
-      @event_series = CalendarEventSeries.new(params[:calendar_event])
-      if (params[:repeat_until][:year] != "" && params[:repeat_until][:month] != "" && params[:repeat_until][:day] != "")
-        @event_series.repeat_until = Date.civil(params[:repeat_until][:year].to_i, params[:repeat_until][:month].to_i, params[:repeat_until][:day].to_i)
-        @event_series.save
+      if @event.start_at > params[:session][:start_at]
+        @event.start_at = params[:session][:start_at]
       end
+      if @event.end_at < params[:session][:end_at]
+        @event.end_at = params[:session][:end_at]
+      end
+      @event.save
     end
-  end
-=end
 
+    render :json => @event
+  end
 
   def index
-    @event = Event.find(params[:event_id])
-
+    @event = Event.find_by_slug(params[:event_id])
     respond_to do |format|
-      #format.json { render :text => @event.agenda.sessions.map{ |c| { 'title' => c.name, 'start' => c.start_at, 'end' => c.end_at, 'allDay' => "allDay" } }.to_json }
-      #format.html { @event.agenda.sessions.map{ |c| { 'title' => c.name, 'start' => c.start_at, 'end' => c.end_at, 'allDay' => "allDay" } } }
       format.html
     end
   end
+
+  def move
+    @session = Session.find_by_id(params[:id])
+    if @session
+      @session.start_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@session.start_at))
+      @session.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@session.end_at))
+      @session.save
+    end
+
+    if @event.start_at.nil?
+      @event.start_at = @session.start_at
+      @event.end_at =  @session.end_at
+      @event.save
+    else
+      if @event.start_at > @session.start_at
+        @event.start_at = @session.start_at
+      end
+      if @event.end_at < @session.end_at
+        @event.end_at = @session.end_at
+      end
+      @event.save
+    end
+
+    render :json => @session
+  end
+
+  def resize
+    @session = Session.find(params[:id])
+    if @session
+      @session.end_at = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@session.end_at))
+      @session.save
+    end
+  end
+
+
+  def destroy
+    @session = Session.find(params[:id])
+    start_at=@session.start_at
+    end_at=@session.end_at
+    @session.destroy
+
+
+    @event = Event.find(@session.event)
+
+    if !@event.start_at.nil?
+      if start_at < @event.start_at
+        #@event.start_at = @session.start_at
+        #TOCA CAMBIAR FECHA....
+      end
+      if end_at > @event.end_at
+        #@event.end_at = @session.end_at
+        #TOCA CAMBIAR FECHA.
+      end
+      @event.save
+    end
+
+
+    respond_to  :js
+  end
+
+
+  def show
+    @event = Event.find_by_slug(params[:id])
+
+  end
+
+
  
 end

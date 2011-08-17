@@ -698,7 +698,7 @@ function Header(calendar, options) {
 		tm = options.theme ? 'ui' : 'fc';
 		var sections = options.header;
 		if (sections) {
-			element = $("<table class='fc-header' style='width:100%'/>")
+			element = $("<table class='fc-header' id='header-calendar' style='width:90%'/>")
 				.append(
 					$("<tr/>")
 						.append(renderSection('left'))

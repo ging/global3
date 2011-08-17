@@ -20,7 +20,6 @@ class EventsController < InheritedResources::Base
 
   end
 
-
   def edit
     @event = Event.find(params[:id])
 

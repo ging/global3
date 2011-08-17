@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
 
   after_create :create_founder
   after_create :create_participants
+  after_create :create_agenda
   
   #acts_as_conference_manager_event
   def profile!
@@ -42,4 +43,63 @@ class Event < ActiveRecord::Base
                              :relation_ids => Array(relation_customs.sort.first.id)
      end
   end
+
+  def create_agenda
+    agenda = Agenda.new
+    agenda._contact_id = self._contact_id
+    self.agenda = agenda
+  end
+
+  def days
+    if has_date?
+      (end_at.to_date - start_at.to_date).to_i + 1
+    else
+      return 0
+    end
+  end
+
+  #method to know if this event is happening now
+  def is_happening_now?
+     #first we check if start date is past and end date is future
+     if has_date? && start_at.past? && end_at.future?
+       true
+     else
+       return false
+     end
+  end
+
+
+  #method to know if this event has any session now
+  def has_session_now?
+     get_session_now
+  end
+
+  def get_session_now
+    #first we check if start date is past and end date is future
+     if is_happening_now?
+       #now we check the sessions
+       agenda.agenda_entries.each do |session|
+         return entry if entry.start_at.past? && entry.end_time.future?
+       end
+     end
+     return nil
+  end
+
+  #method to know if an event happens in the future
+  def future?
+    return has_date? && start_at.future?
+  end
+
+
+  #method to know if an event happens in the past
+  def past?
+    return has_date? && end_at.past?
+  end
+
+
+  def has_date?
+    start_at
+  end
+
+
 end

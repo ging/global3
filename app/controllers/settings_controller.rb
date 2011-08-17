@@ -3,6 +3,7 @@
   #before_filter :authenticate_user!
   
   def show
+
 #	@cs_ = Actor.joins('INNER JOIN contacts ON contacts.receiver_id = actors.id INNER JOIN ties ON ties.contact_id = contacts.id INNER JOIN relations ON relations.id = ties.relation_id').where(:subject_type => ['User', 'Group', 'Event'], :contacts=>{:sender_id => current_subject}, :relations=>{:type => 'Relation::Custom'}).page(params[:page]).per(10)
 
 	@cs = current_subject.contact_subjects(:direction => :sent)
@@ -10,6 +11,7 @@
 #	@cs_page = Paginator.new(self, cs.length, 10, 1)
 #	@offset = 0
 #	@cs= cs[offset..(offset + 10 -1)]
+
   end
 
   def update_relation
