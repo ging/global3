@@ -11,6 +11,12 @@ Global::Application.routes.draw do
     end
   end
 
+resource :settings
+resource :tie
+resource :events
+
+resource :actor
+match "/settings/update_relation/:id" => "settings#update_relation"
 
   # Social Stream subjects configured in config/initializers/social_stream.rb
   SocialStream.subjects.each do |actor|

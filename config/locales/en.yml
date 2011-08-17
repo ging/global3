@@ -23,3 +23,11 @@ en:
       info: "Event information"
       tags: "Event tags"
     outline: "Outline"
+  settings:
+    manage:
+      name: "Admin Contacs"
+      briefing: "Settings contacts preferences"
+      explanation: "Change contacts permissions"
+  event:
+    by: "By events"
+      
