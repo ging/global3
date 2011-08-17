@@ -32,9 +32,10 @@
 				$('#calendar').fullCalendar('unselect');
 			},
 			header: {
-				left: 'prev,next today',
+	      left: 'month,agendaWeek,agendaDay',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+        right: 'prev,next today',
+
 			},
 			defaultView: 'agendaWeek',
 			height: 500,
@@ -93,9 +94,23 @@
 <% end %>
 
 <div class="space_center"></div>
-<h3> &nbsp; Create sessions </h3>
+<h3> &nbsp; <%= t('Outline') +' '+ t('preposition.and')+' '+t('session.other') %></h3>
 <div class="space_center"></div>
+
+
+<div id="fc-btn-agenda">
+<td class="fc-header-left">
+  <span class="fc-state-default">
+    <span class="fc-button-inner">
+      <span class="fc-button-content"><%=link_to('Agenda',agenda_path(@event))%></span>
+    </span>
+  </span>
+</td>
+</div>
+
+
 <div class="space_center"></div>
+
 
 <div>
   <div id='calendar'></div>

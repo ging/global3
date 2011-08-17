@@ -51,3 +51,13 @@ en:
       name: "Admin Contacs"
       briefing: "Settings contacts preferences"
       explanation: "Change contacts permissions"
+  time:
+    am: am
+    end: End time
+    from: from
+    pm: pm
+    start: Start time
+    to: to
+  timezone:
+    one: Timezone
+    set_up: You have not set up your time zone. <a href="{{path}}">Set it up now</a>

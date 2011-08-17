@@ -67,7 +67,7 @@ class AgendaEntriesController < ApplicationController
 
     respond_to do |format|
       format.js
-      format.html # show.html.erb
+      format.html # _show.html.erb
       format.xml  { render :xml => @agenda_entry }
     end
   end

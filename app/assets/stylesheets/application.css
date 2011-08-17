@@ -8,12 +8,19 @@
  *= require_tree . 
 */
 
+#calendar{
+  margin-top:-9px;
+}
+#fc-btn-agenda{
+  padding-left: 1px;
+}
+
+
 #event_name{
   border: 1px solid #BDC7D8;
   padding: 5px;
   width: 95%;
 }
-
 
 #agenda_content{padding:3px 8px;}
 #agenda_content #agenda_pages.no_date{border-top:1px solid #FFD324;}
@@ -27,7 +34,7 @@ input#agenda_entry_title,#agenda_entry_description,#agenda_entry_embedded_video{
 #event_description_content p,#new_entry_content p{margin:0;}
 
 
-#agenda_tabs{margin-top:6px;background:url("../images/tab_bottom.png") repeat-x bottom;}
+#agenda_tabs{margin-top:6px;background:url("tab_bottom.png") repeat-x bottom;}
 #agenda_tabs ul{list-style-type:none;margin:0;margin-left:9px;font-size:0.9166em;line-height:1.6363;font-weight:bold;}
 
 #agenda_tabs li{
@@ -119,3 +126,26 @@ h3#event_description_title div img,#agenda_title div img,#participation_title di
 #event_description_line a,#participation_url a#edit_participation_icon,#participation_url a#edit_participation_icon,#streaming_url a#edit_streaming_icon{float: right;margin-right:8px;margin-top:3px;}
 #event_description_content,#repository_content,#participation_content,#streaming_content{border-top:1px solid #ebebeb;border-bottom:1px solid #ccc;padding:3px 8px;}
 #streaming_content{margin-bottom:0.75em;}
+
+
+.session_wrapper1,.session_wrapper2{float:left;display:block;}
+.session_wrapper1{
+	width:14%;
+	text-align:center;
+	margin:15px 0 15px 0;
+	color:#514721;
+	}
+.session_wrapper2{width:86%;}
+
+.event_day{font-size: 3em;line-height:90%;}
+.event_month{font-size: 2em;line-height:70%;}
+.event_hour{font-size: 1.2em;min-width: 30px; min-height: 20px;}
+
+.entry_name{
+  width:410px;
+  /*background:#f0f6f9;*/
+  font-size: 1.1667em;
+  font-weight: bold;
+  line-height: 1.2857;
+  margin-left: 5px;
+}

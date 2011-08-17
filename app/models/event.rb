@@ -61,7 +61,7 @@ class Event < ActiveRecord::Base
   #method to know if this event is happening now
   def is_happening_now?
      #first we check if start date is past and end date is future
-     if has_date? && start_date.past? && end_date.future?
+     if has_date? && start_at.past? && end_at.future?
        true
      else
        return false
@@ -78,8 +78,8 @@ class Event < ActiveRecord::Base
     #first we check if start date is past and end date is future
      if is_happening_now?
        #now we check the sessions
-       agenda.agenda_entries.each do |entry|
-         return entry if entry.start_time.past? && entry.end_time.future?
+       agenda.agenda_entries.each do |session|
+         return entry if entry.start_at.past? && entry.end_time.future?
        end
      end
      return nil

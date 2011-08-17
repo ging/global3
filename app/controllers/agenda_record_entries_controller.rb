@@ -43,7 +43,7 @@ class AgendaRecordEntriesController < ApplicationController
     @agenda_record_entry = AgendaRecordEntry.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # _show.html.erb
       format.xml  { render :xml => @agenda_record_entry }
     end
   end

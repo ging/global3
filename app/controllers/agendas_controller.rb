@@ -15,15 +15,11 @@ class AgendasController < InheritedResources::Base
 
   end
 
-  def get_sessions
+  def get_sessions()
     @event = Event.find_by_slug(params[:id])
+    @agenda = Agenda.find_by_id(@event.agenda.id)
+    @sessions = @agenda.getSessions(@event.id,Time.at(params['start'].to_i),Time.at(params['end'].to_i))
 
-    agenda = @event.agenda
-
-    time_start=Time.at(params['start'].to_i)
-    time_end=Time.at(params['end'].to_i)
-    @sessions = agenda.sessions.where( "start_at >= '#{time_start.to_formatted_s(:db)}' AND
-                             end_at  <= '#{time_end.to_formatted_s(:db)}' ")
     sessions = []
     @sessions.each do |session|
       sessions << {:id => session.id,
@@ -43,6 +39,10 @@ class AgendasController < InheritedResources::Base
     @event = Event.find_by_slug(params[:id])
 
   end
+
+
+
+
 
 end
 

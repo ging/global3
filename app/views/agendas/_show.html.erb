@@ -1,3 +1,14 @@
+<div class="space_center"></div>
+<h3> &nbsp; <%= t('Outline') +' '+ t('preposition.and')+' '+t('session.other') %></h3>
+<div class="space_center"></div>
+
+<div class="right">
+  Agenda,
+  <%=link_to('Month',edit_agenda_path(@event))%>,
+  <%=link_to('Week',edit_agenda_path(@event))%>,
+  <%=link_to('Day',edit_agenda_path(@event))%>
+</div>
+
 <div id ="outline">
   <div id="agenda_tabs">
     <ul>

@@ -1,6 +1,5 @@
 <%= div_for event, :class => 'content_size' do %>
-  Invites to <%= link_to(event.name, event) %></br>
-
+  Invites to <%=link_to(event.name, event)%> </br>
   <% if !event.start_at.blank? %>
     Since  <%= event.start_at.gmtime.to_s %>
   <% end %>
