@@ -13,3 +13,21 @@
   padding: 5px;
   width: 95%;
 }
+.space_center_manage
+{
+    padding-right: 0;
+    padding-top: 9px;
+    text-align: left;
+}
+.tie_form
+{
+    display: inline;
+    height: 1%;
+    margin: 0 0;
+    overflow: hidden;
+    float: right;
+}
+#contact_data
+{
+width: 250px;
+}

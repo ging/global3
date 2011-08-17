@@ -1,0 +1,47 @@
+		      <div class="header_text">
+			<%= @cs.count %> <%= t('contact', :count => @cs.count) %>
+		      </div>
+		  <div class ="content">
+			<% cont=0; %>
+
+			<% @cs.each do |contact| %>
+				  <% if (cont%2) == 0 %>
+				    <% cont+=1; %>
+				     <div class="row">
+				  <% end %>
+					<% variable=current_subject.ties_to(contact).to_a %>
+					<% temporal='' %>
+					<% variable.each do |temp| %>
+						<% temporal=temp.relation_id %>
+					<% end %>
+			<div class="label">
+				    <div class="logo">
+				      <%= link_to image_tag(contact.logo.url , :size => "50x50", :alt => contact.name), contact %>
+				    </div>
+			    <div class="sub-block">
+				      <div class="name black" >
+					<%=link_to(truncate_name(contact.name), contact)%>
+				      </div>
+				      <div class="link">
+<%= form_tag "/settings/update_relation/"+contact.actor_id.to_s, :method => :post ,:id=> contact.actor_id.to_s, :class => "tie_form" do %>
+<%= select "manage","contacts",current_subject.relation_customs.collect{|r| [r.name, r.id]},	{:selected=>temporal},{:onchange=>'this.form.submit();'} %>
+
+			<% contacto=Contact.where(["sender_id="+current_subject.id.to_s+" and receiver_id="+contact.actor_id.to_s]) %>
+
+			<% ties_a_editar=contacto.first.ties %>
+			<% if ties_a_editar.first!= nil %>		
+			<%= ties_a_editar.first.id.inspect%>
+			<% end %>
+			<% end %>
+				      </div>
+			    </div>
+			</div>
+			<% end %>
+			<% if ((cont%2) != 0) 	%>
+			  <div class="label">
+				  </div>
+				</div>
+			<% end %>
+	<div class="row">
+	  <%= paginate @cs %>
+	</div>
