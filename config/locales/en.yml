@@ -40,8 +40,12 @@ en:
       info: "Event information"
       tags: "Event tags"
     outline: "Outline"
+  preposition:
+    and: "and"
   session:
     confirm_delete: "delete"
+    one: "session"
+    other: "sessions"
   settings:
     manage:
       name: "Admin Contacs"

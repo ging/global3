@@ -1,14 +1,14 @@
 <div id ="outline">
   <div id="agenda_tabs">
     <ul>
-      <%#for i in (1..@event.days)%>
-        <li id="date<%#=i%>" class="date"><%#=(@event.start_date+(i-1).day).strftime("%A %d %b")%></li>
-      <%#end%>
+      <%for i in (1..@event.days)%>
+        <li id="date<%=i%>" class="date"><%=(@event.start_at+(i-1).day).strftime("%A %d %b")%></li>
+      <%end%>
     </ul>
   </div>
 
-  <div id="agenda_pages" <%#= "class='no_date'" if @event.days==0 %> >
-    <%#@days= params[:show_day] ? [params[:show_day].to_i]:[1]%>
-    <%#=render :partial=> "agendas/show_page"%>
+  <div id="agenda_pages" <%= "class='no_date'" if @event.days==0 %> >
+    <%@days= params[:show_day] ? [params[:show_day].to_i]:[1]%>
+    <%=render :partial=> "agendas/show_page"%>
   </div>
 </div>
