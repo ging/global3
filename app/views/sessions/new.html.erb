@@ -1,8 +1,33 @@
-<%#= render :partial => 'form' %>
+<div class="row">
+  <div class="form_row">
+      <h2><%=t('session.new')%></h2>
+  </div>
+</div>
 
-<%=  @event.inspect%>
+                      sdfgsfgsdfg
 
-<%=  @session.inspect%>
+<%= form_tag sessions_path, :method => :post, :remote => true do |f| %>
+<%#= form_tag :path => :session, :action => :create, :method=> :post,  :remote => true  do |f| %>
+<%#= form_for @session do |f| %>
+<div class="block" id="profile_form">
+  <div class="form_row">
+    <div class="form_label">
+      <%=t('session.title')%>
+    </div>
+    <div class="form_field">
+      <%=text_field :title,  :class => "form_tag" %>
+    </div>
+  </div>
+  <div class="form_row">
+    <%= text_area :description, :maxlength => 200, :rows => 10, :class => "form_tag_long" %>
+  </div>
+  <div class="form_row space_center">
+    <%#=submit t('button.update'), :class => "button" %>&nbsp;
+    <button class="button" onclick="window.location.href='<%= polymorphic_path(current_subject) %>';">
+      <%= t('button.cancel')%>
+    </button>
+  </div>
+</div>
+<% end %>
 
-<%=  current_subject.inspect%>
 

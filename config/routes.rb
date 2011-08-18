@@ -2,7 +2,7 @@
 Global::Application.routes.draw do
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
 
-  #resource :agendas
+
   resource :settings
   resource :tie
   match "/settings/update_relation/:id" => "settings#update_relation"
@@ -14,7 +14,7 @@ Global::Application.routes.draw do
     resources actor.to_s.pluralize do
       resources :events do
         resource :agendas do
-        resources :sessions
+          resources :sessions
         end
       end
     end
@@ -25,11 +25,14 @@ Global::Application.routes.draw do
   match "events/:id/sessions" => "sessions#show"
   match "events/:id/sessions/create" => "sessions#create"
 
+
   match "events/:id/agenda/get_sessions" => "agendas#get_sessions"
 
   match "sessions/:id/move" => "sessions#move"
   match "sessions/:id/resize" => "sessions#resize"
   match "sessions/:id/destroy" => "sessions#destroy"
+
+  resources :sessions
 
 
 

@@ -3,6 +3,7 @@ class SessionsController < InheritedResources::Base
   before_filter :authenticate_user!
 
   def new
+    @event= Event.find_by_id(@event)
 
   end
 

@@ -44,8 +44,11 @@ en:
     and: "and"
   session:
     confirm_delete: "delete"
+    new: "New Session"
     one: "session"
     other: "sessions"
+    title: "title"
+    description: "description"
   settings:
     manage:
       name: "Admin Contacs"
