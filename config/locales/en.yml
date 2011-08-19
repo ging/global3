@@ -20,6 +20,8 @@ en:
     created: "Created by"
   agenda:
     confirm_delete: "delete"
+  button:
+    create: "Create"
   conference:
     title: "Conferences"
     list: "Contact's conferences"
@@ -49,6 +51,7 @@ en:
     other: "sessions"
     title: "title"
     description: "description"
+    schedule: "schedule"
   settings:
     manage:
       name: "Admin Contacs"

@@ -1,0 +1,47 @@
+<div class="space_center"></div>
+<div class="space_center"></div>
+<div class="row">
+  <div class="form_row">
+      <h2><%=t('session.new')%></h2>
+  </div>
+</div>
+<div class="space_center"></div>
+<div class="space_center"></div>
+
+<%= form_tag '/session', :remote => true do |f| %>
+<div class="block">
+  <div class="form_row">
+    <div class="form_label">
+      <%=t('session.one').capitalize + ' ' + t('session.title')%>:
+    </div>
+    <div class="form_field">
+      <%= text_field_tag :title, nil, :name => 'session[title]', :value => "",  :class => "form_tag" %>
+      <span class="needed"> (*)</span>
+    </div>
+  </div>
+  <div class="form_row">
+    <div class="form_label">
+      <%=t('session.one').capitalize + ' ' + t('session.schedule')%>:
+    </div>
+  </div>
+  <div class="form_row">
+    <div class="form_label">
+      <%=t('session.one').capitalize + ' ' + t('session.description')%>:
+    </div>
+  </div>
+  <div class="form_row">
+    <%= text_area_tag :description, nil, :name => 'session[description]', :maxlength => 100, :rows => 6, :class => "form_tag_long" %>
+  </div>
+  <div class="form_row needed"><%=t('required')%></div>
+  <div class="form_row space_center">
+    <%= hidden_field :receiver, :name=>"sessions[receiver]", :value => current_subject%>
+    <%= hidden_field :event_id, :name => "session[event_id]", :value => @event.id %>
+    <%= submit_tag t('button.create'), :class => "button" %>&nbsp;
+    <button class="button" onclick="window.location.href='<%=agenda_path(@event)%>';">
+      <%= t('button.cancel')%>
+    </button>
+  </div>
+</div>
+<% end %>
+
+

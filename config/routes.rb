@@ -31,8 +31,10 @@ Global::Application.routes.draw do
   match "sessions/:id/move" => "sessions#move"
   match "sessions/:id/resize" => "sessions#resize"
   match "sessions/:id/destroy" => "sessions#destroy"
+  match "sessions/:id/new" => "sessions#new"
+  match "sessions/:id/create" => "sessions#create"
 
-  resources :sessions
+  #resources :sessions
 
 
 
