@@ -25,7 +25,7 @@
 						allDay: allDay
 					  }, false
                     );
-				    session=createSessionEvent(title, start, end, '<%= params[:id]%>','<%=current_subject.contact_to!(receiver).id %>');
+				    session=createSessionEvent(title, start, end, '<%= @event.id%>','<%=current_subject.contact_to!(receiver).id %>');
             $('#calendar').fullCalendar('refetchEvents');
 				 }
         }
