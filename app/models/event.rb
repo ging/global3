@@ -12,6 +12,12 @@ class Event < ActiveRecord::Base
   after_create :create_founder
   after_create :create_participants
   after_create :create_agenda
+
+  scope :tagged_with, lambda { |param|
+    if param.present?
+      joins(:actor => :activity_object).merge(ActivityObject.tagged_with(param))
+    end
+  }
   
   #acts_as_conference_manager_event
   def profile!

@@ -34,6 +34,25 @@ class EventsController < InheritedResources::Base
                     page(params[:page]).per(10)
   end
 
+  def manage
+    @events = Event.most(params[:most]).
+                    alphabetic.
+                    letter(params[:letter]).
+                    search(params[:search]).
+                    tagged_with(params[:tag]).
+                    page(params[:page]).per(10)
+#@groups = Group.most(params[:most]).
+#                    alphabetic.
+#                    letter(params[:letter]).
+#                    search(params[:search]).
+#                    tagged_with(params[:tag]).
+#                    page(params[:page]).per(10)
+
+    index! do |format|
+      format.html { render :layout => (user_signed_in? ? 'application' : 'frontpage') }
+    end
+  end
+
   def outline
 
   end

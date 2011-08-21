@@ -4,7 +4,7 @@
             <%= t('settings.manage.name')%>
         </div>
         <div class="header_icon_right">
-            <%= link_to (image_tag('btn/edit.png')),  "javascript:showContactSettings();" %>
+            <%= link_to (image_tag('btn/edit.png')), :controller => :settings , :action => :manage%>
         </div>
     </div>
     <div class="content" id="contact_settings_briefing">
@@ -42,7 +42,7 @@
 
 		    <div id="list_contacts_ajax" class="tab_content block">
 
-		      <%= render :partial => "settings/manage"%>
+
 
 		    </div>
 

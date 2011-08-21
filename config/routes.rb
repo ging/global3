@@ -9,11 +9,13 @@ Global::Application.routes.draw do
 
 resource :settings
 resource :tie
-resource :events
+#resource :events
 
 resource :actor
 match "/settings/update_relation/:id" => "settings#update_relation"
-
+match "/settings/manage" => "settings#manage"
+match "/events/manage" => "events#manage"
+match "/settings/delete_relation/:id" => "settings#delete_relation"
   # Social Stream subjects configured in config/initializers/social_stream.rb
 
   SocialStream.subjects.each do |actor|
