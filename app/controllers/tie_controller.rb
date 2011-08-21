@@ -1,8 +1,8 @@
 class TieController < InheritedResources::Base
 
 
+ def update
 
-  def update
-
-  end
+ end 
 end
+

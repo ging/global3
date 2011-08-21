@@ -18,6 +18,8 @@ en:
           message: "%{name} also added you as contact."
   actor:
     created: "Created by"
+    delete: "Delete"
+    confirm_delete: "Confirm delete?"
   agenda:
     confirm_delete: "delete"
   button:
@@ -26,12 +28,21 @@ en:
     title: "Conferences"
     list: "Contact's conferences"
   event:
+    all: "All events"
+    all_n: "All events"
+    by: "By events"
+    cloud: "Events tag cloud"
     confirm_delete: "Delete"
     form:
       title: "Event"
     title: "Events"
     input: "What is the name of event?"
     list: "Contact's events"
+    live: "Live events"
+    most:
+      followed: "Most followed"
+      liked: "Most liked"
+    other: "Events"
   menu:
     outline: "Outline"
   profile:
@@ -67,3 +78,4 @@ en:
   timezone:
     one: Timezone
     set_up: You have not set up your time zone. <a href="{{path}}">Set it up now</a>
+
