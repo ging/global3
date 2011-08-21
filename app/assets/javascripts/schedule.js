@@ -4,13 +4,12 @@
 
 function createSessionEvent(title, start, end, event_id,receiver){
 	jQuery.ajax({
-        data: 'session[title]='+title+
-    '&session[receiver]='+receiver+
-		'&session[description]='+title+
-		'&session[period]=Does%20not%20repeat'+
+        data:
+    'session[title]='+title+
+    '&session[_contact_id]='+receiver+
 		'&session[start_at]='+start.toString().substring(0, 24)+
 		'&session[end_at]='+end.toString().substring(0, 24)+
-		'&session[event_id]='+event_id,
+		'&event_id='+event_id,
         dataType: 'script',
         type: 'POST',
         url: '/events/'+event_id+'/sessions/create'

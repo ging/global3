@@ -22,6 +22,8 @@ en:
     confirm_delete: "Confirm delete?"
   agenda:
     confirm_delete: "delete"
+  button:
+    create: "Create"
   conference:
     title: "Conferences"
     list: "Contact's conferences"
@@ -55,8 +57,12 @@ en:
     and: "and"
   session:
     confirm_delete: "delete"
+    new: "New Session"
     one: "session"
     other: "sessions"
+    title: "title"
+    description: "description"
+    schedule: "schedule"
   settings:
     manage:
       name: "Admin Contacs"

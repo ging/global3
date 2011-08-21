@@ -3,37 +3,31 @@ class SessionsController < InheritedResources::Base
   before_filter :authenticate_user!
 
   def new
+    @event= Event.find_by_id(params[:id])
+    @session= Session.new
 
   end
 
   def create
-    @event = Event.find_by_slug(params[:id])
-
-    @session = Session.new ({
-      :_contact_id => params[:session][:receiver],
-      :title => params[:session][:title],
-      :agenda_id => @event.agenda.id,
-      :start_at => params[:session][:start_at],
-      :end_at =>  params[:session][:end_at],
-      :description => params[:session][:description]
-    })
+    @event = Event.find_by_id(params[:event_id])
+    params[:session][:agenda_id]=@event.agenda.id
+    @session = Session.new (params[:session])
     @session.save
 
     if @event.start_at.nil?
-      @event.start_at = params[:session][:start_at]
-      @event.end_at =  params[:session][:end_at]
+      @event.start_at = @session.start_at
+      @event.end_at =   @session.end_at
       @event.save
     else
-      if @event.start_at > params[:session][:start_at]
-        @event.start_at = params[:session][:start_at]
+      if @event.start_at > @session.start_at
+        @event.start_at = @session.start_at
       end
-      if @event.end_at < params[:session][:end_at]
-        @event.end_at = params[:session][:end_at]
+      if @event.end_at <  @session.end_at
+        @event.end_at =  @session.end_at
       end
       @event.save
     end
-
-    render :json => @event
+    render :json => @session
   end
 
   def index

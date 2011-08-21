@@ -14,6 +14,7 @@ class Agenda < ActiveRecord::Base
   end
 =end
 
+
   def start_date
     event.start_at
   end

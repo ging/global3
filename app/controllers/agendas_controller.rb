@@ -38,6 +38,11 @@ class AgendasController < InheritedResources::Base
   def show
     @event = Event.find_by_slug(params[:id])
 
+
+  end
+
+  def create
+
   end
 
 
