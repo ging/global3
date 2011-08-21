@@ -1,9 +1,5 @@
-<div class="agenda_entry margin-up"> <!--class="profile-box"-->
-  
+<div class="row">
 	<div class="session_wrapper1">
-	  <!--<div class="title_name_and_hour">
-      Time:
-    </div>-->
     <div class="event_hour">
       <%=t('time.from').capitalize%>
 		</div>
@@ -17,7 +13,6 @@
 			<%=session.end_at.strftime("%H:%M") %>
 		</div>
 	</div>
-	
 	<div class="session_wrapper2">
 		<div class="entry_title">
 	    <div class="title_name_and_hour">
@@ -28,15 +23,12 @@
 	        <%=session.title%>
 	      </span>
 	    </div>
-	
 	  </div>
-	
-	  <div class="agenda_entry_description"> 
-
+	  <div class="agenda_entry_description">
 	    <ul class="agenda_list_content">
 	      <li><%=session.description %></li>
       </ul>
 	  </div>
 	</div>
-
 </div>
+<div class="space_center"></div>
