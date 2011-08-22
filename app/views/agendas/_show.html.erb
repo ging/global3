@@ -1,3 +1,12 @@
+<% content_for :javascript do %>
+  $("#tabs").tabs({
+    ajaxOptions: {
+      dataType: "script",
+      success: function(data) { eval(data); }
+    }
+  });
+<% end %>
+
 <div class="space_center"></div>
 <h3> &nbsp; <%= t('Outline') +' '+ t('preposition.and')+' '+t('session.other') %></h3>
 <div class="space_center"></div>
@@ -48,18 +57,25 @@
 </table>
 </div>
 
-
-<div id ="outline">
-  <div id="agenda_tabs">
+<%if !@event.agenda.nil? and !@event.agenda.start_date.nil? %>
+<div id ="outline" class="block">
+  <div id="tabs" class="widget content_size">
     <ul>
       <%for i in (1..@event.days)%>
-        <li id="date<%=i%>" class="date"><%=(@event.start_at+(i-1).day).strftime("%A %d %b")%></li>
+        <li><a href="#date<%=i%>"><%=(@event.start_at+(i-1).day).strftime("%A %d %b")%></a></li>
       <%end%>
     </ul>
-  </div>
 
-  <div id="agenda_pages" <%= "class='no_date'" if @event.days==0 %> >
-    <%@days= params[:show_day] ? [params[:show_day].to_i]:[1]%>
-    <%=render :partial=> "agendas/show_page"%>
+    <%for i in (1..@event.days)%>
+      <div id="date<%=i%>">
+        <%=render :partial=> "agendas/show_day", :locals => {:day=>i}%>
+      </div>
+    <%end%>
   </div>
 </div>
+<%else%>
+  <div class="block " >
+    <div class="message">No existen sessiones programadas</div>
+  </div>
+<%end%>
+
