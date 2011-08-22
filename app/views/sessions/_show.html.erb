@@ -14,18 +14,11 @@
 		</div>
 	</div>
 	<div class="session_wrapper2">
-		<div class="entry_title">
-	    <div class="title_name_and_hour">
-	        <%=session.start_at.strftime("%H:%M") %> <%=t('to')%> <%=session.end_at.strftime("%H:%M") %>
-	      <span class="entry_name">
-	        <%=session.title%>
-	      </span>
-	    </div>
+		<div class="block header_text session_title">
+      <h3><span class="header_title"><%=session.title%></span></h3>
 	  </div>
-	  <div class="agenda_entry_description">
-	    <ul class="agenda_list_content">
-	      <li><%=session.description %></li>
-      </ul>
+	  <div class="block content">
+	    <%=session.description %>
 	  </div>
 	</div>
 </div>

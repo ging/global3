@@ -8,12 +8,13 @@
  *= require_tree . 
 */
 
-#calendar{
-  margin-top:-9px;
-}
-#fc-btn-agenda{
-  padding-left: 1px;
-}
+#calendar{margin-top:-9px;}
+#fc-btn-agenda{ padding-left: 1px;}
+
+
+#founder{ padding: 1px; padding-top: 5px; text-align: center; }
+#founder #created{display: inline-block;}
+#founder #thumb{display: inline-block;}
 
 
 #event_name{
@@ -24,16 +25,15 @@
 
 .space_center_manage
 {
-    padding-right: 0;
-    padding-top: 9px;
-    text-align: left;
+  padding-right: 0;
+  padding-top: 9px;
+  text-align: left;
 }
-.tie_form
-{
-    display: inline;
-    height: 1%;
-    margin: 0 0;
-    overflow: hidden;
+.tie_form {
+  display: inline;
+  height: 1%;
+  margin: 0 0;
+  overflow: hidden;
 }
 #contact_data
 {
@@ -54,12 +54,7 @@ width: 250px;
 .event_month{font-size: 2em;line-height:70%;}
 .event_hour{font-size: 1.2em;min-width: 30px; min-height: 20px;}
 
-.entry_name{
-  width:410px;
-  /*background:#f0f6f9;*/
-  font-size: 1.1667em;
-  font-weight: bold;
-  line-height: 1.2857;
-  margin-left: 5px;
-
+.session_title{
+  border-bottom: 1px solid #ccc;
+  width: 100%;
 }

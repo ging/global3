@@ -17,7 +17,7 @@
 <% if subject.subject_type == 'Event' %>
 <%  @founder = Actor.normalize(subject.founder_id) %>
 <div id="founder">
-  <div><%=t('actor.created')%></div>
-  <div><%= link_to(image_tag(@founder.logo.url(:representation), :width => 20, :height => 20, :class => 'menu_icon', :id=> 'current_user_avatar_img'), @founder.subject  ) %></div>
+  <div id="created"><%=t('actor.created')%></div>
+  <div id="thumb"><%= link_to(image_tag(@founder.logo.url(:representation), :width => 20, :height => 20, :class => 'menu_icon', :id=> 'current_user_avatar_img'), @founder.subject  ) %></div>
 </div>
 <% end %>

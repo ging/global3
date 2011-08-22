@@ -6,6 +6,9 @@ class Agenda < ActiveRecord::Base
 
   validates_presence_of :event_id
 
+    # Fullcalendar slot values
+  SLOT_VALUES=[5,15,30]
+
 =begin
   def to_fullcalendar_json
     sessions.map(&:to_fullcalendar_json).join(", ")
@@ -35,6 +38,14 @@ class Agenda < ActiveRecord::Base
                 :day_end => start_date.to_date + i.day})
 
 
+  end
+
+  def self.next_time_slot_for_drop_down
+    if Time.zone.now.min > 40
+      Time.zone.parse("#{Time.zone.now.hour + 1}:00")
+    else
+      Time.zone.parse("#{Time.zone.now.hour}:#{(Time.zone.now.min.to_f/SLOT_VALUES[1]).ceil*SLOT_VALUES[1]}")
+    end
   end
 
 end
