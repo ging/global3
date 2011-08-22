@@ -11,7 +11,6 @@
 #calendar{margin-top:-9px;}
 #fc-btn-agenda{ padding-left: 1px;}
 
-
 #founder{ padding: 1px; padding-top: 5px; text-align: center; }
 #founder #created{display: inline-block;}
 #founder #thumb{display: inline-block;}
@@ -35,10 +34,7 @@
   margin: 0 0;
   overflow: hidden;
 }
-#contact_data
-{
-width: 250px;
-}
+#contact_data{width: 250px;}
 
 
 .session_wrapper1,.session_wrapper2{float:left;display:block;}
@@ -46,15 +42,25 @@ width: 250px;
 	width:14%;
 	text-align:center;
 	margin:15px 0 15px 0;
-	color:#514721;
+	color:#000;
 	}
-.session_wrapper2{width:86%;}
+.session_wrapper2{width:86%;padding-top: 5px;}
 
-.event_day{font-size: 3em;line-height:90%;}
-.event_month{font-size: 2em;line-height:70%;}
-.event_hour{font-size: 1.2em;min-width: 30px; min-height: 20px;}
+.event_date_image{margin: 0px 10px 0px 0px;width:100%;color:black;text-align:center;font-weight: bold;vertical-align: middle;}
+.event_day{font-size: 3.5em;line-height:90%;}
+.event_month{font-size: 2.5em;line-height:80%;}
+.event_year{font-size: 1.2em;line-height:110%;}
+.event_hour{font-size: 1.5em;line-height:80%;min-width: 30px; min-height: 20px;}
+.event_day_name{font-size: 1em;line-height:80%;}
+.event_time{font-size: 1em; line-height:50%;}
 
 .session_title{
   border-bottom: 1px solid #ccc;
   width: 100%;
 }
+
+.schedule{ height: 85px;}
+
+.block .session{height: 110px;}
+.block .session_title_black {color: black;}
+.block .session_content{font-size: 13px;}
