@@ -22,7 +22,7 @@
 <% toolbar :profile => @event %>
 <div class="space_center"></div>
 
-<%  if  @event.subject.subject_type == 'Event' and !@event.agenda.nil? %>
+<%  if  @event.subject.subject_type == 'Event' and @event.has_date? %>
   <%= render :partial=> "agendas/schedule", :locals => {:event => @event} %>
 <% else %>
   <br class="clearfloat" />
