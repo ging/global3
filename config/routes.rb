@@ -16,6 +16,7 @@ match "/settings/update_relation/:id" => "settings#update_relation"
 match "/settings/manage" => "settings#manage"
 match "/events/manage" => "events#manage"
 match "/settings/delete_relation/:id" => "settings#delete_relation"
+match "/activities/documents" => "activities#documents"
   # Social Stream subjects configured in config/initializers/social_stream.rb
 
   SocialStream.subjects.each do |actor|

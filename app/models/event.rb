@@ -13,10 +13,8 @@ class Event < ActiveRecord::Base
   after_create :create_participants
   after_create :create_agenda
 
-  scope :tagged_with, lambda { |param|
-    if param.present?
-      joins(:actor => :activity_object).merge(ActivityObject.tagged_with(param))
-    end
+  scope :live_events, lambda { 
+  where("events.start_at <= ? AND events.end_at > ?", Time.zone.now, Time.zone.now)
   }
   
   #acts_as_conference_manager_event

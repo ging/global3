@@ -24,7 +24,7 @@
         <%= link_to t('event.all_n', :count => Event.count), :most => nil %>
       </li>
       <li>
-        <%= link_to t('event.live', :count => Event.count), :most => nil %>
+        <%= link_to t('event.live', :count => Event.count), {:most => nil,:live=> :live} %>
       </li>
       <li>
         <%= link_to t('event.most.followed'), :most => :followed %>
@@ -42,7 +42,14 @@
       <div class="space_center"></div>
       <div class="row">
         <div class="center">
-          <% for g in Event.distinct_initials %>
+          
+          <% initials=nil 
+              if (params[:live].nil?) 
+                initials=Event.distinct_initials
+              else
+                initials=Event.live_events.distinct_initials
+              end %>
+          <% for g in initials %>
             <%= link_to g.initial,{:letter => g.initial,:page => 1},:class => "user_letter_link" %>
           <% end %>
         </div>

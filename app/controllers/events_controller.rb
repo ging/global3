@@ -35,11 +35,19 @@ class EventsController < InheritedResources::Base
   end
 
   def manage
-    @events = Event.most(params[:most]).
-                    alphabetic.
-                    letter(params[:letter]).
+    if params[:live].nil?
+            @events = Event.
+                    most(params[:most]).
+                    alphabetic.letter(params[:letter]).
                     search(params[:search]).
-                    tagged_with(params[:tag]).
+                    tagged_with(params[:tag]).                    
+                    page(params[:page]).per(10)
+    else
+      @events = Event.
+                    live_events().
+                    alphabetic.letter(params[:letter]).
+                    search(params[:search]).
+                    tagged_with(params[:tag]).                    
                     page(params[:page]).per(10)
 #@groups = Group.most(params[:most]).
 #                    alphabetic.
@@ -47,7 +55,7 @@ class EventsController < InheritedResources::Base
 #                    search(params[:search]).
 #                    tagged_with(params[:tag]).
 #                    page(params[:page]).per(10)
-
+    end
     index! do |format|
       format.html { render :layout => (user_signed_in? ? 'application' : 'frontpage') }
     end

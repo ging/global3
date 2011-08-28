@@ -16,6 +16,13 @@ en:
         Event:
           title: "%{subject} and %{contact} are now connected."
           message: "%{name} also added you as contact."
+    view:
+      documents: "Documents"
+      audio: "Audio"
+      event: "Events"
+      photos: "Photos"
+      post: "Posts"
+      video: "videos"
   actor:
     created: "Created by"
     delete: "Delete"
@@ -43,6 +50,7 @@ en:
       followed: "Most followed"
       liked: "Most liked"
     other: "Events"
+    suscribed: "Last Suscribed"
   menu:
     outline: "Outline"
   profile:

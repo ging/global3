@@ -1,0 +1,22 @@
+<div id="wrapper_activities">
+  <div id="wrapper_activities_header">
+    <div id="activities_title" class="content_size">
+      <div class="activities_title_header">
+        <%= image_tag("btn/activity.png") %><%= t 'activity.title' %>
+      </div>
+    </div>
+    <%= render :partial => 'activities/new', :locals => { :receiver => owner } %>
+  </div>
+  <div>
+           <%= link_to t('activity.view.documents'),{:controller => :activities , :action => :documents,:types=>"Documents"}, :remote=>true %> |
+polymorphic_path([current_subject, Audio.new])|
+           <%= link_to t('activity.view.audio'),{:controller => :settings , :action => :delete_relation,:id=>"8"}%>|
+           <%= link_to t('activity.view.event'),{:controller => :settings , :action => :delete_relation,:id=>"8"}%>|
+           <%= link_to t('activity.view.photos'),{:controller => :settings , :action => :delete_relation,:id=>"8"}%>|
+           <%= link_to t('activity.view.post'),{:controller => :settings , :action => :delete_relation,:id=>"8"}%>|
+           <%= link_to t('activity.view.video'),{:controller => :settings , :action => :delete_relation,:id=>"8"}%>
+  </div>
+  <%= render :partial => 'activities/wall',
+             :locals  => { :activities => activities } %>
+
+</div>
