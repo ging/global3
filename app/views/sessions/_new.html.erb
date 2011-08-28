@@ -26,7 +26,7 @@
       <%=t('time.from')%>
     </div>
     <div class="form_field">
-      <%= f.datetime_select :start_at, {:start_year => Time.zone.now.year} %>
+      <%= f.datetime_select :start_at, {:start_year => Time.zone.now.year, :minute_step => Agenda::SLOT_VALUES[1], :default => Agenda.next_time_slot_for_drop_down + 2.hours} %>
       <span class="needed"> (*)</span>
     </div>
   </div>
@@ -35,7 +35,7 @@
       <%=t('time.to')%>
     </div>
     <div class="form_field">
-      <%= f.datetime_select :end_at, {:start_year => Time.zone.now.year} %>
+      <%= f.datetime_select :end_at, {:start_year => Time.zone.now.year, :minute_step => Agenda::SLOT_VALUES[1], :default => Agenda.next_time_slot_for_drop_down + 2.hours + 30.minutes} %>
       <span class="needed"> (*)</span>
     </div>
   </div>

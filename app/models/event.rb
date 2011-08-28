@@ -105,5 +105,27 @@ class Event < ActiveRecord::Base
     start_at
   end
 
+  def get_formatted_date
+    has_date? ?
+    I18n::localize(start_at, :format => "%A, %d %b %Y #{I18n::translate('date.at')} %H:%M. #{get_formatted_timezone}") :
+    I18n::t('date.undefined')
+  end
+
+  def get_formatted_day
+    has_date? ?
+    I18n::localize(start_at, :format => "%A, %d %b %Y #{I18n::translate('date.at')} %H:%M. #{get_formatted_timezone}") :
+    I18n::t('date.undefined')
+  end
+
+  def get_formatted_timezone
+    has_date? ?
+      "#{Time.zone.name} (#{start_at.zone}, GMT #{start_at.formatted_offset})" :
+    I18n::t('date.undefined')
+  end
+
+  #method to get the starting hour of an event in the correct format
+  def get_formatted_hour
+    has_date? ? start_at.strftime("%H:%M") : I18n::t('date.undefined')
+  end
 
 end

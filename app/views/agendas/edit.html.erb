@@ -19,6 +19,6 @@
 
 
 <%= location(link_to(image_tag("btn/btn_outline.png", :class => "menu_icon")+t('menu.outline'),
-              [@event, :profile])) %>
+              agenda_path(@event))) %>
 
 <%= render :partial => "edit" %>

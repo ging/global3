@@ -34,6 +34,9 @@ en:
   conference:
     title: "Conferences"
     list: "Contact's conferences"
+  date:
+    at: at
+    undefined: Undefined
   event:
     all: "All events"
     all_n: "All events"

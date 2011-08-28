@@ -1,4 +1,4 @@
-<div class="row">
+<div class="block session">
 	<div class="session_wrapper1">
     <div class="event_hour">
       <%=t('time.from').capitalize%>
@@ -14,21 +14,11 @@
 		</div>
 	</div>
 	<div class="session_wrapper2">
-		<div class="entry_title">
-	    <div class="title_name_and_hour">
-	      <!--<span class="entry_hour">
-	        <%=session.start_at.strftime("%H:%M") %> <%=t('to')%> <%=session.end_at.strftime("%H:%M") %>
-	      </span>-->
-	      <span class="entry_name">
-	        <%=session.title%>
-	      </span>
-	    </div>
+		<div class="block header_text session_title">
+      <h3><span class="header_title"><%=session.title%></span></h3>
 	  </div>
-	  <div class="agenda_entry_description">
-	    <ul class="agenda_list_content">
-	      <li><%=session.description %></li>
-      </ul>
+	  <div class="content">
+	    <%=session.description %>
 	  </div>
 	</div>
 </div>
-<div class="space_center"></div>
