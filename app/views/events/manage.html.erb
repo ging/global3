@@ -56,7 +56,7 @@
       </div>
       <div class="space_center"></div>
       <div id="list_users_ajax" class="tab_content">
-        <%= render :partial => "events/manage"%>
+        <%= render :partial => "events/manage", :locals=>{:events=>@events}%>
       </div>
       <div class="space_center"></div>
     </div>

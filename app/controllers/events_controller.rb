@@ -7,7 +7,7 @@ class EventsController < InheritedResources::Base
 
   #load_and_authorize_resource
 
-  #respond_to :html, :js
+  respond_to :html, :js
 
   def create
     create! do |success, failure|
