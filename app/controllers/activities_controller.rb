@@ -5,12 +5,21 @@ class ActivitiesController < InheritedResources::Base
   respond_to :js
 
   def documents
-    logger.info("aqui ")
     object_types = params[:types]
-    
-    @activities=ActivityObject.where("object_type in :list",:list=> object_types).order("updated_at DESC").
-                          page(params[:page]).
-                          per(params[:per])    
+    if object_types.nil? || object_types == "all"
+#    @activities=ActivityObject.where("object_type in :list",:list=> object_types).order("updated_at DESC").
+     logger.debug("es nil u all")
+#     @activities=ActivityObject.
+#                          page(params[:page]).
+#                          per(params[:per])    
+      @activities=current_subject.wall(:home).page(params[:page])
+    else
+     logger.debug("tiene valores el arreglo")
+#     @activities=ActivityObject.where(:object_type => object_types).order("updated_at DESC").
+#                          page(params[:page]).
+#                          per(params[:per])    
+      @activities=current_subject.wall(:home).joins(:activity_objects).where(:activity_objects=>{:object_type => object_types}).order("updated_at DESC").page(params[:page])
+    end
     #@activities = profile_subject.wall(:profile,
     #                       :for => current_subject,
     #                       :object_type => object_types).#Array(self.class.index_object_type)).

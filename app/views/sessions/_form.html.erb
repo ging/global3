@@ -1,11 +1,21 @@
-<%= form_for @session ,:url=> event_agenda_sessions_path(@event) ,:remote => true do |f| %>
+<%= form_for @session,:url => {:action => :update}, :method => 'post' do |f| %>
 
   <div class="form_row">
-    <%= label_tag :name %>
+    <%= label_tag :title %>
   </div>
   
   <div class="form_row">
-    <%= f.text_field :name %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form_row">
+    <div class="form_label">
+      <%= t('session.description')%>:
+    </div>
+  </div>
+
+  <div class="form_row">
+    <%= f.text_area :description, :maxlength => 100, :rows => 6, :class => "form_tag_long"  %>
   </div>
 
  <div class="form_row">
@@ -23,8 +33,9 @@
   <div class="form_row">
     <%= f.datetime_select :end_at %>
   </div>
-
+    <%= hidden_field_tag :id_event, @event.id %>
   <div class="form_row">
     <%= f.submit "Edit event", :class => "button" %>
   </div>
+
 <% end %>

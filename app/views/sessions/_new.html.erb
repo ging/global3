@@ -10,7 +10,8 @@
 <div class="space_center"></div>
 <div class="space_center"></div>
 
-<%= form_for @session, :method => 'post', :remote => true do |f| %>
+
+<%= form_for @session,:url => {:action => :create}, :method => 'post' do |f| %>
 <div class="block">
   <div class="form_row">
     <div class="form_label">

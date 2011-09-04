@@ -17,6 +17,7 @@ match "/settings/manage" => "settings#manage"
 match "/events/manage" => "events#manage"
 match "/settings/delete_relation/:id" => "settings#delete_relation"
 match "/activities/documents" => "activities#documents"
+match "/sessions/delete/:id" => "sessions#delete"
   # Social Stream subjects configured in config/initializers/social_stream.rb
 
   SocialStream.subjects.each do |actor|
@@ -42,7 +43,7 @@ match "/activities/documents" => "activities#documents"
   match "sessions/:id/destroy" => "sessions#destroy"
   match "sessions/:id/new" => "sessions#new"
   match "sessions/:id/create" => "sessions#create"
-
+  match "sessions/:id/update" => "sessions#update"
   #resources :sessions
 
 

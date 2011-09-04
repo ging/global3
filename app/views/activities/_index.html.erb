@@ -9,13 +9,17 @@
 				* on focus and on click display the dropdown, 
 				* and change the arrow image
 				*/
-				$ui.find('.sb_down').bind('focus click',function(){
+				/*$ui.find('.sb_down').bind('focus click',function()*/
+        $ui.find('.sb_down').bind('mouseover',function()
+        {
 					$ui.find('.sb_down')
 					   .addClass('sb_up')
 					   .removeClass('sb_down')
 					   .andSelf()
 					   .find('.sb_dropdown')
 					   .show();
+              $ui.find('.sb_up')
+					   .hide();
 				});
 				
 				/**
@@ -29,6 +33,8 @@
 					   .andSelf()
 					   .find('.sb_dropdown')
 					   .hide();
+              $ui.find('.sb_down')
+					   .show();
 				});
 				
 				/**
@@ -52,14 +58,12 @@
         <%= form_tag "/activities/documents", :method => :post ,:id=> 'form_filter', :class => "tie_form",:remote=> true do %>
 						<span class="sb_down">Filter</span>
 					<ul class="sb_dropdown" style="display:none;">
-
-						<li class="sb_filter">Filter your search</li>
 						<li>
                 <%= check_box_tag 'types', 'all', false, :class => 'accept_tos',:onchange=>'$(\'#form_filter\').submit();'%>
                 <label for="all"><strong>All Categories</strong></label>                        
             </li>
 						<li>
-                <%= check_box_tag 'types', 'documents', false, :class => 'accept_tos',:onchange=>'$(\'#form_filter\').submit();'%>
+                <%= check_box_tag 'types', 'Documents', false, :class => 'accept_tos',:onchange=>'$(\'#form_filter\').submit();'%>
                 <label for="<%=t('activity.view.documents')%>"><%=t('activity.view.documents')%></label>
             </li>
   					<li>

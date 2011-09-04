@@ -16,7 +16,9 @@
 	<div class="session_wrapper2">
 		<div class="block header_text session_title">
       <h3><span class="header_title"><%=session.title%></span></h3>
-      <span>Editar</span>|       <span>Eliminar</span>
+               <%= link_to image_tag("btn/btn_edit.png" , :alt => "name"),{:controller => :sessions , :action => :edit,:id_event=>@event.id,:id=>session.id}%>|
+
+         <%= link_to image_tag("btn/trash.png" , :alt => "name"),{:controller => :sessions , :action => :destroy,:id=>session.id}, :confirm => t('actor.confirm_delete')%>
 	  </div>
 	  <div class="content">
 	    <%=session.description %>

@@ -8,6 +8,35 @@ class SessionsController < InheritedResources::Base
 
   end
 
+  def edit
+    @event= Event.find_by_id(params[:id_event])
+    @session= Session.find_by_id(params[:id])
+
+  end
+
+  def update
+    @event = Event.find_by_id(params[:id_event])
+    params[:session][:agenda_id]=@event.agenda.id
+    @session = Session.find_by_id(params[:id])
+    @session.update_attributes(params[:session])
+#    @session = Session.new (params[:session])
+#    @session.save
+    if @event.start_at.nil?
+      @event.start_at = @session.start_at
+      @event.end_at =   @session.end_at
+      @event.save
+    else
+      if @event.start_at > @session.start_at
+        @event.start_at = @session.start_at
+      end
+      if @event.end_at <  @session.end_at
+        @event.end_at =  @session.end_at
+      end
+      @event.save
+    end
+    redirect_to "/agendas/"+@event.slug
+  end
+
   def create
     @event = Event.find_by_id(params[:event_id])
     params[:session][:agenda_id]=@event.agenda.id
@@ -27,7 +56,8 @@ class SessionsController < InheritedResources::Base
       end
       @event.save
     end
-    render :json => @session
+#    render :json => @session
+    redirect_to "/agendas/"+@event.slug
   end
 
   def index
@@ -73,27 +103,23 @@ class SessionsController < InheritedResources::Base
 
   def destroy
     @session = Session.find(params[:id])
+    @event = @session.event
     start_at=@session.start_at
     end_at=@session.end_at
     @session.destroy
 
-
-    @event = Event.find(@session.event)
-
     if !@event.start_at.nil?
       if start_at < @event.start_at
-        #@event.start_at = @session.start_at
-        #TOCA CAMBIAR FECHA....
+        #changing the start_at of the event
+        @event.start_at = @event.sessions.order("start_at ASC").map{|x| x.start_at}.first
       end
       if end_at > @event.end_at
-        #@event.end_at = @session.end_at
-        #TOCA CAMBIAR FECHA.
+        #changing the end_at of the event
+        @event.end_at = @event.sessions.order("end_at DESC").map{|x| x.end_at}.first
       end
       @event.save
-    end
-
-
-    respond_to  :js
+    end    
+    redirect_to "/agendas/"+@event.slug
   end
 
 

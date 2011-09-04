@@ -16,6 +16,11 @@ en:
         Event:
           title: "%{subject} and %{contact} are now connected."
           message: "%{name} also added you as contact."
+      post:
+        User:
+          title: "%{subject} add %{contact} like a new session."
+        Event:
+          title: "%{subject} created a new session."
     view:
       documents: "Documents"
       audio: "Audio"

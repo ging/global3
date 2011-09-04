@@ -11,6 +11,7 @@
 {
   position:absolute;
   left:64%;
+  top:49%;
 }
 #calendar{margin-top:-9px;}
 #fc-btn-agenda{ padding-left: 1px;}
@@ -44,7 +45,7 @@ ul.sb_dropdown{
 ul.sb_dropdown{
 	float:left;
 	list-style:none;
-	width:150px;
+	width:295px;
 	padding:6px 5px;
 	-moz-border-radius:0px 0px 10px 10px;
 	-webkit-border-bottom-right-radius:10px;
@@ -53,11 +54,11 @@ ul.sb_dropdown{
 	border-bottom-left-radius:10px;
 }
 ul.sb_dropdown li{
-	font-size:16px;
-	line-height:32px;
-	height:32px;
+	font-size:8px;
+	line-height:2px;
+	height:22px;
 	float:left;
-	width:50%;
+	width:30%;
 }
 ul.sb_dropdown li input[type="checkbox"]{
 	float:left;
@@ -181,10 +182,10 @@ ul.sb_dropdown{
 	outline:none;
 	padding:6px 5px 6px 20px;
 	text-shadow:1px 1px 1px #fff;
-	width:295px;
+	width:105px;
 	float:left;
 	margin:3px 0px;
-}
+}s
 ul.sb_dropdown{
 	float:left;
 	list-style:none;
@@ -197,18 +198,18 @@ ul.sb_dropdown{
 	border-bottom-left-radius:10px;
 }
 ul.sb_dropdown li{
-	font-size:16px;
-	line-height:32px;
-	height:32px;
-	float:left;
-	width:50%;
+    float: left;
+    font-size: 12px;
+    height: 25px;
+    line-height: 10px;
+    width: 100%;
 }
 ul.sb_dropdown li input[type="checkbox"]{
-	float:left;
-	margin:10px 4px 0 5px;
+	float:right;
+	margin:0px 3px 0 5px;
 }
 ul.sb_dropdown li.sb_filter{
-	width:148px;
+	width:295px;
 	border:1px solid #f9f9f9;
 	clear:both;
 	background: #ddd;
@@ -230,7 +231,8 @@ span.sb_down{
 	width:14px;
 	height:41px;
 	background-color:#f2f2f2;
-	background-position:center center;
+	/*background-position:center center;*/
+  background-position: left center;
 	background-repeat: no-repeat;
 	z-index:10;
 	border:1px solid #fff;
