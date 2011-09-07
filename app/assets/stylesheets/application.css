@@ -9,9 +9,11 @@
 */
 #filter_div
 {
-  position:absolute;
-  left:64%;
-  top:49%;
+    float: right;
+    height: 10px;
+    padding-top: 5px;
+    width: 76px;
+    z-index: 2000;
 }
 #calendar{margin-top:-9px;}
 #fc-btn-agenda{ padding-left: 1px;}
@@ -44,6 +46,7 @@ ul.sb_dropdown{
 }
 ul.sb_dropdown{
 	float:left;
+  margin-right:50px;
 	list-style:none;
 	width:295px;
 	padding:6px 5px;
@@ -182,13 +185,16 @@ ul.sb_dropdown{
 	outline:none;
 	padding:6px 5px 6px 20px;
 	text-shadow:1px 1px 1px #fff;
-	width:105px;
-	float:left;
+	width:100px;
+  float: right;
 	margin:3px 0px;
+  margin-right:0px;
+  z-index: 2000;
 }s
 ul.sb_dropdown{
-	float:left;
+	float:right;
 	list-style:none;
+  z-index:2000;
 	width:150px;
 	padding:6px 5px;
 	-moz-border-radius:0px 0px 10px 10px;
