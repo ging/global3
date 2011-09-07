@@ -4,6 +4,7 @@ index
 .project
 .loadpath
 log/*.log
+log/*.pid
 *kpf
 tmp/*
 config/database.yml
