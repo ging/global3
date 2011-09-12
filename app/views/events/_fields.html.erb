@@ -1,5 +1,11 @@
 <% f.object._founder = current_subject.slug  %>
 <%= f.hidden_field :_founder %>
 <%= f.hidden_field :founder_id, :value => current_subject.id %>
-<%= f.text_field :name, :size => 85, :value => t('event.input')  %>
+<%= f.text_field :name, :size => 85 %>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $("#event_name").Watermark("<%= I18n.t('event.input') %>","#666");
+});
+<% end %>
 
