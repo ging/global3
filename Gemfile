@@ -5,7 +5,7 @@ if RUBY_VERSION < '1.9'
 end
 
 gem 'thinking-sphinx',
-  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+  :git     => 'git://github.com/Roendal/thinking-sphinx.git',
   :branch  => 'rails3'
 
 # Uncomment the following lines if you are planing to
