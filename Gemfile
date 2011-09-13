@@ -24,6 +24,8 @@ gem 'social_stream-base', :path => '../social_stream-base'
 gem 'social_stream-documents', :path => '../social_stream-documents'
 # gem 'social2social', :path => '../social2social'
 
+gem 'social_stream-events', :path => '../social_stream-events'
+
 # social_stream
 # gem 'social_stream', :path => '../social_stream'
 
@@ -35,3 +37,5 @@ if RUBY_VERSION > '1.9'
     gem 'ruby-debug19', :require => 'ruby-debug'
   end
 end
+
+
