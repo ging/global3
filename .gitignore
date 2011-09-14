@@ -29,3 +29,5 @@ public/system
 Gemfile.lock
 **.*swp
 documents
+config/development.sphinx.conf
+db/sphinx/*
