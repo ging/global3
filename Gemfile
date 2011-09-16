@@ -19,16 +19,16 @@ gem 'thinking-sphinx',
 gem 'conference_manager-ruby'
 
 # Include development dependencies from social_stream-base
-gemspec :path => File.join('..', 'social_stream-base')
-
-# social_stream-base
-gem 'social_stream-base', :path => '../social_stream-base'
+gemspec :path => File.join('..', 'social_stream', 'base')
 
 # Gems before social_stream
-gem 'social_stream-documents', :path => '../social_stream-documents'
-# gem 'social2social', :path => '../social2social'
+gem 'social_stream-base', :path => '../social_stream/base'
 
-gem 'social_stream-events', :path => '../social_stream-events'
+gem 'social_stream-documents', :path => '../social_stream/documents'
+
+gem 'social_stream-events', :path => '../social_stream/events'
+
+# gem 'social2social', :path => '../social2social'
 
 # social_stream
 # gem 'social_stream', :path => '../social_stream'
