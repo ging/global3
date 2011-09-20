@@ -3,7 +3,7 @@ require 'social_stream/migrations/documents'
 require 'social_stream/migrations/events'
 
 ActiveRecord::Schema.define(:version => 0) do
-  SocialStream::Migrations::Documents.new.up
-  SocialStream::Migrations::Events.new.up  
- 
+  %w(Base Documents Events).each do |m|
+    "SocialStream::Migrations::#{ m }".constantize.new.up
+  end
 end
