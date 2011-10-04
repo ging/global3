@@ -31,3 +31,4 @@ Gemfile.lock
 documents
 config/development.sphinx.conf
 db/sphinx/*
+.sass-cache
