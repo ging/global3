@@ -19,6 +19,6 @@ SocialStream.setup do |config|
   # Quick search (header) and Extended search models and its order. Remember to create
   # the indexes with thinking-sphinx if you are using customized models.
   # 
-  config.quick_search_models = [:user, :group, :event, :picture, :video, :audio,:document]
-  config.extended_search_models = [:user, :group, :event, :picture, :video, :audio, :document]
+  config.quick_search_models = [:user, :group, :event, :picture, :video, :audio, :document]
+  config.extended_search_models = [:user, :group, :event, :post, :picture, :video, :audio, :document]
 end
