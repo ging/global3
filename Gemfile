@@ -4,10 +4,6 @@ if RUBY_VERSION < '1.9'
   gem 'linecache', '0.43'
 end
 
-gem 'thinking-sphinx',
-  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-  :branch  => 'rails3'
-
 # Uncomment the following lines if you are planing to
 # use a local code of any of these gems
 #
