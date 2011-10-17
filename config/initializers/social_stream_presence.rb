@@ -1,6 +1,6 @@
 SocialStream::Presence.setup do |config| 
   #Configures XMPP Server Domain
-  config.domain = "trapo"
+  config.domain = "localhost"
   #Configures Bosh Service Path
   config.bosh_service = "http://localhost:8080/http-bind"
   #Configures Social Stream Rails App Password
