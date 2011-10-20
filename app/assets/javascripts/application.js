@@ -7,7 +7,7 @@
 //= require social_stream-base
 //= require social_stream-documents
 //= require social_stream-events
-//= require social_stream-presence
+// require social_stream-presence
 //= require_tree .
 
 

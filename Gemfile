@@ -30,7 +30,7 @@ gemspec :path => File.join('..', 'social_stream', 'base')
 # social_stream
 gem 'social_stream', :path => '../social_stream'
 
-gem 'social_stream-presence', :path => '../social_stream/presence'
+#gem 'social_stream-presence', :path => '../social_stream/presence'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql'

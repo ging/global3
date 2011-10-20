@@ -1,3 +1,4 @@
+=begin
 SocialStream::Presence.setup do |config| 
   #Configures XMPP Server Domain
   config.domain = "localhost"
@@ -10,3 +11,4 @@ SocialStream::Presence.setup do |config|
   #Username of the the Social Stream Admin sid
   config.social_stream_presence_username = "social_stream-presence"
 end
+=end
