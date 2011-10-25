@@ -9,6 +9,10 @@ SocialStream::Presence.setup do |config|
   config.xmpp_server_password = "G&s6GBnO)anw2Ene%K12Cb=0quj@uDmA"
   #Username of the the Social Stream Admin sid
   config.social_stream_presence_username = "social_stream-presence"
-  #True to enable Social Stream Presence
-  config.enable = true
+  #Scripts path to execute local ejabberd commands
+  config.scripts_path = "/home/aldo/ejabberd-2.1.8_scripts"
+  #Remote or local mode
+  config.remote_xmpp_server = false
+  #False to disable Social Stream Presence
+  #config.enable = false
 end
