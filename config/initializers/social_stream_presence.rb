@@ -8,16 +8,17 @@ SocialStream::Presence.setup do |config|
   #Configures XMPP Server Password
   config.xmpp_server_password = "G&s6GBnO)anw2Ene%K12Cb=0quj@uDmA"
   #Remote or local mode
-  config.remote_xmpp_server = false
+  config.remote_xmpp_server = true
   #Scripts path of ejabberd scripts (local or remote)
   config.scripts_path = "/home/aldo/ejabberd-2.1.8_scripts" 
   #False to disable Social Stream Presence
   #config.enable = false
   
   #Parameters for remote mode
-  #config.ssh_domain = "trapo"
-  #config.ssh_user = "aldo"
-  #config.ssh_password= "*******"
+  config.ssh_domain = "trapo"
+  #config.ssh_user = "aldobot"
+  #Comment to allow SSH authentication with key instead of password
+  #config.ssh_password= "pandora"
   
 
   #Configure to use a Xmpp Client on Rails App
