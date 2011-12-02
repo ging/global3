@@ -10,6 +10,7 @@ end
 # Gems before social_stream-base:
 #
 # gem 'mailboxer', :path => '../mailboxer'
+# gem 'linkser', :path => '../linkser'
 # gem 'avatars_for_rails', :path => '../avatars_for_rails'#here
 
 # Include development dependencies from social_stream-base
