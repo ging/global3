@@ -11,7 +11,7 @@ end
 #
 # gem 'mailboxer', :path => '../mailboxer'
 # gem 'linkser', :path => '../linkser'
-# gem 'social_cheesecake', :path => '../SocialCheesecake/social_cheesecake'
+# gem 'social_cheesecake', :path => '../SocialCheesecake/rails'
 # gem 'avatars_for_rails', :path => '../avatars_for_rails'#here
 
 # Include development dependencies from social_stream-base
