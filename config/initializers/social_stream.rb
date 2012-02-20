@@ -20,5 +20,5 @@ SocialStream.setup do |config|
   # the indexes with thinking-sphinx if you are using customized models.
   # 
   config.quick_search_models = [:user, :group, :picture, :video, :audio, :document]
-  config.extended_search_models = [:user, :group, :post, :picture, :video, :audio, :document]
+  config.extended_search_models = [:user, :group, :post, :comment, :picture, :video, :audio, :document]
 end
