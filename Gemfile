@@ -39,7 +39,7 @@ gem 'mysql2'
 
 if RUBY_VERSION > '1.9'
   group :development do
-    gem 'ruby-debug19', :require => 'ruby-debug'
+    gem 'debugger'
   end
 end
 
