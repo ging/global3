@@ -4,6 +4,8 @@ if RUBY_VERSION < '1.9'
   gem 'linecache', '0.43'
 end
 
+# gem 'proudhon', :path => '../proudhon'
+
 # Uncomment the following lines if you are planing to
 # use a local code of any of these gems
 #
@@ -12,7 +14,7 @@ end
 # gem 'mailboxer', :path => '../mailboxer'
 # gem 'linkser', :path => '../linkser'
 # gem 'social_cheesecake', :path => '../SocialCheesecake/rails'
-# gem 'avatars_for_rails', :path => '../avatars_for_rails'#here
+# gem 'avatars_for_rails', :path => '../avatars_for_rails'
 
 # Include development dependencies from social_stream-base
 gemspec :path => File.join('..', 'social_stream', 'base')
@@ -34,6 +36,8 @@ gem 'social_stream', :path => '../social_stream'
 
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql2'
+
+gem 'pry-rails', group: :development
 
 if RUBY_VERSION > '1.9'
   group :development do

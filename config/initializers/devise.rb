@@ -189,8 +189,7 @@ Devise.setup do |config|
                       
   config.token_authentication_key = :auth_token
                       
-  config.stateless_token = true
-
+  config.skip_session_storage << :token_auth
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
